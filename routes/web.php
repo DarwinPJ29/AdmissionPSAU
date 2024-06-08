@@ -22,8 +22,8 @@ Route::get('/student/courses', [HomeController::class, 'courses'])->name('course
 // Authentications
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
-Route::post('/registration', [AuthController::class, 'storeAccnt'])->name('storeAccnt');
+Route::get('/admin/account/registration', [AuthController::class, 'registration'])->name('registration');
+Route::post('/admin/account', [AuthController::class, 'storeAccnt'])->name('storeAccnt');
 
 // Admin
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

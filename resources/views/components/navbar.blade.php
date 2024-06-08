@@ -9,9 +9,7 @@
             <a href="{{ route('login') }}">
                 <div class="btn btn-sm rounded btn-outline-success m-1">Sign in</div>
             </a>
-            <a href="{{ route('registration') }}">
-                <div class="btn btn-sm rounded btn-outline-success m-1">Create</div>
-            </a>
+
             <a href="{{ route('dashboard') }}">
                 <div class="btn btn-sm rounded btn-outline-success m-1">Dash</div>
             </a>

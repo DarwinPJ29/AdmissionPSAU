@@ -14,6 +14,30 @@
                         Dashboard</a>
                 </li>
                 <li class="nav-item rounded mb-1">
+                    <a href=""
+                        class="nav-link ps-2  {{ Request::segment(2) === 'admission' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-ticket-simple me-2"></i>
+                        Admission</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href=""
+                        class="nav-link ps-2  {{ Request::segment(2) === 'department' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-building me-2"></i>
+                        Department</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href=""
+                        class="nav-link ps-2  {{ Request::segment(2) === 'programs' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-clipboard-list me-2"></i>
+                        Programs</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href=""
+                        class="nav-link ps-2  {{ Request::segment(2) === 'requirements' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-file me-2"></i>
+                        Requirments</a>
+                </li>
+                <li class="nav-item rounded mb-1">
                     <a href="{{ route('account') }}"
                         class="nav-link ps-2  {{ Request::segment(2) === 'account' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-user me-2"></i>

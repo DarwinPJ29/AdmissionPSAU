@@ -2,5 +2,7 @@
 @section('page-title', 'Courses')
 @section('content')
 
-    <h1>hahaah</h1>
+    <div class="container p-4">
+        <h1>hahah</h1>
+    </div>
 @endsection

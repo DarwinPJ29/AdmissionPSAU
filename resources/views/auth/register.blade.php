@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registration Form</title>
-    @include('layout.link')
-</head>
-
-<body>
-    <div class="container-fluid p-3">
+@extends('layout.layoutAdmin')
+@section('page-title', 'Courses')
+@section('content')
+    <div class="container">
         <div class="box-shadow p-3 top-border">
-            <h3 class="text-start mt-2">Create Account</h3>
-            <hr>
             <form action="{{ route('storeAccnt') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
@@ -136,8 +125,4 @@
 
         </div>
     </div>
-
-    @include('layout.script')
-</body>
-
-</html>
+@endsection

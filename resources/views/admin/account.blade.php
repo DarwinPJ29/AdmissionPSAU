@@ -2,5 +2,11 @@
 @section('page-title', 'Courses')
 @section('content')
 
-    <h1>account</h1>
+    <div class="container">
+        <div class="text-end mt-3">
+            <a href="{{ route('registration') }}">
+                <div class="btn btn-sm rounded btn-warning m-1">Create Account</div>
+            </a>
+        </div>
+    </div>
 @endsection
