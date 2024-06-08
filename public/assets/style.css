@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+:root {
+    --mainSidebarWidth: 16rem;
+    --mainColor: #fec541;
+    --btnColor: rgb(7, 153, 51);
+}
+.dropdown-menu-center {
+    right: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+.dropdown-item:focus,
+.dropdown-item:active {
+    background-color: grey !important;
+}
+@media (min-width: 768px) {
+    #main-header,
+    #main-content {
+        margin-left: var(--mainSidebarWidth);
+    }
+
+    #mainSidebar {
+        visibility: visible;
+        transform: none !important;
+        width: var(--mainSidebarWidth) !important;
+    }
+
+    #mainSidebar .btn-close {
+        display: none;
+        border-radius: 0px;
+    }
+}
+#main-header {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+#mainSidebar {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: var(--mainColor);
+    border-radius: 0px 0px 10px 0px;
+}
+.list-style-none {
+    list-style: none;
+}
+.w-11r {
+    max-width: 11rem;
+    margin: auto;
+    padding-top: 10px;
+}
+
+#navbar{
+    background-color: var(--mainColor);
+}
+.btn-bg{
+    background-color: var(--btnColor);
+}
+.main-bg{
+    background-color: var(--mainColor);
+}
+.mt{
+    margin-top: 10%;
+}
+.active{
+    border-bottom: 2px solid red;
+}
+.activeDashboard{
+    background-color: #E8C872;
+    color: #0b0b0b;
+    border-radius: 5px;
+}
+.login-page{
+    max-width: 390px;
+}
