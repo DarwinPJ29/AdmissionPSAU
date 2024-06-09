@@ -48,6 +48,6 @@
                 </tbody>
             </table>
         </div>
-        @include('modals.program_modal');
+        @include('modals.courses_modal');
     </div>
 @endsection

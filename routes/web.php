@@ -16,16 +16,20 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/student/admission', [HomeController::class, 'admission'])->name('admission');
+Route::get('/student/landing-admission', [HomeController::class, 'landingAdmission'])->name('landing_admission');
 Route::get('/student/courses', [HomeController::class, 'courses'])->name('courses');
+Route::get('/student/check-email', [HomeController::class, 'notif'])->name('notif');
+Route::get('/student/che', [HomeController::class, 'question'])->name('question');
 
 // Authentications
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/admin/account/registration', [AuthController::class, 'registration'])->name('registration');
-Route::post('/admin/account', [AuthController::class, 'storeAccnt'])->name('storeAccnt');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::controller(AuthController::class)->group(function () {
+    Route::any('/login','login')->name('login');
+    Route::any('/login','login')->name('login');
+    Route::any('/admin/account/registration','registration')->name('registration');
+    Route::any('/admin/account','storeAccnt')->name('storeAccnt');
+    Route::any('/logout','logout')->name('logout');
+    Route::any('/check-email','logout')->name('logout');
+});
 
 // Admin
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -33,5 +37,5 @@ Route::get('/admin/account', [AdminController::class, 'account'])->name('account
 Route::get('/admin/admission', [AdminController::class, 'admission'])->name('admission');
 Route::get('/admin/department', [AdminController::class, 'department'])->name('department');
 Route::get('/admin/department', [AdminController::class, 'department'])->name('department');
-Route::get('/admin/programs', [AdminController::class, 'programs'])->name('programs');
+Route::get('/admin/courses', [AdminController::class, 'courses'])->name('courses');
 Route::get('/admin/requirements', [AdminController::class, 'requirements'])->name('requirements');

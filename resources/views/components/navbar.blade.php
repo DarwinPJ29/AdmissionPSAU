@@ -14,6 +14,10 @@
                 <div class="btn btn-sm rounded btn-outline-success m-1">Dash</div>
             </a>
             </div>
+            <a href="{{ route('question') }}">
+                <div class="btn btn-sm rounded btn-outline-success m-1">qes</div>
+            </a>
+            </div>
 
 
         </div>
@@ -35,7 +39,7 @@
                 <a class="nav-link text-dark {{ Request::segment(2) == '' ? 'active' : '' }}" aria-current="page" href="{{ route('index') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark {{ Request::segment(2) == 'admission' ? 'active' : '' }} " aria-current="page" href="{{ route('admission') }}">Admission</a>
+                <a class="nav-link text-dark {{ Request::segment(2) == 'landing_admission' ? 'active' : '' }} " aria-current="page" href="{{ route('landing_admission') }}">Admission</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark {{ Request::segment(2) == 'courses' ? 'active' : '' }}" aria-current="page" href="{{ route('courses') }}">Courses</a>

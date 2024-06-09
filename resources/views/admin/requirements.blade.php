@@ -3,19 +3,20 @@
 @section('content')
 
     <div class="container">
+        <div class="text-end mt-3">
+            <div class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#requirements"><i class="fa-solid fa-plus me-1"></i>Add</div>
+        </div>
         <div class="border rounded p-3 shadow mt-3 ">
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col-3">Name</th>
-                        <th class="col-4">Email</th>
-                        <th class="col-4">Address</th>
+                        <th class="col-3">Requirements</th>
+                        <th class="col-4">Type</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td>
@@ -45,5 +46,6 @@
                 </tbody>
             </table>
         </div>
+        @include('modals.requirements');
     </div>
 @endsection

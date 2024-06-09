@@ -23,8 +23,8 @@
             </div>
         </div>
         <div class="mt-3  mx-auto">
-            <a href="{{ route('admission') }}">
-                <div class="btn btn-success text-dark rounded">Apply now!</div>
+            <a href="{{ route('landing_admission') }}">
+                <div class="btn btn-success text-dark rounded text-white">Apply now!</div>
             </a>
         </div>
     </div>

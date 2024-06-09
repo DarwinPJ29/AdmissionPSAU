@@ -65,23 +65,46 @@
                     <div class="row g-2 mt-3 mb-2">
                         <div class="col-sm-12 col-md-4">
                             <label for="application_name">First Name<span class="text-danger">*</span></label>
-                            <input type="text" name="application_name" id="application_name" class="form-control shadow">
+                            <input type="text" name="application_name" id="application_name" class="form-control shadow"
+                            placeholder="Enter First Name:" value="{{ old('application_name') }}"> @error('application_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-3">
                             <label for="application_middlename">Middle Name</label>
                             <input type="text" name="application_middlename" id="application_middlename"
-                                class="form-control shadow">
+                                class="form-control shadow"
+                                placeholder="Enter Middle Name:" value="{{ old('application_middlename') }}"> @error('application_middlename')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-3">
                             <label for="application_lastname">Last Name<span class="text-danger">*</span></label>
                             <input type="text" name="application_lastname" id="application_lastname"
-                                class="form-control shadow">
+                                class="form-control shadow"
+                                placeholder="Enter Last Name:" value="{{ old('application_lastname') }}"> @error('application_lastname')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        </div>
+                        <div class="col-sm-12 col-md-1">
+                            <label for="application_prefix">Prefix</label>
+                            <input type="text" name="application_prefix" id="application_prefix"
+                                class="form-control shadow"
+                                placeholder="Prefix:" value="{{ old('application_prefix') }}"> @error('application_prefix')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        </div>
+                        <div class="col-sm-12 col-md-1">
+                            <label for="application_suffix">Suffix</label>
+                            <input type="text" name="application_suffix" id="application_suffix"
+                                class="form-control shadow"
+                                placeholder="Suffix:" value="{{ old('application_suffix') }}"> @error('application_suffix')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="application_email">Email Address<span class="text-danger">*</span></label>
-                        <input type="email" name="application_email" id="application_email" class="form-control shadow">
-                    </div>
+
 
                     <div class="row g-2 mb-2">
                         <div class="col-6">
@@ -102,21 +125,52 @@
                         </div>
 
                     </div>
-                    <div class="mb-5">
-                        <label for="application_type">Application Type<span class="text-danger">*</span></label>
-                        <select class="form-select" name="application_type" id="application_type">
-                            <option selected hidden>Select Application Type:</option>
-                            <option value="Masteral Level">Masteral Level</option>
-                            <option value="Doctoral Level">Doctoral Level</option>
-                            <option value="New Student">New Student</option>
-                            <option value="Transferee">Transferee</option>
-                            <option value="Second Courser">Second Courser</option>
+                    <div class="mb-2">
+                        <label for="application_type" class="m-1">Application Type <span class="text-danger">*</span></label>
+                        <select name="application_type" id="application_type" class="form-select shadow @error('application_type') is-invalid @enderror"
+                            value="{{ old('application_type') }}">
+                            <option value="" selected hidden>Select Application Type:</option>
+                            <option value="Masteral Level" @selected(old('application_type') == 'Masteral Level')>Masteral Level</option>
+                            <option value="Doctoral Level" @selected(old('application_type') == 'Doctoral Level')>Doctoral Level</option>
+                            <option value="New Student"@selected(old('application_type') == 'New Student')>New Student</option>
+                            <option value="Transferee"@selected(old('application_type') == 'Transferee')>Transferee</option>
+                            <option value="Second Courser"@selected(old('application_type') == 'Second Courser')>Second Courser</option>
                         </select>
+                        @error('application_type')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-2">
+                        <label for="application_school" class="m-1">School Year/Sem <span class="text-danger">*</span></label>
+                        <select name="application_school" id="application_school" class="form-select shadow @error('application_school') is-invalid @enderror"
+                            value="{{ old('application_school') }}">
+                            <option value="" selected hidden>Select Desired:</option>
+                            <option value="2024(1st Sem)" @selected(old('application_school') == '2024(1st Sem)')>2024(1st Sem)</option>
+                        </select>
+                        @error('application_school')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-5">
+                            <label for="application_number">Contact #<span class="text-danger">*</span></label>
+                            <input type="number" name="application_number" id="application_number" minlength="11" maxlength="11" min="0" class="form-control shadow">
+                        </div>
+                        <div class="col-md-7">
+                            <label for="application_number">Location<span class="text-danger">*</span></label>
+                            <input type="text" name="application_number" id="application_number" class="form-control shadow">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="application_email">Email Address<span class="text-danger">*</span></label>
+                        <input type="email" name="application_email" id="application_email" class="form-control shadow">
                     </div>
                     <hr class="border border-1 border-dark opacity-75">
                     <div class="d-flex justify-content-center gap-1">
                         <div class="btn btn-secondary shadow"></i>Cancel</div>
-                        <div class="btn btn-warning shadow">Submit</i></div>
+                        <a href="{{ route('notif') }}">
+                            <div class="btn btn-warning shadow">Submit</i></div>
+                        </a>
                     </div>
                 </form>
             </div>

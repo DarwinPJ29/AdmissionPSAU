@@ -18,8 +18,8 @@ class AdminController extends Controller
    public function department(){
     return view('admin.department');
    }
-   public function programs(){
-    return view('admin.programs');
+   public function courses(){
+    return view('admin.courses');
    }
    public function requirements(){
     return view('admin.requirements');
