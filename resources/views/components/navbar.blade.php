@@ -7,7 +7,7 @@
 
             <div class="col-md-6 d-flex justify-content-end ">
             <a href="{{ route('login') }}">
-                <div class="btn btn-sm rounded btn-outline-success m-1">Sign in</div>
+                <div class="btn btn-sm rounded btn-outline-success m-1">Log in</div>
             </a>
 
             <a href="{{ route('dashboard') }}">

@@ -1,14 +1,11 @@
 @extends('layout.layoutAdmin')
-@section('page-title', 'Account')
+@section('page-title', 'Programs')
 @section('content')
 
     <div class="container">
         <div class="text-end mt-3">
-            <a href="{{ route('registration') }}">
-                <div class="btn btn-sm rounded btn-warning m-1">Create Account</div>
-            </a>
+            <div class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#program"><i class="fa-solid fa-plus me-1"></i>Add</div>
         </div>
-
         <div class="border rounded p-3 shadow mt-3 ">
             <table class="table table-bordered table-striped" id="table">
                 <thead>
@@ -51,5 +48,6 @@
                 </tbody>
             </table>
         </div>
+        @include('modals.program_modal');
     </div>
 @endsection

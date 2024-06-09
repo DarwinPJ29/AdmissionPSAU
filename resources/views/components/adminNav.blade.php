@@ -9,26 +9,24 @@
             <li class="nav-item dropdown">
                 <a href="" class="nav-link rounded-circle "
                     data-bs-toggle="dropdown">
-                    <span class="btn btn-outline-warning rounded-circle p-2 text-dark">
-                        <i class="fa-solid fa-gear"></i>
-                    </span>
+                    <div class="btn btn-outline-warning rounded p-2">
+                        <div class="d-flex">
+                            <div class="text-dark">Name</div>
+                            <div class="ms-2 text-dark d-flex flex-column justify-content-center">
+                                <i class="fa-solid fa-gear"></i>
+                            </div>
+                        </div>
+                    </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end mt-1r border-0 box-shadow-1">
-                    <li>
-                        <a href="" class="dropdown-item text-muted"><i
-                                class="fa-solid fa-user"></i>
 
-                            {{-- {{ auth()->user()->personalDetail->first_name }}
-                            {{ auth()->user()->personalDetail->last_name }} --}}
-                        </a>
-                    </li>
                     <li>
                         <a href="" class="dropdown-item text-muted"><i
                                 class="fa-solid fa-gear"></i>
                             Settings</a>
                     </li>
                     <li>
-                        <form action="" method="post">
+                        <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button class="dropdown-item text-muted"><i class="fa-solid fa-right-from-bracket"></i>
                                 Logout</button>

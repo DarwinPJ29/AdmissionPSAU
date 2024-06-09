@@ -111,7 +111,6 @@
                             <option value="New Student">New Student</option>
                             <option value="Transferee">Transferee</option>
                             <option value="Second Courser">Second Courser</option>
-
                         </select>
                     </div>
                     <hr class="border border-1 border-dark opacity-75">

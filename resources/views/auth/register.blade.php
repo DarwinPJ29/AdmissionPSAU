@@ -22,6 +22,8 @@
                         @enderror
                     </div>
                 </div>
+                <label class="fw-bold fs-3">User Account Information</label>
+
                 <hr class="border border-1 border-dark opacity-75">
                 {{-- Name --}}
                 <div class="row mb-2">
@@ -60,7 +62,7 @@
                     <div class="col-md-4">
                         <label for="age">Age <span class="text-danger">*</span></label>
                         <input type="number" min="0" name="age" id="age" class="form-control shadow"
-                            placeholder="Enter Last Name:" value="{{ old('age') }}"> @error('age')
+                            placeholder="Enter Age:" value="{{ old('age') }}"> @error('age')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -79,6 +81,7 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="row mb-2">
                     <div class="col-md-6">
                         <label for="address">Address <span class="text-danger">*</span></label>
@@ -91,6 +94,88 @@
                         <label for="contact">Contact # <span class="text-danger">*</span></label>
                         <input type="number" name="contact" id="contact" class="form-control shadow"
                             placeholder="Enter Contact #:" value="{{ old('contact') }}"> @error('contact')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label for="application_type" class="m-1">Application Type <span class="text-danger">*</span></label>
+                        <select name="application_type" id="application_type" class="form-select shadow @error('application_type') is-invalid @enderror"
+                            value="{{ old('application_type') }}">
+                            <option value="" selected hidden>Select Application Type:</option>
+                            <option value="Masteral Level" @selected(old('application_type') == 'Masteral Level')>Masteral Level</option>
+                            <option value="Doctoral Level" @selected(old('application_type') == 'Doctoral Level')>Doctoral Level</option>
+                            <option value="New Student"@selected(old('application_type') == 'New Student')>New Student</option>
+                            <option value="Transferee"@selected(old('application_type') == 'Transferee')>Transferee</option>
+                            <option value="Second Courser"@selected(old('application_type') == 'Second Courser')>Second Courser</option>
+                        </select>
+                        @error('application_type')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="course" class="m-1">Course <span class="text-danger">*</span></label>
+                        <select name="course" id="course" class="form-select shadow @error('course') is-invalid @enderror"
+                            value="{{ old('course') }}">
+                            <option value="" selected hidden>Select Course:</option>
+                            <option value="sample course" @selected(old('course') == 'sample course')>sample course</option>
+
+                        </select>
+                        @error('course')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+            </div>
+
+
+
+                <div class="row mb-2 mt-4">
+                    <label class="fw-semibold ">Father's Name</label>
+                    <hr>
+                    <div class="col-md-4">
+                        <label for="father_name">First Name <span class="text-danger">*</span></label>
+                        <input type="text" name="father_name" id="father_name" class="form-control shadow"
+                            placeholder="Enter First Name:" value="{{ old('father_name') }}"> @error('father_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-4">
+                        <label for="father_middle">Middle Name</label>
+                        <input type="text" name="father_middle" id="father_middle" class="form-control shadow"
+                            placeholder="Enter Middle Name:" value="{{ old('father_middle') }}"> @error('father_middle')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-4">
+                        <label for="father_last">Last Name <span class="text-danger">*</span></label>
+                        <input type="text" name="father_last" id="father_last" class="form-control shadow"
+                            placeholder="Enter Last Name:" value="{{ old('father_last') }}"> @error('father_last')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-4 mt-4">
+                    <label class="fw-semibold ">Mother's Maiden Name</label>
+                    <hr>
+                    <div class="col-md-4">
+                        <label for="mother_name">First Name <span class="text-danger">*</span></label>
+                        <input type="text" name="mother_name" id="mother_name" class="form-control shadow"
+                            placeholder="Enter Name:" value="{{ old('mother_name') }}"> @error('mother_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-4">
+                        <label for="mother_middle">Middle Name</label>
+                        <input type="text" name="mother_middle" id="mother_middle" class="form-control shadow"
+                            placeholder="Enter Middle Name:" value="{{ old('mother_middle') }}"> @error('mother_middle')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-4">
+                        <label for="mother_last">Last Name <span class="text-danger">*</span></label>
+                        <input type="text" name="mother_last" id="mother_last" class="form-control shadow"
+                            placeholder="Enter Last Name:" value="{{ old('mother_last') }}"> @error('mother_last')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
