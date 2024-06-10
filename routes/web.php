@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AuthController;
@@ -53,14 +54,20 @@ Route::controller(AuthController::class)->group(function () {
 
 // Admin
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
-    Route::get('/admin/interviewee', 'interviewee')->name('interviewee');
-    Route::get('/admin/admission', 'admission')->name('admission');
-    Route::get('/admin/department', 'department')->name('department');
-    Route::get('/admin/department', 'department')->name('department');
-    Route::get('/admin/courses', 'courses')->name('courses');
-    Route::get('/admin/requirements', 'requirements')->name('requirements');
-    Route::get('/admin/settings', 'settings')->name('settings');
+    Route::any('/admin/dashboard', 'dashboard')->name('dashboard');
+    Route::any('/admin/interviewee', 'interviewee')->name('interviewee');
+    Route::any('/admin/admission', 'admission')->name('admission');
+    Route::any('/admin/department', 'department')->name('department');
+    Route::any('/admin/department', 'department')->name('department');
+    Route::any('/admin/requirements', 'requirements')->name('requirements');
+    Route::any('/admin/settings', 'settings')->name('settings');
+});
+
+// Course
+Route::controller(Course::class)->group(function () {
+    Route::any('/courses', 'courses')->name('courses');
+    Route::any('/courses/{id}', 'coursesUpdate')->name('courses.update');
+    Route::any('/courses/delete/{id}', 'coursesDeleted')->name('courses.delete');
 });
 
 // Applicaant
