@@ -1,6 +1,7 @@
 <div class="d-flex mt-3">
     <div class="">
-        <img src="{{ asset('images/PSAU_logo.png') }}" alt="" srcset="" class="img-fluid" style="max-height: 150px" >
+        <img src="{{ asset('images/PSAU_logo.png') }}" alt="" srcset="" class="img-fluid"
+            style="max-height: 150px">
 
     </div>
     <div class="w-100">

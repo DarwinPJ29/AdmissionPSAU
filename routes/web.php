@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/student/landing-admission', [HomeController::class, 'landingAdmission'])->name('landing_admission');
 Route::get('/student/courses-offer', [HomeController::class, 'coursesOffer'])->name('coursesOffer');
@@ -23,12 +25,12 @@ Route::get('/student/che', [HomeController::class, 'question'])->name('question'
 
 // Authentications
 Route::controller(AuthController::class)->group(function () {
-    Route::any('/login','login')->name('login');
-    Route::any('/login','login')->name('login');
-    Route::any('/admin/account/registration','registration')->name('registration');
-    Route::any('/admin/account','storeAccnt')->name('storeAccnt');
-    Route::any('/logout','logout')->name('logout');
-    Route::any('/check-email','logout')->name('logout');
+    Route::any('/login', 'login')->name('login');
+    Route::any('/login', 'login')->name('login');
+    Route::any('/admin/account/registration', 'registration')->name('registration');
+    Route::any('/admin/account', 'storeAccnt')->name('storeAccnt');
+    Route::any('/logout', 'logout')->name('logout');
+    Route::any('/check-email', 'logout')->name('logout');
 });
 
 // Admin
@@ -40,3 +42,9 @@ Route::get('/admin/department', [AdminController::class, 'department'])->name('d
 Route::get('/admin/courses', [AdminController::class, 'courses'])->name('courses');
 Route::get('/admin/requirements', [AdminController::class, 'requirements'])->name('requirements');
 Route::get('/admin/settings', [AdminController::class, 'settings'])->name('settings');
+
+
+// Applicaant
+Route::controller(ApplicantController::class)->group(function () {
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm');
+});
