@@ -14,16 +14,8 @@
                 <a href="{{ route('login') }}">
                     <div class="btn btn-sm rounded btn-outline-success m-1">Log in</div>
                 </a>
-
-                <a href="{{ route('dashboard') }}">
-                    <div class="btn btn-sm rounded btn-outline-success m-1">Dash</div>
-                </a>
-                <a href="{{ route('question') }}">
-                    <div class="btn btn-sm rounded btn-outline-success m-1">qes</div>
-                </a>
             </div>
         </div>
-
 
     </div>
 
@@ -46,8 +38,8 @@
                         href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::segment(2) == 'landing_admission' ? 'active' : '' }} "
-                        aria-current="page" href="{{ route('landing_admission') }}">Admission</a>
+                    <a class="nav-link text-dark {{ Request::segment(2) == 'pplyNow' ? 'active' : '' }} "
+                        aria-current="page" href="{{ route('ApplyNow') }}">Apply Now</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark {{ Request::segment(2) == 'courses-offer' ? 'active' : '' }}"

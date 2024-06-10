@@ -17,34 +17,53 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/student/landing-admission', [HomeController::class, 'landingAdmission'])->name('landing_admission');
-Route::get('/student/courses-offer', [HomeController::class, 'coursesOffer'])->name('coursesOffer');
-Route::get('/student/check-email', [HomeController::class, 'notif'])->name('notif');
-Route::get('/student/che', [HomeController::class, 'question'])->name('question');
+// Redirect the user if auth
+Route::get('/redirect', function () {
+    if (auth()->check()) {
+        if (auth()->user()->role == 0) {
+            return redirect()->route('ApplicantForm');
+        } else {
+            return redirect()->route('dashboard');
+        }
+    } else {
+        return redirect()->route('index');
+    }
+})->name('redirect');
+
+//Loading
+Route::get('/loading', function () {
+    return view('components.loading');
+})->name('loading');
+
+
+Route::controller(HomeController::class)->group(function () {
+    Route::any('/', 'index')->name('index')->middleware('guest');
+    Route::any('/applyNow', 'ApplyNow')->name('ApplyNow');
+    Route::any('/student/courses-offer', 'coursesOffer')->name('coursesOffer');
+    Route::any('/student/check-email', 'notif')->name('notif');
+});
 
 // Authentications
 Route::controller(AuthController::class)->group(function () {
+    Route::get('/account-activation/{id}', 'AccountActivation')->name('accountActivation');
     Route::any('/login', 'login')->name('login');
-    Route::any('/login', 'login')->name('login');
-    Route::any('/admin/account/registration', 'registration')->name('registration');
     Route::any('/admin/account', 'storeAccnt')->name('storeAccnt');
     Route::any('/logout', 'logout')->name('logout');
-    Route::any('/check-email', 'logout')->name('logout');
 });
 
 // Admin
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/admin/interviewee', [AdminController::class, 'interviewee'])->name('interviewee');
-Route::get('/admin/admission', [AdminController::class, 'admission'])->name('admission');
-Route::get('/admin/department', [AdminController::class, 'department'])->name('department');
-Route::get('/admin/department', [AdminController::class, 'department'])->name('department');
-Route::get('/admin/courses', [AdminController::class, 'courses'])->name('courses');
-Route::get('/admin/requirements', [AdminController::class, 'requirements'])->name('requirements');
-Route::get('/admin/settings', [AdminController::class, 'settings'])->name('settings');
-
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/admin/interviewee', 'interviewee')->name('interviewee');
+    Route::get('/admin/admission', 'admission')->name('admission');
+    Route::get('/admin/department', 'department')->name('department');
+    Route::get('/admin/department', 'department')->name('department');
+    Route::get('/admin/courses', 'courses')->name('courses');
+    Route::get('/admin/requirements', 'requirements')->name('requirements');
+    Route::get('/admin/settings', 'settings')->name('settings');
+});
 
 // Applicaant
 Route::controller(ApplicantController::class)->group(function () {
-    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm');
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
 });

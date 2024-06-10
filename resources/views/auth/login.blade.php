@@ -17,18 +17,16 @@
                     <div class="d-flex justify-content-between">
                         <span class="ms-2">Log in</span>
                         <a href="{{ route('index') }}" class="nav-link text-end">
-                             <div class="btn"><i class="fa-solid fa-times"></i></div>
-                            </a>
+                            <div class="btn"><i class="fa-solid fa-times"></i></div>
+                        </a>
 
                     </div>
 
                 </div>
                 <div class="border text-dark  p-3 shadow ">
-                    <form action="" method="post" id="myForm">
+                    <form action="{{ route('login') }}" method="post">
                         @csrf
-
                         <div class="container">
-
                             <div class="mt-3 mb-4">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" id="email" value="{{ old('email') }}"

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login(){
-        return view('auth.login');
-    }
-    public function storeAccnt(Request $request){
+
+    public function storeAccnt(Request $request)
+    {
         $request->validate([
             'roles' => 'required|string',
             'first_name' => 'required|string',
@@ -30,26 +30,65 @@ class AuthController extends Controller
         // $imageName = time().'.'.$request->image->extension();
         // $request->image->move(public_path('images'), $imageName);
 
-       User::create([
-        'roles' => $request->roles,
-        'first_name' => $request->first_name,
-        'middle_name' => $request->middle_name,
-        'last_name' => $request->last_name,
-        'birthday' => $request->bday,
-        'age' => $request->age,
-        'gender' => $request->gender,
-        'address' => $request->address,
-        'contact' => $request->contact,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-    ]);
+        User::create([
+            'roles' => $request->roles,
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name,
+            'last_name' => $request->last_name,
+            'birthday' => $request->bday,
+            'age' => $request->age,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'contact' => $request->contact,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
 
         return redirect()->route('index')->with('success', 'Account created successfully.');
     }
 
-    public function registration(){
-        return view('auth.register');
+    public function AccountActivation($id)
+    {
+        $user = User::find($id);
+        if ($user->activated) {
+            return redirect()->route('login')->with('activated', "Account is already activated");
+        }
+
+        $user->activated = 1;
+        $user->update();
+        return redirect()->route('login')->with('success', "You can now Login");
+    }
+
+    public function login(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('auth.login');
+        }
+
+        $validated = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $user = User::where('email', $validated['email'])->get()->first();
+
+        // User account is not activated
+        if ($user) {
+            if ($user->activated) {
+                // Check email and password is valid
+                if (Auth::attempt($validated)) {
+                    $request->session()->regenerate();
+                    return redirect()->route('loading');
+                } else {
+                    return redirect()->back()->with('failed', 'Email or Password is invalid!');
+                }
+            } else {
+                return redirect()->back()->with('failed', 'Sorry your account is not activated please check your email!');
+            }
+        } else {
+            return redirect()->back()->with('failed', 'Email or Password is invalid!');
+        }
     }
 
     public function logout()

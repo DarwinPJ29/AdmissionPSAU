@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('first_name');
-            $table->string('middle_name')->nullable();
-            $table->string('last_name');
-            $table->string('roles');
-            $table->string('birthday');
-            $table->string('gender');
-            $table->integer('age');
-            $table->string('address');
-            $table->integer('contact');
+            $table->ulid('id')->primary();
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('activated')->default(0);
+            $table->integer('role');
+            $table->boolean('form_done')->default(0);
+            $table->boolean('requirements_done')->default(0);
+            $table->boolean('interview_done')->default(0);
+            $table->boolean('exam_done')->default(0);
+            $table->boolean('evaluation_done')->default(0);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

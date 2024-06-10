@@ -44,6 +44,12 @@
 
 @if (session()->has('failed'))
     <script>
-        Swal.fire("Error", "{{ session('failure') }}", "error");
+        Swal.fire("Error", "{{ session('failed') }}", "error");
+    </script>
+@endif
+
+@if (session()->has('activated'))
+    <script>
+        Swal.fire("Error", "{{ session('activated') }}", "error");
     </script>
 @endif
