@@ -33,10 +33,10 @@
                         Requirments</a>
                 </li>
                 <li class="nav-item rounded mb-1">
-                    <a href="{{ route('account') }}"
-                        class="nav-link ps-2  {{ Request::segment(2) === 'account' ? 'activeDashboard shadow' : 'text-dark' }}"><i
-                            class="fa-solid fa-user me-2"></i>
-                        Account</a>
+                    <a href="{{ route('interviewee') }}"
+                        class="nav-link ps-2  {{ Request::segment(2) === 'interviewee' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-users me-2"></i>
+                            Interviewee</a>
                 </li>
 
             </ul>

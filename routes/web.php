@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/student/landing-admission', [HomeController::class, 'landingAdmission'])->name('landing_admission');
-Route::get('/student/courses', [HomeController::class, 'courses'])->name('courses');
+Route::get('/student/courses-offer', [HomeController::class, 'coursesOffer'])->name('coursesOffer');
 Route::get('/student/check-email', [HomeController::class, 'notif'])->name('notif');
 Route::get('/student/che', [HomeController::class, 'question'])->name('question');
 
@@ -33,9 +33,10 @@ Route::controller(AuthController::class)->group(function () {
 
 // Admin
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/admin/account', [AdminController::class, 'account'])->name('account');
+Route::get('/admin/interviewee', [AdminController::class, 'interviewee'])->name('interviewee');
 Route::get('/admin/admission', [AdminController::class, 'admission'])->name('admission');
 Route::get('/admin/department', [AdminController::class, 'department'])->name('department');
 Route::get('/admin/department', [AdminController::class, 'department'])->name('department');
 Route::get('/admin/courses', [AdminController::class, 'courses'])->name('courses');
 Route::get('/admin/requirements', [AdminController::class, 'requirements'])->name('requirements');
+Route::get('/admin/settings', [AdminController::class, 'settings'])->name('settings');

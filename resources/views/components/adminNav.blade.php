@@ -21,7 +21,7 @@
                 <ul class="dropdown-menu dropdown-menu-end mt-1r border-0 box-shadow-1">
 
                     <li>
-                        <a href="" class="dropdown-item text-muted"><i
+                        <a href="{{ route('settings') }}" class="dropdown-item text-muted" ><i
                                 class="fa-solid fa-gear"></i>
                             Settings</a>
                     </li>
@@ -36,5 +36,6 @@
             </li>
         </ul>
     </div>
+
 </header>
 <!-- navbar end -->

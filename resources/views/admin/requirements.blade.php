@@ -10,7 +10,7 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col-3">Requirements</th>
+                        <th class="col-7">Requirements</th>
                         <th class="col-4">Type</th>
                         <th class="col-1">Action</th>
                     </tr>

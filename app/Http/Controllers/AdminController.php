@@ -9,8 +9,8 @@ class AdminController extends Controller
    public function dashboard(){
     return view('admin.dashboard');
    }
-   public function account(){
-    return view('admin.account');
+   public function interviewee(){
+    return view('admin.interviewee');
    }
    public function admission(){
     return view('admin.admission');
@@ -23,5 +23,8 @@ class AdminController extends Controller
    }
    public function requirements(){
     return view('admin.requirements');
+   }
+   public function settings(){
+    return view('admin.admin_setting');
    }
 }

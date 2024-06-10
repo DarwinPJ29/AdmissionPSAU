@@ -47,3 +47,19 @@
         Swal.fire("Error", "{{ session('failure') }}", "error");
     </script>
 @endif
+
+{{-- admin setting --}}
+<script>
+    document.getElementById('showPassword').addEventListener('change', function() {
+    var passwordField = document.getElementById('admin_password');
+    var passwordField1 = document.getElementById('admin_password1');
+    if (this.checked) {
+        passwordField.type = 'text';
+        passwordField1.type = 'text';
+    } else {
+        passwordField.type = 'password';
+        passwordField1.type = 'password';
+    }
+});
+
+</script>

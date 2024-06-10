@@ -13,3 +13,5 @@ function showpassword() {
         view.className = "btn btn-primary shadow";
     }
 }
+
+// admin setting

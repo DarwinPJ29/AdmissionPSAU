@@ -1,26 +1,23 @@
 @extends('layout.layoutAdmin')
-@section('page-title', 'Account')
+@section('page-title', 'Interviewee')
 @section('content')
 
     <div class="container">
-        <div class="text-end mt-3">
-            <a href="{{ route('registration') }}">
-                <div class="btn btn-sm rounded btn-warning m-1">Create Account</div>
-            </a>
-        </div>
 
-        <div class="border rounded p-3 shadow mt-3 ">
+        <div class="border rounded p-3 shadow mt-5 ">
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
                         <th class="col-3">Name</th>
-                        <th class="col-4">Email</th>
-                        <th class="col-4">Address</th>
+                        <th class="col-3">Middle Name</th>
+                        <th class="col-3">Last Name</th>
+                        <th class="col-2">Date & Time</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

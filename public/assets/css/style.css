@@ -62,9 +62,6 @@
 .main-bg{
     background-color: var(--mainColor);
 }
-.mt{
-    margin-top: 10%;
-}
 .active{
     border-bottom: 2px solid red;
 }
@@ -75,4 +72,27 @@
 }
 .login-page{
     max-width: 390px;
+}
+.nav-logo{
+    max-height: 50px;
+}
+#hero{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+.msg{
+    background: rgba( 255, 255, 255, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 3px );
+-webkit-backdrop-filter: blur( 3px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.cont{
+    padding-top: 7%;
+}
+.txt{
+    text-shadow: 2px 2px 3px rgb(7, 2, 2);
 }
