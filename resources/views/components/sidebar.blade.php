@@ -29,12 +29,12 @@
 
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('courses') }}"
-                        class="nav-link ps-2  {{ Request::segment(2) === 'courses' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                        class="nav-link ps-2  {{ Request::segment(1) === 'courses' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-clipboard-list me-2"></i>
                         Courses</a>
                 </li>
                 <li class="nav-item rounded mb-1">
-                    <a href="{{ route('requirements') }}"
+                    <a href="{{ route('requirement') }}"
                         class="nav-link ps-2  {{ Request::segment(2) === 'requirements' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-file me-2"></i>
                         Requirments</a>

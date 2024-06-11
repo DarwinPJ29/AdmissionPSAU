@@ -24,10 +24,7 @@ class AdminController extends Controller
       return view('admin.department');
    }
 
-   public function requirements()
-   {
-      return view('admin.requirements');
-   }
+
    public function settings()
    {
       return view('admin.admin_setting');
