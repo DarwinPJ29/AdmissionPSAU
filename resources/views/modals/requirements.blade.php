@@ -7,27 +7,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
-                <form action="" method="post">
+                <form action="{{ route('requirement') }}" method="post">
                     @csrf
-
                     <div class="row mb-2">
                         <div class="col-7">
-                            <label for="requirements">Requirements <span class="text-danger">*</span></label>
-                            <input type="text" name="requirements" id="requirements" class="form-control shadow"
-                                placeholder="Enter Department Name:" value="{{ old('requirements') }}">
-                            @error('requirements')
+                            <label for="requirement">Requirements <span class="text-danger">*</span></label>
+                            <input type="text" name="requirement" id="requirement" class="form-control shadow"
+                                placeholder="Enter Department Name:" value="{{ old('requirement') }}" required>
+                            @error('requirement')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-5">
-                            <label for="requirements_type">Requirements Type <span class="text-danger">*</span></label>
-                            <select name="requirements_type" id="requirements_type" class="form-select shadow @error('requirements_type') is-invalid @enderror"
-                                value="{{ old('requirements_type') }}">
+                            <label for="required">Requirements Type <span class="text-danger">*</span></label>
+                            <select name="required" id="required"
+                                class="form-select shadow @error('required') is-invalid @enderror"
+                                value="{{ old('required') }}" required>
                                 <option value="" selected hidden>Select Desired:</option>
-                                <option value="Required" @selected(old('requirements_type') == 'Required')>Required</option>
-                                <option value="Not Required" @selected(old('requirements_type') == 'Not Required')>Not Required</option>
+                                <option value="1" @selected(old('required') == 1)>Required</option>
+                                <option value="0" @selected(old('required') == 0)>Not Required</option>
                             </select>
-                            @error('requirements_type')
+                            @error('requirement_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -57,20 +57,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Submit</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
-
 {{-- Edit --}}
-<div class="modal fade" id="requirementsEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="requirementsEdit{{ $requirement->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header main-bg">
@@ -78,27 +77,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
-                <form action="" method="post">
+                <form action="{{ route('requirement.update', $requirement->id) }}" method="post">
                     @csrf
-
+                    @method('PATCH')
                     <div class="row mb-2">
                         <div class="col-7">
-                            <label for="requirements">Requirements <span class="text-danger">*</span></label>
-                            <input type="text" name="requirements" id="requirements" class="form-control shadow"
-                                placeholder="Enter Department Name:" value="">
-                            @error('requirements')
+                            <label for="requirement">Requirements <span class="text-danger">*</span></label>
+                            <input type="text" name="requirement" id="requirement" class="form-control shadow"
+                                placeholder="Enter Department Name:" value="{{ $requirement->title }}">
+                            @error('requirement')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-5">
-                            <label for="requirements_type">Requirements Type <span class="text-danger">*</span></label>
-                            <select name="requirements_type" id="requirements_type" class="form-select shadow @error('requirements_type') is-invalid @enderror"
-                                value="">
+                            <label for="required">Requirements Type <span class="text-danger">*</span></label>
+                            <select name="required" id="required"
+                                class="form-select shadow @error('required') is-invalid @enderror" value="">
                                 <option value="" selected hidden>Select Desired:</option>
-                                <option value="Required" @selected(old('requirements_type') == 'Required')>Required</option>
-                                <option value="Not Required" @selected(old('requirements_type') == 'Not Required')>Not Required</option>
+                                <option value="1" @selected($requirement->required == 1)>Required</option>
+                                <option value="0" @selected($requirement->required == 0)>Not Required</option>
                             </select>
-                            @error('requirements_type')
+                            @error('required')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -107,40 +106,45 @@
                         <label class="mb-3 mt-4">Requirements for:</label>
                         <div class="row justify-content-center gap-2">
                             <div class=" col-sm-4 col-md-auto text-center">
-                                <input type="checkbox" name="doctoral" id="doctoral" value="">
+                                <input type="checkbox" name="doctoral" id="doctoral"
+                                    {{ $requirement->doctoral == 1 ? 'checked' : '' }}>
                                 <div class="text-center">Doctoral</div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
-                                <input type="checkbox" name="masteral" id="masteral" value="">
+                                <input type="checkbox" name="masteral" id="masteral"
+                                    {{ $requirement->masteral == 1 ? 'checked' : '' }}>
                                 <div class="text-center">Masteral</div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
-                                <input type="checkbox" name="second_courser" id="second_courser" value="">
+                                <input type="checkbox" name="second_courser" id="second_courser"
+                                    {{ $requirement->second_courser == 1 ? 'checked' : '' }}>
                                 <div class="text-center">Second Courser</div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
-                                <input type="checkbox" name="freshmen" id="freshmen" value="">
+                                <input type="checkbox" name="freshmen" id="freshmen"
+                                    {{ $requirement->freshmen == 1 ? 'checked' : '' }}>
                                 <div class="text-center">Freshmen</div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
-                                <input type="checkbox" name="transferee" id="transferee" value="">
+                                <input type="checkbox" name="transferee" id="transferee"
+                                    {{ $requirement->transferee == 1 ? 'checked' : '' }}>
                                 <div class="text-center">Transferee</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Submit</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </div>
             </form>
         </div>
     </div>
 </div>
 
 {{-- Delete --}}
-<div class="modal fade" id="requirementsDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="requirementsDelete{{ $requirement->id }}" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header main-bg">
@@ -148,20 +152,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
-                <form action="" method="post">
+                <form action="{{ route('requirement.delete', $requirement->id) }}" method="post">
                     @csrf
-
+                    @method('PATCH')
                     <div class="mb-2 text-center fs-3">
                         Are you sure you want to Delete this <br>
-                        <span class="fw-bold">Sample Name</span> <br> requirements permanently ?
+                        <span class="fw-bold">{{ $requirement->title }}</span> <br> requirements permanently ?
                     </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Submit</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>

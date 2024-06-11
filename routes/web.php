@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Course;
+use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AuthController;
@@ -54,7 +55,7 @@ Route::controller(AuthController::class)->group(function () {
 
 // Admin
 Route::controller(AdminController::class)->group(function () {
-    Route::any('/admin/dashboard', 'dashboard')->name('dashboard');//->middleware('auth', 'can:admin');
+    Route::any('/admin/dashboard', 'dashboard')->name('dashboard'); //->middleware('auth', 'can:admin');
     Route::any('/admin/interviewee', 'interviewee')->name('interviewee');
     Route::any('/admin/admission', 'admission')->name('admission');
     Route::any('/admin/department', 'department')->name('department');
@@ -65,12 +66,18 @@ Route::controller(AdminController::class)->group(function () {
 
 // Course
 Route::controller(Course::class)->group(function () {
-    Route::any('/admin/courses', 'courses')->name('courses');
+    Route::any('/courses', 'courses')->name('courses');
     Route::any('/courses/{id}', 'coursesUpdate')->name('courses.update');
     Route::any('/courses/delete/{id}', 'courseDelete')->name('courses.delete');
+});
+// Requirement
+Route::controller(Requirement::class)->group(function () {
+    Route::any('/requirement', 'requirement')->name('requirement');
+    Route::any('/requirement/{id}', 'requirementUpdate')->name('requirement.update');
+    Route::any('/requirement/delete/{id}', 'requirementDelete')->name('requirement.delete');
 });
 
 // Applicaant
 Route::controller(ApplicantController::class)->group(function () {
-    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm');//->middleware('auth', 'can:applicant');
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm'); //->middleware('auth', 'can:applicant');
 });

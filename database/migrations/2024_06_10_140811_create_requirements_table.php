@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('transferee')->default(0);
             $table->boolean('freshmen')->default(0);
             $table->boolean('second_courser')->default(0);
+            $table->boolean('required')->default(0);
             $table->timestamps();
         });
     }
