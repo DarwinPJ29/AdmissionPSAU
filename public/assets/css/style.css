@@ -96,3 +96,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .side-icon{
     max-height: 80px !important;
 }
+.pagination .page-item.active .page-link {
+    background-color: var(--mainColor) !important; /* Replace with your desired color */
+    color: #0b0b0b;
+    border-color: var(--mainColor) !important; /* Border color */
+}
