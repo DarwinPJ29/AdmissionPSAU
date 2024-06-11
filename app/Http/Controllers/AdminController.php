@@ -23,10 +23,4 @@ class AdminController extends Controller
    {
       return view('admin.department');
    }
-
-
-   public function settings()
-   {
-      return view('admin.admin_setting');
-   }
 }

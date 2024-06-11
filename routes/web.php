@@ -8,29 +8,18 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 // Redirect the user if auth
-// Route::get('/redirect', function () {
-//     if (auth()->check()) {
-//         if (auth()->user()->role == 0) {
-//             return redirect()->route('ApplicantForm');
-//         } else {
-//             return redirect()->route('dashboard');
-//         }
-//     } else {
-//         return redirect()->route('index');
-//     }
-// })->name('redirect');
+Route::get('/redirect', function () {
+    if (auth()->check()) {
+        if (auth()->user()->role == 0) {
+            return redirect()->route('ApplicantForm');
+        } else {
+            return redirect()->route('dashboard');
+        }
+    } else {
+        return redirect()->route('index');
+    }
+})->name('redirect');
 
 //Loading
 Route::get('/loading', function () {
@@ -51,6 +40,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::any('/login', 'login')->name('login')->middleware('guest');
     Route::any('/admin/account', 'storeAccnt')->name('storeAccnt');
     Route::any('/logout', 'logout')->name('logout')->middleware('auth');
+    Route::any('/settings', 'changePassword')->name('settings');
 });
 
 // Admin
@@ -60,8 +50,6 @@ Route::controller(AdminController::class)->group(function () {
     Route::any('/admin/admission', 'admission')->name('admission');
     Route::any('/admin/department', 'department')->name('department');
     Route::any('/admin/department', 'department')->name('department');
-    Route::any('/admin/requirements', 'requirements')->name('requirements');
-    Route::any('/admin/settings', 'settings')->name('settings');
 });
 
 // Course
@@ -79,5 +67,5 @@ Route::controller(Requirement::class)->group(function () {
 
 // Applicaant
 Route::controller(ApplicantController::class)->group(function () {
-    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm'); //->middleware('auth', 'can:applicant');
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant'); //->middleware('auth', 'can:applicant');
 });

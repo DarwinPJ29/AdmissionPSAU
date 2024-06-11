@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('requirements', function (Blueprint $table) {
-            $table->ulid('id');
-            $table->string('title');
+            $table->ulid('id')->primary();
+            $table->string('title')->nullable();
             $table->boolean('masteral')->default(0);
             $table->boolean('doctoral')->default(0);
             $table->boolean('transferee')->default(0);

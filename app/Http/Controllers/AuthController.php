@@ -91,6 +91,28 @@ class AuthController extends Controller
         }
     }
 
+    public function changePassword(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('admin.admin_setting');
+        }
+
+        $valid = $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:4|max:20',
+            'confirm_password' => 'required|same:password_new|min:4|max:20',
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        if (Hash::check($valid['password_old'], $user->password)) {
+            $user->password = Hash::make($valid['password_confirm']);
+            $user->update();
+            return redirect()->route('loading');
+        } else {
+            return back()->with('failed', 'Password is incorrect');
+        }
+    }
+
     public function logout()
     {
         auth()->logout();
