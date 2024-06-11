@@ -2,10 +2,17 @@
     <aside class="offcanvas offcanvas-start box-shadow-1 border-0 pt-0 mt-0" tabindex="-1" id="mainSidebar"
         aria-labelledby="mainSidebarLabel">
         <div class="offcanvas-header">
-            <img src="" alt="" class="w-11r" />
+            <div class="container">
+            <div class="text-center">
+                <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="img-fluid side-icon" />
+            </div>
+            <div class="text-center" style="font-family: 'sans-serif'">Pampanga State Agricultural University</div>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+
         <div class="offcanvas-body">
+
             <ul class="navbar-nav ">
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('dashboard') }}"

@@ -38,7 +38,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item d-flex">
+                                            <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#programDelete{{ $course->id }}">
                                                 <i class="fa fa-trash fs-5 text-danger"></i>
                                                 <label class="fs-text ms-3 fw-bold curser">Delete</label>
                                             </a>
@@ -53,6 +53,6 @@
                 </tbody>
             </table>
         </div>
-        @include('modals.courses_modal');
+        @include('modals.courses_modal')
     </div>
 @endsection

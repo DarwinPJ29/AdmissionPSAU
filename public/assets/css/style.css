@@ -47,12 +47,6 @@
 .list-style-none {
     list-style: none;
 }
-.w-11r {
-    max-width: 11rem;
-    margin: auto;
-    padding-top: 10px;
-}
-
 #navbar{
     background-color: var(--mainColor);
 }
@@ -62,7 +56,7 @@
 .main-bg{
     background-color: var(--mainColor);
 }
-.active{
+.activated{
     border-bottom: 2px solid red;
 }
 .activeDashboard{
@@ -95,4 +89,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .txt{
     text-shadow: 2px 2px 3px rgb(7, 2, 2);
+}
+.fs-12{
+    font-size: 10px !important;
+}
+.side-icon{
+    max-height: 80px !important;
 }

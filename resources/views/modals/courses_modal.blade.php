@@ -98,3 +98,32 @@
         </div>
     </div>
 @endif
+
+@if (isset($course))
+<div class="modal fade" id="programDelete{{ $course->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header main-bg">
+                <h1 class="modal-title fs-5 " id="staticBackdropLabel">Delete Course</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body border shadow">
+                <form action="{{ route('courses.delete', $course->id) }}" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <div class="mb-2 text-center fs-3">
+                        Are you sure you want to Delete this <br>
+                        <span class="fw-bold">{{ $course->title }}</span> <br> course permanently ?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endif

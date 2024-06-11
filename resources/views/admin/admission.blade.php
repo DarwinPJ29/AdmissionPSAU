@@ -28,8 +28,8 @@
 
                                     <li>
                                         <a class="dropdown-item d-flex">
-                                            <i class="fa-solid fa-pen-to-square fs-5 text-success"></i>
-                                            <label class="fs-text ms-3 fw-bold curser">Edit</label>
+                                            <i class="fa-solid fa-check fs-5 text-success"></i>
+                                            <label class="fs-text ms-3 fw-bold curser">Approve</label>
                                         </a>
                                     </li>
                                     <li>

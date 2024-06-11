@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="container">
-            @include('applicant_question.header')
+            @include('applicant.forms.header')
             <livewire:admission-form />
         </div>
     </div>

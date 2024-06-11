@@ -65,6 +65,14 @@
                 <form action="{{ route('ApplyNow') }}" method="post">
                     @csrf
                     <div class="row g-2 mt-3 mb-2">
+                        <div class="col-sm-12 col-md-1">
+                            <label for="prefix">Prefix</label>
+                            <input type="text" name="prefix" id="prefix" class="form-control shadow"
+                                placeholder="Prefix:" value="{{ old('prefix') }}">
+                            @error('prefix')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                         <div class="col-sm-12 col-md-4">
                             <label for="firstname">First Name<span class="text-danger">*</span></label>
                             <input type="text" name="firstname" id="firstname" class="form-control shadow"
@@ -87,14 +95,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="col-sm-12 col-md-1">
-                            <label for="prefix">Prefix</label>
-                            <input type="text" name="prefix" id="prefix" class="form-control shadow"
-                                placeholder="Prefix:" value="{{ old('prefix') }}">
-                            @error('prefix')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+
                         <div class="col-sm-12 col-md-1">
                             <label for="suffix">Suffix</label>
                             <input type="text" name="suffix" id="suffix" class="form-control shadow"
@@ -105,27 +106,31 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <label for="validationCustomUsername" class="form-label">Mobile Number</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa-solid fa-mobile-retro"></i> +63 </span>
+                                        class="fa-solid fa-mobile-retro me-1"></i> +63 </span>
                                 <input type="text" class="form-control" id="number" name="number"
                                     placeholder="Ex. 9678329782" value="{{ old('number') }}">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email Address<span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroupPrepend">
+                                    <i class="fa-regular fa-envelope text-warning"></i> </span>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="sample@gmail.com" value="{{ old('email') }}">
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="mb-4">
-                        <label for="email">Email Address<span class="text-danger">*</span></label>
-                        <input type="email" name="email" id="email" class="form-control shadow">
-                        @error('email')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+
                     <hr class="border border-1 border-dark opacity-75">
                     <div class="d-flex justify-content-center gap-1">
                         <div class="btn btn-secondary shadow"></i>Cancel</div>
-                        <button type="submit">submit</button>
+                        <button type="submit" class="btn btn-warning shadow">submit</button>
                         </a>
                     </div>
                 </form>

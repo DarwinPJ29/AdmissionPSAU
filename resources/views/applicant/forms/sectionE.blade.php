@@ -12,13 +12,10 @@
         <div class="text-center">
             <input type="file" name="signature" id="signature" class="form-control-sm shadow">
         </div>
-        <div class="text-center">Signatures</div>
+        <div class="text-center">Signature</div>
     </div>
-    <div class="col-md-6">
-        <div class="text-center">
-            <input type="date" name="signature_date" id="signature_date" class="form-control-sm shadow">
-        </div>
-        <div class="text-center">Date</div>
+    <div class="col-md-6 text-center">
+        <div class="text-center mt-4">Date</div>
     </div>
 </div>
 <div class="mx-auto mt-5 mb-5">

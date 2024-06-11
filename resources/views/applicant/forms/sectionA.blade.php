@@ -16,14 +16,14 @@
     </div>
     <div class="row mb-2">
         <div class="col-md-1">
-            <label for="sex">Sex</label>
-            <select name="sex" id="sex" class="form-select shadow @error('sex') is-invalid @enderror"
-                value="{{ old('sex') }}">
+            <label for="gender">Sex</label>
+            <select name="gender" id="gender" class="form-select shadow @error('gender') is-invalid @enderror"
+                value="{{ old('gender') }}">
                 <option value="" selected hidden>Select</option>
-                <option value="Male" @selected(old('sex') == 'Male')>Male</option>
-                <option value="Female" @selected(old('sex') == 'Female')>Female</option>
+                <option value="Male" @selected(old('gender') == 'Male')>Male</option>
+                <option value="Female" @selected(old('gender') == 'Female')>Female</option>
             </select>
-            @error('sex')
+            @error('gender')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
@@ -78,12 +78,15 @@
             @enderror
         </div>
         <div class="col-md-4">
-            <label for="place_birth">Place of Birth</label>
-            <input type="text" name="place_birth" id="place_birth" class="form-control shadow"
-                value="{{ old('place_birth') }}">
-            @error('place_birth')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
+            <label for="civil_status">Civil Status</label>
+            <select name="civil_status" id="civil_status" class="form-select shadow @error('civil_status') is-invalid @enderror"
+                value="{{ old('civil_status') }}">
+                <option value="" selected hidden>Select</option>
+                <option value="Single" @selected(old('civil_status') == 'Single')>Single</option>
+                <option value="Married" @selected(old('civil_status') == 'Married')>Married</option>
+                <option value="Legally Separated" @selected(old('civil_status') == 'Legally Separated')>Legally Separated</option>
+                <option value="Widow" @selected(old('civil_status') == 'Widow')>Widow</option>
+            </select>
         </div>
         <div class="col-md-4">
             <label for="email">Email Address</label>
