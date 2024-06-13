@@ -13,7 +13,7 @@
 
     @include('components.navbar')
     @yield('content')
-
+    <button onclick="topFunction()" id="myBtn" title="Go to top" ><i class="fa-solid fa-angles-up"></i></button>
     @include('layout.script')
 </body>
 

@@ -30,7 +30,6 @@ Route::get('/loading', function () {
 Route::controller(HomeController::class)->group(function () {
     Route::any('/', 'index')->name('index')->middleware('guest');
     Route::any('/student/applyNow', 'ApplyNow')->name('ApplyNow')->middleware('guest');
-    Route::any('/student/courses-offer', 'coursesOffer')->name('coursesOffer')->middleware('guest');
     Route::any('/student/check-email', 'notif')->name('notif');
 });
 
@@ -67,5 +66,5 @@ Route::controller(Requirement::class)->group(function () {
 
 // Applicaant
 Route::controller(ApplicantController::class)->group(function () {
-    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant'); //->middleware('auth', 'can:applicant');
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
 });

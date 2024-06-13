@@ -58,6 +58,8 @@ trait SecA
             'birth_date' => $this->birth_date,
             'birth_place' => $this->place_birth,
             'religion' => $this->religion,
+            'citizenship' => $this->citizenship,
+            'address' => $this->address,
             'civil_status' => $this->civil_status,
         ];
         Core::Save('Information', $data, $this->secAId);
@@ -81,7 +83,7 @@ trait SecA
         // ) {
         //     $this->section = 2;
         // } else {
-        //     session()->flash('failed', 'Please compelete the input to procced next');
+        //     session()->flash('failed', 'Please compelete the fields to proceed!');
         // }
     }
 }

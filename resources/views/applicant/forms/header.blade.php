@@ -14,33 +14,41 @@
     <div class="d-flex justify-content-evenly gap-1 mx-5">
         <div class="d-flex">
             <div class="d-flex">
-                <div class="btn btn-light  rounded-circle bnt-sm border btn-sm"><i
-                        class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
+                <div class="btn btn-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-user text-warning p-lg-1 py-md-auto text-center"></i></div>
                 <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 1</div>
             </div>
         </div>
-        <div style="width:15%"><hr class="border border-warning opacity-75"></div>
+        <div style="width:15%"><hr class="border border-success opacity-75"></div>
         <div class="d-flex">
             <div class="d-flex">
-                <div class="btn btn-light  rounded-circle bnt-sm border btn-sm"><i
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
                 <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 2</div>
             </div>
         </div>
-        <div style="width:15%"><hr class="border border-warning opacity-75"></div>
+        <div style="width:15%"><hr class="border border-success opacity-75"></div>
         <div class="d-flex">
             <div class="d-flex">
-                <div class="btn btn-light  rounded-circle bnt-sm border btn-sm"><i
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
                 <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 3</div>
             </div>
         </div>
-        <div style="width:15%"><hr class="border border-warning opacity-75"></div>
+        <div style="width:15%"><hr class="border border-success opacity-75"></div>
         <div class="d-flex">
             <div class="d-flex">
-                <div class="btn btn-light  rounded-circle bnt-sm border btn-sm"><i
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
                 <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 4</div>
+            </div>
+        </div>
+        <div style="width:15%"><hr class="border border-success opacity-75"></div>
+        <div class="d-flex">
+            <div class="d-flex">
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
+                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 5</div>
             </div>
         </div>
     </div>

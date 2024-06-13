@@ -20,10 +20,6 @@ class HomeController extends Controller
     {
         return view('landingpage.admission');
     }
-    public function coursesOffer()
-    {
-        return view('landingpage.coursesOffer');
-    }
     public function notif()
     {
         return view('landingpage.notif');

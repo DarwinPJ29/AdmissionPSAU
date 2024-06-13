@@ -12,157 +12,114 @@
         <tbody>
             {{-- fullname --}}
             <tr>
-                <td>Full Name</td>
+                <td>Full Name <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="father_fullname" id="father_fullname" class="form-control shadow"
-                            placeholder="Enter Father's Name" value="{{ old('father_fullname') }}">
-                        @error('father_fullname')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Father's Name" value="{{ old('father_fullname') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_fullname" id="mother_fullname" class="form-control shadow"
-                            placeholder="Enter Mother's Name" value="{{ old('mother_fullname') }}">
-                        @error('mother_fullname')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Mother's Name" value="{{ old('mother_fullname') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="guardian_fullname" id="guardian_fullname" class="form-control shadow"
-                            placeholder="Enter Guardian's Name" value="{{ old('guardian_fullname') }}">
-                        @error('guardian_fullname')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Guardian's Name" value="{{ old('guardian_fullname') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>
             {{-- date of birth --}}
             <tr>
-                <td>Date of Birth</td>
+                <td>Date of Birth <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
                         <input type="date" name="father_date_birth" id="father_date_birth" class="form-control shadow"
-                            placeholder="Enter Date of Birth" value="{{ old('father_date_birth') }}">
-                        @error('father_date_birth')
-                            <span class="text-danger">{{ $message }}</span>
+                            placeholder="Enter Date of Birth" value="{{ old('father_date_birth') }}" wire:model='' wire:keyup='' required>
                         @enderror
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="date" name="mother_date_birth" id="mother_date_birth" class="form-control shadow"
-                            placeholder="Enter Date of Birth" value="{{ old('mother_date_birth') }}">
-                        @error('mother_date_birth')
-                            <span class="text-danger">{{ $message }}</span>
+                            placeholder="Enter Date of Birth" value="{{ old('mother_date_birth') }}" wire:model='' wire:keyup='' required>
                         @enderror
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="date" name="guardian_date_birth" id="guardian_date_birth" class="form-control shadow"
-                            placeholder="Enter Date of Birth" value="{{ old('guardian_date_birth') }}">
-                        @error('guardian_date_birth')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Date of Birth" value="{{ old('guardian_date_birth') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>
             {{-- Educational Attainment --}}
             <tr>
-                <td>Highest Educational Attainment</td>
+                <td>Highest Educational Attainment <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="father_education" id="father_education" class="form-control shadow"
-                            placeholder="Educational Attainment" value="{{ old('father_education') }}">
-                        @error('father_education')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Educational Attainment" value="{{ old('father_education') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_education" id="mother_education" class="form-control shadow"
-                            placeholder="Educational Attainment" value="{{ old('mother_education') }}">
-                        @error('mother_education')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Educational Attainment" value="{{ old('mother_education') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="guardian_education" id="guardian_education" class="form-control shadow"
-                            placeholder="Educational Attainment" value="{{ old('guardian_education') }}">
-                        @error('guardian_education')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Educational Attainment" value="{{ old('guardian_education') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>
             {{-- Occupation --}}
             <tr>
-                <td>Occupation / Employment</td>
+                <td>Occupation / Employment <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="father_occupation" id="father_occupation" class="form-control shadow"
-                            placeholder="Enter Father's Occupation/Employment" value="{{ old('father_occupation') }}">
-                        @error('father_occupation')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Father's Occupation/Employment" value="{{ old('father_occupation') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_occupation" id="mother_occupation" class="form-control shadow"
-                            placeholder="Enter Mother's Occupation/Employment" value="{{ old('mother_occupation') }}">
-                        @error('mother_occupation')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Mother's Occupation/Employment" value="{{ old('mother_occupation') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1 ">
                         <input type="text" name="gua p-2rdian_occupation" id="guardian_occupation"
                             class="form-control shadow" placeholder="Enter Guardian's Occupation/Employment"
-                            value="{{ old('guardian_occupation') }}">
-                        @error('guardian_occupation')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            value="{{ old('guardian_occupation') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>
             {{-- Company --}}
             <tr>
-                <td>Company Name / Address</td>
+                <td>Company Name / Address <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="father_company" id="father_company" class="form-control shadow"
-                            placeholder="Enter Father's Company Name/Address" value="{{ old('father_company') }}">
-                        @error('father_company')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Father's Company Name/Address" value="{{ old('father_company') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_company" id="mother_company" class="form-control shadow"
-                            placeholder="Enter Mother's Company Name/Address" value="{{ old('mother_company') }}">
-                        @error('mother_company')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Mother's Company Name/Address" value="{{ old('mother_company') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="guardian_company" id="guardian_company" class="form-control shadow"
-                            placeholder="Enter Guardian's Company Name/Address" value="{{ old('guardian_company') }}">
-                        @error('guardian_company')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Guardian's Company Name/Address" value="{{ old('guardian_company') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>
@@ -172,59 +129,41 @@
                 <td>
                     <div class="p-1">
                         <input type="text" name="father_income" id="father_income" class="form-control shadow"
-                            placeholder="Enter Father's Income" value="{{ old('father_income') }}">
-                        @error('father_income')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Father's Income" value="{{ old('father_income') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_income" id="mother_income" class="form-control shadow"
-                            placeholder="Enter Mother's Income" value="{{ old('mother_income') }}">
-                        @error('mother_income')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Mother's Income" value="{{ old('mother_income') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="guardian_income" id="guardian_income" class="form-control shadow"
-                            placeholder="Enter Guardian's Income" value="{{ old('guardian_income') }}">
-                        @error('guardian_income')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Guardian's Income" value="{{ old('guardian_income') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>
             {{-- Contact --}}
             <tr>
-                <td>Contact No.</td>
+                <td>Contact No. <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="father_contact" id="father_contact" class="form-control shadow"
-                            placeholder="Enter Father's Contact No." value="{{ old('father_contact') }}">
-                        @error('father_contact')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Father's Contact No." value="{{ old('father_contact') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_contact" id="mother_contact" class="form-control shadow"
-                            placeholder="Enter Mother's Contact No." value="{{ old('mother_contact') }}">
-                        @error('mother_contact')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Mother's Contact No." value="{{ old('mother_contact') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="guardian_contact" id="guardian_contact" class="form-control shadow"
-                            placeholder="Enter Guardian's Contact No." value="{{ old('guardian_contact') }}">
-                        @error('guardian_contact')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            placeholder="Enter Guardian's Contact No." value="{{ old('guardian_contact') }}" wire:model='' wire:keyup='' required>
                     </div>
                 </td>
             </tr>

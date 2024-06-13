@@ -31,155 +31,211 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="container">
-            <div class="my-5 text-center fs-3 text-uppercase"> admission requirements</div>
-            <div class="d-flex fs-5 mb-3">
-                <span class="fw-bold me-2 text-warning">|</span>
-                <span>Requirements for GRADUATE LEVEL</span>
+    <div class="container-fluid whole-bg p-3">
+        <div class="text-center mb-4 mt-3 text-white fs-4 fs-style">Our Social Media Page</div>
+        <div class="d-flex justify-content-evenly m-0 pb-3 gap-1">
+            <div class="card social">
+                <div class="">
+                    <img src="{{ asset('images/fb.png') }}" alt="" class="card-img-top img-fluid">
+                </div>
+                <a href="https://www.facebook.com/PampangaStateAgriU" class="nav-link">
+                    <div class="card-body text-end m-0 p-0">
+                        Visit us <i class="fa-solid fa-arrow-right-long mx-2"></i>
+                    </div>
+                </a>
             </div>
-
-            <div class="row g-2 mb-5">
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <label class="text-uppercase text-warning mb-2">doctoral level</label>
-                        <ul>
-                            <li>Transcript of Records of Bachelor's Degree</li>
-                            <li>Certificate of Employment (if applicable)</li>
-                            <li>Two letters of recommendation from former proffesor/s and/or superior/s</li>
-                            <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>Honorable dismissal from last school attended (for transferees)</li>
-                        </ul>
-                    </div>
+            <div class="card social">
+                <div class="">
+                    <img src="{{ asset('images/insta.png') }}" alt="" class="card-img-top img-fluid">
                 </div>
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <div class="text-uppercase text-warning mb-2 text-center">Upload in the online application</div>
-                        <div class="text-uppercase text-warning mb-2">doctoral level</div>
-                        <ul>
-                            <li>Transcript of Records of Bachelor's Degree</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>E-signature</li>
-                        </ul>
+                <a href="https://www.instagram.com/psauofficial" class="nav-link">
+                    <div class="card-body text-end m-0 p-0">
+                        Visit us <i class="fa-solid fa-arrow-right-long mx-2"></i>
                     </div>
-                </div>
-
+                </a>
             </div>
-            <div class="row g-2 mb-5">
-
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <div class="text-uppercase text-success mb-2 text-center">Upload in the online application</div>
-                        <div class="text-uppercase text-success mb-2">master level</div>
-                        <ul>
-                            <li>Transcript of Records of Bachelor's Degree</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>E-signature</li>
-                        </ul>
-                    </div>
+            <div class="card social">
+                <div class="">
+                    <img src="{{ asset('images/link.png') }}" alt="" class="card-img-top img-fluid">
                 </div>
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <label class="text-uppercase text-success mb-2">master level</label>
-                        <ul>
-                            <li>Transcript of Records of Bachelor's Degree</li>
-                            <li>Certificate of Employment (if applicable)</li>
-                            <li>Two letters of recommendation from former proffesor/s and/or superior/s</li>
-                            <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>Honorable dismissal from last school attended (for transferees)</li>
-                        </ul>
+                <a href="https://www.linkedin.com/school/pampangastateagriculturaluniversity" class="nav-link">
+                    <div class="card-body text-end m-0 p-0">
+                        Visit us <i class="fa-solid fa-arrow-right-long mx-2"></i>
                     </div>
-                </div>
+                </a>
             </div>
-
-            <div class="d-flex fs-5 mb-3">
-                <span class="fw-bold me-2 text-warning">|</span>
-                <span>Requirements for UNDERGRADUATE LEVEL</span>
+            <div class="card social">
+                <div class="">
+                    <img src="{{ asset('images/sunukuan.png') }}" alt="" class="card-img-top img-fluid">
+                </div>
+                <a href="https://www.facebook.com/psausinukuangazette" class="nav-link">
+                    <div class="card-body text-end m-0 p-0">
+                        Visit us <i class="fa-solid fa-arrow-right-long mx-2"></i>
+                    </div>
+                </a>
             </div>
-
-            <div class="row g-2 mb-5">
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <label class="text-uppercase text-warning mb-2">new student</label>
-                        <ul>
-                            <li>Form 138 - Grade 12 report card with grades from 1st to 4th quarter</li>
-                            <li>Certificate of Good Moral Character</li>
-                            <li>PSA-Issued birth certificate</li>
-                            <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                        </ul>
-                    </div>
+            <div class="card social">
+                <div class="">
+                    <img src="{{ asset('images/bids.png') }}" alt="" class="card-img-top img-fluid">
                 </div>
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <div class="text-uppercase text-warning mb-2 text-center">Upload in the online application</div>
-                        <div class="text-uppercase text-warning mb-2">New student</div>
-                        <ul>
-                            <li>Form 138 - Grade 12 report card (with at least 1st and 2nd quarter grades)</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>E-signature</li>
-                        </ul>
+                <a href="https://www.facebook.com/PSAUBAC" class="nav-link">
+                    <div class="card-body text-end m-0 p-0">
+                        Visit us <i class="fa-solid fa-arrow-right-long mx-2"></i>
                     </div>
-                </div>
-
+                </a>
             </div>
-            <div class="row g-2 mb-5">
-
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <div class="text-uppercase text-success mb-2 text-center">Upload in the online application</div>
-                        <div class="text-uppercase text-success mb-2">transferee</div>
-                        <ul>
-                            <li>Transcript of Records/Certified True Copy</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>E-signature</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <label class="text-uppercase text-success mb-2">transferee</label>
-                        <ul>
-                            <li>Transcript of Records</li>
-                            <li>Honorable dismissal from last school attended </li>
-                            <li>PSA-Issued birth certificate</li>
-                            <li>Barangay Clearance</li>
-                            <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                        </ul>
+        </div>
+    </div>
+    <div class="container-fluid g-3 p-3 bg-secondary-subtle">
+        <div class="row m-0 p-0">
+            {{-- 1st Aside --}}
+            <div class="col-md-9 col-sm-12">
+                <div class="container border rounded bg-white shadow-sm h-100">
+                    <div class="text-center fs-style fs-3 mt-3 fw-bold">Courses We Offer</div>
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-md-6 col-sm-4 p-2">
+                            <div class="card shadow  p-1">
+                                <div class="">
+                                    <img src="{{ asset('images/hero.jpg') }}" alt="" srcset=""
+                                        class="img-fluid card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="fw-bold text-success fs-4">|</div>
+                                        <div
+                                            class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1">
+                                            course (crs)</div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, repellat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 p-2">
+                            <div class="card shadow  p-1">
+                                <div class="">
+                                    <img src="{{ asset('images/hero.jpg') }}" alt="" srcset=""
+                                        class="img-fluid card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="fw-bold text-success fs-4">|</div>
+                                        <div
+                                            class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1">
+                                            course (crs)</div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, repellat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 p-2">
+                            <div class="card shadow  p-1">
+                                <div class="">
+                                    <img src="{{ asset('images/hero.jpg') }}" alt="" srcset=""
+                                        class="img-fluid card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="fw-bold text-success fs-4">|</div>
+                                        <div
+                                            class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1">
+                                            course (crs)</div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, repellat.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row g-2 mb-5">
 
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <label class="text-uppercase text-warning mb-2">second courser</label>
-                        <ul>
-                            <li>Transcript of Records</li>
-                            <li>Honorable dismissal from last school attended </li>
-                            <li>PSA-Issued birth certificate</li>
-                            <li>Photocopy of Diploma of previous degree</li>
-                            <li>Barangay Clearance</li>
-                            <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                        </ul>
+            {{-- 2nd Aside  --}}
+            <div class="col-md-3 col-sm-12">
+                <div class="container border rounded bg-white shadow-sm">
+                    <div class="m-3 mb-5 text-center fs-5 fs-style fw-bold"> Admission Requirements</div>
+                    <div class="d-flex fs-5 mb-3">
+                        <span class="fw-bold me-2 text-warning">|</span>
+                        <span>Requirements for GRADUATE LEVEL</span>
                     </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="container border shadow rounded p-3">
-                        <div class="text-uppercase text-warning mb-2 text-center">Upload in the online application</div>
-                        <div class="text-uppercase text-warning mb-2">second courser</div>
-                        <ul>
-                            <li>Transcript of Records</li>
-                            <li>Two pieces identical 2x2 photo with name tag</li>
-                            <li>E-signature</li>
-                        </ul>
+
+                    <div class="row g-2 mb-5">
+                        <div class="col-md-12 col-sm-6 ">
+                            <div class="container border shadow rounded p-3">
+                                <label class="text-uppercase text-warning mb-2">doctoral level</label>
+                                <ul>
+                                    <li>Transcript of Records of Bachelor's Degree</li>
+                                    <li>Certificate of Employment (if applicable)</li>
+                                    <li>Two letters of recommendation from former proffesor/s and/or superior/s</li>
+                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
+                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                    <li>Honorable dismissal from last school attended (for transferees)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6 ">
+                            <div class="container border shadow rounded p-3">
+                                <label class="text-uppercase text-success mb-2">master level</label>
+                                <ul>
+                                    <li>Transcript of Records of Bachelor's Degree</li>
+                                    <li>Certificate of Employment (if applicable)</li>
+                                    <li>Two letters of recommendation from former proffesor/s and/or superior/s</li>
+                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
+                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                    <li>Honorable dismissal from last school attended (for transferees)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex fs-5 mb-3">
+                        <span class="fw-bold me-2 text-warning">|</span>
+                        <span>Requirements for UNDERGRADUATE LEVEL</span>
+                    </div>
+
+                    <div class="row g-2 mb-5 justify-content-center">
+                        <div class="col-md-12 col-sm-6 ">
+                            <div class="container border shadow rounded p-3">
+                                <label class="text-uppercase text-warning mb-2">new student</label>
+                                <ul>
+                                    <li>Form 138 - Grade 12 report card with grades from 1st to 4th quarter</li>
+                                    <li>Certificate of Good Moral Character</li>
+                                    <li>PSA-Issued birth certificate</li>
+                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
+                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6 ">
+                            <div class="container border shadow rounded p-3">
+                                <label class="text-uppercase text-success mb-2">transferee</label>
+                                <ul>
+                                    <li>Transcript of Records</li>
+                                    <li>Honorable dismissal from last school attended </li>
+                                    <li>PSA-Issued birth certificate</li>
+                                    <li>Barangay Clearance</li>
+                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
+                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-6 ">
+                            <div class="container border shadow rounded p-3">
+                                <label class="text-uppercase text-warning mb-2">second courser</label>
+                                <ul>
+                                    <li>Transcript of Records</li>
+                                    <li>Honorable dismissal from last school attended </li>
+                                    <li>PSA-Issued birth certificate</li>
+                                    <li>Photocopy of Diploma of previous degree</li>
+                                    <li>Barangay Clearance</li>
+                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
+                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('landingpage.footer')
 @endsection

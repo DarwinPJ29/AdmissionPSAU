@@ -10,7 +10,7 @@
 <div class="row mt-5">
     <div class="col-md-6">
         <div class="text-center">
-            <input type="file" name="signature" id="signature" class="form-control-sm shadow">
+            <input type="file" name="signature" id="signature" class="form-control-sm shadow" wire:model='' wire:keyup='' required>
         </div>
         <div class="text-center">Signature</div>
     </div>

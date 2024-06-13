@@ -35,7 +35,7 @@
                 </li>
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('requirement') }}"
-                        class="nav-link ps-2  {{ Request::segment(2) === 'requirements' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                        class="nav-link ps-2  {{ Request::segment(1) === 'requirement' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-file me-2"></i>
                         Requirments</a>
                 </li>

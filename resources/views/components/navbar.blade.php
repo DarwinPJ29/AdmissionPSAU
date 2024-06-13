@@ -1,27 +1,23 @@
 <nav class="navbar navbar-expand-lg d-flex flex-column sticky-top" id="navbar">
     <div class="container">
-        <div class="row w-100">
-            <div class="col-md-6 text-break">
+        <div class="d-flex justify-content-between w-100">
+            <div class="col-md-10 text-break">
                 <a class="navbar-brand d-flex" href="{{ route('index') }}">
-                    <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="nav-logo img-fluid">
                     <div class="d-flex flex-column justify-content-center">
-                        <span class="text-uppercase ms-1">pampanga state agricultural university</span>
+                        <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="nav-logo img-fluid">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        <span class="text-uppercase ms-1 fs-style">pampanga state <br>agricultural university</span>
                     </div>
                 </a>
             </div>
 
-            <div class="col-md-6 d-flex justify-content-end ">
+            <div class="col-md-2 d-flex flex-column text-end justify-content-center ">
                 <a href="{{ route('login') }}">
                     <div class="btn btn-sm rounded btn-outline-success m-1">Log in</div>
                 </a>
             </div>
         </div>
-
-    </div>
-
-
-
-    </div>
     </div>
     <div class="container">
         <hr class="border border-1 border-white opacity-75 py-0 my-0 w-100">
@@ -41,13 +37,6 @@
                     <a class="nav-link text-dark {{ Request::segment(2) == 'applyNow' ? 'activated' : '' }} "
                         aria-current="page" href="{{ route('ApplyNow') }}">Apply Now</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::segment(2) == 'courses-offer' ? 'activated' : '' }}"
-                        aria-current="page" href="{{ route('coursesOffer') }}">Courses</a>
-                </li>
-
-
-
             </ul>
         </div>
 </nav>
