@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\Applicant\FormController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -65,6 +65,6 @@ Route::controller(Requirement::class)->group(function () {
 });
 
 // Applicaant
-Route::controller(ApplicantController::class)->group(function () {
+Route::controller(FormController::class)->group(function () {
     Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
 });

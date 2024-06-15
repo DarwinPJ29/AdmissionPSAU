@@ -5,9 +5,9 @@
         @include('applicant.forms.sectionB')
     @elseif ($section == 3)
         @include('applicant.forms.sectionC')
-    @elseif ($section == 3)
+    @elseif ($section == 4)
         @include('applicant.forms.sectionD')
-    @elseif ($section == 3)
+    @elseif ($section == 5)
         @include('applicant.forms.sectionE')
     @endif
 </div>

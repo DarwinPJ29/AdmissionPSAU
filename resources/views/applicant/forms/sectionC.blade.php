@@ -19,20 +19,24 @@
                 <td class="">Elementary <span class="text-danger">*</span></td>
                 <td>
                     <div class=" p-1 ">
-                        <input type="text" name="elementry_name" id="elementry_name" class="form-control shadow "
-                            placeholder="Enter School Name:" value="{{ old('elementry_name') }}" wire:model='' wire:keyup='' required>
+                        <input type="text" name="elementary_name" id="elementary_name" class="form-control shadow "
+                            placeholder="Enter School Name:" value="{{ old('elementary_name') }}"
+                            wire:model='elementary_name' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="elementary_address" id="elementary_address" class="form-control shadow "
-                            placeholder="Enter School Address:" value="{{ old('elementary_address') }}" wire:model='' wire:keyup='' required>
+                        <input type="text" name="elementary_address" id="elementary_address"
+                            class="form-control shadow " placeholder="Enter School Address:"
+                            value="{{ old('elementary_address') }}" wire:model='elementary_address'
+                            wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1 ">
                         <input type="text" name="elementary_date" id="elementary_date" class="form-control shadow "
-                            placeholder="Enter Date:" value="{{ old('elementary_date') }}" wire:model='' wire:keyup='' required>
+                            placeholder="Enter Date:" value="{{ old('elementary_date') }}" wire:model='elementary_date'
+                            wire:keyup='SecCSetData' required>
                     </div>
                 </td>
 
@@ -43,20 +47,23 @@
                 <td>
                     <div class="p-1">
                         <input type="text" name="sr_high_name" id="sr_high_name" class="form-control shadow "
-                            placeholder="Enter School Name:" value="{{ old('sr_high_name') }}" wire:model='' wire:keyup='' required>
+                            placeholder="Enter School Name:" wire:model='sr_high_name' wire:keyup='SecCSetData'
+                            required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="sr_high_address" id="sr_high_address" class="form-control shadow "
-                            placeholder="Enter School Address:" value="{{ old('sr_high_address') }}" wire:model='' wire:keyup='' required>
+                            placeholder="Enter School Address:" value="{{ old('sr_high_address') }}"
+                            wire:model='sr_high_address' wire:keyup='SecCSetData' required>
                     </div>
 
                 </td>
                 <td>
                     <div class="p-1 ">
                         <input type="text" name="sr_high_date" id="sr_high_date" class="form-control shadow "
-                            placeholder="Enter Date:" value="{{ old('sr_high_date') }}" wire:model='' wire:keyup='' required>
+                            placeholder="Enter Date:" value="{{ old('sr_high_date') }}" wire:model='sr_high_date'
+                            wire:keyup='SecCSetData' required>
                     </div>
                 </td>
             </tr>
@@ -66,19 +73,23 @@
                 <td>
                     <div class="p-1">
                         <input type="text" name="last_school_name" id="last_school_name" class="form-control shadow "
-                            placeholder="Enter School Name:" value="{{ old('last_school_name') }}" wire:model='' wire:keyup='' required>
+                            placeholder="Enter School Name:" value="{{ old('last_school_name') }}"
+                            wire:model='last_school_name' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="last_school_address" id="last_school_address" class="form-control shadow "
-                            placeholder="Enter School Address:" value="{{ old('last_school_address') }}" wire:model='' wire:keyup='' required>
+                        <input type="text" name="last_school_address" id="last_school_address"
+                            class="form-control shadow " placeholder="Enter School Address:"
+                            value="{{ old('last_school_address') }}" wire:model='last_school_address'
+                            wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="last_school_date" id="last_school_date" class="form-control shadow "
-                            placeholder="Enter Date:" value="{{ old('last_school_date') }}" wire:model='' wire:keyup='' required>
+                            placeholder="Enter Date:" value="{{ old('last_school_date') }}"
+                            wire:model='last_school_date' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
             </tr>
@@ -90,13 +101,15 @@
     <div class="row p-1">
         <div class="col-md-8 p-3 border-end border-dark">
             <label for="type_graduated">Type of SHS Graduated from:</label>
-            <input type="text" name="type_graduated" id="type_graduated" class="form-control shadow"
-                placeholder="Enter Type of SHS Graduated from:" value="{{ old('type_graduated') }}" wire:model='' wire:keyup='' required>
+            <input type="text" name="graduated_from" id="graduated_from" class="form-control shadow"
+                placeholder="Enter Type of SHS Graduated from:" value="{{ old('graduated_from') }}"
+                wire:model='graduated_from' wire:keyup='SecCSetData' required>
         </div>
         <div class="col-md-4 p-3">
             <label for="date_graduation">Date of Graduation</label>
             <input type="text" name="date_graduation" id="date_graduation" class="form-control shadow"
-                placeholder="Enter Date of Graduation:" value="{{ old('date_graduation') }}" wire:model='' wire:keyup='' required>
+                placeholder="Enter Date of Graduation:" value="{{ old('date_graduation') }}"
+                wire:model='date_graduation' wire:keyup='SecCSetData' required>
         </div>
     </div>
 </div>
@@ -105,22 +118,25 @@
         <div class="col-md-4 p-3 border-end border-dark">
             <label for="shs_average">SHS Average Grade:</label>
             <input type="text" name="shs_average" id="shs_average" class="form-control shadow"
-                placeholder="Enter SHS Average Grade:" value="{{ old('shs_average') }}" wire:model='' wire:keyup='' required>
+                placeholder="Enter SHS Average Grade:" value="{{ old('shs_average') }}" wire:model='shs_average'
+                wire:keyup='SecCSetData' required>
         </div>
         <div class="col-md-4 p-3 border-end border-dark">
             <label for="lrn">LRN</label>
             <input type="number" name="lrn" id="lrn" min="0" class="form-control shadow"
-                placeholder="Enter LRN:" value="{{ old('lrn') }}" wire:model='' wire:keyup='' required>
+                placeholder="Enter LRN:" value="{{ old('lrn') }}" wire:model='lrn' wire:keyup='SecCSetData'
+                required>
         </div>
         <div class="col-md-4 p-3">
             <label for="first_time_college">First Time to Enter College:</label>
             <input type="text" name="first_time_college" id="first_time_college" class="form-control shadow"
-                placeholder="Enter:" value="{{ old('first_time_college') }}" wire:model='' wire:keyup='' required>
+                placeholder="Enter:" value="{{ old('first_time_college') }}" wire:model='first_time_college'
+                wire:keyup='SecCSetData' required>
         </div>
     </div>
 </div>
 
 <div class="mt-3 gap-2 d-flex justify-content-end">
-    <div class="btn btn-secondary"><i class="fa-solid fa-angles-left me-2"></i>Back</div>
-    <div class="btn btn-warning">Next<i class="fa-solid fa-angles-right ms-2"></i></div>
+    <div class="btn btn-secondary" wire:click='SecCPrev'><i class="fa-solid fa-angles-left me-2"></i>Back</div>
+    <div class="btn btn-warning"wire:click='SecCNext'>Next<i class="fa-solid fa-angles-right ms-2"></i></div>
 </div>
