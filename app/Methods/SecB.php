@@ -60,13 +60,14 @@ trait SecB
     }
     public function SecBNext()
     {
-        if (
-            $this->first_choice != '' &&
-            $this->second_choice != '' &&
-            $this->semester != ''
-        ) {
-            $this->section = 3;
-        }
+        $this->section = 3;
+        // if (
+        //     $this->first_choice != '' &&
+        //     $this->second_choice != '' &&
+        //     $this->semester != ''
+        // ) {
+        //     $this->section = 3;
+        // }
     }
     public function SecBPrev()
     {

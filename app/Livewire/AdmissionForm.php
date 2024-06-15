@@ -4,26 +4,11 @@ namespace App\Livewire;
 
 use App\Methods\SecA;
 use App\Methods\SecB;
+use App\Methods\SecC;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-trait SecC
-{
-    public $elementry_name;
-    public $elementry_address;
-    public $elementry_date;
-    public $sr_high_name;
-    public $sr_high_address;
-    public $sr_high_date;
-    public $last_school_name;
-    public $last_school_address;
-    public $last_school_date;
-    public $graduated_from;
-    public $date_graduation;
-    public $average_grade;
-    public $lrn;
-    public $first_time_college;
-}
+
 
 trait SecD
 {
@@ -70,6 +55,7 @@ class AdmissionForm extends Component
     {
         $this->SecAGetData();
         $this->SecBGetData();
+        $this->SecCGetData();
     }
     public function render()
     {
