@@ -110,6 +110,6 @@
 
 
 
-<div class="mt-3 gap-2 d-flex justify-content-end">
+<div class="my-3 gap-2 d-flex justify-content-end">
     <div class="btn btn-warning" wire:click="SecANext">Next<i class="fa-solid fa-angles-right ms-2"></i></div>
 </div>

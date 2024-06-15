@@ -12,6 +12,6 @@
      </li>
  </ul>
 </div>
- <div class="mt-3 gap-2 d-flex justify-content-end">
+ <div class="my-3 gap-2 d-flex justify-content-end">
      <div class="btn btn-warning" wire:click=''>Submit</div>
  </div>

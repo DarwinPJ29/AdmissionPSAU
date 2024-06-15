@@ -58,7 +58,7 @@
     </div>
 
 </div>
-<div class="mt-3 gap-2 d-flex justify-content-end">
+<div class="my-3 gap-2 d-flex justify-content-end">
     <div class="btn btn-secondary" wire:click='SecBPrev'><i class="fa-solid fa-angles-left me-2"></i>Back</div>
     <div class="btn btn-warning" wire:click='SecBNext'>Next<i class="fa-solid fa-angles-right ms-2"></i></div>
 </div>
