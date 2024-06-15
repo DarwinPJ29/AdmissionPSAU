@@ -16,7 +16,7 @@
             <div class="d-flex">
                 <div class="btn btn-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-user text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 1</div>
+                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Information</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -24,7 +24,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 2</div>
+                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Choice</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -32,7 +32,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 3</div>
+                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Education</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -40,7 +40,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 4</div>
+                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Parent's <br>Info</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -48,7 +48,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 12px">Step 5</div>
+                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Declaration</div>
             </div>
         </div>
     </div>

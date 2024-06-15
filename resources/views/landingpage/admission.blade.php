@@ -129,7 +129,9 @@
 
                     <hr class="border border-1 border-dark opacity-75">
                     <div class="d-flex justify-content-center gap-1">
-                        <div class="btn btn-secondary shadow"></i>Cancel</div>
+                        <a href="{{ route('index') }}" class="na-link">
+                            <div class="btn btn-secondary shadow"></i>Cancel</div>
+                        </a>
                         <button type="submit" class="btn btn-warning shadow">submit</button>
                         </a>
                     </div>

@@ -80,7 +80,7 @@
                         <div class="container">
                             <a href="https://www.facebook.com/PampangaStateAgriU" class="nav-link d-flex">
                             <i class="fa-brands fa-square-facebook text-primary bg-wthite"></i>
-                            <span class="footer-text text-break ms-1">www.facebook.com/pampangastateagriu</span>
+                            <span class="footer-text text-break ms-1 social-media">www.facebook.com/pampangastateagriu</span>
                             </a>
                         </div>
                     </li>
@@ -88,7 +88,7 @@
                         <div class="container">
                             <a href='https://www.linkedin.com/school/pampangastateagriculturaluniversity' class="nav-link d-flex">
                             <i class="fa-brands fa-linkedin text-primary "></i>
-                            <span class="footer-text ms-1 text-break">www.linkedin.com/school/pampangastateagriculturaluniversity</span>
+                            <span class="footer-text ms-1 text-break social-media">www.linkedin.com/school/pampangastateagriculturaluniversity</span>
                             </a>
                         </div>
                     </li>
@@ -96,7 +96,7 @@
                         <div class="container">
                             <a href='https://www.instagram.com/psauofficial/' class="nav-link d-flex">
                             <i class="fa-brands fa-square-instagram text-danger "></i>
-                            <span class="footer-text text-break ms-1">www.instagram.com/psauofficial</span>
+                            <span class="footer-text text-break ms-1 social-media">www.instagram.com/psauofficial</span>
                             </a>
                         </div>
                     </li>

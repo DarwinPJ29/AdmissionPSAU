@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // dd(Hash::make(12345));
         return view('landingpage.index');
     }
     public function landingAdmission()

@@ -113,7 +113,12 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 
     max-width: 250px;
 }
-
+.social-media{
+    color: white;
+}
+.social-media:hover{
+    color: var(--mainColor);
+}
 
 #myBtn {
     display: none;
