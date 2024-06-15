@@ -6,6 +6,7 @@ use App\Methods\SecA;
 use App\Methods\SecB;
 use App\Methods\SecC;
 use App\Methods\SecD;
+use App\Methods\SecE;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -18,6 +19,7 @@ class AdmissionForm extends Component
     use SecB;
     use SecC;
     use SecD;
+    use SecE;
 
 
     public $user;
