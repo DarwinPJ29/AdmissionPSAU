@@ -73,4 +73,6 @@ Route::controller(FormController::class)->group(function () {
 //Applicant Requirement 
 Route::controller(RequirementController::class)->group(function () {
     Route::any('/requirements', 'Requirement')->name('applicant.requirement')->middleware('auth', 'can:applicant');
+    Route::any('/requirements/edit', 'RequirementEdit')->name('applicant.edit')->middleware('auth', 'can:applicant');
+    Route::any('/requirements/submit', 'RequirementSubmit')->name('applicant.submit')->middleware('auth', 'can:applicant');
 });

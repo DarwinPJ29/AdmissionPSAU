@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('choices', function (Blueprint $table) {
+        Schema::create('requirement_submitteds', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->foreignUlid('user_id')->references('id')->on('users');
-            $table->ulid('first')->nullable();
-            $table->ulid('second')->nullable();
-            $table->string('school_year')->nullable();
-            $table->integer('semester')->nullable();
-            $table->integer('type')->nullable();
+            $table->foreignUlid('requirement_id')->references('id')->on('requirements');
+            $table->string('file')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('choices');
+        Schema::dropIfExists('requirement_submitteds');
     }
 };

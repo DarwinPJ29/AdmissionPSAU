@@ -14,6 +14,7 @@ trait SecBVar
     public $second_choice;
     public $school_year;
     public $semester;
+    public $applicant_type;
     public $choiceId = 0;
 }
 trait SecB
@@ -28,6 +29,7 @@ trait SecB
             $this->second_choice = $choice->second;
             $this->school_year = $choice->school_year == '' ? $currentYear . '-' . ($currentYear + 1) : $choice->school_year;
             $this->semester = $choice->semester;
+            $this->applicant_type = $choice->type;
             $this->choiceId = $choice->id;
         } else {
             $this->school_year = $currentYear . '-' . ($currentYear + 1);
@@ -54,6 +56,7 @@ trait SecB
             'semester' => $this->semester,
             'first' => $this->first_choice,
             'school_year' => $this->school_year,
+            'type' => $this->applicant_type,
         ];
         Core::Save('Choice', $data, $this->choiceId);
         $this->SecBGetData();
