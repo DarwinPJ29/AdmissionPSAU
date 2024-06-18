@@ -36,6 +36,7 @@ class AdmissionForm extends Component
         $this->SecCGetData();
         $this->SecDGetData();
     }
+
     public function render()
     {
         return view('livewire.admission-form');

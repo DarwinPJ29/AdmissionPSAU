@@ -104,7 +104,7 @@ trait SecD
         //     $this->section = 3;
         // }
     }
-    public function SecdPrev()
+    public function SecDPrev()
     {
         $this->section = 3;
     }
