@@ -9,4 +9,5 @@
         @include('applicant.forms.sectionD')
     @elseif ($section == 5)
         @include('applicant.forms.sectionE')
+    @endif
 </div>

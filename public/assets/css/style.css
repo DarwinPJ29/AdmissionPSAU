@@ -176,3 +176,6 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
   hsl(121deg 91% 18%) 100%
 ) !important;
 }
+.uploaded{
+    max-height: 250px;
+}

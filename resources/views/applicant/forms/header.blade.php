@@ -11,12 +11,12 @@
     </div>
 </div>
 <div class="text-center mt-3">
-    <div class="d-flex justify-content-evenly gap-1 mx-5">
+    <div class="d-flex justify-content-evenly gap-1">
         <div class="d-flex">
             <div class="d-flex">
                 <div class="btn btn-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-user text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Information</div>
+                <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 8px">Information</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -24,7 +24,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Choice</div>
+                <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 8px">Choice</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -32,7 +32,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Education</div>
+                <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 8px">Education</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -40,7 +40,7 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Parent's <br>Info</div>
+                <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 8px">Parent's <br>Info</div>
             </div>
         </div>
         <div style="width:15%"><hr class="border border-success opacity-75"></div>
@@ -48,7 +48,15 @@
             <div class="d-flex">
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
-                <div class=" d-flex flex-column justify-content-center ms-2" style="font-size: 8px">Declaration</div>
+                <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 8px">Declaration</div>
+            </div>
+        </div>
+        <div style="width:15%"><hr class="border border-success opacity-75"></div>
+        <div class="d-flex">
+            <div class="d-flex">
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-pencil text-warning p-lg-1 py-md-auto text-center"></i></div>
+                <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 8px">Requirements</div>
             </div>
         </div>
     </div>
