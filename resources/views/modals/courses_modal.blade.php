@@ -9,6 +9,10 @@
             <div class="modal-body border shadow">
                 <form action="{{ route('courses') }}" method="post">
                     @csrf
+                    <div class="mb-2">
+                        <label for="img">Upload Image</label>
+                        <input type="file" name="img" id="img" class="form-control shadow" required>
+                    </div>
                     <div class="row mb-2">
                         <div class="col-7">
                             <label for="course_title">Course Name <span class="text-danger">*</span></label>
