@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Applicant\FormController;
+use App\Http\Controllers\Applicant\RequirementController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -64,7 +65,12 @@ Route::controller(Requirement::class)->group(function () {
     Route::any('/requirement/delete/{id}', 'requirementDelete')->name('requirement.delete');
 });
 
-// Applicaant
+// Applicant
 Route::controller(FormController::class)->group(function () {
     Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
+});
+
+//Applicant Requirement 
+Route::controller(RequirementController::class)->group(function () {
+    Route::any('/requirements', 'Requirement')->name('applicant.requirement')->middleware('auth', 'can:applicant');
 });

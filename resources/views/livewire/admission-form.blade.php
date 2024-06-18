@@ -9,7 +9,4 @@
         @include('applicant.forms.sectionD')
     @elseif ($section == 5)
         @include('applicant.forms.sectionE')
-    @elseif ($section == 6)
-        @include('applicant.forms.requirement_list')
-    @endif
 </div>

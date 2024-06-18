@@ -11,7 +11,7 @@ class FormController extends Controller
     {
         $user = auth()->user();
         if ($user->form_done) {
-            dd("Applicant done redirect to requirement");
+            return redirect()->route('applicant.requirement');
             // return view('applicant.admission_form');
         }
         return view('applicant.admission_form');
