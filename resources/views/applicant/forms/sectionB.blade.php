@@ -31,7 +31,7 @@
         </div>
 
     </div>
-    <div class="row m-0">
+    <div class="row border-bottom border-dark m-0">
         <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label class="">Prefered
                 Date of Enrolment</label>
         </div>
@@ -53,6 +53,22 @@
                     </select>
                 </div>
             </div>
+        </div>
+
+    </div>
+    <div class="row border-bottom border-dark m-0">
+        <div class="col-4 border-end text-end"><label class="application_type">Application type</label></div>
+        <div class="col-8 p-2">
+            <select name="application_type" id="application_type"
+                class="form-select shadow" wire:model='application_type'
+                wire:change='SecBSetData' required>
+                <option value="" selected hidden>Select type:</option>
+                <option value="Doctoral" @selected()>Doctoral</option>
+                <option value="Masteral" @selected()>Masteral</option>
+                <option value="Second Courser" @selected()>Second Courser</option>
+                <option value="Transferee" @selected()>Transferee</option>
+                <option value="Freshmen" @selected()>Freshmen</option>
+            </select>
         </div>
 
     </div>
