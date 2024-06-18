@@ -3,10 +3,10 @@
         aria-labelledby="mainSidebarLabel">
         <div class="offcanvas-header">
             <div class="container">
-            <div class="text-center">
-                <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="img-fluid side-icon" />
-            </div>
-            <div class="text-center" style="font-family: 'sans-serif'">Pampanga State Agricultural University</div>
+                <div class="text-center">
+                    <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="img-fluid side-icon" />
+                </div>
+                <div class="text-center" style="font-family: 'sans-serif'">Pampanga State Agricultural University</div>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -21,8 +21,8 @@
                         Dashboard</a>
                 </li>
                 <li class="nav-item rounded mb-1">
-                    <a href="{{ route('admission') }}"
-                        class="nav-link ps-2  {{ Request::segment(2) === 'admission' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                    <a href="{{ route('Submitted') }}"
+                        class="nav-link ps-2  {{ Request::segment(2) === 'submitted' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-ticket-simple me-2"></i>
                         Submitted</a>
                 </li>
@@ -43,7 +43,7 @@
                     <a href="{{ route('interviewee') }}"
                         class="nav-link ps-2  {{ Request::segment(2) === 'interviewee' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-users me-2"></i>
-                            Interviewee</a>
+                        Interviewee</a>
                 </li>
 
             </ul>
