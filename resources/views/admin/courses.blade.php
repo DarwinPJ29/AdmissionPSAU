@@ -53,7 +53,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            @include('modals.courses_modal');
+                            @include('modals.courses_modal')
                         </tr>
                     @endforeach
 
