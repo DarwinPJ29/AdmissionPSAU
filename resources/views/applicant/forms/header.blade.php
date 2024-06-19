@@ -17,51 +17,7 @@
                 <div class="btn btn-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-user text-warning p-lg-1 py-md-auto text-center"></i></div>
             </div>
-            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold" style="font-size: 9px">Information
-            </div>
-        </div>
-        <div style="width:15%">
-            <hr class="border border-success opacity-75">
-        </div>
-        <div class="d-flex flex-column">
-            <div class="d-flex justify-content-center">
-                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
-                        class="fa-solid fa-question text-warning p-lg-1 py-md-auto text-center"></i></div>
-            </div>
-            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Choice
-            </div>
-        </div>
-        <div style="width:15%">
-            <hr class="border border-success opacity-75">
-        </div>
-        <div class="d-flex flex-column">
-            <div class="d-flex justify-content-center">
-                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
-                        class="fa-solid fa-graduation-cap text-warning p-lg-1 py-md-auto text-center"></i></div>
-            </div>
-            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Education
-            </div>
-        </div>
-        <div style="width:15%">
-            <hr class="border border-success opacity-75">
-        </div>
-        <div class="d-flex flex-column">
-            <div class="d-flex justify-content-center">
-                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
-                        class="fa-solid fa-user text-warning p-lg-1 py-md-auto text-center"></i></div>
-            </div>
-            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Parent's
-            </div>
-        </div>
-        <div style="width:15%">
-            <hr class="border border-success opacity-75">
-        </div>
-        <div class="d-flex flex-column">
-            <div class="d-flex justify-content-center">
-                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
-                        class="fa-solid fa-thumbs-up text-warning p-lg-1 py-md-auto text-center"></i></div>
-            </div>
-            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Declaration
+            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-break" style="font-size: 8px">Application form
             </div>
         </div>
         <div style="width:15%">
@@ -72,7 +28,51 @@
                 <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
                         class="fa-solid fa-list text-warning p-lg-1 py-md-auto text-center"></i></div>
             </div>
-            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Declaration
+            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 8px">Requirements
+            </div>
+        </div>
+        <div style="width:15%">
+            <hr class="border border-success opacity-75">
+        </div>
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-calendar-days text-warning p-lg-1 py-md-auto text-center"></i></div>
+            </div>
+            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 8px">Schedule of exam
+            </div>
+        </div>
+        <div style="width:15%">
+            <hr class="border border-success opacity-75">
+        </div>
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-square-poll-vertical text-warning p-lg-1 py-md-auto text-center"></i></div>
+            </div>
+            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 8px">Result of exam
+            </div>
+        </div>
+        <div style="width:15%">
+            <hr class="border border-success opacity-75">
+        </div>
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-square-poll-vertical text-warning p-lg-1 py-md-auto text-center"></i></div>
+            </div>
+            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 8px">Result of evaluation
+            </div>
+        </div>
+        <div style="width:15%">
+            <hr class="border border-success opacity-75">
+        </div>
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <div class="btn btn-outline-success  rounded-circle bnt-sm border btn-sm"><i
+                        class="fa-solid fa-school-circle-check text-warning p-lg-1 py-md-auto text-center"></i></div>
+            </div>
+            <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 8px">Enrollment
             </div>
         </div>
     </div>
