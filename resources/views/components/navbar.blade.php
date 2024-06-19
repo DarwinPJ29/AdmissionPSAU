@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg d-flex flex-column sticky-top" id="navbar">
     <div class="container">
-        <div class="d-flex justify-content-between w-100">
-            <div class="col-md-10 text-break">
+        <div class="row w-100">
+            <div class="col-sm-9 text-break">
                 <a class="navbar-brand d-flex" href="{{ route('index') }}">
                     <div class="d-flex flex-column justify-content-center">
                         <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="nav-logo img-fluid">
@@ -12,8 +12,8 @@
                 </a>
             </div>
 
-            <div class="col-md-2 d-flex flex-column text-end justify-content-center ">
-                <a href="{{ route('login') }}">
+            <div class="col-sm-3 d-flex flex-column justify-content-center">
+                <a href="{{ route('login') }}" class="text-end  nav-link">
                     <div class="btn btn-sm rounded btn-outline-success m-1">Log in</div>
                 </a>
             </div>

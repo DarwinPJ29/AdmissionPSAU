@@ -35,9 +35,9 @@
 
                     <div class="mb-2">
                         <label for="course_desc">Description <span class="text-danger">*</span></label>
-                        <textarea name="course_desc" id="course_desc" class="form-control shadow" cols="" rows="3"
-                            placeholder="Enter description:" value="{{ old('course_desc') }}" required>
-                    </textarea>
+
+                    <textarea name="course_desc" id="course_desc" cols="" rows="3" class="form-control shadow" value="{{ old('course_desc') }}" required></textarea>
+
                         @error('course_desc')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -97,7 +97,7 @@
 
                         <div class="mb-2">
                             <label for="course_desc">Description <span class="text-danger">*</span></label>
-                            <textarea name="course_desc" id="course_desc" class="form-control shadow" rows="3"
+                            <textarea name="course_desc" id="course_desc" class="form-control shadow" rows=""
                                 placeholder="Enter description:" value="{{ $course->description }}" required>{{ $course->description }}</textarea>
                             @error('course_desc')
                                 <span class="text-danger">{{ $message }}</span>

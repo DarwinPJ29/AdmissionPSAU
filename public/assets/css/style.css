@@ -179,3 +179,9 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 .uploaded{
     max-height: 250px;
 }
+.course-img{
+    max-height: 70px;
+}
+.card-img{
+    max-height: 250px auto;
+}

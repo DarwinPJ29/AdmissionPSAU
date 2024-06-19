@@ -11,6 +11,7 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
+                        <th class="col-3">Image</th>
                         <th class="col-3">Name</th>
                         <th class="col-4">Acronym</th>
                         <th class="col-4">Description</th>
@@ -20,6 +21,12 @@
                 <tbody>
                     @foreach ($courses as $course)
                         <tr>
+                            <td>
+                                <div class=" d-flex justify-content-center">
+                                <img src="{{ Storage::url('courses/' . $course->file) }}" alt="" class="img-fluid course-img">
+
+                                </div>
+                            </td>
                             <td>{{ $course->title }}</td>
                             <td>{{ $course->acronym }}</td>
                             <td>{{ $course->description }}</td>

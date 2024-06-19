@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Applicant;
+use App\Models\Courses;
+use App\Models\Requirement as ModelsRequirement;
 use App\Models\Information;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -15,7 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         // dd(Hash::make(12345));
-        return view('landingpage.index');
+        $courses = Courses::all();
+        $requirements = ModelsRequirement::all();
+        return view('landingpage.index', compact('courses', 'requirements'));
     }
     public function landingAdmission()
     {

@@ -87,63 +87,35 @@
         </div>
     </div>
     <div class="container-fluid g-3 p-3 bg-secondary-subtle">
-        <div class="row m-0 p-0">
+        <div class="row m-0 p-0 g-2">
             {{-- 1st Aside --}}
             <div class="col-md-9 col-sm-12">
-                <div class="container border rounded bg-white shadow-sm h-100">
+                <div class="container border rounded bg-white shadow-sm pb-4">
                     <div class="text-center fs-style fs-3 mt-3 fw-bold">Courses We Offer</div>
                     <div class="row mt-5 justify-content-center">
-                        <div class="col-md-6 col-sm-4 p-2">
+                        @if (count($courses) > 0)
+                        @foreach ($courses as $course)
+
+
+                        <div class="col-md-6 col-sm-12 p-2">
                             <div class="card shadow  p-1">
                                 <div class="">
-                                    <img src="{{ asset('images/hero.jpg') }}" alt="" srcset=""
-                                        class="img-fluid card-img-top">
+                                    <img src="{{ Storage::url('courses/' . $course->file) }}" alt="" srcset=""
+                                        class="img-fluid card-img-top card-img">
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="fw-bold text-success fs-4">|</div>
                                         <div
                                             class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1">
-                                            course (crs)</div>
+                                            {{ $course->title }} ({{ $course->acronym }})</div>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, repellat.</p>
+                                    <p>{{ $course->description }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-4 p-2">
-                            <div class="card shadow  p-1">
-                                <div class="">
-                                    <img src="{{ asset('images/hero.jpg') }}" alt="" srcset=""
-                                        class="img-fluid card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <div class="fw-bold text-success fs-4">|</div>
-                                        <div
-                                            class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1">
-                                            course (crs)</div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, repellat.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-4 p-2">
-                            <div class="card shadow  p-1">
-                                <div class="">
-                                    <img src="{{ asset('images/hero.jpg') }}" alt="" srcset=""
-                                        class="img-fluid card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <div class="fw-bold text-success fs-4">|</div>
-                                        <div
-                                            class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1">
-                                            course (crs)</div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, repellat.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -162,12 +134,14 @@
                             <div class="container border shadow rounded p-3">
                                 <label class="text-uppercase text-warning mb-2">doctoral level</label>
                                 <ul>
-                                    <li>Transcript of Records of Bachelor's Degree</li>
-                                    <li>Certificate of Employment (if applicable)</li>
-                                    <li>Two letters of recommendation from former proffesor/s and/or superior/s</li>
-                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                                    <li>Two pieces identical 2x2 photo with name tag</li>
-                                    <li>Honorable dismissal from last school attended (for transferees)</li>
+                                    @if (count($requirements) > 0)
+                                        @foreach ($requirements as $doctoral)
+                                            @if ($doctoral->doctoral == 1)
+                                                <li>{{ $doctoral->title}}</li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
@@ -175,12 +149,14 @@
                             <div class="container border shadow rounded p-3">
                                 <label class="text-uppercase text-success mb-2">master level</label>
                                 <ul>
-                                    <li>Transcript of Records of Bachelor's Degree</li>
-                                    <li>Certificate of Employment (if applicable)</li>
-                                    <li>Two letters of recommendation from former proffesor/s and/or superior/s</li>
-                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                                    <li>Two pieces identical 2x2 photo with name tag</li>
-                                    <li>Honorable dismissal from last school attended (for transferees)</li>
+                                    @if (count($requirements) > 0)
+                                        @foreach ($requirements as $masteral)
+                                            @if ($masteral->masteral == 1)
+                                                <li>{{ $masteral->title}}</li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
@@ -196,11 +172,14 @@
                             <div class="container border shadow rounded p-3">
                                 <label class="text-uppercase text-warning mb-2">new student</label>
                                 <ul>
-                                    <li>Form 138 - Grade 12 report card with grades from 1st to 4th quarter</li>
-                                    <li>Certificate of Good Moral Character</li>
-                                    <li>PSA-Issued birth certificate</li>
-                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                    @if (count($requirements) > 0)
+                                        @foreach ($requirements as $freshmen)
+                                            @if ($freshmen->freshmen == 1)
+                                                <li>{{ $freshmen->title}}</li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
@@ -208,12 +187,14 @@
                             <div class="container border shadow rounded p-3">
                                 <label class="text-uppercase text-success mb-2">transferee</label>
                                 <ul>
-                                    <li>Transcript of Records</li>
-                                    <li>Honorable dismissal from last school attended </li>
-                                    <li>PSA-Issued birth certificate</li>
-                                    <li>Barangay Clearance</li>
-                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                    @if (count($requirements) > 0)
+                                        @foreach ($requirements as $transferee)
+                                            @if ($transferee->transferee == 1)
+                                                <li>{{ $transferee->title}}</li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
@@ -222,13 +203,14 @@
                             <div class="container border shadow rounded p-3">
                                 <label class="text-uppercase text-warning mb-2">second courser</label>
                                 <ul>
-                                    <li>Transcript of Records</li>
-                                    <li>Honorable dismissal from last school attended </li>
-                                    <li>PSA-Issued birth certificate</li>
-                                    <li>Photocopy of Diploma of previous degree</li>
-                                    <li>Barangay Clearance</li>
-                                    <li>Medical Certificate indicating that you are physical fit to study/go to school</li>
-                                    <li>Two pieces identical 2x2 photo with name tag</li>
+                                    @if (count($requirements) > 0)
+                                        @foreach ($requirements as $second_courser)
+                                            @if ($second_courser->second_courser == 1)
+                                                <li>{{ $second_courser->title}}</li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </div>
