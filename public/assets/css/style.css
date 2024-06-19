@@ -185,3 +185,6 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 .card-img{
     max-height: 250px auto;
 }
+.scrolled{
+    max-height: 40%;
+}

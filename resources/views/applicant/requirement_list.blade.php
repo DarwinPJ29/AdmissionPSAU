@@ -4,12 +4,19 @@
         @include('applicant.forms.header')
 
         <div class="text-uppercase mt-5">List of Requirements</div>
-        <div class="border rounded border-dark m-0 p-0">
-            <ul class="mt-3">
+        <div class="border rounded border-dark m-0 p-0 overflow-y-scroll scrolled">
+            <ul class="list-style-none m-0 p-2">
                 @foreach ($requirements as $req)
-                    <li class="p-2">
+                    <li class="border shadow rounded p-2 m-0 mb-1">
+
                         <div class="d-flex justify-content-between">
-                            <div class="">{{ $req->title }}</div>
+                            <div class="d-flex gap-1">
+                                <div class="d-flex  flex-column justify-content-center">
+                                    <i class="fa-regular fa-circle-dot text-success"></i>
+                                </div>
+                                <span class="d-flex  flex-column justify-content-center">{{ $req->title }}</span>
+                            </div>
+
                             <div class="">
                                 @if ($req->required == 1)
                                     <span>Required</span>
