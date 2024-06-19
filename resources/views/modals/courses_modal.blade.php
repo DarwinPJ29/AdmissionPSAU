@@ -7,11 +7,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
-                <form action="{{ route('courses') }}" method="post">
+                <form action="{{ route('courses') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-2">
                         <label for="img">Upload Image</label>
-                        <input type="file" name="img" id="img" class="form-control shadow" required>
+                        <input type="file" name="file" id="image" class="form-control shadow"
+                            accept="image/*">
                     </div>
                     <div class="row mb-2">
                         <div class="col-7">
@@ -61,14 +62,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body border shadow">
-                    <form action="{{ route('courses.update', $course->id) }}" method="post">
+                    <form action="{{ route('courses.update', $course->id) }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
-                        @method('PATCH')
+                        <div class="d-flex justify-content-center mb-2">
+                            <img src="{{ url('/storage/courses/' . $course->file) }}" alt="" srcset=""
+                                class="img-fluid uploaded rounded shadow mb-2">
+                        </div>
+                        <div class="mb-2">
+                            <label for="img">Upload Image</label>
+                            <input type="file" name="file" id="image" class="form-control shadow"
+                                accept="image/*">
+                        </div>
                         <div class="row mb-2">
                             <div class="col-7">
                                 <label for="course_title">Course Name <span class="text-danger">*</span></label>
-                                <input type="text" name="course_title" id="course_title" class="form-control shadow"
-                                    placeholder="Enter Course Name:" value="{{ $course->title }}" required>
+                                <input type="text" name="course_title" id="course_title"
+                                    class="form-control shadow" placeholder="Enter Course Name:"
+                                    value="{{ $course->title }}" required>
                                 @error('course_title')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
