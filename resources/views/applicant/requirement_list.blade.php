@@ -11,6 +11,13 @@
                         <div class="d-flex justify-content-between">
                             <div class="">{{ $req->title }}</div>
                             <div class="">
+                                @if ($req->required == 1)
+                                    <span>Required</span>
+                                @else
+                                <span>Not-Required</span>
+                                @endif
+                            </div>
+                            <div class="">
                                 <div class="btn btn-success btn-sm {{ $req->status ? 'd-none' : 'd-block' }}"
                                     data-bs-target="#upload{{ $req->id }}" data-bs-toggle="modal">Upload
                                 </div>
