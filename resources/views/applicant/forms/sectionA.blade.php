@@ -75,11 +75,7 @@
             <input type="text" name="religion" id="religion" class="form-control shadow"
                 value="{{ $religion }}" wire:model='religion' wire:keyup='SecASetData' required>
         </div>
-        <div class="col-md-4">
-            <label for="address">Home Address<span class="text-danger">*</span></label>
-            <input type="text" name="address" id="address" class="form-control shadow"
-                value="{{ $address }}" wire:model='address' wire:keyup='SecASetData' required>
-        </div>
+
         <div class="col-md-4">
             <label for="civil_status">Civil Status<span class="text-danger">*</span></label>
             <select name="civil_status" id="civil_status"
@@ -91,7 +87,23 @@
                 <option value="Widow" @selected($civil_status == 'Widow')>Widow</option>
             </select>
         </div>
-
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-2 col-sm-4">
+            <label for="region">Region<span class="text-danger">*</span></label>
+            <input type="text" name="region" id="region" class="form-control shadow"
+                value="" wire:model='region' wire:keyup='SecASetData' required>
+        </div>
+        <div class="col-md-5 col-sm-8">
+            <label for="municipality">Municipality<span class="text-danger">*</span></label>
+            <input type="text" name="municipality" id="municipality" class="form-control shadow"
+                value="" wire:model='municipality' wire:keyup='SecASetData' required>
+        </div>
+        <div class="col-md-5 col-sm-12">
+            <label for="barangay">Barangay<span class="text-danger">*</span></label>
+            <input type="text" name="barangay" id="barangay" class="form-control shadow"
+                value="" wire:model='barangay' wire:keyup='SecASetData' required>
+        </div>
     </div>
     <div class="row mb-2">
         <div class="col-md-6 col-sm-7">

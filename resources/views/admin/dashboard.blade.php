@@ -18,7 +18,7 @@
                         </div>
                         <hr class="border border-1 border-dark m-0">
                         <div class="text-end p-2 m-0 mb-0 pb-0">
-                            <a href="{{ route('admission') }}" class="nav-link fw-bold">
+                            <a href="{{ route('Submitted') }}" class="nav-link fw-bold">
                               <i class="fa-solid fa-arrow-right"></i>  View Information
                             </a>
                         </div>

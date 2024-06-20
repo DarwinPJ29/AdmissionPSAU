@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\Course;
+use App\Http\Controllers\Admin\Evaluation;
+use App\Http\Controllers\Admin\Exam;
 use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\Admin\Submitted;
 use App\Http\Controllers\AdminController;
@@ -77,9 +79,19 @@ Route::controller(FormController::class)->group(function () {
     Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
 });
 
-//Applicant Requirement 
+//Applicant Requirement
 Route::controller(RequirementController::class)->group(function () {
     Route::any('/requirements', 'Requirement')->name('applicant.requirement')->middleware('auth', 'can:applicant');
     Route::any('/requirements/edit', 'RequirementEdit')->name('applicant.edit')->middleware('auth', 'can:applicant');
     Route::any('/requirements/submit', 'RequirementSubmit')->name('applicant.submit')->middleware('auth', 'can:applicant');
+});
+
+// exam
+Route::controller(Exam::class)->group(function () {
+    Route::any('/exam', 'exam')->name('exam');
+});
+
+// Evaluation
+Route::controller(Evaluation::class)->group(function () {
+    Route::any('/evaluation', 'evaluation')->name('evaluation');
 });

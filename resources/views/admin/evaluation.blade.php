@@ -1,9 +1,8 @@
 @extends('layout.layoutAdmin')
-@section('page-title', 'Admission')
+@section('page-title', 'Evaluation')
 @section('content')
 
     <div class="container">
-
         <div class="border rounded p-3 shadow mt-3 ">
             <table class="table table-bordered table-striped" id="table">
                 <thead>
@@ -33,31 +32,13 @@
                                             <label class="fs-text ms-3 fw-bold curser">Approve</label>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#fillup">
-                                            <i class="fa-brands fa-wpforms fs-5 text-warning"></i>
-                                            <label class="fs-text ms-3 fw-bold curser">Forms</label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#requirement_file">
-                                            <i class="fa fa-folder fs-5 text-warning"></i>
-                                            <label class="fs-text ms-3 fw-bold curser">Requirements</label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#schedule">
-                                            <i class="fa-solid fa-calendar fs-5 text-primary"></i>
-                                            <label class="fs-text ms-3 fw-bold curser">Schedule</label>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </td>
                         </tr>
-                    @include('modals.filledup_form')
                 </tbody>
             </table>
         </div>
+
     </div>
 @endsection

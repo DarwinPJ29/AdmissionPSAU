@@ -147,7 +147,7 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
     line-height: 15px;
     font-size: 19px;
 }
-.footer-text{
+.text, .footer-text{
     font-size: 12px;
 }
 .footer-bg{
@@ -177,7 +177,7 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 ) !important;
 }
 .uploaded{
-    max-height: 250px;
+    max-height: 200px;
 }
 .course-img{
     max-height: 70px;
@@ -187,4 +187,7 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 }
 .scrolled{
     max-height: 40%;
+}
+.submitted-active{
+    background-color: rgb(199, 199, 42);
 }

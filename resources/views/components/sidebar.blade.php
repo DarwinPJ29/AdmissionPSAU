@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('Submitted') }}"
-                        class="nav-link ps-2  {{ Request::segment(2) === 'submitted' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                        class="nav-link ps-2  {{ Request::segment(1) === 'submitted' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-ticket-simple me-2"></i>
                         Submitted</a>
                 </li>
@@ -44,6 +44,18 @@
                         class="nav-link ps-2  {{ Request::segment(2) === 'interviewee' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-users me-2"></i>
                         Interviewee</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href="{{ route('exam') }}"
+                        class="nav-link ps-2  {{ Request::segment(1) === 'exam' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-brain me-2"></i>
+                        Exam</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href="{{ route('evaluation') }}"
+                        class="nav-link ps-2  {{ Request::segment(1) === 'evaluation' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-square-poll-vertical me-2"></i>
+                        Evaluation</a>
                 </li>
 
             </ul>
