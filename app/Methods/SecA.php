@@ -2,7 +2,10 @@
 
 namespace App\Methods;
 
+use App\Models\Barangay;
 use App\Models\Information;
+use App\Models\Municipality;
+use App\Models\Province;
 use App\Services\Core;
 
 trait SecAVar
@@ -19,10 +22,15 @@ trait SecAVar
     public $place_birth;
     public $citizenship;
     public $religion;
-    public $address;
     public $civil_status;
     public $email;
     public $secAId = 0;
+    public $province;
+    public $municipality;
+    public $barangay;
+    public $provinces;
+    public $municipalities;
+    public $barangays;
 }
 
 trait SecA
@@ -45,8 +53,25 @@ trait SecA
             $this->place_birth = $info->birth_place;
             $this->religion = $info->religion;
             $this->civil_status = $info->civil_status;
+            $this->province = $info->province_id;
+            $this->municipality = $info->municipality_id;
+            $this->barangay = $info->barangay_id;
             $this->email = $this->user->email;
             $this->secAId = $info->id;
+        }
+
+        if ($this->province != '' || $this->province != null) {
+            $this->provinces = Province::OrderBy('name', 'asc')->get();
+            $this->municipalities =  Municipality::where('province_id', $this->province)->OrderBy('name', 'asc')->get();
+        } else {
+            $this->provinces = Province::OrderBy('name', 'asc')->get();
+            $this->municipalities = [];
+        }
+
+        if ($this->municipality != '' || $this->municipality != null) {
+            $this->barangays = Barangay::where('municipality_id', $this->municipality)->OrderBy('name', 'asc')->get();
+        } else {
+            $this->barangays = [];
         }
     }
 
@@ -59,7 +84,9 @@ trait SecA
             'birth_place' => $this->place_birth,
             'religion' => $this->religion,
             'citizenship' => $this->citizenship,
-            'address' => $this->address,
+            'province_id' => $this->province,
+            'municipality_id' => $this->municipality,
+            'barangay_id' => $this->barangay,
             'civil_status' => $this->civil_status,
         ];
         Core::Save('Information', $data, $this->secAId);

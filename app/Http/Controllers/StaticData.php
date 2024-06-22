@@ -17,6 +17,8 @@ class StaticData extends Controller
         $this->Province();
         $this->Municipality();
         $this->Barangay();
+
+        return response()->json('successfully connected to API');
     }
 
     public function Province()

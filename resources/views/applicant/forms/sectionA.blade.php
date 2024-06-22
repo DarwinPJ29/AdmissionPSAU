@@ -1,15 +1,13 @@
-
-
 <div class="d-flex justify-content-between">
     <div class="text-uppercase mt-4 d-flex flex-column justify-content-end">section a: general information</div>
     @if (session()->has('failed'))
-<div class="alert alert-warning alert-dismissible fade show mt-4 w-50 " role="alert">
+        <div class="alert alert-warning alert-dismissible fade show mt-4 w-50 " role="alert">
             <div class="text-center">
-            {{ session('failed') }}
+                {{ session('failed') }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-@endif
+        </div>
+    @endif
 </div>
 <div class="border border-dark p-2 rounded-1">
     <div class="row mb-2">
@@ -37,8 +35,8 @@
     <div class="row mb-2">
         <div class="col-md-2 col-sm-6">
             <label for="gender">Sex<span class="text-danger">*</span></label>
-            <select name="gender" id="gender" class="form-select shadow"
-                wire:model='gender' wire:change='SecASetData' required>
+            <select name="gender" id="gender" class="form-select shadow" wire:model='gender'
+                wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 <option value="Male" @selected($gender == 'Male')>Male</option>
                 <option value="Female" @selected($gender == 'Female')>Female</option>
@@ -78,8 +76,8 @@
 
         <div class="col-md-4">
             <label for="civil_status">Civil Status<span class="text-danger">*</span></label>
-            <select name="civil_status" id="civil_status"
-                class="form-select shadow" wire:model='civil_status' wire:change='SecASetData' required>
+            <select name="civil_status" id="civil_status" class="form-select shadow" wire:model='civil_status'
+                wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 <option value="Single" @selected($civil_status == 'Single')>Single</option>
                 <option value="Married" @selected($civil_status == 'Married')>Married</option>
@@ -90,19 +88,34 @@
     </div>
     <div class="row mb-2">
         <div class="col-md-2 col-sm-4">
-            <label for="region">Region<span class="text-danger">*</span></label>
-            <input type="text" name="region" id="region" class="form-control shadow"
-                value="" wire:model='region' wire:keyup='SecASetData' required>
+            <label for="province">Province<span class="text-danger">*</span></label>
+            <select name="province" id="province" class="form-select shadow" wire:model='province'
+                wire:change='SecASetData' required>
+                <option value="" selected hidden>Select</option>
+                @foreach ($provinces as $value)
+                    <option value="{{ $value['id'] }}" @selected($province == $value['id'])>{{ $value['name'] }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="col-md-5 col-sm-8">
             <label for="municipality">Municipality<span class="text-danger">*</span></label>
-            <input type="text" name="municipality" id="municipality" class="form-control shadow"
-                value="" wire:model='municipality' wire:keyup='SecASetData' required>
+            <select name="municipality" id="municipality" class="form-select shadow" wire:model='municipality'
+                wire:change='SecASetData' required>
+                <option value="" selected hidden>Select</option>
+                @foreach ($municipalities as $value)
+                    <option value="{{ $value['id'] }}" @selected($municipality == $value['id'])>{{ $value['name'] }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="col-md-5 col-sm-12">
             <label for="barangay">Barangay<span class="text-danger">*</span></label>
-            <input type="text" name="barangay" id="barangay" class="form-control shadow"
-                value="" wire:model='barangay' wire:keyup='SecASetData' required>
+            <select name="barangay" id="barangay" class="form-select shadow" wire:model='barangay'
+                wire:change='SecASetData' required>
+                <option value="" selected hidden>Select</option>
+                @foreach ($barangays as $value)
+                    <option value="{{ $value['id'] }}" @selected($barangay == $value['id'])>{{ $value['name'] }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="row mb-2">

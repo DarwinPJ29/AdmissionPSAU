@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('suffix')->nullable();
             $table->string('citizenship')->nullable();
-            $table->string('address')->nullable();
+            $table->unsignedBigInteger('province_id')->nullable();
+            $table->unsignedBigInteger('municipality_id')->nullable();
+            $table->unsignedBigInteger('barangay_id')->nullable();
             $table->string('gender')->nullable();
             $table->integer('age')->nullable();
             $table->string('number');
