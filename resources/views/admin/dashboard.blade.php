@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="container mt-3">
-            <div class="row g-3 p-3">
+            <div class="row g-3 p-3 justify-content-center">
                 <div class="col-sm-6">
                     <div class="card main-bg rounded shadow-md p-3">
                         <div class="fs-4 ms-3">No. of Submitted</div>
@@ -64,10 +64,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="card main-bg rounded shadow-md p-3">
-                        <div class="fs-4 ms-3">No. of Interviewee</div>
+                        <div class="fs-4 ms-3">No. of for Exam</div>
                         <div class="row p-2">
                             <div class="col-md-3">
-                                <i class="fa-solid fa-users fs-1 rounded shadow p-3 d-flex justify-content-center"></i>
+                                <i class="fa-solid fa-brain fs-1 rounded shadow p-3 d-flex justify-content-center"></i>
                             </div>
                             <div class="col-md-9">
                                 <div class="text-center fs-3 p-2">1</div>
@@ -75,7 +75,26 @@
                         </div>
                         <hr class="border border-1 border-dark m-0">
                         <div class="text-end p-2 m-0 mb-0 pb-0">
-                            <a href="{{ route('interviewee') }}" class="nav-link fw-bold">
+                            <a href="{{ route('exam') }}" class="nav-link fw-bold">
+                              <i class="fa-solid fa-arrow-right"></i>  View Information
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card main-bg rounded shadow-md p-3">
+                        <div class="fs-4 ms-3">No. of Evaluation</div>
+                        <div class="row p-2">
+                            <div class="col-md-3">
+                                <i class="fa-solid fa-square-poll-vertical fs-1 rounded shadow p-3 d-flex justify-content-center"></i>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="text-center fs-3 p-2">1</div>
+                            </div>
+                        </div>
+                        <hr class="border border-1 border-dark m-0">
+                        <div class="text-end p-2 m-0 mb-0 pb-0">
+                            <a href="{{ route('evaluation') }}" class="nav-link fw-bold">
                               <i class="fa-solid fa-arrow-right"></i>  View Information
                             </a>
                         </div>

@@ -39,12 +39,12 @@
                             class="fa-solid fa-file me-2"></i>
                         Requirments</a>
                 </li>
-                <li class="nav-item rounded mb-1">
+                {{-- <li class="nav-item rounded mb-1">
                     <a href="{{ route('interviewee') }}"
                         class="nav-link ps-2  {{ Request::segment(2) === 'interviewee' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-users me-2"></i>
                         Interviewee</a>
-                </li>
+                </li> --}}
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('exam') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'exam' ? 'activeDashboard shadow' : 'text-dark' }}"><i

@@ -179,6 +179,9 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 .uploaded{
     max-height: 200px;
 }
+.file-uploaded{
+    max-height: 300px;
+}
 .course-img{
     max-height: 70px;
 }
@@ -191,3 +194,4 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 .submitted-active{
     background-color: rgb(199, 199, 42);
 }
+

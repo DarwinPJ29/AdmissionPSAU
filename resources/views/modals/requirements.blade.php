@@ -37,23 +37,33 @@
                         <div class="row justify-content-center gap-2">
                             <div class=" col-sm-4 col-md-auto text-center">
                                 <input type="checkbox" name="doctoral" id="doctoral" class="">
-                                <div class="text-center">Doctoral</div>
+                                <div class="">
+                                    <label for="doctoral" class="text-center">Doctoral</label>
+                                </div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
                                 <input type="checkbox" name="masteral" id="masteral" class="">
-                                <div class="text-center">Masteral</div>
+                                <div class="">
+                                    <label for="masteral" class="text-center">Masteral</label>
+                                </div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
                                 <input type="checkbox" name="second_courser" id="second_courser" class="">
-                                <div class="text-center">Second Courser</div>
+                                <div class="">
+                                    <label for="second_courser" class="text-center">Second Courser</label>
+                                </div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
                                 <input type="checkbox" name="freshmen" id="freshmen" class="">
-                                <div class="text-center">Freshmen</div>
+                                <div class="">
+                                    <label for="freshmen" class="text-center">Freshmen</label>
+                                </div>
                             </div>
                             <div class=" col-sm-4 col-md-auto text-center">
                                 <input type="checkbox" name="transferee" id="transferee" class="">
-                                <div class="text-center">Transferee</div>
+                                <div class="">
+                                    <label for="transferee" class="text-center">Transferee</label>
+                                </div>
                             </div>
                         </div>
                     </div>

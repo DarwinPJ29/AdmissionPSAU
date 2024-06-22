@@ -32,6 +32,7 @@ class Submitted extends Controller
                 $value['middle_name'] = $info->middle_name;
                 $value['last_name'] = $info->last_name;
                 $value['suffix'] = $info->suffix;
+                $value['citizenship'] = $info->citizenship;
                 $value['gender'] = $info->gender;
                 $value['age'] = $info->age;
                 $value['number'] = $info->number;
@@ -61,46 +62,46 @@ class Submitted extends Controller
             // SECC
             $educ = Educational::where('user_id', $value['id'])->first();
             if ($educ != null) {
-                $value['elementary_name'] = $educ->elem_name;
-                $value['elementary_address'] = $educ->elem_address;
-                $value['elementary_date'] = $educ->elem_date;
-                $value['sr_high_name'] = $educ->high_name;
-                $value['sr_high_address'] = $educ->high_address;
-                $value['sr_high_date'] = $educ->high_date;
-                $value['last_school_name'] = $educ->attended_name;
-                $value['last_school_address'] = $educ->attended_address;
-                $value['last_school_date'] = $educ->attended_date;
-                $value['graduated_from'] = $educ->shs_from;
-                $value['date_graduation'] = $educ->shs_date;
+                $value['elem_name'] = $educ->elem_name;
+                $value['elem_address'] = $educ->elem_address;
+                $value['elem _date'] = $educ->elem_date;
+                $value['high_name'] = $educ->high_name;
+                $value['high_address'] = $educ->high_address;
+                $value['high_date'] = $educ->high_date;
+                $value['attended_name'] = $educ->attended_name;
+                $value['attended_address'] = $educ->attended_address;
+                $value['attended_date'] = $educ->attended_date;
+                $value['shs_from'] = $educ->shs_from;
+                $value['shs_date'] = $educ->shs_date;
                 $value['shs_average'] = $educ->shs_average;
                 $value['lrn'] = $educ->lrn;
-                $value['first_time_college'] = $educ->first_time;
+                $value['first_time'] = $educ->first_time;
             }
 
             // SECD
             $guar = Guardian::where('user_id', $value['id'])->first();
             if ($guar != null) {
-                $value['father_fullname'] = $guar->f_name;
-                $value['mother_fullname'] = $guar->m_name;
-                $value['guardian_fullname'] = $guar->g_name;
-                $value['father_date_birth'] = $guar->f_birth;
-                $value['mother_date_birth'] = $guar->m_birth;
-                $value['guardian_date_birth'] = $guar->g_birth;
-                $value['father_education'] = $guar->f_attainment;
-                $value['mother_education'] = $guar->m_attainment;
-                $value['guardian_education'] = $guar->g_attainment;
-                $value['father_occupation'] = $guar->f_occupation;
-                $value['mother_occupation'] = $guar->m_occupation;
-                $value['guardian_occupation'] = $guar->g_occupation;
-                $value['father_company'] = $guar->f_address;
-                $value['mother_company'] = $guar->m_address;
-                $value['guardian_company'] = $guar->g_address;
-                $value['father_income'] = $guar->f_income;
-                $value['mother_income'] = $guar->m_income;
-                $value['guardian_income'] = $guar->g_income;
-                $value['father_contact'] = $guar->f_contact;
-                $value['mother_contact'] = $guar->m_contact;
-                $value['guardian_contact'] = $guar->g_contact;
+                $value['f_name'] = $guar->f_name;
+                $value['m_name'] = $guar->m_name;
+                $value['g_name'] = $guar->g_name;
+                $value['f_birth'] = $guar->f_birth;
+                $value['m_birth'] = $guar->m_birth;
+                $value['g_birth'] = $guar->g_birth;
+                $value['f_attainment'] = $guar->f_attainment;
+                $value['m_attainment'] = $guar->m_attainment;
+                $value['g_attainment'] = $guar->g_attainment;
+                $value['f_occupation'] = $guar->f_occupation;
+                $value['m_occupation'] = $guar->m_occupation;
+                $value['g_occupation'] = $guar->g_occupation;
+                $value['f_address'] = $guar->f_address;
+                $value['m_address'] = $guar->m_address;
+                $value['g_address'] = $guar->g_address;
+                $value['f_income'] = $guar->f_income;
+                $value['m_income'] = $guar->m_income;
+                $value['g_income'] = $guar->g_income;
+                $value['f_contact'] = $guar->f_contact;
+                $value['m_contact'] = $guar->m_contact;
+                $value['g_contact'] = $guar->g_contact;
             }
 
             // REQUIREMENT
