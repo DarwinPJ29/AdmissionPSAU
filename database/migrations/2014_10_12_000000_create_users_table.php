@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
+            $table->string('applicant_no')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('activated')->default(0);
             $table->integer('role');
             $table->boolean('form_done')->default(0);
             $table->boolean('requirements_done')->default(0);
-            $table->boolean('interview_done')->default(0);
-            $table->boolean('exam_done')->default(0);
-            $table->boolean('evaluation_done')->default(0);
             $table->integer('status')->default(0);
             $table->timestamps();
         });

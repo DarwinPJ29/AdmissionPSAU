@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use PHPUnit\Framework\Constraint\Count;
 
 class HomeController extends Controller
 {
@@ -52,7 +53,12 @@ class HomeController extends Controller
 
         $validated['password'] = Str::random(1) . rand(000000, 999999);
 
+        $userCount = User::all();
+        $currentNumber = Count($userCount) == 0 ? 1 : Count($userCount);
+        $applicantNo = sprintf('PSAU-APP-%04d', $currentNumber);
+
         $user = new User();
+        $user->applicant_no = $applicantNo;
         $user->email = $validated['email'];
         $user->password = Hash::make($validated['password']);
         $user->role = 0;

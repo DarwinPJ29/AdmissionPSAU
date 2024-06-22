@@ -1,5 +1,5 @@
 {{-- filled-up form --}}
-<div class="modal fade" id="fillup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="fillup{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-divledby="staticBackdropdiv" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
@@ -12,29 +12,29 @@
                     <div class="border-bottom border-dark">Section A:</div>
                     <div class="row my-2">
                         <div class="col-md-1 col-sm-4">
-                            <span class="text-center"></span>
+                            <span class="text-center">{{ $user->prefix }}</span>
                             <div class="text text-muted text-center">Prefix</div>
                         </div>
                         <div class="col-md-3 col-sm-8">
-                            <span class="text-center"></span>
+                            <span class="text-center">{{ $user->first_name }}</span>
                             <div class="text text-muted text-center">First Name</div>
                         </div>
                         <div class="col-md-4 col-sm-12">
-                            <span class="text-center"></span>
+                            <span class="text-center">{{ $user->middle_name }}</span>
                             <div class="text text-muted text-center">Middle Name</div>
                         </div>
                         <div class="col-md-3 col-sm-8">
-                            <span class="text-center"></span>
+                            <span class="text-center">{{ $user->last_name }}</span>
                             <div class="text text-muted text-center">Last Name</div>
                         </div>
                         <div class="col-md-1 col-sm-4">
-                            <span class="text-center"></span>
+                            <span class="text-center">{{ $user->suffix }}</span>
                             <div class="text text-muted text-center">Suffix</div>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-2 col-sm-6">
-                            <span class="text-center"></span>
+                            <span class="text-center">{{ $user->gender }}</span>
                             <div class="text text-muted text-center">Sex</div>
                         </div>
                         <div class="col-md-2 col-sm-6">
@@ -301,8 +301,6 @@
                         </div>
 
                     </div>
-
-                    <div class="border-bottom border-dark mt-5 mb-2">Section E:</div>
                     <div class="mt-2 mb-2">
                         <span>
                             I hereby affirm that all information supplied here is complete and accurate.
@@ -327,24 +325,29 @@
 
 
 {{-- requirement_file --}}
-<div class="modal fade" id="requirement_file" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="requirement_file{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header main-bg">
-                <h1 class="modal-title fs-6 " id="staticBackdropLabel">Uploaded Requirements of (NAME)</h1>
+                <h1 class="modal-title fs-6 " id="staticBackdropLabel">Uploaded Requirements of {{ $user->name }}
+                </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow overflow-y-auto" style="max-height: 70vh">
                 <div class="row g-2">
                     <div class="col-sm-6">
-                        <div class="container">
-                            <div class="text-center">
-                                <img src="{{ url('/storage/applicant_requirements/2I59qa5ieZUiYtXG82oeJjBCb5qcBQGN7vBuvbtc.png') }}" alt="" class="img-fluid uploaded rounded">
+                        @foreach ($user->requirements as $item)
+                            <div class="container">
+                                <div class="text-center">
+                                    <img src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
+                                        alt="" class="img-fluid uploaded rounded">
+                                </div>
+                                <div class="text-center">{{ $item['title'] }}</div>
+                                <div class="text-center text-muted text">
+                                    {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
                             </div>
-                            <div class="text-center">Requirements name</div>
-                            <div class="text-center text-muted text">Required</div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -364,7 +367,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header main-bg">
-                <h1 class="modal-title fs-6 " id="staticBackdropLabel">Exam Schedule for (NAME) </h1>
+                <h1 class="modal-title fs-6 " id="staticBackdropLabel">Exam Schedule for {{ $user->name }} </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
