@@ -11,6 +11,7 @@ use App\Http\Controllers\Applicant\RequirementController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StaticData;
 
 // Redirect the user if auth
 Route::get('/redirect', function () {
@@ -94,4 +95,9 @@ Route::controller(Exam::class)->group(function () {
 // Evaluation
 Route::controller(Evaluation::class)->group(function () {
     Route::any('/evaluation', 'evaluation')->name('evaluation');
+});
+
+// Region, Municipality and Barangay
+Route::controller(StaticData::class)->group(function () {
+    Route::any('/data', 'SetData');
 });
