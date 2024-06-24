@@ -18,14 +18,12 @@ class NotificationController extends Controller
             return view('applicant.forms.review');
         }
     }
-
     public function Schedule(Request $request)
     {
         if ($request->isMethod('get')) {
             return view('applicant.forms.exam_date');
         }
     }
-
     public function Score(Request $request)
     {
         // if ($request->isMethod('get')) {
