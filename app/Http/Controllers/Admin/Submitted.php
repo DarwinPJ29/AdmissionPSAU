@@ -13,6 +13,7 @@ use App\Models\Province;
 use App\Models\Requirement;
 use App\Models\RequirementSubmitted;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class Submitted extends Controller
@@ -150,5 +151,16 @@ class Submitted extends Controller
             $value['requirements'] = $requirementsArray;
         }
         return view('admin.admission', compact('users'));
+    }
+
+    public function Returned(Request $request, $id)
+    {
+        $deadline = Carbon::parse($request->input('deadline'));
+        $formattedDeadline = $deadline->format('F j, Y');
+        $user = User::find($id);
+        $user->requirements_done = 0;
+        $user->requirements_remarks = $request->input('reason') . '. Please resubmit your requirements until ' . $formattedDeadline;
+        $user->update();
+        return redirect()->back()->with('success', 'Requirments Successfully returned');
     }
 }

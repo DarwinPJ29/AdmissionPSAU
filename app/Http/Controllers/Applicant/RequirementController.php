@@ -17,7 +17,7 @@ class RequirementController extends Controller
     {
         $user = auth()->user();
         if ($user->requirements_done) {
-            dd('requirements done');
+            return redirect()->route('reviews');
         }
 
         if ($request->isMethod('get')) {
@@ -25,6 +25,7 @@ class RequirementController extends Controller
             $requirements = Requirement::query();
             $totalRequired = [0 => 0, 1 => 0];
             $canSubmit = false;
+            $remarks = auth()->user()->requirements_remarks;
 
             switch ($applicant_type->type) {
                 case 1:
@@ -55,14 +56,15 @@ class RequirementController extends Controller
                 if ($reqSubmitted != null) {
                     $value['file'] = $reqSubmitted->file;
                     $value['status'] = true;
-                    $totalRequired[1]++;
+                    if ($value['required'])
+                        $totalRequired[1]++;
                 }
             }
 
             if ($totalRequired[0] == $totalRequired[1])
                 $canSubmit = true;
 
-            return view('applicant.requirement_list', compact('requirements', 'canSubmit'));
+            return view('applicant.requirement_list', compact('requirements', 'canSubmit', 'remarks'));
         }
 
         $validated = $request->validate([

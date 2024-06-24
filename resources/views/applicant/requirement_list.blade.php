@@ -4,6 +4,12 @@
         @include('applicant.forms.header')
 
         <div class="text-uppercase mt-5">List of Requirements</div>
+
+        @if ($remarks != null || $remarks != '')
+            <div>
+                <h1 class="text-danger">{{ $remarks }}</h1>
+            </div>
+        @endif
         <div class="border rounded border-dark m-0 p-0 overflow-y-scroll scrolled">
             <ul class="list-style-none m-0 p-2">
                 @foreach ($requirements as $req)
@@ -14,14 +20,15 @@
                                 <div class="d-flex  flex-column justify-content-center">
                                     <i class="fa-regular fa-circle-dot text-success"></i>
                                 </div>
-                                <span class="d-flex  flex-column justify-content-center text-uppercase">{{ $req->title }}</span>
+                                <span
+                                    class="d-flex  flex-column justify-content-center text-uppercase">{{ $req->title }}</span>
                             </div>
 
                             <div class="">
                                 @if ($req->required == 1)
                                     <span>Required</span>
                                 @else
-                                <span>Not-Required</span>
+                                    <span>Not-Required</span>
                                 @endif
                             </div>
                             <div class="">

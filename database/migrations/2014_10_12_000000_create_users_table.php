@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('role');
             $table->boolean('form_done')->default(0);
             $table->boolean('requirements_done')->default(0);
+            $table->string('requirements_remarks')->nullable();
+            $table->boolean('schedule_done')->default(0);
             $table->integer('status')->default(0);
             $table->timestamps();
         });

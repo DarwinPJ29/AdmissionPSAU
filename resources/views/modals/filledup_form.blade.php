@@ -14,7 +14,7 @@
                         <div class="col-md-1 col-sm-4">
                             <div class="text-center text-uppercase border-bottom">
                                 @if ($user->prefix != null)
-                                {{ $user->prefix }}
+                                    {{ $user->prefix }}
                                 @else
                                     n/a
                                 @endif
@@ -34,11 +34,13 @@
                             <div class="text text-muted text-center text-uppercase">Last Name</div>
                         </div>
                         <div class="col-md-1 col-sm-4">
-                            <div class="text-center text-uppercase border-bottom">@if ($user->suffix != null)
-                                {{ $user->suffix }}
+                            <div class="text-center text-uppercase border-bottom">
+                                @if ($user->suffix != null)
+                                    {{ $user->suffix }}
                                 @else
                                     n/a
-                                @endif</div>
+                                @endif
+                            </div>
                             <div class="text text-muted text-center text-uppercase">Suffix</div>
                         </div>
                     </div>
@@ -255,37 +257,37 @@
                         <div class="row border text-center text-uppercase p-2">
                             <div class="col-3 border-end p-1">Company Name / Address</div>
                             <div class="col-3 border-end p-1">
-                                <div class="text-center text-uppercase">{{ $user->f_address}}</div>
+                                <div class="text-center text-uppercase">{{ $user->f_address }}</div>
                             </div>
                             <div class="col-3 border-end p-1">
-                                <div class="text-center text-uppercase">{{ $user->m_address}}</div>
+                                <div class="text-center text-uppercase">{{ $user->m_address }}</div>
                             </div>
                             <div class="col-3 p-1">
-                                <div class="text-center text-uppercase">{{ $user->g_address}}</div>
+                                <div class="text-center text-uppercase">{{ $user->g_address }}</div>
                             </div>
                         </div>
                         <div class="row border text-center text-uppercase p-2">
                             <div class="col-3 border-end p-1">Monthly Income</div>
                             <div class="col-3 border-end p-1">
-                                <div class="text-center text-uppercase">{{ $user->f_income}}</div>
+                                <div class="text-center text-uppercase">{{ $user->f_income }}</div>
                             </div>
                             <div class="col-3 border-end p-1">
-                                <div class="text-center text-uppercase">{{ $user->m_income}}</div>
+                                <div class="text-center text-uppercase">{{ $user->m_income }}</div>
                             </div>
                             <div class="col-3 p-1">
-                                <div class="text-center text-uppercase">{{ $user->g_income}}</div>
+                                <div class="text-center text-uppercase">{{ $user->g_income }}</div>
                             </div>
                         </div>
                         <div class="row border text-center text-uppercase p-2">
                             <div class="col-3 border-end p-1">Contact No.</div>
                             <div class="col-3 border-end p-1">
-                                <div class="text-center text-uppercase">{{ $user->f_contact}}</div>
+                                <div class="text-center text-uppercase">{{ $user->f_contact }}</div>
                             </div>
                             <div class="col-3 border-end p-1">
-                                <div class="text-center text-uppercase">{{ $user->m_contact}}</div>
+                                <div class="text-center text-uppercase">{{ $user->m_contact }}</div>
                             </div>
                             <div class="col-3 p-1">
-                                <div class="text-center text-uppercase">{{ $user->g_contact}}</div>
+                                <div class="text-center text-uppercase">{{ $user->g_contact }}</div>
                             </div>
                         </div>
 
@@ -323,39 +325,45 @@
                 </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body border shadow overflow-y-auto" style="max-height: 70vh">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <label for="reason">Reason / Return</label>
-                        <textarea name="reason" id="reason" cols="" rows="2" class="form-control shadow" placeholder="Enter Reason / Return: "></textarea>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="deadline">Set Deadline date</label>
-                        <input type="date" name="deadline" id="deadline" class="form-control shadow">
-                    </div>
-                </div>
-                <div class="row g-2">
-                    @foreach ($user->requirements as $item)
-                    <div class="col-sm-6">
-                            <div class="container">
-                                <div class="text-center text-uppercase">
-                                    <img data-enlargable src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
-                                        alt="" class="img-fluid file-uploaded rounded">
-                                </div>
-                                <div class="fs-style text-center text-uppercase text-danger text fw-bold">Click image to Larger</div>
-                                <div class="text-center text-uppercase">{{ $item['title'] }}</div>
-                                <div class="text-center text-uppercase text-muted text">
-                                    {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
-                            </div>
+            <form action="{{ route('returned', $user->id) }}" method="post">
+                @csrf
+                <div class="modal-body border shadow overflow-y-auto" style="max-height: 70vh">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <label for="reason">Reason / Return</label>
+                            <textarea name="reason" id="reason" cols="" rows="2" class="form-control shadow"
+                                placeholder="Enter Reason / Return: "></textarea>
                         </div>
+                        <div class="col-sm-6">
+                            <label for="deadline">Set Deadline date</label>
+                            <input type="date" name="deadline" id="deadline" class="form-control shadow">
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        @foreach ($user->requirements as $item)
+                            <div class="col-sm-6">
+                                <div class="container">
+                                    <div class="text-center text-uppercase">
+                                        <img data-enlargable
+                                            src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
+                                            alt="" class="img-fluid file-uploaded rounded">
+                                    </div>
+                                    <div class="fs-style text-center text-uppercase text-danger text fw-bold">Click
+                                        image
+                                        to Larger</div>
+                                    <div class="text-center text-uppercase">{{ $item['title'] }}</div>
+                                    <div class="text-center text-uppercase text-muted text">
+                                        {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
+                                </div>
+                            </div>
                         @endforeach
+                    </div>
                 </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Returned</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -396,18 +404,20 @@
 </div>
 
 <script>
-    $('img[data-enlargable]').addClass('img-enlargable').click(function(){
-    var src = $(this).attr('src');
-    $('<div>').css({
-        background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
-        backgroundSize: 'contain',
-        width:'100%', height:'100%',
-        position:'fixed',
-        zIndex:'10000',
-        top:'0', left:'0',
-        cursor: 'zoom-out'
-    }).click(function(){
-        $(this).remove();
-    }).appendTo('body');
-});
+    $('img[data-enlargable]').addClass('img-enlargable').click(function() {
+        var src = $(this).attr('src');
+        $('<div>').css({
+            background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+            backgroundSize: 'contain',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            zIndex: '10000',
+            top: '0',
+            left: '0',
+            cursor: 'zoom-out'
+        }).click(function() {
+            $(this).remove();
+        }).appendTo('body');
+    });
 </script>

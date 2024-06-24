@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\Admin\Submitted;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Applicant\FormController;
+use App\Http\Controllers\Applicant\NotificationController;
 use App\Http\Controllers\Applicant\RequirementController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -56,9 +57,9 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 //Submitted
-// Requirement
 Route::controller(Submitted::class)->group(function () {
     Route::any('/submitted', 'Submitted')->name('Submitted');
+    Route::any('/returned/{id}', 'Returned')->name('returned');
 });
 
 // Course
@@ -86,6 +87,16 @@ Route::controller(RequirementController::class)->group(function () {
     Route::any('/requirements/edit', 'RequirementEdit')->name('applicant.edit')->middleware('auth', 'can:applicant');
     Route::any('/requirements/submit', 'RequirementSubmit')->name('applicant.submit')->middleware('auth', 'can:applicant');
 });
+
+//Notification
+Route::controller(NotificationController::class)->group(function () {
+    Route::any('/review', 'Review')->name('reviews')->middleware('auth', 'can:applicant');
+    Route::any('/schedule', 'Schedule')->name('schedule')->middleware('auth', 'can:applicant');
+    Route::any('/score', 'Score')->name('score')->middleware('auth', 'can:applicant');
+    Route::any('/evaluation', 'Evaluation')->name('evaluation')->middleware('auth', 'can:applicant');
+    Route::any('/status', 'Status')->name('status')->middleware('auth', 'can:applicant');
+});
+
 
 // exam
 Route::controller(Exam::class)->group(function () {
