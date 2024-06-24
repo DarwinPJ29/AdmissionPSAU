@@ -1,5 +1,5 @@
 <div class="my-5 border rounded">
-    <div class="row">
+    <div class="row text-uppercase">
         <div class="col-md-6 d-flex flex-column justify-content-center pb-5 ">
             <div class="text-center mt-5">
                 Your Exam date was on

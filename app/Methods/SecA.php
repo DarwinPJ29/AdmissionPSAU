@@ -6,6 +6,7 @@ use App\Models\Barangay;
 use App\Models\Information;
 use App\Models\Municipality;
 use App\Models\Province;
+use App\Models\User;
 use App\Services\Core;
 
 trait SecAVar
@@ -31,6 +32,7 @@ trait SecAVar
     public $provinces;
     public $municipalities;
     public $barangays;
+    public $applicant_no;
 }
 
 trait SecA
@@ -39,6 +41,8 @@ trait SecA
 
     public function SecAGetData()
     {
+        $this->applicant_no = User::where('id', $this->user->id)->first();
+
         $info = Information::where('user_id', $this->user->id)->first();
         if ($info != null) {
             $this->prefix = $info->prefix;
@@ -58,8 +62,9 @@ trait SecA
             $this->barangay = $info->barangay_id;
             $this->email = $this->user->email;
             $this->secAId = $info->id;
-        }
 
+        }
+        // dd($info);
         if ($this->province != '' || $this->province != null) {
             $this->provinces = Province::OrderBy('name', 'asc')->get();
             $this->municipalities =  Municipality::where('province_id', $this->province)->OrderBy('name', 'asc')->get();

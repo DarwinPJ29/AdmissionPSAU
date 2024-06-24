@@ -6,7 +6,7 @@
     <div class="row border-bottom border-dark m-0">
         <div class="col-4 border-end text-end"><label class="">First Choice</label></div>
         <div class="col-8 p-2">
-            <select name="first_choice" id="first_choice" class="form-select shadow" wire:model='first_choice'
+            <select name="first_choice" id="first_choice" class="form-select shadow text-uppercase" wire:model='first_choice'
                 wire:change='SecBSetData' required>
                 <option value="" selected hidden>Select Choice 1:</option>
                 @foreach ($courses_choice1 as $course)
@@ -19,7 +19,7 @@
     <div class="row border-bottom border-dark m-0">
         <div class="col-4 border-end text-end"><label class="">Second Choice</label></div>
         <div class="col-8 p-2">
-            <select name="second_choice" id="second_choice" class="form-select shadow" wire:model='second_choice'
+            <select name="second_choice" id="second_choice" class="form-select shadow text-uppercase" wire:model='second_choice'
                 wire:change='SecBSetData' required>
                 <option value="" selected hidden>Select Choice 2:</option>
                 @foreach ($courses_choice2 as $course)
@@ -37,12 +37,12 @@
             <div class="row m-0 p-0">
                 <div class="col-md-6 p-2">
                     <label for="">School Year:</label>
-                    <input type="text" id="middle_name" class="form-control shadow" wire:model='school_year'
+                    <input type="text" id="middle_name" class="form-control shadow text-uppercase" wire:model='school_year'
                         disabled>
                 </div>
                 <div class="col-md-6 p-2">
                     <label class="">Semester:</label>
-                    <select name="semester" id="semester" class="form-select shadow" wire:model='semester'
+                    <select name="semester" id="semester" class="form-select shadow text-uppercase" wire:model='semester'
                         wire:change='SecBSetData' required>
                         <option value="" selected hidden>Select:</option>
                         <option value="1" @selected($semester == 1)>1st Semester</option>
@@ -56,7 +56,7 @@
     <div class="row border-bottom border-dark m-0">
         <div class="col-4 border-end text-end"><label class="application_type">Application type</label></div>
         <div class="col-8 p-2">
-            <select name="application_type" id="applicant_type" class="form-select shadow" wire:model='applicant_type'
+            <select name="application_type" id="applicant_type" class="form-select shadow text-uppercase" wire:model='applicant_type'
                 wire:change='SecBSetData' required>
                 <option value="" selected hidden>Select type:</option>
                 <option value="1" @selected($application_type = 1)>Doctoral</option>

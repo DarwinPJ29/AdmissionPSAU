@@ -10,36 +10,41 @@
     @endif
 </div>
 <div class="border border-dark p-2 rounded-1">
-    {{-- <div class="row mb-2">
-        <label for="">Your Application ID:</label>
-        <input type="text" class="form-control shadow" value="{{$applicant_no}}" disabled>
-    </div> --}}
+    <div class="d-flex my-3 fw-bold">
+        <div class="text-uppercase me-3">Your Application ID:</div>
+        <div class="text-uppercase border-bottom border-dark">{{ $applicant_no->applicant_no}}</div>
+    </div>
     <div class="row mb-2">
         <div class="col-md-1 col-sm-4">
             <label for="prefix">Prefix</label>
-            <input type="text" id="prefix" class="form-control shadow" value="{{ $prefix }}" disabled>
+            <input type="text" id="prefix" class="form-control text-uppercase shadow" value="{{ $prefix }}"
+                disabled>
         </div>
         <div class="col-md-3 col-sm-8">
             <label for="first_name">First Name</label>
-            <input type="text" id="first_name" class="form-control shadow" value="{{ $first_name }}" disabled>
+            <input type="text" id="first_name" class="form-control text-uppercase shadow" value="{{ $first_name }}"
+                disabled>
         </div>
         <div class="col-md-4 col-sm-12">
             <label for="middle_name">Middle Name</label>
-            <input type="text" id="middle_name" class="form-control shadow" value="{{ $middle_name }}" disabled>
+            <input type="text" id="middle_name" class="form-control text-uppercase shadow"
+                value="{{ $middle_name }}" disabled>
         </div>
         <div class="col-md-3 col-sm-8">
             <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" class="form-control shadow" value="{{ $last_name }}" disabled>
+            <input type="text" id="last_name" class="form-control text-uppercase shadow" value="{{ $last_name }}"
+                disabled>
         </div>
         <div class="col-md-1 col-sm-4">
             <label for="suffix">Suffix</label>
-            <input type="text" id="suffix" class="form-control shadow" value="{{ $suffix }}" disabled>
+            <input type="text" id="suffix" class="form-control text-uppercase shadow" value="{{ $suffix }}"
+                disabled>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-md-2 col-sm-6">
             <label for="gender">Sex<span class="text-danger">*</span></label>
-            <select name="gender" id="gender" class="form-select shadow" wire:model='gender'
+            <select name="gender" id="gender" class="form-select text-uppercase shadow" wire:model='gender'
                 wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 <option value="Male" @selected($gender == 'Male')>Male</option>
@@ -49,24 +54,25 @@
 
         <div class="col-md-2 col-sm-6">
             <label for="age">Age <span class="text-danger">*</span></label>
-            <input type="number" name="age" id="age" min="0" class="form-control shadow"
-                value="{{ $age }}" wire:model='age' wire:keyup='SecASetData' required>
+            <input type="number" name="age" id="age" min="0"
+                class="form-control text-uppercase shadow" value="{{ $age }}" wire:model='age'
+                wire:keyup='SecASetData' required>
         </div>
         <div class="col-md-4 col-sm-12">
             <label for="place_birth">Place of Birth <span class="text-danger">*</span></label>
-            <input type="text" name="place_birth" id="place_birth" class="form-control shadow"
+            <input type="text" name="place_birth" id="place_birth" class="form-control text-uppercase shadow"
                 value="{{ $place_birth }}" wire:model='place_birth' wire:keyup='SecASetData' required>
 
         </div>
         <div class="col-md-2 col-sm-6">
             <label for="birth_date">Date of Birth <span class="text-danger">*</span></label>
-            <input type="date" name="birth_date" id="birth_date" class="form-control shadow" wire:model='birth_date'
-                wire:change='SecASetData' value="{{ $birth_date }}" required>
+            <input type="date" name="birth_date" id="birth_date" class="form-control text-uppercase shadow"
+                wire:model='birth_date' wire:change='SecASetData' value="{{ $birth_date }}" required>
 
         </div>
         <div class="col-md-2 col-sm-6">
             <label for="citizenship">Citizenship<span class="text-danger">*</span></label>
-            <input type="text" name="citizenship" id="citizenship" class="form-control shadow"
+            <input type="text" name="citizenship" id="citizenship" class="form-control text-uppercase shadow"
                 value="{{ $citizenship }}" wire:model='citizenship' wire:keyup='SecASetData' required>
         </div>
 
@@ -74,14 +80,14 @@
     <div class="row mb-2">
         <div class="col-md-4">
             <label for="religion">Religion<span class="text-danger">*</span></label>
-            <input type="text" name="religion" id="religion" class="form-control shadow"
+            <input type="text" name="religion" id="religion" class="form-control text-uppercase shadow"
                 value="{{ $religion }}" wire:model='religion' wire:keyup='SecASetData' required>
         </div>
 
         <div class="col-md-4">
             <label for="civil_status">Civil Status<span class="text-danger">*</span></label>
-            <select name="civil_status" id="civil_status" class="form-select shadow" wire:model='civil_status'
-                wire:change='SecASetData' required>
+            <select name="civil_status" id="civil_status" class="form-select text-uppercase shadow"
+                wire:model='civil_status' wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 <option value="Single" @selected($civil_status == 'Single')>Single</option>
                 <option value="Married" @selected($civil_status == 'Married')>Married</option>
@@ -93,7 +99,7 @@
     <div class="row mb-2">
         <div class="col-md-2 col-sm-4">
             <label for="province">Province<span class="text-danger">*</span></label>
-            <select name="province" id="province" class="form-select shadow" wire:model='province'
+            <select name="province" id="province" class="form-select text-uppercase shadow" wire:model='province'
                 wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 @foreach ($provinces as $value)
@@ -103,8 +109,8 @@
         </div>
         <div class="col-md-5 col-sm-8">
             <label for="municipality">Municipality<span class="text-danger">*</span></label>
-            <select name="municipality" id="municipality" class="form-select shadow" wire:model='municipality'
-                wire:change='SecASetData' required>
+            <select name="municipality" id="municipality" class="form-select text-uppercase shadow"
+                wire:model='municipality' wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 @foreach ($municipalities as $value)
                     <option value="{{ $value['id'] }}" @selected($municipality == $value['id'])>{{ $value['name'] }}</option>
@@ -113,7 +119,7 @@
         </div>
         <div class="col-md-5 col-sm-12">
             <label for="barangay">Barangay<span class="text-danger">*</span></label>
-            <select name="barangay" id="barangay" class="form-select shadow" wire:model='barangay'
+            <select name="barangay" id="barangay" class="form-select text-uppercase shadow" wire:model='barangay'
                 wire:change='SecASetData' required>
                 <option value="" selected hidden>Select</option>
                 @foreach ($barangays as $value)
@@ -125,40 +131,16 @@
     <div class="row mb-2">
         <div class="col-md-6 col-sm-7">
             <label for="email">Email Address</label>
-            <input type="email" name="email" id="email" class="form-control shadow"
+            <input type="email" name="email" id="email" class="form-control text-uppercase shadow"
                 value="{{ $email }}" disabled>
         </div>
         <div class="col-md-6 col-sm-5">
             <label for="number">Contact No.</label>
-            <input type="number" name="number" id="number" class="form-control shadow"
+            <input type="number" name="number" id="number" class="form-control text-uppercase shadow"
                 value="{{ $number }}" disabled>
         </div>
     </div>
 </div>
-
-
-<div class="my-5 border rounded">
-    <div class="row">
-        <div class="col-md-6 d-flex flex-column justify-content-center pb-5">
-            <div class="text-center mt-5">
-                Your Exam date was on
-            </div>
-            <div class="text-center text-semibold text-warning">
-                Friday 02:00 pm <br>
-                January, 29 2024
-            </div>
-            <div class="text-center">
-                Be ready and Goodluck to your examinations!
-            </div>
-        </div>
-        <div class="col-md-6 d-md-block d-none">
-            <div class="d-flex flex-column justify-content-center">
-                <img src="{{ asset('images/side.jpg')}}" alt="" class="img-fluid " style="max-width: 80%">
-            </div>
-        </div>
-
-    </div>
-    </div>
 
 
 

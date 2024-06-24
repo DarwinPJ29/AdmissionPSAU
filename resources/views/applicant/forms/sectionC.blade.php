@@ -19,7 +19,7 @@
                 <td class="">Elementary <span class="text-danger">*</span></td>
                 <td>
                     <div class=" p-1 ">
-                        <input type="text" name="elementary_name" id="elementary_name" class="form-control shadow "
+                        <input type="text" name="elementary_name" id="elementary_name" class="form-control shadow text-uppercase"
                             placeholder="Enter School Name:"
                             wire:model='elementary_name' wire:keyup='SecCSetData' required>
                     </div>
@@ -27,13 +27,13 @@
                 <td>
                     <div class="p-1">
                         <input type="text" name="elementary_address" id="elementary_address"
-                            class="form-control shadow " placeholder="Enter School Address:" wire:model='elementary_address'
+                            class="form-control shadow text-uppercase" placeholder="Enter School Address:" wire:model='elementary_address'
                             wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1 ">
-                        <input type="text" name="elementary_date" id="elementary_date" class="form-control shadow "
+                        <input type="text" name="elementary_date" id="elementary_date" class="form-control shadow text-uppercase"
                             placeholder="Enter Date:" wire:model='elementary_date'
                             wire:keyup='SecCSetData' required>
                     </div>
@@ -45,14 +45,14 @@
                 <td>Senior High<span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="sr_high_name" id="sr_high_name" class="form-control shadow "
+                        <input type="text" name="sr_high_name" id="sr_high_name" class="form-control shadow text-uppercase"
                             placeholder="Enter School Name:" wire:model='sr_high_name' wire:keyup='SecCSetData'
                             required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="sr_high_address" id="sr_high_address" class="form-control shadow "
+                        <input type="text" name="sr_high_address" id="sr_high_address" class="form-control shadow text-uppercase"
                             placeholder="Enter School Address:"
                             wire:model='sr_high_address' wire:keyup='SecCSetData' required>
                     </div>
@@ -60,7 +60,7 @@
                 </td>
                 <td>
                     <div class="p-1 ">
-                        <input type="text" name="sr_high_date" id="sr_high_date" class="form-control shadow "
+                        <input type="text" name="sr_high_date" id="sr_high_date" class="form-control shadow text-uppercase"
                             placeholder="Enter Date:" wire:model='sr_high_date'
                             wire:keyup='SecCSetData' required>
                     </div>
@@ -71,7 +71,7 @@
                 <td>Last School Attended <span class="text-danger">*</span></td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="last_school_name" id="last_school_name" class="form-control shadow "
+                        <input type="text" name="last_school_name" id="last_school_name" class="form-control shadow text-uppercase"
                             placeholder="Enter School Name:"
                             wire:model='last_school_name' wire:keyup='SecCSetData' required>
                     </div>
@@ -79,13 +79,13 @@
                 <td>
                     <div class="p-1">
                         <input type="text" name="last_school_address" id="last_school_address"
-                            class="form-control shadow " placeholder="Enter School Address:"  wire:model='last_school_address'
+                            class="form-control shadow text-uppercase" placeholder="Enter School Address:"  wire:model='last_school_address'
                             wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="last_school_date" id="last_school_date" class="form-control shadow "
+                        <input type="text" name="last_school_date" id="last_school_date" class="form-control shadow text-uppercase"
                             placeholder="Enter Date:" wire:model='last_school_date' wire:keyup='SecCSetData' required>
                     </div>
                 </td>

@@ -14,7 +14,7 @@
                                 <div class="d-flex  flex-column justify-content-center">
                                     <i class="fa-regular fa-circle-dot text-success"></i>
                                 </div>
-                                <span class="d-flex  flex-column justify-content-center">{{ $req->title }}</span>
+                                <span class="d-flex  flex-column justify-content-center text-uppercase">{{ $req->title }}</span>
                             </div>
 
                             <div class="">
