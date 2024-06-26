@@ -26,20 +26,20 @@ class NotificationController extends Controller
     }
     public function Score(Request $request)
     {
-        // if ($request->isMethod('get')) {
-        //     return view('');
-        // }
+        if ($request->isMethod('get')) {
+            return view('applicant.forms.result_exam');
+        }
     }
     public function Evaluation(Request $request)
     {
-        // if ($request->isMethod('get')) {
-        //     return view('');
-        // }
+        if ($request->isMethod('get')) {
+            return view('applicant.forms.result_evaluation');
+        }
     }
     public function Status(Request $request)
     {
-        // if ($request->isMethod('get')) {
-        //     return view('');
-        // }
+        if ($request->isMethod('get')) {
+            return view('applicant.forms.status');
+        }
     }
 }

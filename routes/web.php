@@ -93,7 +93,7 @@ Route::controller(NotificationController::class)->group(function () {
     Route::any('/review', 'Review')->name('reviews')->middleware('auth', 'can:applicant');
     Route::any('/schedule', 'Schedule')->name('schedule')->middleware('auth', 'can:applicant');
     Route::any('/score', 'Score')->name('score')->middleware('auth', 'can:applicant');
-    Route::any('/evaluation', 'Evaluation')->name('evaluation')->middleware('auth', 'can:applicant');
+    Route::any('/evaluation', 'Evaluation')->name('evaluate')->middleware('auth', 'can:applicant');
     Route::any('/status', 'Status')->name('status')->middleware('auth', 'can:applicant');
 });
 

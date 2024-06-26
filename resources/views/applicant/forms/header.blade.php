@@ -1,8 +1,7 @@
 <div class="d-flex mt-3">
     <div class="">
         <img src="{{ asset('images/PSAU_logo.png') }}" alt="" srcset="" class="img-fluid"
-            style="max-height: 50px">
-
+            style="max-height: 150px">
     </div>
     <div class="w-100">
         <div class="text-uppercase fs-3 ms-3">pampanga state agricultural university</div>

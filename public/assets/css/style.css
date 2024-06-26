@@ -194,4 +194,19 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 .submitted-active{
     background-color: rgb(199, 199, 42);
 }
+.rotate{
+    animation: rotation infinite 3s linear;
+ }
 
+ @keyframes rotation{
+   from{
+     transform:rotate(0deg);
+   }
+
+   to{
+     transform:rotate(360deg);
+   }
+ }
+ .size{
+    font-size: 70px;
+ }
