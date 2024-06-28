@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('choices', function (Blueprint $table) {
+        Schema::create('results', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->foreignUlid('user_id')->references('id')->on('users');
-            $table->ulid('first')->nullable();
-            $table->ulid('second')->nullable();
-            $table->ulid('third')->nullable();
-            $table->string('school_year')->nullable();
-            $table->integer('semester')->nullable();
-            $table->integer('type')->nullable();
+            $table->string('date')->nullable();
+            $table->string('hour')->nullable();
+            $table->integer('score')->nullable();
+            $table->integer('total')->nullable();
+            $table->foreignUlid('course_id')->references('id')->on('courses');
+            $table->boolean('evaluation')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('choices');
+        Schema::dropIfExists('results');
     }
 };

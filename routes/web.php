@@ -60,6 +60,7 @@ Route::controller(AdminController::class)->group(function () {
 Route::controller(Submitted::class)->group(function () {
     Route::any('/submitted', 'Submitted')->name('Submitted');
     Route::any('/returned/{id}', 'Returned')->name('returned');
+    Route::any('/sched/{id}', 'Schedule')->name('sched');
 });
 
 // Course

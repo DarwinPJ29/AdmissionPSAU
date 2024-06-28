@@ -12,7 +12,9 @@ use App\Models\Municipality;
 use App\Models\Province;
 use App\Models\Requirement;
 use App\Models\RequirementSubmitted;
+use App\Models\Result;
 use App\Models\User;
+use App\Services\Core;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -161,6 +163,28 @@ class Submitted extends Controller
         $user->requirements_done = 0;
         $user->requirements_remarks = $request->input('reason') . '. Please resubmit your requirements until ' . $formattedDeadline;
         $user->update();
-        return redirect()->back()->with('success', 'Requirments Successfully returned');
+        return redirect()->back()->with('success', 'Requirements Successfully returned');
+    }
+
+    public function Schedule(Request $request, $id)
+    {
+        $hour = Carbon::createFromFormat('H:i', $request->input('exam_time'))->format('h:i A');
+        $day = Carbon::parse($request->input('exam_date'));
+        $date = $day->format('F j, Y');
+
+        $user = User::find($id);
+        $user->schedule_done = 1;
+        $user->update();
+
+        $result = Result::where('user_id', $user->id)->first();
+        $data = [
+            'user_id' => $user->id,
+            'date' => $date,
+            'hour' => $hour,
+        ];
+
+        Core::Save('Result', $data, $result->id == null ? 0 : $result->id);
+
+        return redirect()->back()->with('success', 'Schdule for exam has been successfully assigned');
     }
 }

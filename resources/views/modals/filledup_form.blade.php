@@ -370,8 +370,8 @@
 
 
 {{-- schedule --}}
-<div class="modal fade" id="schedule" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="schedule{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header main-bg">
@@ -379,25 +379,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
-                <form action="" method="post">
+                <form action="{{ route('sched', $user->id) }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="exam_date">Exam Date</label>
-                            <input type="date" name="exam_date" id="exam_date" class="form-control shadow">
+                            <input type="date" name="exam_date" id="exam_date" class="form-control shadow"
+                                required>
                         </div>
                         <div class="col-sm-6">
                             <label for="exam_time">Exam Time</label>
-                            <input type="time" name="exam_time" id="exam_time" class="form-control shadow">
+                            <input type="time" name="exam_time" id="exam_time" class="form-control shadow"
+                                required>
                         </div>
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-warning">Submit</button>
                     </div>
                 </form>
-
-
             </div>
         </div>
     </div>

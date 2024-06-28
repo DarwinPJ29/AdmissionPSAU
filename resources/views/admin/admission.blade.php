@@ -49,7 +49,7 @@
                                         </li>
                                         <li>
                                             <a class="dropdown-item d-flex" data-bs-toggle="modal"
-                                                data-bs-target="#schedule">
+                                                data-bs-target="#schedule{{ $user->id }}">
                                                 <i class="fa-solid fa-calendar fs-5 text-primary"></i>
                                                 <label class="fs-text ms-3 fw-bold curser">Schedule</label>
                                             </a>
@@ -60,7 +60,6 @@
                         </tr>
                         @include('modals.filledup_form')
                     @endforeach
-
                 </tbody>
             </table>
         </div>
