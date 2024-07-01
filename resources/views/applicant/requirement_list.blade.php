@@ -3,13 +3,19 @@
     <div class="container">
         @include('applicant.forms.header')
 
-        <div class="text-uppercase mt-5">List of Requirements</div>
+        <div class="mt-5 d-flex justify-content-between">
 
-        @if ($remarks != null || $remarks != '')
-            <div>
-                <h1 class="text-danger">{{ $remarks }}</h1>
-            </div>
-        @endif
+            <div class="text-uppercase">List of Requirements</div>
+
+            @if ($remarks != null || $remarks != '')
+                <div class="alert alert-warning alert-dismissible fade show " role="alert">
+                    <div class="text-center">
+                        {{ $remarks }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        </div>
         <div class="border rounded border-dark m-0 p-0 overflow-y-scroll scrolled">
             <ul class="list-style-none m-0 p-2">
                 @foreach ($requirements as $req)

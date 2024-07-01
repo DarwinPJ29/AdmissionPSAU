@@ -10,7 +10,7 @@
                         <div class="text-center mt-5">
                             Your Exam date was on
                         </div>
-                        <div class="text-center text-semibold text-warning">
+                        <div class="text-center text-semibold text-warning fw-bold">
                             {{ $sched->date }}<br>
                             {{ $sched->hour }}
                         </div>

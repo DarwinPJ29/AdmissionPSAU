@@ -13,7 +13,7 @@
                         <div class="col-7">
                             <label for="requirement">Requirements <span class="text-danger">*</span></label>
                             <input type="text" name="requirement" id="requirement" class="form-control shadow"
-                                placeholder="Enter Department Name:" value="{{ old('requirement') }}" required>
+                                placeholder="Enter Requirements:" value="{{ old('requirement') }}" required>
                             @error('requirement')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
