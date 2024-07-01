@@ -22,7 +22,12 @@
                                 style="max-width: 80%">
                         </div>
                     </div>
-                    <h1> Please wait for your evaluation</h1>
+                    <div class="d-flex justify-content-center">
+                        <div class="">
+                            <i class="fa-solid fa-arrows-spin rotate text-center p-4 text-warning fs-3"></i>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center text-success fw-semibold"> Please wait for your evaluation</div>
+                    </div>
                 </div>
             </div>
         </div>

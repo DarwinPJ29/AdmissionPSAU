@@ -26,15 +26,16 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#">
-                                                <i class="fa-solid fa-brain fs-5 text-success"></i>
-                                                <label class="fs-text ms-3 fw-bold curser">dfg</label>
+                                            <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#evaluation">
+                                                <i class="fa-solid fa-eye fs-5 text-secondary"></i>
+                                                <label class="fs-text ms-3 fw-bold curser">Review</label>
                                             </a>
                                         </li>
 
                                     </ul>
                                 </div>
                             </td>
+                            @include('modals.evaluation_modal')
                         </tr>
                 </tbody>
             </table>
