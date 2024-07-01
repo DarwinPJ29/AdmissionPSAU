@@ -29,7 +29,6 @@ class Requirement extends Controller
             return redirect()->back()->with('failed', 'Requirement for must select atleast one');
         }
 
-
         $requirement = ModelsRequirement::where('title', $request->requirement)->first();
 
         if ($requirement != null) {

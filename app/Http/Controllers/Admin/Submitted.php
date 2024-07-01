@@ -171,7 +171,7 @@ class Submitted extends Controller
         $user_information = Information::where('user_id', $user->id)->first();
         $applicant_name = $user_information->first_name . " " . $user_information->middle_name . " " . $user_information->last_name;
 
-        Mail::to($user->email)->send(new Returned($applicant_name, $user->remarks));
+        Mail::to($user->email)->send(new Returned($applicant_name, $user->requirements_remarks));
 
         return redirect()->back()->with('success', 'Requirements Successfully returned');
     }

@@ -100,7 +100,7 @@ Route::controller(NotificationController::class)->group(function () {
 
 // exam
 Route::controller(Exam::class)->group(function () {
-    Route::any('/exam', 'exam')->name('exam');
+    Route::any('/exam', 'Exam')->name('exam');
 });
 
 // Evaluation

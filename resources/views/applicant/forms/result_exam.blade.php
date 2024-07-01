@@ -13,7 +13,7 @@
                             Your Exam result was
                         </div>
                         <div class="text-center text-semibold text-warning">
-                            10 <span class="text-dark"> out of</span> 100
+                            {{ $result->score }} <span class="text-dark"> out of</span> {{ $result->total }}
                         </div>
                     </div>
                     <div class="col-md-6 d-md-block d-none">
@@ -22,6 +22,7 @@
                                 style="max-width: 80%">
                         </div>
                     </div>
+                    <h1> Please wait for your evaluation</h1>
                 </div>
             </div>
         </div>

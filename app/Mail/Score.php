@@ -9,24 +9,25 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Sched extends Mailable
+class Score extends Mailable
 {
     use Queueable, SerializesModels;
 
-
     public $applicant_name;
-    public $sched;
+    public $score;
+    public $total;
 
-    public function __construct($applicant_name, $sched)
+    public function __construct($applicant_name, $score, $total)
     {
         $this->applicant_name = $applicant_name;
-        $this->sched = $sched;
+        $this->score = $score;
+        $this->total = $total;
     }
 
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Schedule of Exam',
+            subject: 'Result of Examination',
         );
     }
 
@@ -36,7 +37,7 @@ class Sched extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.schedule_exam',
+            view: 'mail.result_exam',
         );
     }
 
