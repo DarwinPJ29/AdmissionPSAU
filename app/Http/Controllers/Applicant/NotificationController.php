@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 class NotificationController extends Controller
@@ -11,7 +12,7 @@ class NotificationController extends Controller
     {
         $user = auth()->user();
         if ($user->schedule_done) {
-            return redirect()->route('reviews');
+            return redirect()->route('schedule');
         }
 
         if ($request->isMethod('get')) {
@@ -20,8 +21,15 @@ class NotificationController extends Controller
     }
     public function Schedule(Request $request)
     {
-        if ($request->isMethod('get')) {
-            return view('applicant.forms.exam_date');
+        $user = auth()->user();
+        if ($user->schedule_done) {
+
+            if ($request->isMethod('get')) {
+                $sched = Result::select('date', 'hour')->where('user_id', $user->id)->first();
+                return view('applicant.forms.exam_date', compact('sched'));
+            }
+        } {
+            return view('applicant.forms.review');
         }
     }
     public function Score(Request $request)

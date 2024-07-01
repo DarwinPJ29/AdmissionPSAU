@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Returned;
+use App\Mail\Sched;
 use App\Models\Barangay;
 use App\Models\Choice;
 use App\Models\Educational;
@@ -17,12 +19,14 @@ use App\Models\User;
 use App\Services\Core;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class Submitted extends Controller
 {
     public function Submitted()
     {
-        $users = User::select('id', 'email', 'applicant_no')->where('requirements_done', true)->OrderBy('created_at', 'asc')->get();
+        $users = User::select('id', 'email', 'applicant_no')->where('requirements_done', true)
+            ->where('schedule_done', false)->OrderBy('created_at', 'asc')->get();
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
             $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
@@ -163,6 +167,12 @@ class Submitted extends Controller
         $user->requirements_done = 0;
         $user->requirements_remarks = $request->input('reason') . '. Please resubmit your requirements until ' . $formattedDeadline;
         $user->update();
+
+        $user_information = Information::where('user_id', $user->id)->first();
+        $applicant_name = $user_information->first_name . " " . $user_information->middle_name . " " . $user_information->last_name;
+
+        Mail::to($user->email)->send(new Returned($applicant_name, $user->remarks));
+
         return redirect()->back()->with('success', 'Requirements Successfully returned');
     }
 
@@ -183,8 +193,12 @@ class Submitted extends Controller
             'hour' => $hour,
         ];
 
-        Core::Save('Result', $data, $result->id == null ? 0 : $result->id);
+        Core::Save('Result', $data, $result == null ? 0 : $result->id);
 
+        $user_information = Information::where('user_id', $user->id)->first();
+        $applicant_name = $user_information->first_name . " " . $user_information->middle_name . " " . $user_information->last_name;
+
+        Mail::to($user->email)->send(new Sched($applicant_name, $date . ' ' . $hour));
         return redirect()->back()->with('success', 'Schdule for exam has been successfully assigned');
     }
 }

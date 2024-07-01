@@ -98,7 +98,6 @@ Route::controller(NotificationController::class)->group(function () {
     Route::any('/status', 'Status')->name('status')->middleware('auth', 'can:applicant');
 });
 
-
 // exam
 Route::controller(Exam::class)->group(function () {
     Route::any('/exam', 'exam')->name('exam');

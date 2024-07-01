@@ -11,8 +11,8 @@
                             Your Exam date was on
                         </div>
                         <div class="text-center text-semibold text-warning">
-                            Friday 02:00 pm <br>
-                            January, 29 2024
+                            {{ $sched->date }}<br>
+                            {{ $sched->hour }}
                         </div>
                         <div class="text-center">
                             Be ready and Goodluck to your examinations!
