@@ -86,7 +86,6 @@ class Evaluation extends Controller
             'second' => $request->has('second'),
         ]);
 
-
         $result = Result::where('user_id', $request->id)->first();
         $choice = Choice::where('user_id', $request->id)->first();
 
@@ -100,6 +99,7 @@ class Evaluation extends Controller
         }
 
         $result->course_id = $courseId;
+        $result->evaluation = 'Passed';
         $result->update();
 
         $user = User::find($request->input('id'));
@@ -120,5 +120,26 @@ class Evaluation extends Controller
 
         Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
         return redirect()->back()->with('success', 'Score successfully submit');
+    }
+
+    public function Deny($id)
+    {
+        $result = Result::where('user_id', $id)->first();
+        $result->course_id = '';
+        $result->evaluation = 'Passed';
+        $result->update();
+
+        $choice = Choice::where('user_id', $id)->first();
+        $labelCourse  = [];
+
+        $course1 = Courses::find($choice->first);
+        if ($course1 != null) {
+            array_push($labelCourse, $course1->title . ' (' . $course1->acronym . ') ');
+        }
+
+        $course2 = Courses::find($choice->second);
+        if ($course2 != null) {
+            array_push($labelCourse, $course2->title . ' (' . $course2->acronym . ') ');
+        }
     }
 }
