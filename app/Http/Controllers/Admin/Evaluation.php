@@ -99,11 +99,12 @@ class Evaluation extends Controller
         }
 
         $result->course_id = $courseId;
-        $result->evaluation = 'Passed';
+        $result->evaluation = 1;
         $result->update();
 
         $user = User::find($request->input('id'));
         $user->evaluation = true;
+        $user->status = true;
         $user->update();
 
         $info = Information::where('user_id', $user->id)->first();
@@ -114,32 +115,43 @@ class Evaluation extends Controller
         foreach ($course as $value) {
             $courses = Courses::find($value);
             if ($courses != null) {
-                array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ') ');
+                array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ') is PASSED');
             }
         }
 
         Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
-        return redirect()->back()->with('success', 'Score successfully submit');
+        return redirect()->back()->with('success', 'Successfully admitted');
     }
 
     public function Deny($id)
     {
         $result = Result::where('user_id', $id)->first();
         $result->course_id = '';
-        $result->evaluation = 'Passed';
+        $result->evaluation = 0;
         $result->update();
+
+        $user = User::find($id);
+        $user->evaluation = true;
+        $user->status = false;
+        $user->update();
 
         $choice = Choice::where('user_id', $id)->first();
         $labelCourse  = [];
 
         $course1 = Courses::find($choice->first);
         if ($course1 != null) {
-            array_push($labelCourse, $course1->title . ' (' . $course1->acronym . ') ');
+            array_push($labelCourse, $course1->title . ' (' . $course1->acronym . ') is FAILED');
         }
 
         $course2 = Courses::find($choice->second);
         if ($course2 != null) {
-            array_push($labelCourse, $course2->title . ' (' . $course2->acronym . ') ');
+            array_push($labelCourse, $course2->title . ' (' . $course2->acronym . ') is FAILED');
         }
+
+        $info = Information::where('user_id', $user->id)->first();
+        $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+
+        Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
+        return redirect()->back()->with('success', 'Successfully Deny');
     }
 }

@@ -53,7 +53,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary shadow" data-bs-dismiss="modal">Close</button>
-                        <button type="buttom" class="btn btn-danger shadow">Deny</button>
+                        <a href="{{ route('deny', $user->id) }}" class="btn btn-danger shadow">Deny</a>
                         <button type="submit" class="btn btn-warning shadow">Admit</button>
                     </div>
                 </form>
