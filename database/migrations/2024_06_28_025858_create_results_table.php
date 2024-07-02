@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('hour')->nullable();
             $table->integer('score')->nullable();
             $table->integer('total')->nullable();
-            $table->ulid('course_id')->nullable();
+            $table->string('course_id')->nullable();
             $table->boolean('evaluation')->nullable();
             $table->timestamps();
         });

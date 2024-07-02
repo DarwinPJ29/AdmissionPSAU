@@ -108,11 +108,11 @@
                     <div class="border-bottom border-dark mt-5">Section B:</div>
                     <div class="row my-2">
                         <div class="col-sm-6 col-md-4">
-                            <div class="text-center text-uppercase">{{ $user->first }}</div>
+                            <div class="text-center text-uppercase">{{ $user->first_choice }}</div>
                             <div class="text text-muted text-center text-uppercase">1st Choice</div>
                         </div>
                         <div class="col-sm-6 col-md-4">
-                            <div class="text-center text-uppercase">{{ $user->second }}</div>
+                            <div class="text-center text-uppercase">{{ $user->second_choice }}</div>
                             <div class="text text-muted text-center text-uppercase">2nd Choice</div>
                         </div>
 

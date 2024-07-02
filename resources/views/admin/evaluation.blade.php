@@ -14,10 +14,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($users as $user)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $user->applicant_no }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>
                                 <div class="dropdown text-center">
                                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -26,7 +27,8 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#evaluation">
+                                            <a class="dropdown-item d-flex" data-bs-toggle="modal"
+                                                data-bs-target="#evaluation{{ $user->id }}">
                                                 <i class="fa-solid fa-eye fs-5 text-secondary"></i>
                                                 <label class="fs-text ms-3 fw-bold curser">Review</label>
                                             </a>
@@ -37,6 +39,7 @@
                             </td>
                             @include('modals.evaluation_modal')
                         </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

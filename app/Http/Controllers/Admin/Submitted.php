@@ -7,6 +7,7 @@ use App\Mail\Returned;
 use App\Mail\Sched;
 use App\Models\Barangay;
 use App\Models\Choice;
+use App\Models\Courses;
 use App\Models\Educational;
 use App\Models\Guardian;
 use App\Models\Information;
@@ -58,9 +59,12 @@ class Submitted extends Controller
             // SECB
             $currentYear = date('Y');
             $choice = Choice::where('user_id', $value['id'])->where('school_year', $currentYear . '-' . ($currentYear + 1))->first();
+
             if ($choice != null) {
-                $value['first_choice'] = $choice->first;
-                $value['second_choice'] = $choice->second;
+                $course1 = Courses::find($choice->first);
+                $course2 = Courses::find($choice->second);
+                $value['first_choice'] = $course1->title . ' (' . $course1->acronym . ')';
+                $value['second_choice'] = $course2->title . ' (' . $course2->acronym . ')';
                 $value['school_year'] = $choice->school_year == '' ? $currentYear . '-' . ($currentYear + 1) : $choice->school_year;
                 $value['semester'] = $choice->semester;
                 $value['applicant_type'] = $choice->type;

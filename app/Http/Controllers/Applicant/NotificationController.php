@@ -39,7 +39,7 @@ class NotificationController extends Controller
             return view('applicant.forms.result_exam', compact('result'));
         }
 
-        return redirect()->route('evaluation');
+        return redirect()->route('evaluate');
     }
     public function Evaluation(Request $request)
     {

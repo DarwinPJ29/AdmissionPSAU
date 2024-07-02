@@ -34,16 +34,23 @@ trait SecB
         } else {
             $this->school_year = $currentYear . '-' . ($currentYear + 1);
         }
+        $query1 = Courses::select('id', 'title')
+            ->orderBy('title', 'asc');
 
-        $this->courses_choice1 = Courses::select('id', 'title')
-            ->whereNotIn('id', [$this->second_choice])
-            ->orderBy('title', 'asc')
-            ->get();
+        if (!is_null($this->second_choice) && $this->second_choice !== '') {
+            $query1->whereNotIn('id', [$this->second_choice]);
+        }
 
-        $this->courses_choice2 = Courses::select('id', 'title')
-            ->whereNotIn('id', [$this->first_choice])
-            ->orderBy('title', 'asc')
-            ->get();
+        $this->courses_choice1 = $query1->get();
+
+        $query2 = Courses::select('id', 'title')
+            ->orderBy('title', 'asc');
+
+        if (!is_null($this->first_choice) && $this->first_choice !== '') {
+            $query2->whereNotIn('id', [$this->first_choice]);
+        }
+
+        $this->courses_choice2 = $query2->get();
     }
 
 
