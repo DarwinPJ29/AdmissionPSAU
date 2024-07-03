@@ -210,3 +210,40 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
  .size{
     font-size: 70px;
  }
+
+
+ @media only screen and (max-width: 431px){
+    .f-title {
+        font-size: 14px !important;
+    }
+    .f-tag {
+        font-size: 12px !important;
+    }
+    .f-text {
+        font-size: 10px;
+    }
+}
+ @media only screen and (max-width: 780px) {
+    .f-title {
+        font-size: 18px;
+    }
+    .f-tag {
+        font-size: 16px !important;
+    }
+    .f-text {
+        font-size: 14px;
+    }
+}
+
+ @media only screen and (min-width: 781px) {
+    .f-title{
+        font-size: 30px;
+    }
+    .f-tag{
+        font-size: 20px !important;
+    }
+    .f-text{
+        font-size: 16px;
+    }
+
+  }

@@ -4,8 +4,8 @@
             style="max-height: 150px">
     </div>
     <div class="w-100">
-        <div class="text-uppercase fs-3 ms-3">pampanga state agricultural university</div>
-        <div class="fw-bold fs-3 ms-3">Office of Admission and Registration </div>
+        <div class="text-uppercase fs-3 ms-3 fs-style">pampanga state agricultural university</div>
+        <div class="fw-semibold fs-3 ms-3">Office of Admission and Registration </div>
         <hr class="border border-dark border-2 opacity-75 w-100">
     </div>
 </div>
@@ -74,7 +74,7 @@
             <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Result of evaluation
             </div>
         </div>
-        <div style="width:5%">
+        {{-- <div style="width:5%">
             <hr class="border border-success opacity-75">
         </div>
         <div class="d-flex flex-column">
@@ -84,7 +84,7 @@
             </div>
             <div class=" d-flex flex-column justify-content-center ms-2 fw-semibold text-center" style="font-size: 9px">Enrollment
             </div>
-        </div>
+        </div> --}}
     </div>
 
 </div>

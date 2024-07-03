@@ -26,6 +26,10 @@ class HomeController extends Controller
     {
         return view('landingpage.admission');
     }
+    public function homes()
+    {
+        return view('mail.admitted');
+    }
     public function notif()
     {
         return view('landingpage.notif');

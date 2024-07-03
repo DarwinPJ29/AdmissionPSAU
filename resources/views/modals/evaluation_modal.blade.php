@@ -6,11 +6,11 @@
                 <h1 class="modal-title fs-5 " id="staticBackdropLabel">Evaluation View</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body border shadow">
-                <form action="{{ route('evaluation') }}" method="post">
-                    @csrf
+            <form action="{{ route('evaluation') }}" method="post">
+                @csrf
+                <div class="modal-body overflow-y-auto" style="max-height: 70vh">
                     <div class="container">
-                        <h3 class="text-center bold">{{ $user->name }}</h3>
+                        <h3 class="text-center bold text-uppercase">{{ $user->name }}</h3>
                         <input type="text" name='id' value="{{ $user->id }}" hidden>
                         <div class="score ">
                             <label class="fw-bold">Exam score is</label>
@@ -19,20 +19,31 @@
                         <hr>
                         <div class="list">
                             <label class="mb-2 fw-bold">List or Requirements Submitted</label>
-                            <ol class="row">
+                            <div class="row mt-3">
                                 @foreach ($user->requirements as $item)
-                                    <div class="col-md-4">
-                                        <li>
-                                            {{ $item['title'] }}
-                                        </li>
+                                    <div class="col-sm-6">
+                                        <div class="container">
+                                            <div class="text-center text-uppercase">
+                                                <img data-enlargable
+                                                    src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
+                                                    alt="" class="img-fluid file-uploaded rounded">
+                                            </div>
+                                            <div class="fs-style text-center text-uppercase text-danger text fw-bold">
+                                                Click
+                                                image
+                                                to Larger</div>
+                                            <div class="text-center text-uppercase">{{ $item['title'] }}</div>
+                                            <div class="text-center text-uppercase text-muted text">
+                                                {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
+                                        </div>
                                     </div>
                                 @endforeach
-                            </ol>
+                            </div>
                         </div>
                         <hr>
                         <div class="choice mb-3">
                             <label class="mb-2 fw-bold">Course</label>
-                            <div class="mt-2 d-flex justify-content-evenly">
+                            <div class="mt-2 d-flex justify-content-evenly text-uppercase">
                                 <div class="">
                                     <div class="d-flex border-bottom border-dark">
                                         <input type="checkbox" class="me-2" name="first" id="first">
@@ -56,8 +67,8 @@
                         <a href="{{ route('deny', $user->id) }}" class="btn btn-danger shadow">Deny</a>
                         <button type="submit" class="btn btn-warning shadow">Admit</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -83,5 +94,26 @@
         secondCheckbox.addEventListener('change', updateRequiredCheckboxes);
 
         updateRequiredCheckboxes(); // Initialize on page load
+    });
+</script>
+
+
+
+<script>
+    $('img[data-enlargable]').addClass('img-enlargable').click(function() {
+        var src = $(this).attr('src');
+        $('<div>').css({
+            background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+            backgroundSize: 'contain',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            zIndex: '10000',
+            top: '0',
+            left: '0',
+            cursor: 'zoom-out'
+        }).click(function() {
+            $(this).remove();
+        }).appendTo('body');
     });
 </script>

@@ -37,6 +37,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::any('/', 'index')->name('index')->middleware('guest');
     Route::any('/student/applyNow', 'ApplyNow')->name('ApplyNow')->middleware('guest');
     Route::any('/student/check-email', 'notif')->name('notif');
+    Route::any('/sample', 'homes')->name('homes');
 });
 
 // Authentications
