@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Courses;
 use App\Models\Result;
 use Illuminate\Http\Request;
 
@@ -43,14 +44,23 @@ class NotificationController extends Controller
     }
     public function Evaluation(Request $request)
     {
-        if ($request->isMethod('get')) {
-            return view('applicant.forms.result_evaluation');
-        }
-    }
-    public function Status(Request $request)
-    {
-        if ($request->isMethod('get')) {
-            return view('applicant.forms.status');
+        if (auth()->user()->evaluation) {
+            if ($request->isMethod('get')) {
+
+                $result = Result::where('user_id', auth()->user()->id)->first();
+
+                $course = explode(",", $result->course_id);
+                $labelCourse = [];
+                foreach ($course as $value) {
+                    $courses = Courses::find($value);
+                    if ($courses != null) {
+                        array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ')');
+                    }
+                }
+                return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
+            }
+        } else {
+            return redirect()->route('loading');
         }
     }
 }
