@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Admin\Evaluation;
 use App\Http\Controllers\Admin\Exam;
+use App\Http\Controllers\Admin\Record;
 use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\Admin\Submitted;
 use App\Http\Controllers\AdminController;
@@ -113,4 +114,9 @@ Route::controller(Evaluation::class)->group(function () {
 // Region, Municipality and Barangay
 Route::controller(StaticData::class)->group(function () {
     Route::any('/data', 'SetData');
+});
+// Records
+Route::controller(Record::class)->group(function () {
+    Route::any('/records', 'records')->name('records');
+    Route::any('/records/denied', 'denied')->name('denied');
 });

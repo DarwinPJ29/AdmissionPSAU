@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-lg d-flex flex-column sticky-top" id="navbar">
     <div class="container">
         <div class="row w-100">
-            <div class="col-sm-9 text-break">
+            <div class="col-sm-9 text-break ">
                 <a class="navbar-brand d-flex" href="{{ route('index') }}">
                     <div class="d-flex flex-column justify-content-center">
                         <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="nav-logo img-fluid">
                     </div>
                     <div class="d-flex flex-column justify-content-center">
-                        <span class="text-uppercase ms-1 fs-style">pampanga state <br>agricultural university</span>
+                        <div class="text-uppercase ms-1 fs-style f-title" style="line-height: 25px">pampanga state <br>agricultural university</div>
                     </div>
                 </a>
             </div>
 
             <div class="col-sm-3 d-flex flex-column justify-content-center">
                 <a href="{{ route('login') }}" class="text-end  nav-link">
-                    <div class="btn btn-sm rounded btn-outline-success m-1">Log in</div>
+                    <div class="btn btn-sm rounded btn-outline-success m-1 f-text">Log in</div>
                 </a>
             </div>
         </div>
@@ -30,11 +30,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::segment(2) == '' ? 'activated' : '' }}" aria-current="page"
+                    <a class="nav-link text-dark f-text {{ Request::segment(2) == '' ? 'activated' : '' }}" aria-current="page"
                         href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ Request::segment(2) == 'applyNow' ? 'activated' : '' }} "
+                    <a class="nav-link text-dark f-text {{ Request::segment(2) == 'applyNow' ? 'activated' : '' }} "
                         aria-current="page" href="{{ route('ApplyNow') }}">Apply Now</a>
                 </li>
             </ul>

@@ -39,12 +39,7 @@
                             class="fa-solid fa-file me-2"></i>
                         Requirments</a>
                 </li>
-                {{-- <li class="nav-item rounded mb-1">
-                    <a href="{{ route('interviewee') }}"
-                        class="nav-link ps-2  {{ Request::segment(2) === 'interviewee' ? 'activeDashboard shadow' : 'text-dark' }}"><i
-                            class="fa-solid fa-users me-2"></i>
-                        Interviewee</a>
-                </li> --}}
+
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('exam') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'exam' ? 'activeDashboard shadow' : 'text-dark' }}"><i
@@ -56,6 +51,12 @@
                         class="nav-link ps-2  {{ Request::segment(1) === 'evaluation' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-square-poll-vertical me-2"></i>
                         Evaluation</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href="{{ route('records') }}"
+                        class="nav-link ps-2  {{ Request::segment(1) === 'records' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-clipboard-user me-2"></i>
+                        Records</a>
                 </li>
 
             </ul>
