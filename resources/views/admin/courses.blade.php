@@ -3,17 +3,21 @@
 @section('content')
 
     <div class="container">
-        <div class="text-end mt-3">
-            <div class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#program"><i
-                    class="fa-solid fa-plus me-1"></i>Add</div>
+        <div class=" mt-3 d-flex justify-content-end gap-1">
+            <div class="btn shadow btn-success" data-bs-toggle="modal" data-bs-target="#departments"><i
+                class="fa-solid fa-plus me-1 f-text"></i>Add Department
+        </div>
+            <div class="btn shadow btn-warning" data-bs-toggle="modal" data-bs-target="#program"><i
+                    class="fa-solid fa-plus me-1 f-text"></i>Add Course
+            </div>
         </div>
         <div class="border rounded p-3 shadow mt-3 ">
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col-3">Image</th>
+                        <th class="col-2">Image</th>
                         <th class="col-3">Name</th>
-                        <th class="col-4">Acronym</th>
+                        <th class="col-2">Department</th>
                         <th class="col-4">Description</th>
                         <th class="col-1">Action</th>
                     </tr>
@@ -27,8 +31,8 @@
 
                                 </div>
                             </td>
-                            <td>{{ $course->title }}</td>
-                            <td>{{ $course->acronym }}</td>
+                            <td class="text-uppercase">{{ $course->title }} - ({{ $course->acronym }})</td>
+                            <td class="text-uppercase">department</td>
                             <td>{{ $course->description }}</td>
                             <td>
                                 <div class="dropdown text-center">

@@ -10,8 +10,11 @@
                 <a href="" class="nav-link rounded-circle "
                     data-bs-toggle="dropdown">
                     <div class=" p-2">
-                        <div class="btn btn-outline-warning d-flex">
+                        <div class="btn btn-outline-warning d-flex" style=" border: none;
+        box-shadow: none;">
                             <div class="text-dark me-2">Name</div>
+                            {{-- <div class="text-dark me-2">{{ auth()->user()->name }}</div> --}}
+
                             <div class="ms-2 text-dark d-flex flex-column justify-content-center">
                                 <i class="fa-solid fa-caret-down"></i>
                             </div>
