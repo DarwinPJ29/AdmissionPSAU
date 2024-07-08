@@ -4,7 +4,21 @@
 </div>
 <div class="border border-dark p-2 rounded-bottom-1">
     <div class="row border-bottom border-dark m-0">
-        <div class="col-4 border-end text-end"><label class="">First Choice</label></div>
+        <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label class="application_type">Application type</label></div>
+        <div class="col-8 p-2">
+            <select name="application_type" id="applicant_type" class="form-select shadow text-uppercase" wire:model='applicant_type'
+                wire:change='SecBSetData' required>
+                <option value="" selected hidden>Select type:</option>
+                <option value="1" @selected($application_type = 1)>Doctoral</option>
+                <option value="2" @selected($application_type = 2)>Masteral</option>
+                <option value="3" @selected($application_type = 3)>Second Courser</option>
+                <option value="4" @selected($application_type = 4)>Transferee</option>
+                <option value="5" @selected($application_type = 5)>Freshmen</option>
+            </select>
+        </div>
+    </div>
+    <div class="row border-bottom border-dark m-0">
+        <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label class="">First Choice</label></div>
         <div class="col-8 p-2">
             <select name="first_choice" id="first_choice" class="form-select shadow text-uppercase" wire:model='first_choice'
                 wire:change='SecBSetData' required>
@@ -17,7 +31,7 @@
 
     </div>
     <div class="row border-bottom border-dark m-0">
-        <div class="col-4 border-end text-end"><label class="">Second Choice</label></div>
+        <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label class="">Second Choice</label></div>
         <div class="col-8 p-2">
             <select name="second_choice" id="second_choice" class="form-select shadow text-uppercase" wire:model='second_choice'
                 wire:change='SecBSetData' required>
@@ -29,7 +43,7 @@
         </div>
 
     </div>
-    <div class="row border-bottom border-dark m-0">
+    <div class="row m-0">
         <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label class="">Prefered
                 Date of Enrolment</label>
         </div>
@@ -53,20 +67,7 @@
         </div>
 
     </div>
-    <div class="row border-bottom border-dark m-0">
-        <div class="col-4 border-end text-end"><label class="application_type">Application type</label></div>
-        <div class="col-8 p-2">
-            <select name="application_type" id="applicant_type" class="form-select shadow text-uppercase" wire:model='applicant_type'
-                wire:change='SecBSetData' required>
-                <option value="" selected hidden>Select type:</option>
-                <option value="1" @selected($application_type = 1)>Doctoral</option>
-                <option value="2" @selected($application_type = 2)>Masteral</option>
-                <option value="3" @selected($application_type = 3)>Second Courser</option>
-                <option value="4" @selected($application_type = 4)>Transferee</option>
-                <option value="5" @selected($application_type = 5)>Freshmen</option>
-            </select>
-        </div>
-    </div>
+
 
 </div>
 <div class="my-3 gap-2 d-flex justify-content-end">

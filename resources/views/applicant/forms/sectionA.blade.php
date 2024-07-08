@@ -64,20 +64,21 @@
                 value="{{ $place_birth }}" wire:model='place_birth' wire:keyup='SecASetData' required>
 
         </div>
-        <div class="col-md-2 col-sm-6">
+        <div class="col-md-4 col-sm-6">
             <label for="birth_date">Date of Birth <span class="text-danger">*</span></label>
             <input type="date" name="birth_date" id="birth_date" class="form-control text-uppercase shadow"
                 wire:model='birth_date' wire:change='SecASetData' value="{{ $birth_date }}" required>
 
         </div>
-        <div class="col-md-2 col-sm-6">
+
+
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-4">
             <label for="citizenship">Citizenship<span class="text-danger">*</span></label>
             <input type="text" name="citizenship" id="citizenship" class="form-control text-uppercase shadow"
                 value="{{ $citizenship }}" wire:model='citizenship' wire:keyup='SecASetData' required>
         </div>
-
-    </div>
-    <div class="row mb-2">
         <div class="col-md-4">
             <label for="religion">Religion<span class="text-danger">*</span></label>
             <input type="text" name="religion" id="religion" class="form-control text-uppercase shadow"
@@ -97,7 +98,7 @@
         </div>
     </div>
     <div class="row mb-2">
-        <div class="col-md-2 col-sm-4">
+        <div class="col-md-4">
             <label for="province">Province<span class="text-danger">*</span></label>
             <select name="province" id="province" class="form-select text-uppercase shadow" wire:model='province'
                 wire:change='SecASetData' required>
@@ -107,7 +108,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-5 col-sm-8">
+        <div class="col-md-4">
             <label for="municipality">Municipality<span class="text-danger">*</span></label>
             <select name="municipality" id="municipality" class="form-select text-uppercase shadow"
                 wire:model='municipality' wire:change='SecASetData' required>
@@ -117,7 +118,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-5 col-sm-12">
+        <div class="col-md-4">
             <label for="barangay">Barangay<span class="text-danger">*</span></label>
             <select name="barangay" id="barangay" class="form-select text-uppercase shadow" wire:model='barangay'
                 wire:change='SecASetData' required>
