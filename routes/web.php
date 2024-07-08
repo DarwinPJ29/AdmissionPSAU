@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Admin\Evaluation;
 use App\Http\Controllers\Admin\Exam;
 use App\Http\Controllers\Admin\Record;
+use App\Http\Controllers\Admin\Report;
 use App\Http\Controllers\Admin\Requirement;
 use App\Http\Controllers\Admin\Submitted;
 use App\Http\Controllers\AdminController;
@@ -119,4 +120,8 @@ Route::controller(StaticData::class)->group(function () {
 Route::controller(Record::class)->group(function () {
     Route::any('/records', 'records')->name('records');
     Route::any('/records/denied', 'denied')->name('denied');
+});
+// Reports
+Route::controller(Report::class)->group(function () {
+    Route::any('/report', 'report')->name('report');
 });

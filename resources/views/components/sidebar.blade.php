@@ -58,6 +58,12 @@
                             class="fa-solid fa-clipboard-user me-2"></i>
                         Records</a>
                 </li>
+                <li class="nav-item rounded mb-1">
+                    <a href="{{ route('report') }}"
+                        class="nav-link ps-2  {{ Request::segment(1) === 'report' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-folder-tree me-2"></i>
+                        Reports</a>
+                </li>
 
             </ul>
         </div>
