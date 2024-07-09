@@ -5,10 +5,10 @@
     <div class="container">
         <div class=" mt-3 d-flex justify-content-end gap-1">
             <div class="btn shadow btn-success" data-bs-toggle="modal" data-bs-target="#departments"><i
-                class="fa-solid fa-plus me-1 f-text"></i>Add Department
-        </div>
+                    class="fa-solid fa-plus me-1 f-text"></i>Add College
+            </div>
             <div class="btn shadow btn-warning" data-bs-toggle="modal" data-bs-target="#program"><i
-                    class="fa-solid fa-plus me-1 f-text"></i>Add Course
+                    class="fa-solid fa-plus me-1 f-text"></i>Add Courses
             </div>
         </div>
         <div class="border rounded p-3 shadow mt-3 ">
@@ -27,7 +27,8 @@
                         <tr>
                             <td>
                                 <div class=" d-flex justify-content-center">
-                                <img src="{{ Storage::url('courses/' . $course->file) }}" alt="" class="img-fluid course-img">
+                                    <img src="{{ Storage::url('courses/' . $course->file) }}" alt=""
+                                        class="img-fluid course-img">
 
                                 </div>
                             </td>
@@ -49,7 +50,8 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#programDelete{{ $course->id }}">
+                                            <a class="dropdown-item d-flex" data-bs-toggle="modal"
+                                                data-bs-target="#programDelete{{ $course->id }}">
                                                 <i class="fa fa-trash fs-5 text-danger"></i>
                                                 <label class="fs-text ms-3 fw-bold curser">Delete</label>
                                             </a>

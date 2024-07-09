@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\College;
 use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Admin\Evaluation;
 use App\Http\Controllers\Admin\Exam;
@@ -66,6 +67,12 @@ Route::controller(Submitted::class)->group(function () {
     Route::any('/sched/{id}', 'Schedule')->name('sched');
 });
 
+// College
+Route::controller(College::class)->group(function () {
+    Route::any('/colleges', 'College')->name('college');
+    Route::any('/colleges/{id}', 'CollegeUpdate')->name('college.update');
+    Route::any('/colleges/delete/{id}', 'CollegeDeleted')->name('college.delete');
+});
 // Course
 Route::controller(Course::class)->group(function () {
     Route::any('/courses', 'courses')->name('courses');
