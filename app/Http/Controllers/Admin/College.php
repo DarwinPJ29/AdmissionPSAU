@@ -12,7 +12,6 @@ class College extends Controller
     {
         if ($request->isMethod('get')) {
             $colleges = ModelsCollege::orderBy('level', 'asc')->get();
-
             foreach ($colleges as $val) {
                 if ($val['level'] == 1)
                     $val['level'] = 'Under Graduate';
@@ -25,7 +24,7 @@ class College extends Controller
             return view('admin.college', compact('colleges'));
         }
 
-        $college = ModelsCollege::where('title', $request->college_title)->orWhere('acronym', $request->college_acronym)->where('level', $request->level)->first();
+        $college = ModelsCollege::where('title', $request->college_title)->where('level', $request->level)->where('acronym', $request->college_acronym)->first();
         $level = '';
         if ($college != null) {
             if ($request->level == 1)
@@ -50,7 +49,7 @@ class College extends Controller
     {
         $college = ModelsCollege::find($id);
         if ($college != null) {
-            $exist = ModelsCollege::where('title', $request->college_title)->orWhere('acronym', $request->college_acronym)->where('level', $request->level)->where('id', '!=', $college->id)->first();
+            $exist = ModelsCollege::where('title', $request->college_title)->where('acronym', $request->college_acronym)->where('level', $request->level)->where('id', '!=', $college->id)->first();
             $level = '';
             if ($exist != null) {
                 if ($request->level == 1)

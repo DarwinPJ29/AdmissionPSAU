@@ -31,7 +31,8 @@
                                 </div>
                             </td>
                             <td class="text-uppercase">{{ $course->title }} - ({{ $course->acronym }})</td>
-                            <td class="text-uppercase">department</td>
+                            <td class="text-uppercase">{{ $course->course_title . ' (' . $course->course_acronym . ')' }}
+                            </td>
                             <td>{{ $course->description }}</td>
                             <td>
                                 <div class="dropdown text-center">
@@ -60,7 +61,6 @@
                             @include('modals.courses_modal')
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         </div>

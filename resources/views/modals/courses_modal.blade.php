@@ -12,19 +12,22 @@
                     @csrf
                     <div class=" row mb-2">
                         <div class="col-md-12">
-                            <label for="department">College<span class="text-danger">*</span></label>
-                            <select name="department" id="department" class="form-select shadow" >
-                                <option value="" selected hidden>Select College:</option>
+                            <label for="college_id">College<span class="text-danger">*</span></label>
+                            <select name="college_id" id="college_id" class="form-select shadow" required>
+                                <option value="" selected>Select College:</option>
+                                @foreach ($colleges as $col)
+                                    <option value="{{ $col->id }}" @selected($col->level == 'Under Graduate')>
+                                        {{ $col->title . ' (' . $col->acronym . ') - ' . $col->level }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
-
                     </div>
                     <div class="mb-2">
                         <label for="img">Upload Image<span class="text-danger">*</span></label>
                         <input type="file" name="file" id="image" class="form-control shadow"
                             accept="image/*">
                     </div>
-
                     <div class="row mb-2">
                         <div class="col-7">
                             <label for="course_title">Course Name <span class="text-danger">*</span></label>
@@ -77,14 +80,16 @@
                             <img src="{{ url('/storage/courses/' . $course->file) }}" alt="" srcset=""
                                 class="img-fluid uploaded rounded shadow mb-2">
                         </div>
-                        <div class=" row mb-2">
-                            <div class="col-md-12">
-                                <label for="department">College<span class="text-danger">*</span></label>
-                                <select name="department" id="department" class="form-select shadow" required>
-                                    <option value="" selected hidden>Select Department:</option>
-                                </select>
-                            </div>
-
+                        <div class="col-md-12">
+                            <label for="college_id">College<span class="text-danger">*</span></label>
+                            <select name="college_id" id="college_id" class="form-select shadow" required>
+                                <option value="" selected>Select College:</option>
+                                @foreach ($colleges as $col)
+                                    <option value="{{ $col->id }}" @selected($course->college_id == $col->id)>
+                                        {{ $col->title . ' (' . $col->acronym . ') - ' . $col->level }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-2">
                             <label for="img">Upload Image <span class="text-danger">*</span></label>
@@ -148,7 +153,8 @@
 
                         <div class="mb-2 text-center fs-3">
                             Are you sure you want to Delete this <br>
-                            <span class="fw-bold text-uppercase">{{ $course->title }} - ({{ $course->acronym }})</span> <br> Course permanently ?
+                            <span class="fw-bold text-uppercase">{{ $course->title }} -
+                                ({{ $course->acronym }})</span> <br> Course permanently ?
                         </div>
 
                         <div class="modal-footer">
@@ -161,4 +167,3 @@
         </div>
     </div>
 @endif
-
