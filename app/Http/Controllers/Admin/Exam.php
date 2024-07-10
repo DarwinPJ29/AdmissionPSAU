@@ -18,13 +18,11 @@ class Exam extends Controller
     {
         if ($request->isMethod('get')) {
             $users = User::select('id', 'email', 'applicant_no')
-                ->where('schedule_done', true)->where('score_done', false)->OrderBy('created_at', 'asc')->get();
+                ->where('schedule_done', true)->OrderBy('created_at', 'asc')->get();
             foreach ($users as $value) {
                 $result = Result::where('user_id', $value->id)->first();
-
                 // Current date
                 $currentDate = Carbon::now()->toDateString();
-
                 if (Carbon::parse($result->date)->isSameDay($currentDate)) {
                     $value['show'] = true;
                 } else {
