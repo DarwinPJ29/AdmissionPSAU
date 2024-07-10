@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignUlid('user_id')->references('id')->on('users');
             $table->string('date')->nullable();
             $table->string('hour')->nullable();
+            $table->string('room')->nullable();
             $table->integer('score')->nullable();
             $table->integer('total')->nullable();
             $table->string('course_id')->nullable();
