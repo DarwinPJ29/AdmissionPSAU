@@ -22,7 +22,7 @@ class College extends Controller
                     $val['level'] = "Doctoral";
             }
 
-            return view('admin.courses', compact('colleges'));
+            return view('admin.college', compact('colleges'));
         }
 
         $college = ModelsCollege::where('title', $request->college_title)->orWhere('acronym', $request->college_acronym)->where('level', $request->level)->first();

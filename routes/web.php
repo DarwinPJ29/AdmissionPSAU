@@ -16,6 +16,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StaticData;
+use App\Models\College as ModelsCollege;
 
 // Redirect the user if auth
 Route::get('/redirect', function () {
@@ -131,4 +132,10 @@ Route::controller(Record::class)->group(function () {
 // Reports
 Route::controller(Report::class)->group(function () {
     Route::any('/report', 'report')->name('report');
+});
+// College
+Route::controller(College::class)->group(function () {
+    Route::any('/college', 'College')->name('college');
+    Route::any('/college/{$id}', 'CollegeUpdate')->name('college.update');
+    Route::any('/college/{$id}', 'CourseDelete')->name('course.delete');
 });
