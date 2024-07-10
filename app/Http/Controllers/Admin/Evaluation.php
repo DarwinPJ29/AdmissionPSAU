@@ -22,7 +22,7 @@ class Evaluation extends Controller
     {
         if ($request->isMethod('get')) {
             $users = User::select('id', 'email', 'applicant_no')
-                ->where('evaluation', false)->OrderBy('created_at', 'asc')->get();
+                ->where('evaluation', false)->where('score_done', true)->OrderBy('created_at', 'asc')->get();
             foreach ($users as $value) {
                 $result = Result::where('user_id', $value->id)->first();
                 $value['result'] = [$result->score, $result->total];
