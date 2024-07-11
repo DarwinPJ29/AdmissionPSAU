@@ -392,7 +392,7 @@
                             <input type="time" name="exam_time" id="exam_time" class="form-control shadow"
                                 required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <label for="room">Location</label>
                             <input type="text" name="room" id="room" class="form-control shadow"
                                 required>

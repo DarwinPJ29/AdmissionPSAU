@@ -28,7 +28,7 @@
                 is a method of scaling test scores on a nine-point standard scale with 9 is the highest and 1 is
                 the lowest.
             </p>
-            <p class="f-text">This is one of the two things that the admitting personnel of your choice programs will look into when you are evaluated, the other being ypour report card/TOR </p>
+            <p class="f-text">This is one of the two things that the admitting personnel of your choice programs will look into when you are evaluated, the other being your report card/TOR </p>
 
             <div class="my-3 f-text">Your STANINE is <span class="fw-semibold">000</span> </div>
 

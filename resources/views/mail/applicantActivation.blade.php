@@ -1,6 +1,8 @@
-<p style="margin-bottom: 10px">Hello <strong>{{ $applicant_name }}</strong></p>
-<p style="margin-bottom: 10px">Please click the Activate button to verify your email and activate your applicant account.</p>
-<p style="margin-bottom: 50px">Your applicant account password is <b>{{ $password }}</b> </p>
+<p style="margin-bottom: 10px">Dear, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
+<p style="margin-bottom: 10px">To complete your account activation, kindly click the activation button provided below to initiate the steps of the process
+    ensuring that all necessary information is accurately verified, and make sure to copy or memorize your account password given below.
+</p>
+<p style="margin-bottom: 30px">Your applicant account password is <b>{{ $password }}</b> </p>
 <a href='{{ route('accountActivation', $user_id) }}'
 style="text-decoration: none;
 margin-top:30px;

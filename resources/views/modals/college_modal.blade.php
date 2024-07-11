@@ -15,9 +15,9 @@
                             <label for="level">Application type<span class="text-danger">*</span> </label>
                             <select name="level" id="level" class="form-select shadow" required>
                                 <option value="" selected hidden>Select Application type:</option>
-                                <option value="1" @selected($college->level == 'Under Graduate')>Under Graduate</option>
-                                <option value="2" @selected($college->level == 'Masteral')>Masteral</option>
-                                <option value="3" @selected($college->level == 'Doctoral')>Doctoral</option>
+                                <option value="1" >Under Graduate</option>
+                                <option value="2">Masteral</option>
+                                <option value="3">Doctoral</option>
                                 {{-- <option value="4" @selected(old('level') == 4)>Second Courser</option>
                                 <option value="5" @selected(old('level') == 5)>Freshmen</option>
                                 <option value="6" @selected(old('level') == 6)>Transferee</option> --}}
