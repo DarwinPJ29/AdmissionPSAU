@@ -16,11 +16,6 @@
                             <input type="number" id="score" name="score" min="0"
                                 class="form-control shadow" required>
                         </div>
-                        <div class="col-6">
-                            <label for="total">Out of</label>
-                            <input type="number" id="total" name="total" min="0"
-                                class="form-control shadow" required>
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

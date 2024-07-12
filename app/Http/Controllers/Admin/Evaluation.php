@@ -25,7 +25,7 @@ class Evaluation extends Controller
                 ->where('evaluation', false)->where('score_done', true)->OrderBy('created_at', 'asc')->get();
             foreach ($users as $value) {
                 $result = Result::where('user_id', $value->id)->first();
-                $value['result'] = [$result->score, $result->total];
+                $value['result'] = [$result->score, $result->total, $result->stanine];
                 $info = Information::where('user_id', $value['id'])->first();
                 $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 

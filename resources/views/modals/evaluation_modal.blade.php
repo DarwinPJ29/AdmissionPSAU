@@ -16,6 +16,10 @@
                             <label class="fw-bold">Exam score is</label>
                             <div class="">{{ $user->result[0] }} out of {{ $user->result[1] }}</div>
                         </div>
+                        <div class="score ">
+                            <label class="fw-bold">STANINE</label>
+                            <div class="">{{ $user->result[2] }} out of 9</div>
+                        </div>
                         <hr>
                         <div class="list">
                             <label class="mb-2 fw-bold">List or Requirements Submitted</label>

@@ -37,9 +37,33 @@ class Exam extends Controller
 
         $result = Result::where('user_id', $request->input('id'))->first();
 
+        $score = $request->input('score');
+
+        $stanine = 0;
+        if ($score >= 1 && $score <= 5) {
+            $stanine = 1;
+        } elseif ($score >= 6 && $score <= 10) {
+            $stanine = 2;
+        } elseif ($score >= 11 && $score <= 15) {
+            $stanine = 3;
+        } elseif ($score >= 16 && $score <= 20) {
+            $stanine = 4;
+        } elseif ($score >= 21 && $score <= 25) {
+            $stanine = 5;
+        } elseif ($score >= 26 && $score <= 30) {
+            $stanine = 6;
+        } elseif ($score >= 31 && $score <= 35) {
+            $stanine = 7;
+        } elseif ($score >= 36 && $score <= 40) {
+            $stanine = 8;
+        } elseif ($score >= 41 && $score <= 45) {
+            $stanine = 9;
+        }
+
         $data = [
             'score' => $request->input('score'),
-            'total' => $request->input('total'),
+            'total' => 45,
+            'stanine' => $stanine
         ];
 
         Core::Save('Result', $data, $result->id);

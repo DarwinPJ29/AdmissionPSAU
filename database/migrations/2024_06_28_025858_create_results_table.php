@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('hour')->nullable();
             $table->string('room')->nullable();
             $table->integer('score')->nullable();
+            $table->integer('stanine')->nullable();
             $table->integer('total')->nullable();
             $table->string('course_id')->nullable();
             $table->boolean('evaluation')->nullable();
