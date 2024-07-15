@@ -15,6 +15,7 @@ use App\Http\Controllers\Applicant\RequirementController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\StaticData;
 use App\Models\College as ModelsCollege;
 
@@ -138,4 +139,8 @@ Route::controller(College::class)->group(function () {
     Route::any('/college', 'College')->name('college');
     Route::any('/college/{$id}', 'CollegeUpdate')->name('college.update');
     Route::any('/college/{$id}', 'CourseDelete')->name('course.delete');
+});
+// PDFs
+Route::controller(PdfController::class)->group(function () {
+    Route::any('/pdf', 'pdf')->name('pdf');
 });

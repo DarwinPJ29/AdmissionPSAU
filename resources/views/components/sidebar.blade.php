@@ -30,13 +30,13 @@
                     <a href="{{ route('college') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'college' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-clipboard-check me-2"></i>
-                        College</a>
+                        Colleges</a>
                 </li>
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('courses') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'courses' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-clipboard-list me-2"></i>
-                        Course</a>
+                        Courses</a>
                 </li>
 
                 <li class="nav-item rounded mb-1">
@@ -49,8 +49,8 @@
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('exam') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'exam' ? 'activeDashboard shadow' : 'text-dark' }}"><i
-                            class="fa-solid fa-brain me-2"></i>
-                        Exam</a>
+                            class="fa-solid fa-users me-2"></i>
+                        Exam Participants</a>
                 </li>
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('evaluation') }}"

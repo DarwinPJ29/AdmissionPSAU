@@ -83,10 +83,10 @@
                 </div>
                 <div class="col-sm-6 col-md-4 ">
                     <div class="card main-bg rounded shadow-md p-3">
-                        <div class="f-text ms-3 fw-semibold mb-1">No. of for Exam</div>
+                        <div class="f-text ms-3 fw-semibold mb-1">No. of Exam Participants</div>
                         <div class="row mb-2 ">
                             <div class="col-md-3">
-                                <i class="fa-solid fa-brain fs-2 rounded shadow p-1 d-flex justify-content-center"></i>
+                                <i class="fa-solid fa-users fs-2 rounded shadow p-1 d-flex justify-content-center"></i>
                             </div>
                             <div class="col-md-9">
                                 <div class="text-center fs-3 ">1</div>
