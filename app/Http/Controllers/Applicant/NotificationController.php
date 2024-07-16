@@ -25,7 +25,7 @@ class NotificationController extends Controller
         $user = auth()->user();
         if (!$user->score_done) {
             if ($request->isMethod('get')) {
-                $sched = Result::select('date', 'hour')->where('user_id', $user->id)->first();
+                $sched = Result::select('date', 'hour', 'room')->where('user_id', $user->id)->first();
                 return view('applicant.forms.exam_date', compact('sched'));
             }
         }

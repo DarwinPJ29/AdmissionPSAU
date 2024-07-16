@@ -12,7 +12,8 @@
                         </div>
                         <div class="text-center text-semibold text-warning fw-bold">
                             {{ $sched->date }}<br>
-                            {{ $sched->hour }}
+                            {{ $sched->hour }}<br>
+                            <label><span class="text-muted">Location: </span>{{ $sched->room }} </label>
                         </div>
                         <div class="text-center">
                             Be ready and Goodluck to your examinations!

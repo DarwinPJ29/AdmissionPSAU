@@ -74,7 +74,7 @@ class Exam extends Controller
 
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
-        Mail::to($user->email)->send(new Score($applicant_name, $request->input('score'), $request->input('total')));
+        Mail::to($user->email)->send(new Score($applicant_name, $request->input('score'), 45));
 
         return redirect()->back()->with('success', 'Score successfully submit');
     }
