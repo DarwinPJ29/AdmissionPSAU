@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Mail\Evaluation as MailEvaluation;
 use App\Models\Choice;
+use App\Models\College;
 use App\Models\Courses;
 use App\Models\Information;
+use App\Models\Recomended;
 use App\Models\Requirement;
 use App\Models\RequirementSubmitted;
 use App\Models\Result;
@@ -81,18 +83,11 @@ class Evaluation extends Controller
             return view('admin.evaluation', compact('users'));
         }
 
-        $request->merge([
-            'first' => $request->has('first'),
-            'second' => $request->has('second'),
-        ]);
-
         $result = Result::where('user_id', $request->id)->first();
         $choice = Choice::where('user_id', $request->id)->first();
 
         $courseId = '';
-        if ($request->first && $request->second) {
-            $courseId = $choice->first . ',' . $choice->second;
-        } else if ($request->first && !$request->second) {
+        if ($request->choice == 'first') {
             $courseId = $choice->first;
         } else {
             $courseId = $choice->second;
@@ -119,8 +114,59 @@ class Evaluation extends Controller
             }
         }
 
-        Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
+        // Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
         return redirect()->back()->with('success', 'Successfully admitted');
+    }
+
+    public function Recommended(Request $request, $id)
+    {
+        if ($request->isMethod('get')) {
+            $user = User::find($id);
+            $info = Information::where('user_id', $user->id)->first();
+            $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+
+            $choice = Choice::where('user_id', $user->id)->first();
+
+            $colleges = College::orderBy('level', 'desc');
+
+            if ($choice->type == 1) {
+                $colleges->where('level', 3);
+                // doctoral = 3
+            } elseif ($choice->type == 2) {
+                $colleges->where('level', 2);
+                // masteral = 2
+            } else {
+                $colleges->where('level', '!=', 3)->where('level', '!=', 2);
+            }
+
+            $colleges = $colleges->get();
+
+            $collegeIds = $colleges->pluck('id')->toArray();
+            $selectedCourse = [$choice->first, $choice->second];
+
+            $courses = Courses::select('id', 'title', 'college_id')
+                ->whereIn('college_id', $collegeIds)
+                ->whereNotIn('id', $selectedCourse)
+                ->orderBy('title', 'asc')
+                ->get();
+
+            return view('admin.recommended', compact('id', 'courses', 'name'));
+        }
+
+        $recommend = new Recomended();
+        $recommend->user_id = $id;
+        $recommend->course_id = implode(',', $request->input('courses'));
+        $recommend->save();
+
+        $choice = Result::where('user_id', $id)->first();
+        $choice->evaluation = false;
+        $choice->update();
+
+        $user = User::find(auth()->user()->id);
+        $user->evaluation = true;
+        $user->update();
+
+        return redirect()->route('evaluation')->with('success', 'Recommended Course Successfully Submitted');
     }
 
     public function Deny($id)

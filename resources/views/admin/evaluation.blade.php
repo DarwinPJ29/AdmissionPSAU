@@ -33,7 +33,6 @@
                                                 <label class="fs-text ms-3 fw-bold curser">Review</label>
                                             </a>
                                         </li>
-
                                     </ul>
                                 </div>
                             </td>

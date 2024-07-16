@@ -50,18 +50,22 @@
                             <div class="mt-2 d-flex justify-content-evenly text-uppercase">
                                 <div class="">
                                     <div class="d-flex border-bottom border-dark">
-                                        <input type="checkbox" class="me-2" name="first" id="first">
+                                        <input type="radio" class="me-2" name="choice" id="first"
+                                            value="first" required>
                                         <label for="first">{{ $user->choices[0] }}</label>
                                     </div>
                                     <div class="text-center">First Choice</div>
                                 </div>
+
                                 <div class="">
                                     <div class="d-flex border-bottom border-dark">
-                                        <input type="checkbox" class="me-2" name="second" id="second">
+                                        <input type="radio" class="me-2" name="choice" id="second"
+                                            value="second" required>
                                         <label for="second">{{ $user->choices[1] }}</label>
                                     </div>
                                     <div class="text-center">Second Choice</div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -69,6 +73,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary shadow" data-bs-dismiss="modal">Close</button>
                         <a href="{{ route('deny', $user->id) }}" class="btn btn-danger shadow">Deny</a>
+                        <a href="{{ route('recommended', $user->id) }}" class="btn btn-danger shadow">Recommend</a>
                         <button type="submit" class="btn btn-warning shadow">Admit</button>
                     </div>
                 </div>
@@ -76,7 +81,9 @@
         </div>
     </div>
 </div>
-<script>
+
+
+{{-- <script>
     function updateRequiredCheckboxes() {
         const firstCheckbox = document.getElementById('first');
         const secondCheckbox = document.getElementById('second');
@@ -99,7 +106,7 @@
 
         updateRequiredCheckboxes(); // Initialize on page load
     });
-</script>
+</script> --}}
 
 
 

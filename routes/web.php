@@ -119,6 +119,7 @@ Route::controller(Exam::class)->group(function () {
 Route::controller(Evaluation::class)->group(function () {
     Route::any('/evaluation', 'evaluation')->name('evaluation');
     Route::any('/deny/{id}', 'Deny')->name('deny');
+    Route::any('/recommended/{id}', 'Recommended')->name('recommended');
 });
 
 // Region, Municipality and Barangay

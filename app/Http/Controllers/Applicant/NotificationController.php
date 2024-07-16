@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Controller;
 use App\Models\Courses;
+use App\Models\Recomended;
 use App\Models\Result;
 use Illuminate\Http\Request;
 
@@ -44,23 +45,38 @@ class NotificationController extends Controller
     }
     public function Evaluation(Request $request)
     {
-        if (auth()->user()->evaluation) {
-            if ($request->isMethod('get')) {
-
+        if ($request->isMethod('get')) {
+            if (auth()->user()->evaluation) {
                 $result = Result::where('user_id', auth()->user()->id)->first();
-
-                $course = explode(",", $result->course_id);
-                $labelCourse = [];
-                foreach ($course as $value) {
-                    $courses = Courses::find($value);
-                    if ($courses != null) {
-                        array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ')');
+                if ($result->evaluation) {
+                    $course = explode(",", $result->course_id);
+                    $labelCourse = [];
+                    foreach ($course as $value) {
+                        $courses = Courses::find($value);
+                        if ($courses != null) {
+                            array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ')');
+                        }
                     }
+                    return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
+                } else {
+                    $recommended = Recomended::where('user_id', auth()->user()->id)->first();
+
+                    $selected = explode(',', $recommended->course_id);
+
+                    $courses = Courses::whereIn('id', $selected)->get();
+
+                    return view('applicant.forms.recommend_courses', compact('courses'));
                 }
-                return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
+            } else {
+                return redirect()->route('loading');
             }
-        } else {
-            return redirect()->route('loading');
         }
+
+        $result = Result::where('user_id', auth()->user()->id)->first();
+        $result->course_id = $request->input('choice');
+        $result->evaluation = true;
+        $result->save();
+
+        return redirect()->route('loading');
     }
 }
