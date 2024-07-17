@@ -10,10 +10,11 @@
                         <div class="text-center mt-5">
                             Your Exam date was on
                         </div>
-                        <div class="text-center text-semibold text-warning fw-bold">
+                        <div class="text-center text-warning fw-bold">
                             {{ $sched->date }}<br>
                             {{ $sched->hour }}<br>
-                            <label><span class="text-muted">Location: </span>{{ $sched->room }} </label>
+                            <span class="text-muted text-center fw-bold">@</span><br>
+                            {{ $sched->room }}
                         </div>
                         <div class="text-center">
                             Be ready and Goodluck to your examinations!

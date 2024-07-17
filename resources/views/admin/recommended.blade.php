@@ -2,33 +2,37 @@
 @section('page-title', 'Recommended')
 @section('content')
 
-    <div class="container">
-        <div class="container mt-4">
+    <div class="container p-4">
+        <div class="container mt-4 card shadow bg-secondary-subtles p-3">
 
-            <h1>Recommend Course for : {{ $name }}</h1>
+            <h3>Recommend Course for : {{ $name }}</h3>
 
             <form id="coursesForm" action="{{ route('recommended', $id) }}" method="post">
                 @csrf
                 <div class="modal-body overflow-y-auto" style="max-height: 70vh">
                     <div class="container">
-                        <hr>
-                        <div class="choice mb-3">
-                            <label class="mb-2 fw-bold">Courses</label>
+                        <hr class="border border-1 border-success opacity-75 m-0 p-0">
+                        <div class="choice mb-3 mt-3">
+                            <label class="mb-2 fw-bold">Courses Available</label>
                             <div class="mt-2 d-flex justify-content-evenly text-uppercase">
-                                @foreach ($courses as $item)
-                                    <div class="">
+
+                                <div class="row justify-content-center">
+                                    @foreach ($courses as $item)
+                                   <div class="col-md-3">
                                         <div class="d-flex border-bottom border-dark">
                                             <input type="checkbox" class="me-2 course-checkbox" name="courses[]"
-                                                value="{{ $item->id }}">
-                                            <label>{{ $item->title }}</label>
+                                              id="{{ $item->id }}"  value="{{ $item->id }}">
+                                            <label for="{{ $item->id }}">{{ $item->title }}</label>
                                         </div>
                                         <div class="text-center">{{ $item->acronym }}</div>
-                                    </div>
+                                   </div>
                                 @endforeach
+                                </div>
                             </div>
                         </div>
+                        <hr class="border border-1 border-success opacity-75 m-0 p-0 mb-2">
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer gap-2">
                         <a href="{{ route('evaluation') }}" class="btn btn-danger shadow">Cancel</a>
                         <button type="submit" class="btn btn-warning shadow">Submit</button>
                     </div>
