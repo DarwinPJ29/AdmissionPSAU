@@ -36,7 +36,7 @@ class NotificationController extends Controller
     public function Score(Request $request)
     {
         $user = auth()->user();
-        if (!$user->evaluation) {
+        if (!$user->mail_done) {
             $result = Result::where('user_id', $user->id)->first();
             return view('applicant.forms.result_exam', compact('result'));
         }
@@ -49,15 +49,19 @@ class NotificationController extends Controller
             if (auth()->user()->evaluation) {
                 $result = Result::where('user_id', auth()->user()->id)->first();
                 if ($result->evaluation) {
-                    $course = explode(",", $result->course_id);
-                    $labelCourse = [];
-                    foreach ($course as $value) {
-                        $courses = Courses::find($value);
-                        if ($courses != null) {
-                            array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ')');
+                    if (auth()->user()->mail_done) {
+                        $course = explode(",", $result->course_id);
+                        $labelCourse = [];
+                        foreach ($course as $value) {
+                            $courses = Courses::find($value);
+                            if ($courses != null) {
+                                array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ')');
+                            }
                         }
+                        return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
+                    } else {
+                        return redirect()->route('loading');
                     }
-                    return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
                 } else {
                     $recommended = Recomended::where('user_id', auth()->user()->id)->first();
 

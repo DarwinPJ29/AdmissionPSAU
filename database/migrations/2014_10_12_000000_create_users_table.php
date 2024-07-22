@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('schedule_done')->default(0);
             $table->boolean('score_done')->default(0);
             $table->boolean('evaluation')->default(0);
+            $table->boolean('mail_done')->default(0);
             $table->integer('status')->default(0);
             $table->timestamps();
         });
