@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Evaluation as MailEvaluation;
+use App\Mail\Recommended;
 use App\Models\Choice;
 use App\Models\College;
 use App\Models\Courses;
@@ -95,6 +96,7 @@ class Evaluation extends Controller
 
         $result->course_id = $courseId;
         $result->evaluation = 1;
+        $result->passed = 1;
         $result->update();
 
         $user = User::find($request->input('id'));
@@ -166,6 +168,11 @@ class Evaluation extends Controller
         $user->evaluation = true;
         $user->update();
 
+        $info = Information::where('user_id', $user->id)->first();
+        $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+
+        Mail::to($user->email)->send(new Recommended($name));
+
         return redirect()->route('evaluation')->with('success', 'Recommended Course Successfully Submitted');
     }
 
@@ -173,7 +180,8 @@ class Evaluation extends Controller
     {
         $result = Result::where('user_id', $id)->first();
         $result->course_id = '';
-        $result->evaluation = 0;
+        $result->evaluation = 1;
+        $result->passed = 0;
         $result->update();
 
         $user = User::find($id);

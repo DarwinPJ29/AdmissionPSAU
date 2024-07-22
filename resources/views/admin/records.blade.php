@@ -15,6 +15,7 @@
                 </li>
             </ul>
             <div class="tab-content mt-4">
+                <a href="{{ route('sendMail') }}">Send Mail</a>
                 <div class="tab-pane fade show active" id="admitted" role="tabpanel" aria-labelledby="admitted-tab">
                     <div class="border rounded p-3 shadow mt-3 overflow-y-scroll" style="max-height: 70%">
                         <table class="table table-bordered table-striped" id="table">

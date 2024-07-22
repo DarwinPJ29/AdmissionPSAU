@@ -4,7 +4,7 @@
         <div class="container">
             @include('applicant.forms.header')
             <div class="my-5">
-                @if ($result->evaluation)
+                @if ($result->passed)
                     {{-- passed --}}
                     <div class="row border rounded shadow">
                         <div class="col-md-6 d-flex flex-column justify-content-center pb-5 bg-secondary-subtle fs-3">

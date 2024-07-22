@@ -130,6 +130,7 @@ Route::controller(StaticData::class)->group(function () {
 Route::controller(Record::class)->group(function () {
     Route::any('/records', 'records')->name('records');
     Route::any('/records/denied', 'denied')->name('denied');
+    Route::any('/send/mail', 'SendMail')->name('sendMail');
 });
 // Reports
 Route::controller(Report::class)->group(function () {

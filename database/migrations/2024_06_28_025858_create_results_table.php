@@ -21,7 +21,8 @@ return new class extends Migration
             $table->integer('stanine')->nullable();
             $table->integer('total')->nullable();
             $table->string('course_id')->nullable();
-            $table->boolean('evaluation')->nullable();
+            $table->boolean('evaluation')->default(0);
+            $table->boolean('passed')->default(0);
             $table->timestamps();
         });
     }

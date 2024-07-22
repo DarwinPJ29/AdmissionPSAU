@@ -39,6 +39,9 @@ class Exam extends Controller
 
         $score = $request->input('score');
 
+        if ($score < 0 || $score > 45) {
+            return redirect()->back()->with('failed', 'Score is invalid');
+        }
         $stanine = 0;
         if ($score >= 1 && $score <= 5) {
             $stanine = 1;

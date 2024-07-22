@@ -36,7 +36,8 @@ class NotificationController extends Controller
     public function Score(Request $request)
     {
         $user = auth()->user();
-        if (!$user->mail_done) {
+        $result = Result::where('user_id', $user->id)->first();
+        if (!$user->mail_done &&  $user->score_done) {
             $result = Result::where('user_id', $user->id)->first();
             return view('applicant.forms.result_exam', compact('result'));
         }
@@ -79,6 +80,7 @@ class NotificationController extends Controller
         $result = Result::where('user_id', auth()->user()->id)->first();
         $result->course_id = $request->input('choice');
         $result->evaluation = true;
+        $result->passed = true;
         $result->save();
 
         return redirect()->route('loading');
