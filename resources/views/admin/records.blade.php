@@ -3,6 +3,11 @@
 @section('content')
 
     <div class="container">
+       <div class="text-end mt-3">
+        <a href="{{ route('sendMail') }}" class="nav-link">
+            <div class="btn btn-warning shadow btn-sm"><i class="fa-solid fa-paper-plane text-success"></i> Send Mail</div>
+        </a>
+       </div>
         <div class="container mt-4">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -15,7 +20,7 @@
                 </li>
             </ul>
             <div class="tab-content mt-4">
-                <a href="{{ route('sendMail') }}">Send Mail</a>
+
                 <div class="tab-pane fade show active" id="admitted" role="tabpanel" aria-labelledby="admitted-tab">
                     <div class="border rounded p-3 shadow mt-3 overflow-y-scroll" style="max-height: 70%">
                         <table class="table table-bordered table-striped" id="table">

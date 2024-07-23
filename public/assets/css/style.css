@@ -185,8 +185,12 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
 .course-img{
     max-height: 70px;
 }
+.hover-db:hover{
+    background-color: #0a8d1b;
+    color: white;
+}
 .card-img{
-    max-height: 200px auto;
+    max-height: 200px !important;
 }
 .scrolled{
     max-height: 40%;
@@ -234,7 +238,6 @@ background: linear-gradient(191deg, rgba(11,93,15,1) 49%, rgba(200,202,200,1) 10
         font-size: 14px;
     }
 }
-
  @media only screen and (min-width: 781px) {
     .f-title{
         font-size: 30px;

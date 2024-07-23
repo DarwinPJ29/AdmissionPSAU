@@ -101,7 +101,7 @@
                             <div class="card shadow  p-1">
                                 <div class="p-1">
                                     <img src="{{ Storage::url('courses/' . $course->file) }}" alt="" srcset=""
-                                        class=" card-img-top card-img">
+                                        class=" card-img-top img-fluid m-auto" style="max-height: 220px">
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex">

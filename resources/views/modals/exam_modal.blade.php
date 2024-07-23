@@ -11,8 +11,8 @@
                     @csrf
                     <input type="text" value="{{ $user->id }}" name="id" hidden>
                     <div class="row">
-                        <div class="col-6">
-                            <label for="score">Score</label>
+                        <div class="col-12">
+                            <label for="score">Score Converted to STANINE</label>
                             <input type="number" id="score" name="score" min="0"
                                 class="form-control shadow" required>
                         </div>
