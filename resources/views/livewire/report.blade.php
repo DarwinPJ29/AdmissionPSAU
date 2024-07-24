@@ -2,7 +2,8 @@
     <div class="mt-3 row g-2">
         <div class="col-md-6">
             <label for="application_type">Application type</label>
-            <select name="application_type" id="applicant_type" class="form-select form-control shadow text-uppercase">
+            <select name="application_type" id="applicant_type" class="form-select form-control shadow text-uppercase"
+                wire:model='type' wire:change='search'>
                 <option value="" selected hidden>Select type:</option>
                 <option value="1">Doctoral</option>
                 <option value="2">Masteral</option>
@@ -12,19 +13,15 @@
             </select>
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-end">
-            <div class="d-flex justify-content-evenly">
-                <div class="">
-                    <div class="text-center border-bottom">
-                        <input type="checkbox" name="admitted" id="admitted" class="shadow border-bottom m-1">
-                    </div>
-                    <div class=""><label for="admitted" class="text-center text-muted">Admitted</label></div>
-                </div>
-                <div class="">
-                    <div class="text-center border-bottom">
-                        <input type="checkbox" name="admitted" id="admitted" class="shadow border-bottom m-1">
-                    </div>
-                    <div class=""><label for="admitted" class="text-center text-muted">Denied</label></div>
-                </div>
+            <div class="col-md-6">
+                <label for="application_type">Categories</label>
+                <select name="application_type" id="applicant_type"
+                    class="form-select form-control shadow text-uppercase" wire:model='status' wire:change='search'>
+                    <option value="" selected hidden>Please select</option>
+                    <option value="all">All</option>
+                    <option value="1">Admitted</option>
+                    <option value="0">Denied</option>
+                </select>
             </div>
         </div>
         <div class="col-md-2 d-flex flex-column justify-content-end">
@@ -40,45 +37,16 @@
             <thead>
                 <tr>
                     <th class="col-8">Name</th>
-                    <th class="col-3">Level</th>
-                    <th class="col-1">Action</th>
+                    <th class="col-3">Course</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="text-uppercase"></td>
-                    <td></td>
-                    <td>
-                        <div class="dropdown text-center">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="fa fa-ellipsis-h fs-5 fw-bold"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item d-flex" class="btn btn-sm btn-success"
-                                        data-bs-toggle="modal" data-bs-target="#">
-                                        <i class="fa-solid fa-pen-to-square fs-5 text-success"></i>
-                                        <label class="fs-text ms-3 fw-bold curser">Edit</label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#">
-                                        <i class="fa fa-trash fs-5 text-danger"></i>
-                                        <label class="fs-text ms-3 fw-bold curser">Delete</label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#">
-                                        <i class="fa-solid fa-print fs-5 text-primary"></i>
-                                        <label class="fs-text ms-3 fw-bold curser">Print</label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                    @include('modals.college_modal')
-                </tr>
+                @foreach ($datas as $item)
+                    <tr>
+                        <td>{{ $item['name'] }}</td>
+                        <td>{{ $item['course'] }}</td>
+                    </tr>
+                @endforeach
 
             </tbody>
         </table>
