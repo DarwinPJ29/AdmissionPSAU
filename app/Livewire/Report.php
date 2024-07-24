@@ -14,16 +14,13 @@ class Report extends Component
 {
     public $type;
     public $status;
+    public $category;
     public $datas = [];
 
     public function search()
     {
-        if ($this->status == 'all') {
-            $this->status = null;
-        }
-
         $this->datas = [];
-        if ($this->type != null && $this->status == null) {
+        if ($this->type != null && ($this->status == null || $this->status == "all")) {
             $results = ModelsResult::all();
             foreach ($results as $val) {
                 $value = [];
@@ -50,7 +47,7 @@ class Report extends Component
                     array_push($this->datas, $value);
                 }
             }
-        } else if ($this->type == null && $this->status != null) {
+        } else if ($this->type == null && ($this->status != "all" && $this->status != null)) {
             $results = ModelsResult::all();
             foreach ($results as $val) {
                 $value = [];
@@ -77,7 +74,7 @@ class Report extends Component
                     array_push($this->datas, $value);
                 }
             }
-        } else if ($this->type != null && $this->status != null) {
+        } else if ($this->type != null && ($this->status != "all" && $this->status != null)) {
             $results = ModelsResult::all();
             foreach ($results as $val) {
                 $value = [];
@@ -104,7 +101,7 @@ class Report extends Component
                     array_push($this->datas, $value);
                 }
             }
-        } else {
+        } else if ($this->type == null && $this->status == 'all') {
             $results = ModelsResult::all();
             foreach ($results as $val) {
                 $value = [];
