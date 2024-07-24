@@ -38,28 +38,31 @@ class Record extends Controller
             ->where('mail_done', false)
             ->get();
 
-        foreach ($users as $val) {
-            $result = Result::where('user_id', $val['id'])->first();
-            $choice = Choice::where('user_id', $val['id'])->first();
+        if (count($users) > 0) {
+            foreach ($users as $val) {
+                $result = Result::where('user_id', $val['id'])->first();
+                $choice = Choice::where('user_id', $val['id'])->first();
 
-            $info = Information::where('user_id', $val['id'])->first();
-            $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+                $info = Information::where('user_id', $val['id'])->first();
+                $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
-            $course = explode(",", $result->course_id);
-            $labelCourse = [];
-            foreach ($course as $value) {
-                $courses = Courses::find($value);
-                if ($courses != null) {
-                    array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ') is PASSED');
+                $course = explode(",", $result->course_id);
+                $labelCourse = [];
+                foreach ($course as $value) {
+                    $courses = Courses::find($value);
+                    if ($courses != null) {
+                        array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ') is PASSED');
+                    }
                 }
+                $user = User::find($val['id']);
+                $user->mail_done = 1;
+                $user->update();
+
+                Mail::to($user->email)->send(new Evaluation($applicant_name, $labelCourse));
             }
-            $user = User::find($val['id']);
-            $user->mail_done = 1;
-            $user->update();
-
-            Mail::to($user->email)->send(new Evaluation($applicant_name, $labelCourse));
-
-            return redirect()->back()->with('success', 'Email has been sent');
+            return redirect()->back()->with('success', 'Email has been sent to the applicants. ');
+        } else {
+            return redirect()->back()->with('info', 'All applicant already recieved the email. ');
         }
     }
     public function denied()

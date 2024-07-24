@@ -3,11 +3,12 @@
 @section('content')
 
     <div class="container">
-       <div class="text-end mt-3">
-        <a href="{{ route('sendMail') }}" class="nav-link">
-            <div class="btn btn-warning shadow btn-sm"><i class="fa-solid fa-paper-plane text-success"></i> Send Mail</div>
-        </a>
-       </div>
+        <div class="text-end mt-3">
+            <a href="{{ route('sendMail') }}" class="nav-link">
+                <div class="btn btn-warning shadow btn-sm"><i class="fa-solid fa-paper-plane text-success"></i> Send Mail
+                </div>
+            </a>
+        </div>
         <div class="container mt-4">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
