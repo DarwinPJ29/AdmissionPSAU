@@ -1,5 +1,5 @@
 <div>
-    <div class="mt-3 row g-2">
+    <div class="mt-3 row g-2 mb-2">
         <div class="col-md-6">
             <label for="application_type">Application type</label>
             <select name="application_type" id="applicant_type" class="form-select form-control shadow text-uppercase"
@@ -13,19 +13,17 @@
             </select>
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-end">
-            <div class="col-md-6">
                 <label for="application_type">Categories</label>
                 <select name="application_type" id="applicant_type"
-                    class="form-select form-control shadow text-uppercase" wire:model='status' wire:change='search'>
+                    class="form-select form-control shadow text-uppercase w-100" wire:model='status' wire:change='search'>
                     <option value="" selected hidden>Please select</option>
                     <option value="all">All</option>
                     <option value="1">Admitted</option>
                     <option value="0">Denied</option>
                 </select>
-            </div>
         </div>
         <div class="col-md-2 d-flex flex-column justify-content-end">
-            <div class="">
+            <div class="text-center">
                 <div class="btn btn-warning shadow ">
                     <i class="fa-solid fa-print"></i> Print
                 </div>

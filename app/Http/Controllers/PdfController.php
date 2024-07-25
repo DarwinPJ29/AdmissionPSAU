@@ -14,6 +14,6 @@ class PdfController extends Controller
     // }
 
     public function pdf() {
-        return view('admin.pdfs.report_dataPDF');
+        return view('admin.pdfs.applicant_forms_pdf');
     }
 }
