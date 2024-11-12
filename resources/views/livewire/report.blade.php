@@ -13,19 +13,19 @@
             </select>
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-end">
-                <label for="application_type">Categories</label>
-                <select name="application_type" id="applicant_type"
-                    class="form-select form-control shadow text-uppercase w-100" wire:model='status' wire:change='search'>
-                    <option value="" selected hidden>Please select</option>
-                    <option value="all">All</option>
-                    <option value="1">Admitted</option>
-                    <option value="0">Denied</option>
-                </select>
+            <label for="application_type">Categories</label>
+            <select name="application_type" id="applicant_type"
+                class="form-select form-control shadow text-uppercase w-100" wire:model='status' wire:change='search'>
+                <option value="" selected hidden>Please select</option>
+                <option value="all">All</option>
+                <option value="1">Admitted</option>
+                <option value="0">Denied</option>
+            </select>
         </div>
         <div class="col-md-2 d-flex flex-column justify-content-end">
             <div class="text-center">
                 <div class="btn btn-warning shadow ">
-                    <i class="fa-solid fa-print"></i> Print
+                    <i class="fa-solid fa-print text-success"></i> Print
                 </div>
             </div>
         </div>
