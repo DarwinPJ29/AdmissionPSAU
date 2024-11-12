@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login Form</title>
+    <link rel="icon" href="{{ URL::asset('images/PSAU_logo.png') }}" type="image/x-icon" />
     @include('layout.link')
 </head>
 
@@ -18,9 +19,11 @@
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-center">
                             <div class=" d-flex flex-column justify-content-center">
-                                <img src="{{ asset('images/PSAU_logo.png') }}" alt="" class="img-fluid side-icon ms-2">
+                                <img src="{{ asset('images/PSAU_logo.png') }}" alt=""
+                                    class="img-fluid side-icon ms-2">
                             </div>
-                            <div class="d-flex flex-column justify-content-center ms-2 fs-style">Pampanga State Agricultural University</div>
+                            <div class="d-flex flex-column justify-content-center ms-2 fs-style">Pampanga State
+                                Agricultural University</div>
                         </div>
                         <a href="{{ route('index') }}" class="nav-link text-end">
                             <div class="btn"><i class="fa-solid fa-times"></i></div>
@@ -51,7 +54,7 @@
                                         <i class="fa-solid fa-envelope text-warning"></i> </span>
                                     <input type="email" class="form-control" id="email" name="email"
                                         placeholder="sample@gmail.com" value="{{ old('email') }}">
-                                        @error('email')
+                                    @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

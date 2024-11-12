@@ -12,7 +12,7 @@
 <div class="border border-dark p-2 rounded-1">
     <div class="d-flex my-3 fw-bold">
         <div class="text-uppercase me-3">Your Application ID:</div>
-        <div class="text-uppercase border-bottom border-dark">{{ $applicant_no->applicant_no}}</div>
+        <div class="text-uppercase border-bottom border-dark">{{ $applicant_no->applicant_no }}</div>
     </div>
     <div class="row mb-2">
         <div class="col-md-1 col-sm-4">
@@ -22,18 +22,17 @@
         </div>
         <div class="col-md-3 col-sm-8">
             <label for="first_name">First Name</label>
-            <input type="text" id="first_name" class="form-control text-uppercase shadow" value="{{ $first_name }}"
-                disabled>
+            <input type="text" id="first_name" class="form-control text-uppercase shadow"
+                value="{{ $first_name }}">
         </div>
         <div class="col-md-4 col-sm-12">
             <label for="middle_name">Middle Name</label>
             <input type="text" id="middle_name" class="form-control text-uppercase shadow"
-                value="{{ $middle_name }}" disabled>
+                value="{{ $middle_name }}">
         </div>
         <div class="col-md-3 col-sm-8">
             <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" class="form-control text-uppercase shadow" value="{{ $last_name }}"
-                disabled>
+            <input type="text" id="last_name" class="form-control text-uppercase shadow" value="{{ $last_name }}">
         </div>
         <div class="col-md-1 col-sm-4">
             <label for="suffix">Suffix</label>
@@ -56,12 +55,13 @@
             <label for="age">Age <span class="text-danger">*</span></label>
             <input type="number" name="age" id="age" min="0"
                 class="form-control text-uppercase shadow" value="{{ $age }}" wire:model='age'
-                wire:keyup='SecASetData' required>
+                wire:keyup='SecASetData'>
         </div>
         <div class="col-md-4 col-sm-12">
             <label for="place_birth">Place of Birth <span class="text-danger">*</span></label>
             <input type="text" name="place_birth" id="place_birth" class="form-control text-uppercase shadow"
-                value="{{ $place_birth }}" wire:model='place_birth' wire:keyup='SecASetData' required>
+                value="{{ $place_birth }}" wire:model='place_birth' wire:keyup='SecASetData'
+                placeholder="Place of Birth:" required>
 
         </div>
         <div class="col-md-4 col-sm-6">
@@ -77,7 +77,8 @@
         <div class="col-md-4">
             <label for="citizenship">Citizenship<span class="text-danger">*</span></label>
             <input type="text" name="citizenship" id="citizenship" class="form-control text-uppercase shadow"
-                value="{{ $citizenship }}" wire:model='citizenship' wire:keyup='SecASetData' required>
+                value="{{ $citizenship }}" wire:model='citizenship' wire:keyup='SecASetData'
+                placeholder="Citizenship:" required>
         </div>
         <div class="col-md-4">
             <label for="religion">Religion<span class="text-danger">*</span></label>
@@ -132,7 +133,7 @@
     <div class="row mb-2">
         <div class="col-md-6 col-sm-7">
             <label for="email">Email Address</label>
-            <input type="email" name="email" id="email" class="form-control text-uppercase shadow"
+            <input type="email" name="email" id="email" class="form-control text-lowercase shadow"
                 value="{{ $email }}" disabled>
         </div>
         <div class="col-md-6 col-sm-5">

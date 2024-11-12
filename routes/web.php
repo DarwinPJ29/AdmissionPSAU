@@ -91,7 +91,7 @@ Route::controller(Requirement::class)->group(function () {
 
 // Applicant
 Route::controller(FormController::class)->group(function () {
-    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm'); //->middleware('auth', 'can:applicant');
 });
 
 //Applicant Requirement
