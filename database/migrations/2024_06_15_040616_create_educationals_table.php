@@ -24,10 +24,12 @@ return new class extends Migration
             $table->string('attended_address')->nullable();
             $table->string('attended_date')->nullable();
             $table->string('shs_from')->nullable();
+            $table->string('shs_from_type')->nullable();
             $table->string('shs_date')->nullable();
             $table->string('shs_average')->nullable();
             $table->string('lrn')->nullable();
             $table->string('first_time')->nullable();
+            $table->string('is_first_time')->nullable();
             $table->timestamps();
         });
     }

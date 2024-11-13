@@ -8,6 +8,7 @@ use App\Models\Municipality;
 use App\Models\Province;
 use App\Models\User;
 use App\Services\Core;
+use Carbon\Carbon;
 
 trait SecAVar
 {
@@ -33,6 +34,7 @@ trait SecAVar
     public $municipalities;
     public $barangays;
     public $applicant_no;
+    public $minDate;
 }
 
 trait SecA
@@ -41,6 +43,7 @@ trait SecA
 
     public function SecAGetData()
     {
+        $this->minDate = now()->subYears(15)->format('Y-m-d');
         $this->applicant_no = User::where('id', $this->user->id)->first();
 
         $info = Information::where('user_id', $this->user->id)->first();
@@ -51,7 +54,13 @@ trait SecA
             $this->last_name = $info->last_name;
             $this->suffix = $info->suffix;
             $this->gender = $info->gender;
-            $this->age = $info->age;
+            $this->birth_date = $info->birth_date;
+            $this->age = $this->birth_date
+                ? (Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year -
+                    (Carbon::now()->lt(Carbon::createFromFormat('Y-m-d', $this->birth_date)->addYears(Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year)) ? 1 : 0))
+                : "";
+
+            $this->citizenship = $info->citizenship;
             $this->number = $info->number;
             $this->birth_date = $info->birth_date;
             $this->place_birth = $info->birth_place;
@@ -62,9 +71,8 @@ trait SecA
             $this->barangay = $info->barangay_id;
             $this->email = $this->user->email;
             $this->secAId = $info->id;
-
         }
-        // dd($info);
+
         if ($this->province != '' || $this->province != null) {
             $this->provinces = Province::OrderBy('name', 'asc')->get();
             $this->municipalities =  Municipality::where('province_id', $this->province)->OrderBy('name', 'asc')->get();
@@ -84,8 +92,11 @@ trait SecA
     {
         $data = [
             'gender' => $this->gender,
-            'age' => $this->age,
             'birth_date' => $this->birth_date,
+            'age' => $this->birth_date
+                ? (Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year -
+                    (Carbon::now()->lt(Carbon::createFromFormat('Y-m-d', $this->birth_date)->addYears(Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year)) ? 1 : 0))
+                : "",
             'birth_place' => $this->place_birth,
             'religion' => $this->religion,
             'citizenship' => $this->citizenship,
