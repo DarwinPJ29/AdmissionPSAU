@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class=" mt-3 d-flex justify-content-end gap-1">
-            <div class="btn shadow btn-success" data-bs-toggle="modal" data-bs-target="#college"><i
+            <div class="btn shadow btn-warning" data-bs-toggle="modal" data-bs-target="#college"><i
                     class="fa-solid fa-plus me-1 f-text"></i>Add College
             </div>
             {{-- <div class="btn shadow btn-warning" data-bs-toggle="modal" data-bs-target="#program"><i

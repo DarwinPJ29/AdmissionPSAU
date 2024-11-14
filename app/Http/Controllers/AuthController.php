@@ -79,6 +79,11 @@ class AuthController extends Controller
                 // Check email and password is valid
                 if (Auth::attempt($validated)) {
                     $request->session()->regenerate();
+
+                    if ($user->is_default_pass) {
+                        return redirect()->route('changeDefaultPassword');
+                    }
+
                     return redirect()->route('loading');
                 } else {
                     return redirect()->back()->with('failed', 'Email or Password is invalid!');
@@ -111,6 +116,25 @@ class AuthController extends Controller
         } else {
             return back()->with('failed', 'Password is incorrect');
         }
+    }
+
+    public function changeDefaultPassword(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('admin.admin_setting');
+        }
+
+        $valid = $request->validate([
+            'new_password' => 'required|min:4|max:20',
+            'confirm_password' => 'required|same:password_new|min:4|max:20',
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        $user->password = Hash::make($valid['password_confirm']);
+        $user->is_default_pass = 1;
+        $user->update();
+
+        return redirect()->route('loading');
     }
 
     public function logout()

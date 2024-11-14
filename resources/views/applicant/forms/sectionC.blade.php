@@ -20,6 +20,8 @@
                 <td>
                     <div class=" p-1 ">
                         <input type="text" name="elementary_name" id="elementary_name"
+                            class="form-control shadow text-uppercase" placeholder="Enter School Name:" <input
+                            type="text" name="elementary_name" id="elementary_name"
                             class="form-control shadow text-uppercase" placeholder="Enter School Name:"
                             wire:model='elementary_name' wire:keyup='SecCSetData' required>
                     </div>
@@ -29,6 +31,8 @@
                         <input type="text" name="elementary_address" id="elementary_address"
                             class="form-control shadow text-uppercase" placeholder="Enter School Address:"
                             wire:model='elementary_address' wire:keyup='SecCSetData' required>
+                        class="form-control shadow text-uppercase" placeholder="Enter School Address:"
+                        wire:model='elementary_address' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
@@ -48,11 +52,16 @@
                         <input type="text" name="sr_high_name" id="sr_high_name"
                             class="form-control shadow text-uppercase" placeholder="Enter School Name:"
                             wire:model='sr_high_name' wire:keyup='SecCSetData' required>
+                        <input type="text" name="sr_high_name" id="sr_high_name"
+                            class="form-control shadow text-uppercase" placeholder="Enter School Name:"
+                            wire:model='sr_high_name' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="sr_high_address" id="sr_high_address"
+                            class="form-control shadow text-uppercase" placeholder="Enter School Address:" <input
+                            type="text" name="sr_high_address" id="sr_high_address"
                             class="form-control shadow text-uppercase" placeholder="Enter School Address:"
                             wire:model='sr_high_address' wire:keyup='SecCSetData' required>
                     </div>
@@ -72,6 +81,8 @@
                 <td>
                     <div class="p-1">
                         <input type="text" name="last_school_name" id="last_school_name"
+                            class="form-control shadow text-uppercase" placeholder="Enter School Name:" <input
+                            type="text" name="last_school_name" id="last_school_name"
                             class="form-control shadow text-uppercase" placeholder="Enter School Name:"
                             wire:model='last_school_name' wire:keyup='SecCSetData' required>
                     </div>
@@ -81,6 +92,8 @@
                         <input type="text" name="last_school_address" id="last_school_address"
                             class="form-control shadow text-uppercase" placeholder="Enter School Address:"
                             wire:model='last_school_address' wire:keyup='SecCSetData' required>
+                        class="form-control shadow text-uppercase" placeholder="Enter School Address:"
+                        wire:model='last_school_address' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
                 <td>
@@ -135,8 +148,10 @@
         </div>
         <div class="col-md-4 p-3 border-end border-dark">
             <label for="lrn">Learner Reference Number (LRN)</label>
+            <label for="lrn">Learner Reference Number (LRN)</label>
             <input type="number" name="lrn" id="lrn" min="0" class="form-control shadow"
                 placeholder="Enter LRN:" wire:model='lrn' wire:keyup='SecCSetData' required>
+            placeholder="Enter LRN:" wire:model='lrn' wire:keyup='SecCSetData' required>
         </div>
         <div class="col-md-4 p-3">
             <label for="first_time_college">First Time to Enter College:</label>

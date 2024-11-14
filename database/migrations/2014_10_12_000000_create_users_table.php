@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('evaluation')->default(0);
             $table->boolean('mail_done')->default(0);
             $table->integer('status')->default(0);
+            $table->boolean('is_default_pass')->default(1);
             $table->timestamps();
         });
     }

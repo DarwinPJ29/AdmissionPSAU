@@ -7,24 +7,17 @@
         </div>
         <ul class="nav-menu list-style-none d-flex align-items-center mb-0">
             <li class="nav-item dropdown">
-                <a href="" class="nav-link rounded-circle "
-                    data-bs-toggle="dropdown">
+                <a href="" class="nav-link rounded-circle " data-bs-toggle="dropdown">
                     <div class=" p-2">
-                        <div class="btn btn-outline-warning d-flex" style=" border: none;
-        box-shadow: none;">
-                            <div class="text-dark me-2">Name</div>
-                            {{-- <div class="text-dark me-2">{{ auth()->user()->name }}</div> --}}
-
-                            <div class="ms-2 text-dark d-flex flex-column justify-content-center">
-                                <i class="fa-solid fa-caret-down"></i>
-                            </div>
+                        <div class="btn btn-outline-success rounded-circle p-2">
+                            <i class="fa-solid fa-user-secret text-dark"></i>
                         </div>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end mt-1r border-0 box-shadow-1">
 
                     <li>
-                        <a href="{{ route('settings') }}" class="dropdown-item text-muted" ><i
+                        <a href="{{ route('settings') }}" class="dropdown-item text-muted"><i
                                 class="fa-solid fa-gear"></i>
                             Settings</a>
                     </li>
