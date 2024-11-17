@@ -52,6 +52,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::any('/admin/account', 'storeAccnt')->name('storeAccnt');
     Route::any('/logout', 'logout')->name('logout')->middleware('auth');
     Route::any('/settings', 'changePassword')->name('settings');
+    Route::any('/change-password', 'changeDefaultPassword')->name('changeDefaultPassword')->middleware('auth');
 });
 
 // Admin

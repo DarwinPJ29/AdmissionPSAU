@@ -17,10 +17,12 @@ trait SecCVar
     public $last_school_address;
     public $last_school_date;
     public $graduated_from;
+    public $graduated_from_type;
     public $date_graduation;
     public $shs_average;
     public $lrn;
     public $first_time_college;
+    public $is_first_time_college;
     public $secCId = 0;
 }
 
@@ -43,10 +45,12 @@ trait SecC
             $this->last_school_address = $educ->attended_address;
             $this->last_school_date = $educ->attended_date;
             $this->graduated_from = $educ->shs_from;
+            $this->graduated_from_type = $educ->shs_from_type;
             $this->date_graduation = $educ->shs_date;
             $this->shs_average = $educ->shs_average;
             $this->lrn = $educ->lrn;
             $this->first_time_college = $educ->first_time;
+            $this->is_first_time_college = $educ->is_first_time;
             $this->secCId = $educ->id;
         }
     }
@@ -65,10 +69,12 @@ trait SecC
             'attended_address' => $this->last_school_address,
             'attended_date' => $this->last_school_date,
             'shs_from' => $this->graduated_from,
+            'shs_from_type' => $this->graduated_from_type,
             'shs_date' => $this->date_graduation,
             'shs_average' => $this->shs_average,
             'lrn' => $this->lrn,
             'first_time' => $this->first_time_college,
+            'is_first_time' => $this->is_first_time_college,
         ];
 
         Core::Save('Educational', $data, $this->secCId);
