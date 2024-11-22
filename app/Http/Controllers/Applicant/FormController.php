@@ -16,4 +16,9 @@ class FormController extends Controller
         }
         return view('applicant.admission_form');
     }
+
+    public function privacy()
+    {
+        return view('applicant.forms.dataPrivacy');
+    }
 }

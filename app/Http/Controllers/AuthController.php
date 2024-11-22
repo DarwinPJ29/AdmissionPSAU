@@ -121,17 +121,17 @@ class AuthController extends Controller
     public function changeDefaultPassword(Request $request)
     {
         if ($request->isMethod('get')) {
-            return view('admin.admin_setting');
+            return view('auth.changepass');
         }
 
         $valid = $request->validate([
             'new_password' => 'required|min:4|max:20',
-            'confirm_password' => 'required|same:password_new|min:4|max:20',
+            'confirm_password' => 'required|same:new_password|min:4|max:20',
         ]);
 
-        $user = User::find(auth()->user()->id);
-        $user->password = Hash::make($valid['password_confirm']);
-        $user->is_default_pass = 1;
+        $user = User::findOrFail(auth()->user()->id);
+        $user->password = Hash::make($valid['confirm_password']);
+        $user->is_default_pass = true;
         $user->update();
 
         return redirect()->route('loading');

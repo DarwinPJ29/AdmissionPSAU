@@ -52,7 +52,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::any('/admin/account', 'storeAccnt')->name('storeAccnt');
     Route::any('/logout', 'logout')->name('logout')->middleware('auth');
     Route::any('/settings', 'changePassword')->name('settings');
-    Route::any('/change-password', 'changeDefaultPassword')->name('changeDefaultPassword')->middleware('auth');
+    Route::any('/change-password', 'changeDefaultPassword')->name('changeDefaultPassword');
 });
 
 // Admin
@@ -93,6 +93,7 @@ Route::controller(Requirement::class)->group(function () {
 // Applicant
 Route::controller(FormController::class)->group(function () {
     Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm'); //->middleware('auth', 'can:applicant');
+    Route::any('/dataPrivacy', 'privacy')->name('privacy'); //->middleware('auth', 'can:applicant');
 });
 
 //Applicant Requirement
