@@ -1,4 +1,5 @@
-<p style="margin-bottom: 10px">Dear, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
+<p style="margin-bottom: 10px">Hi, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
+<p style="margin-bottom: 10px">Thank you for applying at PSAU!</strong></p>
 <p style="margin-bottom: 10px">
     We regret to inform you that certain requirements necessary for your pass
     have been returned. Kindly log in to your account to review the

@@ -1,4 +1,5 @@
-<p style="margin-bottom: 10px">Dear, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
+<p style="margin-bottom: 10px">Hi, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
+<p style="margin-bottom: 10px">Thank you for applying at PSAU!</strong></p>
 <p style="margin-bottom: 10px">To complete your account activation, kindly click the activation button provided below to initiate the steps of the process
     ensuring that all necessary information is accurately verified, and make sure to copy or memorize your account password given below.
 </p>
