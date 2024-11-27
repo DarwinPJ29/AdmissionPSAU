@@ -42,6 +42,7 @@ class Requirement extends Controller
             $requirement->freshmen = $request->freshmen;
             $requirement->second_courser = $request->second_courser;
             $requirement->required = (int)$request->required;
+            $requirement->enable = (int)$request->enable;
             $requirement->save();
             return redirect()->back()->with('success', 'Requirement Successfully Added');
         }
@@ -72,6 +73,7 @@ class Requirement extends Controller
             $requirement->freshmen = $request->freshmen;
             $requirement->second_courser = $request->second_courser;
             $requirement->required = (int)$request->required;
+            $requirement->enable = (int)$request->enable;
             $requirement->update();
             return redirect()->back()->with('success', 'Requirement Successfully Updated');
         }

@@ -18,6 +18,7 @@
                         <th class="col-1">Transferee</th>
                         <th class="col-1">Freshmen</th>
                         <th class="col-2">Type</th>
+                        <th class="col-2">Status</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>
@@ -50,6 +51,7 @@
                             </div>
                         </td>
                         <td>{{ $requirement->required == 1 ? 'Required' : 'Not Required' }}</td>
+                        <td>{{ $requirement->enable == 1 ? 'Enabled' : 'Disabled' }}</td>
                         <td>
                             <div class="dropdown text-center">
                                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"

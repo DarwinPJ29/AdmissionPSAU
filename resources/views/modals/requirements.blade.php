@@ -18,18 +18,33 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="col-5">
-                            <label for="required">Requirements Type <span class="text-danger">*</span></label>
-                            <select name="required" id="required"
-                                class="form-select shadow @error('required') is-invalid @enderror"
-                                value="{{ old('required') }}" required>
-                                <option value="" selected hidden>Select Desired:</option>
-                                <option value="1" @selected(old('required') == 1)>Required</option>
-                                <option value="0" @selected(old('required') == 0)>Not Required</option>
-                            </select>
-                            @error('requirement_type')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                        <div class="col-5 d-flex justify-content-between">
+                            <div class="col me-1">
+                                <label for="required">Type <span class="text-danger">*</span></label>
+                                <select name="required" id="required"
+                                    class="form-select shadow @error('required') is-invalid @enderror"
+                                    value="{{ old('required') }}" required>
+                                    <option value="" selected hidden>Select Desired:</option>
+                                    <option value="1" @selected(old('required') == 1)>Required</option>
+                                    <option value="0" @selected(old('required') == 0)>Not Required</option>
+                                </select>
+                                @error('required')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col">
+                                <label for="enable">Status <span class="text-danger">*</span></label>
+                                <select name="enable" id="enable"
+                                    class="form-select shadow @error('enable') is-invalid @enderror"
+                                    value="{{ old('enable') }}" required>
+                                    <option value="" selected hidden>Select Desired:</option>
+                                    <option value="1" @selected(old('enable') == 1)>Enable</option>
+                                    <option value="0" @selected(old('enable') == 0)>Disable</option>
+                                </select>
+                                @error('enable')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="mb-2">
@@ -101,17 +116,33 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="col-5">
-                                <label for="required">Requirements Type <span class="text-danger">*</span></label>
-                                <select name="required" id="required"
-                                    class="form-select shadow @error('required') is-invalid @enderror" value="">
-                                    <option value="" selected hidden>Select Desired:</option>
-                                    <option value="1" @selected($requirement->required == 1)>Required</option>
-                                    <option value="0" @selected($requirement->required == 0)>Not Required</option>
-                                </select>
-                                @error('required')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                            <div class="col-5 d-flex justify-content-between">
+                                <div class="col">
+                                    <label for="required">Type <span class="text-danger">*</span></label>
+                                    <select name="required" id="required"
+                                        class="form-select shadow @error('required') is-invalid @enderror"
+                                        value="">
+                                        <option value="" selected hidden>Select Desired:</option>
+                                        <option value="1" @selected($requirement->required == 1)>Required</option>
+                                        <option value="0" @selected($requirement->required == 0)>Not Required</option>
+                                    </select>
+                                    @error('required')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col">
+                                    <label for="enable">Status <span class="text-danger">*</span></label>
+                                    <select name="enable" id="enable"
+                                        class="form-select shadow @error('enable') is-invalid @enderror"
+                                        value="" required>
+                                        <option value="" selected hidden>Select Desired:</option>
+                                        <option value="1" @selected($requirement->enable == 1)>Enable</option>
+                                        <option value="0" @selected($requirement->enable == 0)>Disable</option>
+                                    </select>
+                                    @error('enable')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                         <div class="mb-2">

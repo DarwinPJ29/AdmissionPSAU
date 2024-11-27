@@ -55,11 +55,10 @@ trait SecA
             $this->suffix = $info->suffix;
             $this->gender = $info->gender;
             $this->birth_date = $info->birth_date;
-            $this->age = $this->birth_date
+            $this->age = (!empty($this->birth_date) && Carbon::hasFormat($this->birth_date, 'Y-m-d'))
                 ? (Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year -
                     (Carbon::now()->lt(Carbon::createFromFormat('Y-m-d', $this->birth_date)->addYears(Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year)) ? 1 : 0))
-                : "";
-
+                : 0;
             $this->citizenship = $info->citizenship;
             $this->number = $info->number;
             $this->birth_date = $info->birth_date;
@@ -93,10 +92,10 @@ trait SecA
         $data = [
             'gender' => $this->gender,
             'birth_date' => $this->birth_date,
-            'age' => $this->birth_date
+            'age' => (!empty($this->birth_date) && Carbon::hasFormat($this->birth_date, 'Y-m-d'))
                 ? (Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year -
                     (Carbon::now()->lt(Carbon::createFromFormat('Y-m-d', $this->birth_date)->addYears(Carbon::now()->year - Carbon::createFromFormat('Y-m-d', $this->birth_date)->year)) ? 1 : 0))
-                : "",
+                : 0,
             'birth_place' => $this->place_birth,
             'religion' => $this->religion,
             'citizenship' => $this->citizenship,
