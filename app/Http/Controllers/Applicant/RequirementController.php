@@ -46,6 +46,10 @@ class RequirementController extends Controller
                     break;
             }
 
+            $requirements = $requirements->filter(function ($requirement) {
+                return $requirement->enable == 1;
+            });
+
             foreach ($requirements as $value) {
                 if ($value['required'])
                     $totalRequired[0]++;

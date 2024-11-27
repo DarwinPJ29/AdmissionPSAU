@@ -5,8 +5,7 @@
 
         <div class="mt-5 d-flex justify-content-between">
 
-            <div class="text-uppercase">List of Requirements</div>
-
+            <h3 class="text-uppercase">List of Requirements</h3>
             @if ($remarks != null || $remarks != '')
                 <div class="alert alert-warning alert-dismissible fade show " role="alert">
                     <div class="text-center">
@@ -17,38 +16,40 @@
             @endif
         </div>
         <div class="border rounded border-dark m-0 p-0 overflow-y-scroll scrolled">
-            <ul class="list-style-none m-0 p-2">
-                @foreach ($requirements as $req)
-                    <li class="border shadow rounded p-2 m-0 mb-1">
-
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex gap-1">
-                                <div class="d-flex  flex-column justify-content-center">
-                                    <i class="fa-regular fa-circle-dot text-success"></i>
-                                </div>
-                                <span
-                                    class="d-flex  flex-column justify-content-center text-uppercase">{{ $req->title }}</span>
-                            </div>
-
-                            <div class="">
+            <table class="table table-bordered table-striped m-0">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Requirement</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($requirements as $key => $req)
+                        <tr>
+                            <td class="align-middle">
+                                {{ $key + 1 }}
+                            </td>
+                            <td class="align-middle text-uppercase">{{ $req->title }}</td>
+                            <td class="align-middle">
                                 @if ($req->required == 1)
-                                    <span>Required</span>
+                                    <span class="badge bg-success text-light">Required</span>
                                 @else
-                                    <span>Not-Required</span>
+                                    <span class="badge bg-secondary text-light">Not Required</span>
                                 @endif
-                            </div>
-                            <div class="">
-                                <div class="btn btn-success btn-sm {{ $req->status ? 'd-none' : 'd-block' }}"
-                                    data-bs-target="#upload{{ $req->id }}" data-bs-toggle="modal">Upload
-                                </div>
-                                <div class="btn btn-warning btn-sm {{ $req->status ? 'd-block' : 'd-none' }}"
-                                    data-bs-target="#edit{{ $req->id }}" data-bs-toggle="modal">Edit</div>
-                            </div>
-                        </div>
-                    </li>
-                    @include('modals.requirements_image')
-                @endforeach
-            </ul>
+                            </td>
+                            <td class="align-middle">
+                                <button class="btn btn-success btn-sm {{ $req->status ? 'd-none' : 'd-inline' }}"
+                                    data-bs-target="#upload{{ $req->id }}" data-bs-toggle="modal">Upload</button>
+                                <button class="btn btn-warning btn-sm {{ $req->status ? 'd-inline' : 'd-none' }}"
+                                    data-bs-target="#edit{{ $req->id }}" data-bs-toggle="modal">Update</button>
+                            </td>
+                        </tr>
+                        @include('modals.requirements_image')
+                    @endforeach
+                </tbody>
+            </table>
         </div>
         <div class="my-3 gap-2 d-flex justify-content-end">
             <a href="{{ route('applicant.submit') }}" class="btn btn-warning {{ !$canSubmit ? 'disabled' : '' }}"
