@@ -29,7 +29,7 @@ class FormDone extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Applicant for Review',
+            subject: 'Application for Review',
         );
     }
 
