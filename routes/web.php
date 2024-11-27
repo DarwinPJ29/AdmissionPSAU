@@ -23,7 +23,7 @@ use App\Models\College as ModelsCollege;
 Route::get('/redirect', function () {
     if (auth()->check()) {
         if (auth()->user()->role == 0) {
-            return redirect()->route('ApplicantForm');
+            return redirect()->route('dataPrivacy');
         } else {
             return redirect()->route('dashboard');
         }
@@ -51,8 +51,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::any('/login', 'login')->name('login')->middleware('guest');
     Route::any('/admin/account', 'storeAccnt')->name('storeAccnt');
     Route::any('/logout', 'logout')->name('logout')->middleware('auth');
-    Route::any('/settings', 'changePassword')->name('settings');
-    Route::any('/change-password', 'changeDefaultPassword')->name('changeDefaultPassword');
+    Route::any('/settings', 'changePassword')->name('settings')->middleware('auth');
+    Route::any('/change-password', 'changeDefaultPassword')->name('changeDefaultPassword')->middleware('auth');
+    Route::any('/data-privacy', 'dataPrivacy')->name('dataPrivacy')->middleware('auth');
 });
 
 // Admin

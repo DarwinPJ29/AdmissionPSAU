@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('barangay_id')->nullable();
             $table->string('gender')->nullable();
             $table->integer('age')->nullable();
-            $table->string('number');
+            $table->string('number')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('birth_place')->nullable();
             $table->string('religion')->nullable();

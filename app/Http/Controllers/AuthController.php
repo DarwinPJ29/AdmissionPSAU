@@ -131,10 +131,27 @@ class AuthController extends Controller
 
         $user = User::findOrFail(auth()->user()->id);
         $user->password = Hash::make($valid['confirm_password']);
-        $user->is_default_pass = true;
+        $user->is_default_pass = false;
         $user->update();
 
         return redirect()->route('loading');
+    }
+
+    public function dataPrivacy(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        if ($request->isMethod('get')) {
+
+            if ($user->isPrivacy == 1)
+                return redirect()->route('ApplicantForm');
+
+            return view('applicant.forms.dataPrivacy');
+        }
+
+        $user->isPrivacy = true;
+        $user->save();
+
+        return redirect()->route('ApplicantForm');
     }
 
     public function logout()

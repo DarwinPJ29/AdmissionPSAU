@@ -9,18 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Applicant extends Mailable
+class FormDone extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user_id;
+
     public $applicant_name;
-    public $password;
-    public function __construct($user_id, $applicant_name, $password)
+    public $review_date;
+
+    public function __construct($applicant_name)
     {
-        $this->user_id = $user_id;
         $this->applicant_name = $applicant_name;
-        $this->password = $password;
+        $this->review_date = now()->addDays(15);
     }
 
     /**
@@ -29,7 +29,7 @@ class Applicant extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Applicant Account Activation',
+            subject: 'Applicant for Review',
         );
     }
 
@@ -39,7 +39,7 @@ class Applicant extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.applicantActivation',
+            view: 'mail.applicantSubmitted',
         );
     }
 

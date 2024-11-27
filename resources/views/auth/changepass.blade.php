@@ -61,8 +61,8 @@
                             <div class="input-group mb-2">
                                 <span class="input-group-text bg-success" id="inputGroupPrepend">
                                     <i class="fa-solid fa-key text-warning"></i> </span>
-                                <input type="password" id="confirm_password" name="confirm_password" class="form-control shadow"
-                                    placeholder="Confirm your New Password" required>
+                                <input type="password" id="confirm_password" name="confirm_password"
+                                    class="form-control shadow" placeholder="Confirm your New Password" required>
                                 @error('confirm_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

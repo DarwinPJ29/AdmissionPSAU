@@ -2,11 +2,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="container">
-
             <div class="my-5 border shadow rounded-3 p-3">
                 <div class="fw-bold fs-3 p-3">Certification <br> PSAU Data Privacy Notice Online Utilization</div>
-                <p class="mt-1 mb-1">At Pampanga State Agricultural University (PSAU), we respectand value your right to privacy.
-                    PSAU is commited to protecting your personal data in accordance with the Data Privacy Act of 2012 and its
+                <p class="mt-1 mb-1">At Pampanga State Agricultural University (PSAU), we respectand value your right to
+                    privacy.
+                    PSAU is commited to protecting your personal data in accordance with the Data Privacy Act of 2012 and
+                    its
                     Implementing Rules and Regulations.
                 </p>
                 <p class="mb-1">
@@ -19,7 +20,7 @@
                 </p>
                 <ul>
                     <li>Full name</li>
-                    <li>Date of  birth </li>
+                    <li>Date of birth </li>
                     <li>Contact information (address, phone number, email)</li>
                     <li>Academic history (previous schools attended, grades, transcripts)</li>
                     <li>Employment history</li>
@@ -45,30 +46,31 @@
                 </p>
                 <p>Sharing of information</p>
                 <p>We do not disclose any personal information provided by applicants to third parties
-                without prior concent. However, we may share application information with relevant
-                university departments involved in the admission process.
+                    without prior concent. However, we may share application information with relevant
+                    university departments involved in the admission process.
                 </p>
                 <p>Data Retention</p>
                 <p>We retain applicant information for a specified period, as required by university policies
-                and applicable laws.
+                    and applicable laws.
                 </p>
                 <p>Changes to this Notice </p>
                 <p>We may updates this Priacy Notice from time to time, and any chancges will be posted on
-                our website. Applicants are encouraged to review this notice periodically for updates.
+                    our website. Applicants are encouraged to review this notice periodically for updates.
                 </p>
                 <p>By submitting an admission application to PSAU, applicants acknowledge that they have read
-                and understood this Privacy Notice and concent to the collection and use of their personal
-                information as described herein.
-            </p>
-
-            <div class="mt-5 mb-3 d-flex justify-content-end gap-1">
-                <div class="btn btn-success">Submit</div>
-                <div class="btn btn-danger">Cancel</div>
-            </div>
-
+                    and understood this Privacy Notice and concent to the collection and use of their personal
+                    information as described herein.
+                </p>
+                <form action="{{ route('dataPrivacy') }}" method="post">
+                    @csrf
+                    <div class="mt-5 mb-3 d-flex justify-content-end gap-1">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <div class="btn btn-danger">Cancel</div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" ><i class="fa-solid fa-angles-up"></i></button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-angles-up"></i></button>
     @include('layout.script')
 @endsection
