@@ -27,12 +27,6 @@
                                         <i class="fa fa-ellipsis-h fs-5 fw-bold"></i>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        {{-- <li>
-                                            <a class="dropdown-item d-flex">
-                                                <i class="fa-solid fa-check fs-5 text-success"></i>
-                                                <label class="fs-text ms-3 fw-bold curser">Approve</label>
-                                            </a>
-                                        </li> --}}
                                         <li>
                                             <a class="dropdown-item d-flex" data-bs-toggle="modal"
                                                 data-bs-target="#fillup{{ $user->id }}">

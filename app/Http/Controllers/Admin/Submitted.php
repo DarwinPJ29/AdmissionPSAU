@@ -152,6 +152,7 @@ class Submitted extends Controller
 
                 if ($reqSubmitted != null) {
                     $reqValArray['file'] = $reqSubmitted->file;
+                    $reqValArray['file_name'] = $reqSubmitted->file_name;
                     $reqValArray['status'] = true;
                 }
 
@@ -169,7 +170,7 @@ class Submitted extends Controller
         $formattedDeadline = $deadline->format('F j, Y');
         $user = User::find($id);
         $user->requirements_done = 0;
-        $user->requirements_remarks = $request->input('reason') . '. Please resubmit your requirements until ' . $formattedDeadline;
+        $user->requirements_remarks = $request->input('reason') . '.Please resubmit your requirements until ' . $formattedDeadline;
         $user->update();
 
         $user_information = Information::where('user_id', $user->id)->first();
