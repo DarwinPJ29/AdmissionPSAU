@@ -47,11 +47,12 @@
     </li>
 </ul>
 <p style="font-size: 10px; margin-bottom: 10px">
-    For your information, your name above is based on the information [first name , middle name, last name, and extension]
-     that you have provide in the online application for admissions. Your Application number will be used to track your application.
+    For your information, your name above is based on the information [first name , middle name, last name, and
+    extension]
+    that you have provide in the online application for admissions. Your Application number will be used to track your
+    application.
 </p>
 <p style="margin-bottom: 20px">Thank you, good luck in your endeavors and we hope to be with you at PSAU</p>
 <p style="margin-bottom: 10px; text-transform: uppercase "><strong> Office of admission and registration</strong></p>
 <p style="margin-bottom: 10px ">Pampanga State Agricultural University </p>
 <p style="margin-bottom: 10px ">Magalang, Pampanga</p>
-

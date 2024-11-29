@@ -17,11 +17,14 @@ class Sched extends Mailable
     public $applicant_name;
     public $sched;
     public $room;
-    public function __construct($applicant_name, $sched, $room)
+    public $applicant_no;
+
+    public function __construct($applicant_no, $applicant_name, $sched, $room)
     {
         $this->applicant_name = $applicant_name;
         $this->sched = $sched;
         $this->room = $room;
+        $this->applicant_no = $applicant_no;
     }
 
     public function envelope(): Envelope
