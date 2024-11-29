@@ -9,7 +9,6 @@ use App\Models\RequirementSubmitted;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use PHPUnit\Metadata\Api\Requirements;
 
 class RequirementController extends Controller
 {
@@ -59,6 +58,7 @@ class RequirementController extends Controller
                 $value['status'] = false;
                 if ($reqSubmitted != null) {
                     $value['file'] = $reqSubmitted->file;
+                    $value['file_name'] = $reqSubmitted->file_name;
                     $value['status'] = true;
                     if ($value['required'])
                         $totalRequired[1]++;
@@ -73,10 +73,12 @@ class RequirementController extends Controller
 
         $validated = $request->validate([
             'id' => 'required',
-            'file' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+            'file' => 'required|mimes:jpg,png,jpeg,pdf|max:2048'
         ]);
+
         if ($request->hasFile('file')) {
             $image = $validated['file'];
+            $origName = $image->getClientOriginalName();
             $imageName = $image->hashName();
             Storage::disk('public')->put('applicant_requirements', $image);
             $valid['file'] = $imageName;
@@ -85,6 +87,7 @@ class RequirementController extends Controller
                 'user_id' => auth()->user()->id,
                 'requirement_id' => $validated['id'],
                 'file' => $valid['file'],
+                'file_name' => $origName
             ]);
 
             return  redirect()->back()->with('success', 'Requirements Uploaded');
@@ -95,18 +98,23 @@ class RequirementController extends Controller
     {
         $validated = $request->validate([
             'id' => 'required',
-            'file' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+            'file' => 'required|mimes:jpg,png,jpeg,pdf|max:2048'
         ]);
         $reqSubmitted = RequirementSubmitted::where('requirement_id', $validated['id'])->where('user_id', auth()->user()->id)->first();
+
         if ($request->hasFile('file')) {
+
             unlink(public_path() . '/storage/applicant_requirements/' . $reqSubmitted->file);
 
             $image = $request->file;
+            $origName = $image->getClientOriginalName();
             $imageName = $image->hashName();
             Storage::disk('public')->put('applicant_requirements', $image);
             $validated['file'] = $imageName;
+
             $reqSubmitted->update([
-                'file' => $validated['file']
+                'file' => $validated['file'],
+                'file_name' => $origName
             ]);
             return  redirect()->back()->with('success', 'Successfully Edited');
         }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignUlid('user_id')->references('id')->on('users');
             $table->foreignUlid('requirement_id')->references('id')->on('requirements');
             $table->string('file')->nullable();
+            $table->string('file_name')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

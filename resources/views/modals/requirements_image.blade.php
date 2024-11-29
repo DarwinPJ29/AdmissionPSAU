@@ -10,8 +10,9 @@
             <div class="modal-body border shadow">
                 <form action="{{ route('applicant.requirement') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <label for="image">Upload Image</label>
-                    <input type="file" name="file" id="image" class="form-control shadow" accept="image/*">
+                    <label for="image">Upload File</label>
+                    <input type="file" name="file" id="image" class="form-control shadow"
+                        accept="image/*,.pdf" required>
                     <input type="text" name="id" value="{{ $req->id }}" hidden>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -37,11 +38,16 @@
                 <form action="{{ route('applicant.edit') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="d-flex justify-content-center mb-2">
-                        <img src="{{ url('/storage/applicant_requirements/' . $req->file) }}" alt=""
-                            srcset="" class="img-fluid uploaded rounded shadow mb-2">
+                        @if (str_contains($req->file_name, '.pdf'))
+                            <h5><span class="text-muted">File Upload: </span> <br>{{ $req->file_name }}</h5>
+                        @else
+                            <img src="{{ url('/storage/applicant_requirements/' . $req->file) }}" alt=""
+                                srcset="" class="img-fluid uploaded rounded shadow mb-2">
+                        @endif
                     </div>
                     <label for="new_img">Upload new file:</label>
-                    <input type="file" name="file" id="image" class="form-control shadow" accept="image/*">
+                    <input type="file" name="file" id="image" class="form-control shadow"
+                        accept="image/*,.pdf" required>
                     <input type="text" name="id" value="{{ $req->id }}" hidden>
 
                     <div class="modal-footer">
