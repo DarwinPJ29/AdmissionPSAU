@@ -34,9 +34,9 @@
                 </li>
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('courses') }}"
-                        class="nav-link ps-2  {{ Request::segment(1) === 'courses' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                        class="nav-link ps-2  {{ Request::segment(1) === 'program' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-clipboard-list me-2"></i>
-                        Courses</a>
+                        Programs</a>
                 </li>
 
                 <li class="nav-item rounded mb-1">

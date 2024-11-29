@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header main-bg">
-                <h1 class="modal-title fs-5 " id="staticBackdropLabel">Add Course</h1>
+                <h1 class="modal-title fs-5 " id="staticBackdropLabel">Add Program</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body border shadow">
@@ -23,6 +23,19 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-2">
+                        <label for="enable">Status <span class="text-danger">*</span></label>
+                        <select name="enable" id="enable"
+                            class="form-select shadow @error('enable') is-invalid @enderror" value="{{ old('enable') }}"
+                            required>
+                            <option value="" selected hidden>Select Desired:</option>
+                            <option value="1" @selected(old('enable') == 1)>Enable</option>
+                            <option value="0" @selected(old('enable') == 0)>Disable</option>
+                        </select>
+                        @error('enable')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                     <div class="mb-2">
                         <label for="img">Upload Image<span class="text-danger">*</span></label>
                         <input type="file" name="file" id="image" class="form-control shadow"
@@ -30,7 +43,7 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col-7">
-                            <label for="course_title">Course Name <span class="text-danger">*</span></label>
+                            <label for="course_title">Program Name <span class="text-danger">*</span></label>
                             <input type="text" name="course_title" id="course_title" class="form-control shadow"
                                 placeholder="Enter Course Name:" required>
 
@@ -68,7 +81,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header main-bg">
-                    <h1 class="modal-title fs-5 " id="staticBackdropLabel">Edit Course</h1>
+                    <h1 class="modal-title fs-5 " id="staticBackdropLabel">Edit Program</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body border shadow">
@@ -81,7 +94,7 @@
                                 class="img-fluid uploaded rounded shadow mb-2">
                         </div>
                         <div class="col-md-12">
-                            <label for="college_id">College<span class="text-danger">*</span></label>
+                            <label for="college_id">Program<span class="text-danger">*</span></label>
                             <select name="college_id" id="college_id" class="form-select shadow" required>
                                 <option value="" selected>Select College:</option>
                                 @foreach ($colleges as $col)
@@ -91,6 +104,19 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-2">
+                            <label for="enable">Status <span class="text-danger">*</span></label>
+                            <select name="enable" id="enable"
+                                class="form-select shadow @error('enable') is-invalid @enderror" value=""
+                                required>
+                                <option value="" selected hidden>Select Desired:</option>
+                                <option value="1" @selected($course->enable == 1)>Enable</option>
+                                <option value="0" @selected($course->enable == 0)>Disable</option>
+                            </select>
+                            @error('enable')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                         <div class="mb-2">
                             <label for="img">Upload Image <span class="text-danger">*</span></label>
                             <input type="file" name="file" id="image" class="form-control shadow"
@@ -98,7 +124,7 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-7">
-                                <label for="course_title">Course Name <span class="text-danger">*</span></label>
+                                <label for="course_title">Program Name <span class="text-danger">*</span></label>
                                 <input type="text" name="course_title" id="course_title"
                                     class="form-control shadow" placeholder="Enter Course Name:"
                                     value="{{ $course->title }}" required>
@@ -143,7 +169,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header main-bg">
-                    <h1 class="modal-title fs-5 " id="staticBackdropLabel">Delete Course</h1>
+                    <h1 class="modal-title fs-5 " id="staticBackdropLabel">Delete Program</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body border shadow">
@@ -154,7 +180,7 @@
                         <div class="mb-2 text-center fs-3">
                             Are you sure you want to Delete this <br>
                             <span class="fw-bold text-uppercase">{{ $course->title }} -
-                                ({{ $course->acronym }})</span> <br> Course permanently ?
+                                ({{ $course->acronym }})</span> <br> Program permanently ?
                         </div>
 
                         <div class="modal-footer">

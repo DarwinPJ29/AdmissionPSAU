@@ -36,7 +36,7 @@ trait SecB
             $this->school_year = $currentYear . '-' . ($currentYear + 1);
         }
 
-        $colleges = College::orderBy('level', 'desc');
+        $colleges = College::orderBy('level', 'desc')->where('enable', 1);
 
         if ($this->applicant_type == 1) {
             $colleges->where('level', 3);

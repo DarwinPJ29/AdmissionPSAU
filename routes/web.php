@@ -79,9 +79,9 @@ Route::controller(College::class)->group(function () {
 });
 // Course
 Route::controller(Course::class)->group(function () {
-    Route::any('/courses', 'courses')->name('courses');
-    Route::any('/courses/{id}', 'coursesUpdate')->name('courses.update');
-    Route::any('/courses/delete/{id}', 'courseDelete')->name('courses.delete');
+    Route::any('/program', 'courses')->name('courses');
+    Route::any('/program/{id}', 'coursesUpdate')->name('courses.update');
+    Route::any('/program/delete/{id}', 'courseDelete')->name('courses.delete');
 });
 // Requirement
 Route::controller(Requirement::class)->group(function () {

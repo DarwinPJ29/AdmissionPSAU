@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('acronym')->nullable();
             $table->string('description')->nullable();
             $table->string('file')->nullable();
+            $table->boolean('enable')->default(1);
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@
         <div class=" mt-3 d-flex justify-content-end gap-1">
 
             <div class="btn shadow btn-warning" data-bs-toggle="modal" data-bs-target="#program"><i
-                    class="fa-solid fa-plus me-1 f-text"></i>Add Courses
+                    class="fa-solid fa-plus me-1 f-text"></i>Add Program
             </div>
         </div>
         <div class="border rounded p-3 shadow mt-3 ">
@@ -17,6 +17,7 @@
                         <th class="col-3">Name</th>
                         <th class="col-2">College</th>
                         <th class="col-4">Description</th>
+                        <th class="col-2">Status</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>
@@ -34,6 +35,7 @@
                             <td class="text-uppercase">{{ $course->course_title . ' (' . $course->course_acronym . ')' }}
                             </td>
                             <td>{{ $course->description }}</td>
+                            <td>{{ $course->enable == 1 ? 'Enabled' : 'Disabled' }}</td>
                             <td>
                                 <div class="dropdown text-center">
                                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"

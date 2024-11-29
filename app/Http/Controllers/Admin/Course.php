@@ -53,6 +53,7 @@ class Course extends Controller
                 $course->title = $request->course_title;
                 $course->acronym = $request->course_acronym;
                 $course->description = $request->course_desc;
+                $course->description = $request->course_desc;
                 $course->file = $valid['file'];
 
                 $course->save();
@@ -83,6 +84,7 @@ class Course extends Controller
                     $course->title = $request->course_title;
                     $course->acronym = $request->course_acronym;
                     $course->description = $request->course_desc;
+                    $course->enable = $request->enable;
                     $course->file = $valid['file'];
                     $course->update();
                     return redirect()->back()->with('success', 'Course Successfully Updated');
@@ -92,6 +94,7 @@ class Course extends Controller
                 $course->title = $request->course_title;
                 $course->acronym = $request->course_acronym;
                 $course->description = $request->course_desc;
+                $course->enable = $request->enable;
                 $course->update();
                 return redirect()->back()->with('success', 'Course Successfully Updated');
             }
