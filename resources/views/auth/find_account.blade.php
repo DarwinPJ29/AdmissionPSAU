@@ -25,7 +25,7 @@
                             <div class="d-flex flex-column justify-content-center ms-2 fs-style">Pampanga State
                                 Agricultural University</div>
                         </div>
-                        <a href="{{ route('index') }}" class="nav-link text-end">
+                        <a href="{{ route('login') }}" class="nav-link text-end">
                             <div class="btn"><i class="fa-solid fa-times"></i></div>
                         </a>
 
@@ -33,51 +33,39 @@
 
                 </div>
                 <div class="border text-dark  p-3 shadow ">
-                    <form action="{{ route('login') }}" method="post">
+                    <form action="{{ route('findAccount') }}" method="post">
                         @csrf
                         <div class="container">
-
-                            <div class="row mb-3 ">
-                                <div class="col-4">
+                            <div class="row mb-3">
+                                <div class="col-3">
                                     <hr class="border border-1 border-success opacity-75">
                                 </div>
-                                <div class="col-4 d-flex justify-content-center">
-                                    <span class="fs-style fw-bold fs-3">Log in</span>
+                                <div class="col-6 d-flex justify-content-center">
+                                    <span class="fs-style fw-bold fs-3">Find Account</span>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <hr class="border border-1 border-success opacity-75">
                                 </div>
                             </div>
                             <div class="mt-3 mb-3">
-                                <div class="input-group">
+                                <div class="input-group d-flex flex-direction-column">
                                     <span class="input-group-text bg-success" id="inputGroupPrepend">
-                                        <i class="fa-solid fa-envelope text-warning"></i> </span>
+                                        <i class="fa-solid fa-envelope text-warning"></i>
+                                    </span>
                                     <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="sample@gmail.com" value="{{ old('email') }}">
-                                    @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                        placeholder="Enter your email here..." value="{{ old('email') }}" required>
                                 </div>
-                            </div>
-
-                            <div class="input-group mb-2">
-                                <span class="input-group-text bg-success" id="inputGroupPrepend">
-                                    <i class="fa-solid fa-key text-warning"></i> </span>
-                                <input type="password" id="login_password" name="password" class="form-control shadow"
-                                    placeholder="Enter your password">
-                                @error('password')
-                                    <span class="text-danger">{{ $message }}</span>
+                                @error('email')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <input type="checkbox" name="showPassword" id="showPassword" class="mt-3"> Show Password
-                            <a href="{{ route('findAccount') }}" class="nav-link text-primary text-end">Forget
-                                password?</a>
                             <hr class="border bordr-2 opacity-75 border-success">
                             <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-sm btn-warning shadow"> Login</button>
+                                <button type="submit" class="btn btn-md btn-warning shadow"> Find</button>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

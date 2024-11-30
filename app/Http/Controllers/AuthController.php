@@ -159,4 +159,16 @@ class AuthController extends Controller
         auth()->logout();
         return redirect()->route('login')->with('success', 'You are now logged out!');
     }
+
+    public function findAccount(Request $request)
+    {
+        if ($request->isMethod('get'))
+            return view('auth.find_account');
+
+        $validated = $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ], [
+            'email.exists' => 'The email does not exist in our records.',
+        ]);
+    }
 }
