@@ -55,6 +55,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::any('/change-password', 'changeDefaultPassword')->name('changeDefaultPassword')->middleware('auth');
     Route::any('/data-privacy', 'dataPrivacy')->name('dataPrivacy')->middleware('auth');
     Route::any('/find-account', 'findAccount')->name('findAccount')->middleware('guest');
+    Route::any('/verify-otp/{id}', 'validateOTP')->name('validateOTP')->middleware('guest');
 });
 
 // Admin

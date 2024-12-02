@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Find Account</title>
+    <title>Verify OTP</title>
     <link rel="icon" href="{{ URL::asset('images/PSAU_logo.png') }}" type="image/x-icon" />
     @include('layout.link')
 </head>
@@ -33,7 +33,7 @@
 
                 </div>
                 <div class="border text-dark  p-3 shadow ">
-                    <form action="{{ route('findAccount') }}" method="post">
+                    <form action="{{ route('validateOTP', $id) }}" method="post">
                         @csrf
                         <div class="container">
                             <div class="row mb-3">
@@ -41,7 +41,7 @@
                                     <hr class="border border-1 border-success opacity-75">
                                 </div>
                                 <div class="col-6 d-flex justify-content-center">
-                                    <span class="fs-style fw-bold fs-3">Find Account</span>
+                                    <span class="fs-style fw-bold fs-3">Verify OTP</span>
                                 </div>
                                 <div class="col-3">
                                     <hr class="border border-1 border-success opacity-75">
@@ -50,18 +50,45 @@
                             <div class="mt-3 mb-3">
                                 <div class="input-group d-flex flex-direction-column">
                                     <span class="input-group-text bg-success" id="inputGroupPrepend">
-                                        <i class="fa-solid fa-envelope text-warning"></i>
+                                        <i class="fa-solid fa-key text-warning"></i>
                                     </span>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="Enter your email here..." value="{{ old('email') }}" required>
+                                    <input type="otp" class="form-control" id="otp" name="otp"
+                                        placeholder="Enter your OTP here..." value="{{ old('otp') }}" required>
                                 </div>
-                                @error('email')
+                                @error('otp')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <div class="input-group d-flex flex-direction-column">
+                                    <span class="input-group-text bg-success" id="inputGroupPrepend">
+                                        <i class="fa-solid fa-lock text-warning"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Enter your password here..." value="{{ old('password') }}"
+                                        required>
+                                </div>
+                                @error('password')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <div class="input-group d-flex flex-direction-column">
+                                    <span class="input-group-text bg-success" id="inputGroupPrepend">
+                                        <i class="fa-solid fa-lock text-warning"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="confirm" name="confirm"
+                                        placeholder="Confirm your password here..." value="{{ old('confirm') }}"
+                                        required>
+                                </div>
+                                @error('confirm')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <hr class="border bordr-2 opacity-75 border-success">
                             <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-md btn-warning shadow"> Find / Send OTP</button>
+                                <button type="submit" class="btn btn-md btn-warning shadow">Verify / Save
+                                    Changes</button>
                             </div>
                         </div>
                     </form>

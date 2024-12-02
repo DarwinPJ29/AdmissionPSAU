@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendOTP;
+use App\Models\Information;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -170,5 +174,50 @@ class AuthController extends Controller
         ], [
             'email.exists' => 'The email does not exist in our records.',
         ]);
+
+        $user = User::where('email', $request->input('email'))->first();
+
+        if ($user) {
+            $info = Information::where('user_id', $user->id)->first();
+            $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+
+            $otp = random_int(1000, 9999);
+            $user->otp = $otp;
+            $user->otp_expires = Carbon::now()->addMinutes(5);
+            $user->save();
+
+            Mail::to($user->email)->send(new SendOTP($name, $otp));
+
+            return redirect()->route('validateOTP', $user->id);
+        }
+    }
+
+    public function validateOTP(Request $request, $id)
+    {
+        if ($request->isMethod('get')) {
+            $id = $id;
+            return view('auth.veryOTP', compact('id'));
+        }
+
+        $request->validate([
+            'otp' => ['required', 'digits:4'],
+            'password' => ['required'],
+            'confirm' => ['required', 'same:password'],
+        ]);
+
+        $user = User::find($id);
+
+        if ($user) {
+            if ($user->otp = intval($request->input('otp')) && Carbon::now()->lessThanOrEqualTo($user->otp_expires)) {
+                $user->otp = 0;
+                $user->password = Hash::make($request->input('confirm'));
+                $user->otp_expires = null;
+                $user->save();
+
+                return redirect()->route('login')->with('success', "You can now login using your new password.");
+            } else
+                return redirect()->back()->with('failed', "Invalid OTP");
+        } else
+            return redirect()->back()->with('failed', "Email not found.");
     }
 }

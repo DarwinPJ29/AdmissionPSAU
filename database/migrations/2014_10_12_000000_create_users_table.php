@@ -28,6 +28,8 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->boolean('is_default_pass')->default(1);
             $table->boolean('isPrivacy')->default(0);
+            $table->integer('otp')->default(0);
+            $table->dateTime('otp_expires')->nullable();
             $table->timestamps();
         });
     }
