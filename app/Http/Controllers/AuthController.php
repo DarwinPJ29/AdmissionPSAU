@@ -147,7 +147,7 @@ class AuthController extends Controller
         if ($request->isMethod('get')) {
 
             if ($user->isPrivacy == 1)
-                return redirect()->route('ApplicantForm');
+                return redirect()->route('steps');
 
             return view('applicant.forms.dataPrivacy');
         }

@@ -15,6 +15,7 @@ use App\Models\RequirementSubmitted;
 use App\Models\Result;
 use App\Models\User;
 use App\Services\Core;
+use App\Services\Status;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -24,8 +25,7 @@ class Evaluation extends Controller
     public function evaluation(Request $request)
     {
         if ($request->isMethod('get')) {
-            $users = User::select('id', 'email', 'applicant_no')
-                ->where('evaluation', false)->where('score_done', true)->OrderBy('created_at', 'asc')->get();
+            $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Evaluation->value)->where('role', 0)->OrderBy('created_at', 'asc')->get();
             foreach ($users as $value) {
                 $result = Result::where('user_id', $value->id)->first();
                 $value['result'] = [$result->score, $result->total, $result->stanine];
@@ -73,6 +73,7 @@ class Evaluation extends Controller
 
                     if ($reqSubmitted != null) {
                         $reqValArray['file'] = $reqSubmitted->file;
+                        $reqValArray['file_name'] = $reqSubmitted->file_name;
                         $reqValArray['status'] = true;
                     }
 
@@ -100,8 +101,7 @@ class Evaluation extends Controller
         $result->update();
 
         $user = User::find($request->input('id'));
-        $user->evaluation = true;
-        $user->status = true;
+        $user->status = Status::Admitted;
         $user->update();
 
         $info = Information::where('user_id', $user->id)->first();
@@ -116,14 +116,14 @@ class Evaluation extends Controller
             }
         }
 
-        // Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
+        Mail::to($user->email)->send(new MailEvaluation($user->id, $applicant_name, $labelCourse));
         return redirect()->back()->with('success', 'Successfully admitted');
     }
 
     public function Recommended(Request $request, $id)
     {
+        $user = User::find($id);
         if ($request->isMethod('get')) {
-            $user = User::find($id);
             $info = Information::where('user_id', $user->id)->first();
             $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
@@ -164,8 +164,7 @@ class Evaluation extends Controller
         $choice->evaluation = false;
         $choice->update();
 
-        $user = User::find(auth()->user()->id);
-        $user->evaluation = true;
+        $user->status = Status::Recommendation;
         $user->update();
 
         $info = Information::where('user_id', $user->id)->first();
@@ -185,8 +184,7 @@ class Evaluation extends Controller
         $result->update();
 
         $user = User::find($id);
-        $user->evaluation = true;
-        $user->status = false;
+        $user->status = Status::Denied;
         $user->update();
 
         $choice = Choice::where('user_id', $id)->first();
@@ -205,7 +203,7 @@ class Evaluation extends Controller
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
-        Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse));
+        Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse, $user->applicant_no));
         return redirect()->back()->with('success', 'Successfully Deny');
     }
 }

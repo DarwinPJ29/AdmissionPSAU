@@ -14,13 +14,17 @@ class Score extends Mailable
     use Queueable, SerializesModels;
 
     public $applicant_name;
+    public $applicant_no;
     public $score;
     public $total;
+    public $stanine;
 
-    public function __construct($applicant_name, $score, $total)
+    public function __construct($applicant_name, $applicant_no, $score, $total, $stanine)
     {
         $this->applicant_name = $applicant_name;
+        $this->applicant_no = $applicant_no;
         $this->score = $score;
+        $this->stanine = $stanine;
         $this->total = $total;
     }
 

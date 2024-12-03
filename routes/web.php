@@ -18,6 +18,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\StaticData;
 use App\Models\College as ModelsCollege;
+use App\Services\Status;
 
 // Redirect the user if auth
 Route::get('/redirect', function () {
@@ -37,6 +38,37 @@ Route::get('/loading', function () {
     return view('components.loading');
 })->name('loading');
 
+
+Route::get('/steps', function () {
+
+    if (auth()->check()) {
+        if (auth()->user()->role == 0) {
+
+            $status = auth()->user()->status;
+            switch ($status) {
+                case Status::Fillup->value:
+                    return redirect()->route('ApplicantForm');
+                    break;
+                case Status::Requirement->value:
+                    return redirect()->route('applicant.requirement');
+                    break;
+                case Status::Review->value:
+                    return redirect()->route('reviews');
+                    break;
+                case Status::Scheduled->value:
+                    return redirect()->route('schedule');
+                    break;
+                case Status::Evaluation->value:
+                    return redirect()->route('score');
+                    break;
+                default:
+                    return redirect()->route('evaluate');
+                    break;
+            }
+        }
+    } else
+        return redirect()->route('index');
+})->name('steps')->middleware('auth', 'can:applicant');
 
 Route::controller(HomeController::class)->group(function () {
     Route::any('/', 'index')->name('index')->middleware('guest');

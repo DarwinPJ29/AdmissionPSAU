@@ -15,6 +15,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('acronym')->nullable();
+            $table->boolean('enable')->default(1);
             $table->integer('level')->nullable(); //1 = UnderGraduate, 2 = Masteral, 3 = Doctoral
             $table->timestamps();
         });

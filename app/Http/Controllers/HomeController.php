@@ -7,6 +7,7 @@ use App\Models\Courses;
 use App\Models\Requirement as ModelsRequirement;
 use App\Models\Information;
 use App\Models\User;
+use App\Services\Status;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -66,6 +67,7 @@ class HomeController extends Controller
         $user->email = $validated['email'];
         $user->password = Hash::make($validated['password']);
         $user->role = 0;
+        $user->status = Status::Fillup;
         $user->save();
 
         $user_information = new Information();

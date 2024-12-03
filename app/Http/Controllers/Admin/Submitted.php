@@ -18,6 +18,7 @@ use App\Models\RequirementSubmitted;
 use App\Models\Result;
 use App\Models\User;
 use App\Services\Core;
+use App\Services\Status;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -26,8 +27,7 @@ class Submitted extends Controller
 {
     public function Submitted()
     {
-        $users = User::select('id', 'email', 'applicant_no')->where('requirements_done', true)
-            ->where('schedule_done', false)->OrderBy('created_at', 'asc')->get();
+        $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Review->value)->OrderBy('created_at', 'asc')->get();
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
             $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
@@ -169,7 +169,7 @@ class Submitted extends Controller
         $deadline = Carbon::parse($request->input('deadline'));
         $formattedDeadline = $deadline->format('F j, Y');
         $user = User::find($id);
-        $user->requirements_done = 0;
+        $user->status = Status::Requirement;
         $user->requirements_remarks = $request->input('reason') . '.Please resubmit your requirements until ' . $formattedDeadline;
         $user->update();
 
@@ -188,7 +188,7 @@ class Submitted extends Controller
         $date = $day->format('F j, Y');
 
         $user = User::find($id);
-        $user->schedule_done = 1;
+        $user->status = Status::Scheduled;
         $user->update();
 
         $result = Result::where('user_id', $user->id)->first();

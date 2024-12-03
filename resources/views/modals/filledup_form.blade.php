@@ -332,11 +332,12 @@
                         <div class="col-sm-6">
                             <label for="reason">Reason / Return</label>
                             <textarea name="reason" id="reason" cols="" rows="2" class="form-control shadow"
-                                placeholder="Enter Reason / Return: "></textarea>
+                                placeholder="Enter Reason / Return: " required></textarea>
                         </div>
                         <div class="col-sm-6">
                             <label for="deadline">Set Deadline date</label>
-                            <input type="date" name="deadline" id="deadline" class="form-control shadow">
+                            <input type="date" name="deadline" id="deadline" class="form-control shadow"
+                                required>
                         </div>
                     </div>
                     <div class="row g-2">

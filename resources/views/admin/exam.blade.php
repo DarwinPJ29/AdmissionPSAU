@@ -15,29 +15,31 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->applicant_no }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                <div class="dropdown text-center">
-                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <i class="fa fa-ellipsis-h fs-5 fw-bold"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item d-flex" data-bs-toggle="modal"
-                                                data-bs-target="#exam{{ $user->id }}">
-                                                <i class="fa-solid fa-brain fs-5 text-success"></i>
-                                                <label class="fs-text ms-3 fw-bold curser">Result</label>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        @include('modals.exam_modal')
+                        @if ($user->show)
+                            <tr>
+                                <td>{{ $user->applicant_no }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
+                                    <div class="dropdown text-center">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <i class="fa fa-ellipsis-h fs-5 fw-bold"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item d-flex" data-bs-toggle="modal"
+                                                    data-bs-target="#exam{{ $user->id }}">
+                                                    <i class="fa-solid fa-brain fs-5 text-success"></i>
+                                                    <label class="fs-text ms-3 fw-bold curser">Result</label>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            @include('modals.exam_modal')
+                        @endif
                     @endforeach
                 </tbody>
             </table>

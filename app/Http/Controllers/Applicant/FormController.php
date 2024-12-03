@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Controller;
+use App\Services\Status;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -10,11 +11,10 @@ class FormController extends Controller
     public function ApplicantForm()
     {
         $user = auth()->user();
-        if ($user->form_done) {
-            return redirect()->route('applicant.requirement');
-            // return view('applicant.admission_form');
-        }
-        return view('applicant.admission_form');
+        if ($user->status == Status::Fillup->value) {
+            return view('applicant.admission_form');
+        } else
+            return redirect()->route('steps');
     }
 
     public function privacy()

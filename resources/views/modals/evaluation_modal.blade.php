@@ -25,22 +25,51 @@
                             <label class="mb-2 fw-bold">List or Requirements Submitted</label>
                             <div class="row mt-3">
                                 @foreach ($user->requirements as $item)
-                                    <div class="col-sm-6">
-                                        <div class="container">
-                                            <div class="text-center text-uppercase">
-                                                <img data-enlargable
-                                                    src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
-                                                    alt="" class="img-fluid file-uploaded rounded">
+                                    @if (str_contains($item['file_name'], 'pdf'))
+                                        <div class="accordion" id="accordionExample">
+                                            <!-- Accordion Item 1 -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading0">
+                                                    <button
+                                                        class="accordion-button collapsed d-flex flex-column text-start"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse0" aria-expanded="false"
+                                                        aria-controls="collapse0">
+                                                        <span>Requirement: {{ $item['title'] }}</span>
+                                                        <small>{{ $item['required'] ? 'Required' : 'Not Required' }}</small>
+                                                        <span>File: {{ $item['file_name'] }}</span>
+                                                    </button>
+
+                                                </h2>
+                                                <div id="collapse0" class="accordion-collapse collapse"
+                                                    aria-labelledby="heading0" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <iframe
+                                                            src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
+                                                            frameborder="0" style="width: 100%; height: 80vh;"></iframe>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="fs-style text-center text-uppercase text-danger text fw-bold">
-                                                Click
-                                                image
-                                                to Larger</div>
-                                            <div class="text-center text-uppercase">{{ $item['title'] }}</div>
-                                            <div class="text-center text-uppercase text-muted text">
-                                                {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
                                         </div>
-                                    </div>
+                                    @else
+                                        <div class="col-sm-6">
+                                            <div class="container">
+                                                <div class="text-center text-uppercase">
+                                                    <img data-enlargable
+                                                        src="{{ url('/storage/applicant_requirements/' . $item['file']) }}"
+                                                        alt="" class="img-fluid file-uploaded rounded">
+                                                </div>
+                                                <div
+                                                    class="fs-style text-center text-uppercase text-danger text fw-bold">
+                                                    Click
+                                                    image
+                                                    to Larger</div>
+                                                <div class="text-center text-uppercase">{{ $item['title'] }}</div>
+                                                <div class="text-center text-uppercase text-muted text">
+                                                    {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

@@ -14,12 +14,14 @@ class Evaluation extends Mailable
     use Queueable, SerializesModels;
 
     public $applicant_name;
-    public $result;
+    public $applicant_no;
+    public $userId;
 
-    public function __construct($applicant_name, $result)
+    public function __construct($userId, $applicant_name, $applicant_no)
     {
         $this->applicant_name = $applicant_name;
-        $this->result = $result;
+        $this->applicant_no = $applicant_no;
+        $this->userId = $userId;
     }
     public function envelope(): Envelope
     {
@@ -34,6 +36,7 @@ class Evaluation extends Mailable
     public function content(): Content
     {
         return new Content(
+
             view: 'mail.result_evaluation',
         );
     }
