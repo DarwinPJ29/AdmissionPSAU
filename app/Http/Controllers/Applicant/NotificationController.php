@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Choice;
 use App\Models\Courses;
 use App\Models\Recomended;
 use App\Models\Result;
@@ -50,7 +51,7 @@ class NotificationController extends Controller
         $user = auth()->user();
 
         if ($request->isMethod('get')) {
-            if ($user->status != Status::Recommendation->value) {
+            if ($user->status == Status::Admitted->value || $user->status == Status::Denied->value) {
                 $result = Result::where('user_id', $user->id)->first();
                 $course = explode(",", $result->course_id);
                 $labelCourse = [];
@@ -61,15 +62,31 @@ class NotificationController extends Controller
                     }
                 }
                 return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
-            } else {
+            } else if ($user->status == status::Recommendation->value) {
+
+                $choice = Choice::where('user_id', $user->id)->first();
+
+                $choices = [$choice->first, $choice->second];
+                $reasonss = [];
+
+                foreach ($choices as $index => $key) {
+                    $courseName = Courses::select('title', 'acronym')->find($key);
+
+                    if ($courseName) {
+                        $reasonText = ($index == 0) ? $choice->first_reason : $choice->second_reason;
+                        $reasons[] = [$courseName->title . " (" . $courseName->acronym . ")", $reasonText];
+                    }
+                }
+
                 $recommended = Recomended::where('user_id', $user->id)->first();
 
                 $selected = explode(',', $recommended->course_id);
 
                 $courses = Courses::whereIn('id', $selected)->get();
 
-                return view('applicant.forms.recommend_courses', compact('courses'));
-            }
+                return view('applicant.forms.recommend_courses', compact('courses', 'reasons'));
+            } else
+                return redirect()->route('steps');
         }
 
         $result = Result::where('user_id', $user->id)->first();

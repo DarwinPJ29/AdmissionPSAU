@@ -4,29 +4,36 @@
 
     <div class="container p-4">
         <div class="container mt-4 card shadow bg-secondary-subtles p-3">
-
-            <h3>Recommend Course for : {{ $name }}</h3>
-
             <form id="coursesForm" action="{{ route('recommended', $id) }}" method="post">
                 @csrf
+                <div class="row d-flex justify-content-center align-items-center">
+                    @foreach ($choicesNew as $index => $choice)
+                        <div class="col-4 d-flex flex-column justify-content-center align-items-start">
+                            <label>{{ $index + 1 == 1 ? 'First Choice' : 'Second Choice' }}</label>
+                            <label>{{ $choice }}</label>
+                            <label>Reason:</label>
+                            <textarea name="reason_{{ $index + 1 }}" class="form-control" cols="10" rows="3" required></textarea>
+                        </div>
+                    @endforeach
+                </div>
+                <h3>Recommend Course for : {{ $name }}</h3>
                 <div class="modal-body overflow-y-auto" style="max-height: 70vh">
                     <div class="container">
                         <hr class="border border-1 border-success opacity-75 m-0 p-0">
                         <div class="choice mb-3 mt-3">
                             <label class="mb-2 fw-bold">Courses Available</label>
                             <div class="mt-2 d-flex justify-content-evenly text-uppercase">
-
                                 <div class="row justify-content-center">
                                     @foreach ($courses as $item)
-                                   <div class="col-md-3">
-                                        <div class="d-flex border-bottom border-dark">
-                                            <input type="checkbox" class="me-2 course-checkbox" name="courses[]"
-                                              id="{{ $item->id }}"  value="{{ $item->id }}">
-                                            <label for="{{ $item->id }}">{{ $item->title }}</label>
+                                        <div class="col-md-3">
+                                            <div class="d-flex border-bottom border-dark">
+                                                <input type="checkbox" class="me-2 course-checkbox" name="courses[]"
+                                                    id="{{ $item->id }}" value="{{ $item->id }}">
+                                                <label for="{{ $item->id }}">{{ $item->title }}</label>
+                                            </div>
+                                            <div class="text-center">{{ $item->acronym }}</div>
                                         </div>
-                                        <div class="text-center">{{ $item->acronym }}</div>
-                                   </div>
-                                @endforeach
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

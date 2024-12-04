@@ -5,7 +5,7 @@
 
 <p style="margin-bottom: 20px"><strong>It is with regret that you are informed that</strong>you were
     <strong>NOT ADMITTED </strong> to your first-choice program {{ FirstChoice }} due to {{ Reason }},
-    and {{ SecondChoice }} due to {{ Reason }}
+    and {{ SecondChoice }} due to
 </p>
 <p style="margin-bottom: 20px">
     There are three possible reasons for NOT being admitted - SUBJECT GRADE/GWA, TEST RESULTS,
@@ -102,4 +102,4 @@
 </p>
 <p>**For the medical certificate, you may go to any Physician/Medical doctor and ask for a medical
     certificate. Please make sure that it includes your <u>full name</u> and that you are <u>physically
-        fit to study/go to school,</u>  signed by the physician with his/her medical license number.*</p>
+        fit to study/go to school,</u> signed by the physician with his/her medical license number.*</p>

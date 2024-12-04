@@ -9,24 +9,25 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Evaluation extends Mailable
+class Admitted extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $applicant_name;
-    public $applicant_no;
-    public $userId;
-
-    public function __construct($userId, $applicant_name, $applicant_no)
+    /**
+     * Create a new message instance.
+     */
+    public function __construct()
     {
-        $this->applicant_name = $applicant_name;
-        $this->applicant_no = $applicant_no;
-        $this->userId = $userId;
+        //
     }
+
+    /**
+     * Get the message envelope.
+     */
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Result of Evaluation',
+            subject: 'Admitted',
         );
     }
 
@@ -36,8 +37,7 @@ class Evaluation extends Mailable
     public function content(): Content
     {
         return new Content(
-
-            view: 'mail.result_evaluation',
+            view: 'view.name',
         );
     }
 

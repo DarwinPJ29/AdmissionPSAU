@@ -116,7 +116,7 @@ class Evaluation extends Controller
             }
         }
 
-        Mail::to($user->email)->send(new MailEvaluation($user->id, $applicant_name, $labelCourse));
+        // Mail::to($user->email)->send(new MailEvaluation($user->id, $applicant_name, $labelCourse));
         return redirect()->back()->with('success', 'Successfully admitted');
     }
 
@@ -128,6 +128,13 @@ class Evaluation extends Controller
             $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
             $choice = Choice::where('user_id', $user->id)->first();
+
+            $choices = [$choice->first => "", $choice->second => ""];
+            $choicesNew = [];
+            foreach ($choices as $key => $value) {
+                $courseName = Courses::select('title', 'acronym')->find($key);
+                array_push($choicesNew, $courseName->title . " (" . $courseName->acronym . ")");
+            }
 
             $colleges = College::orderBy('level', 'desc');
 
@@ -152,13 +159,18 @@ class Evaluation extends Controller
                 ->orderBy('title', 'asc')
                 ->get();
 
-            return view('admin.recommended', compact('id', 'courses', 'name'));
+            return view('admin.recommended', compact('id', 'courses', 'name', 'choicesNew'));
         }
 
         $recommend = new Recomended();
         $recommend->user_id = $id;
         $recommend->course_id = implode(',', $request->input('courses'));
         $recommend->save();
+
+        $appChoice = Choice::where('user_id', $user->id)->first();
+        $appChoice->first_reason = $request->input('reason_1');
+        $appChoice->second_reason = $request->input('reason_2');
+        $appChoice->save();
 
         $choice = Result::where('user_id', $id)->first();
         $choice->evaluation = false;
@@ -175,13 +187,35 @@ class Evaluation extends Controller
         return redirect()->route('evaluation')->with('success', 'Recommended Course Successfully Submitted');
     }
 
-    public function Deny($id)
+    public function Deny(Request $request, $id)
     {
+        $user = User::find($id);
+        if ($request->isMethod('get')) {
+            $info = Information::where('user_id', $user->id)->first();
+            $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+
+            $choice = Choice::where('user_id', $user->id)->first();
+
+            $choices = [$choice->first => "", $choice->second => ""];
+            $choicesNew = [];
+            foreach ($choices as $key => $value) {
+                $courseName = Courses::select('title', 'acronym')->find($key);
+                array_push($choicesNew, $courseName->title . " (" . $courseName->acronym . ")");
+            }
+
+            return view('admin.deny', compact('id', 'name', 'choicesNew'));
+        }
+
         $result = Result::where('user_id', $id)->first();
         $result->course_id = '';
         $result->evaluation = 1;
         $result->passed = 0;
         $result->update();
+
+        $appChoice = Choice::where('user_id', $user->id)->first();
+        $appChoice->first_reason = $request->input('reason_1');
+        $appChoice->second_reason = $request->input('reason_2');
+        $appChoice->save();
 
         $user = User::find($id);
         $user->status = Status::Denied;
@@ -203,7 +237,7 @@ class Evaluation extends Controller
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
-        Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse, $user->applicant_no));
-        return redirect()->back()->with('success', 'Successfully Deny');
+        // Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse, $user->applicant_no));
+        return redirect()->route('evaluation')->with('success', 'Successfully Deny');
     }
 }

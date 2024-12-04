@@ -18,6 +18,8 @@ return new class extends Migration
             $table->ulid('second')->nullable();
             $table->ulid('third')->nullable();
             $table->string('school_year')->nullable();
+            $table->string('first_reason')->nullable();
+            $table->string('second_reason')->nullable();
             $table->integer('semester')->nullable();
             $table->integer('type')->nullable();
             $table->boolean('failed')->default(0);

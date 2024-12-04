@@ -8,6 +8,16 @@
                     <i class="fa-solid fa-triangle-exclamation text-danger f-tag me-2"></i>
                     <div class="f-tag">Sorry to inform you that in your first and second choice is not passed</div>
                 </div>
+                <div class="row my-3 d-flex justify-content-center align-items-center">
+                    @foreach ($reasons as $index => $reason)
+                        <div class="col-4 d-flex flex-column justify-content-center align-items-start">
+                            <label>{{ $index + 1 == 1 ? 'First Choice' : 'Second Choice' }}</label>
+                            <label>{{ $reason[0] }}</label>
+                            <label>Reason:</label>
+                            <textarea class="form-control" cols="10" rows="3" readonly>{{ $reason[1] }}</textarea>
+                        </div>
+                    @endforeach
+                </div>
                 <div class="f-text">To proceed with your admission process, please select one of the recommended
                     courses from the list provided. Each course has been carefully chosen to align with your academic
                     background and future career aspirations. By selecting a course, you will be taking the first
