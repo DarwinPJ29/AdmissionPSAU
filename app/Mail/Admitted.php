@@ -13,12 +13,16 @@ class Admitted extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
+
+    public $applicant_name;
+    public $applicant_no;
+    public $program_name;
+
+    public function __construct($applicant_name, $applicant_no, $program_name)
     {
-        //
+        $this->applicant_name = $applicant_name;
+        $this->applicant_no = $applicant_no;
+        $this->program_name = $program_name;
     }
 
     /**
@@ -27,7 +31,7 @@ class Admitted extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Admitted',
+            subject: 'Congratulations!',
         );
     }
 
@@ -37,7 +41,7 @@ class Admitted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.admitted',
         );
     }
 

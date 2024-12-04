@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Admitted;
 use App\Mail\Evaluation as MailEvaluation;
 use App\Mail\Recommended;
 use App\Models\Choice;
@@ -17,6 +18,7 @@ use App\Models\User;
 use App\Services\Core;
 use App\Services\Status;
 use Carbon\Carbon;
+use FontLib\Table\Type\name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -106,17 +108,10 @@ class Evaluation extends Controller
 
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+        $courses = Courses::find($result->course_id);
+        $labelCourse = $courses->title . ' (' . $courses->acronym . ')';
 
-        $course = explode(",", $result->course_id);
-        $labelCourse = [];
-        foreach ($course as $value) {
-            $courses = Courses::find($value);
-            if ($courses != null) {
-                array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ') is PASSED');
-            }
-        }
-
-        // Mail::to($user->email)->send(new MailEvaluation($user->id, $applicant_name, $labelCourse));
+        Mail::to($user->email)->send(new Admitted($applicant_name, $user->applicant_no, $labelCourse));
         return redirect()->back()->with('success', 'Successfully admitted');
     }
 
