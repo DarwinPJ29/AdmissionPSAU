@@ -40,7 +40,13 @@
                             <div class="text-center mt-3">
                                 Sorry, your application has been denied!
                             </div>
-
+                            @foreach ($reasons as $index => $reason)
+                                <label style="font-size: 20px">
+                                    {{ $index + 1 == 1 ? 'First Choice: ' : 'Second Choice: ' }} {{ $reason[0] }}
+                                </label>
+                                <span class="text-muted" style="font-size: 15px">Reason:</span>
+                                <p style="font-size: 18px">{{ $reason[1] }}</p>
+                            @endforeach
                         </div>
                         <div class="col-md-6 d-md-block d-none justify-content-center">
                             <div class="d-flex justify-content-center ">

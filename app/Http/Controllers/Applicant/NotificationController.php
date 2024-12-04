@@ -61,7 +61,22 @@ class NotificationController extends Controller
                         array_push($labelCourse, $courses->title . ' (' . $courses->acronym . ')');
                     }
                 }
-                return view('applicant.forms.result_evaluation', compact('result', 'labelCourse'));
+
+                $choice = Choice::where('user_id', $user->id)->first();
+
+                $choices = [$choice->first, $choice->second];
+                $reasons = [];
+
+                foreach ($choices as $index => $key) {
+                    $courseName = Courses::select('title', 'acronym')->find($key);
+
+                    if ($courseName) {
+                        $reasonText = ($index == 0) ? $choice->first_reason : $choice->second_reason;
+                        $reasons[] = [$courseName->title . " (" . $courseName->acronym . ")", $reasonText];
+                    }
+                }
+
+                return view('applicant.forms.result_evaluation', compact('result', 'labelCourse', 'reasons'));
             } else if ($user->status == status::Recommendation->value) {
 
                 $choice = Choice::where('user_id', $user->id)->first();
