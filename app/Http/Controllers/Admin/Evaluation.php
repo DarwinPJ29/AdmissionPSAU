@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Admitted;
+use App\Mail\Denied;
 use App\Mail\Evaluation as MailEvaluation;
 use App\Mail\Recommended;
 use App\Models\Choice;
@@ -233,19 +234,6 @@ class Evaluation extends Controller
         $user->status = Status::Denied;
         $user->update();
 
-        $choice = Choice::where('user_id', $id)->first();
-        $labelCourse  = [];
-
-        $course1 = Courses::find($choice->first);
-        if ($course1 != null) {
-            array_push($labelCourse, $course1->title . ' (' . $course1->acronym . ') is FAILED');
-        }
-
-        $course2 = Courses::find($choice->second);
-        if ($course2 != null) {
-            array_push($labelCourse, $course2->title . ' (' . $course2->acronym . ') is FAILED');
-        }
-
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
@@ -262,7 +250,7 @@ class Evaluation extends Controller
             }
         }
 
-        // Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse, $user->applicant_no));
+        Mail::to($user->email)->send(new Denied($applicant_name, $user->applicant_no, $reasons));
         return redirect()->route('evaluation')->with('success', 'Successfully Deny');
     }
 }

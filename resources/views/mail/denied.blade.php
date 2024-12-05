@@ -4,8 +4,8 @@
 <p style="margin-bottom: 20px">Application No. <strong style="text-transform: uppercase;">{{ $applicant_no }}</strong></p>
 
 <p style="margin-bottom: 20px"><strong>It is with regret that you are informed that</strong>you were
-    <strong>NOT ADMITTED </strong> to your first-choice program {{ $reason[0][0] }} due to {{ $reason[0][1] }},
-    and {{ $reason[1][0] }} due to {{ $reason[1][1] }}
+    <strong>NOT ADMITTED </strong> to your first-choice program {{ $reasons[0][0] }} due to {{ $reasons[0][1] }},
+    and {{ $reasons[1][0] }} due to {{ $reasons[1][1] }}
 </p>
 <p style="margin-bottom: 20px">
     There are three possible reasons for NOT being admitted - SUBJECT GRADE/GWA, TEST RESULTS,

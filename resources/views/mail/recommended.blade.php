@@ -1,19 +1,12 @@
-<p style="margin-bottom: 10px">
-    Hi, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
-<p style="margin-bottom: 10px">Thank you for applying at PSAU!</strong></p>
-<p style="margin-bottom: 10px">Please log into your PSAU account and review the recommended
-    courses based on your evaluation exam results. Kindly select the course that best aligns with
-    your academic goals and interests.
+<p style="margin-bottom: 20px; margin:auto; text-align: center"><strong style="text-transform: uppercase;">
+        notice of evaluation result</strong></p>
+<p style="margin-bottom: 10px">Hi, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
+<p style="margin-bottom: 20px">Application No. <strong style="text-transform: uppercase;">{{ $applicant_no }}</strong></p>
+
+<p style="margin-bottom: 20px"><strong>It is with regret that you are informed that</strong>you were
+    <strong>NOT ADMITTED </strong> to your first-choice program {{ $reasons[0][0] }} due to {{ $reasons[0][1] }},
+    and {{ $reasons[1][0] }} due to {{ $reasons[1][1] }}
 </p>
-<p style="margin-top: 30px; color:red">(Please disregard this email address if have any concern contact PSAU)</p>
-{{ $applicant_no }}
-@foreach ($reasons as $index => $reason)
-    <label style="font-size: 20px">
-        {{ $index + 1 == 1 ? 'First Choice: ' : 'Second Choice: ' }} {{ $reason[0] }}
-    </label>
-    <span class="text-muted" style="font-size: 15px">Reason:</span>
-    <p style="font-size: 18px">{{ $reason[1] }}</p>
-@endforeach
 <label class="mb-3 f-text fw-bold">Recommend Course/s</label>
 <div class="row justify-content-center">
     @foreach ($recomendeds as $item)

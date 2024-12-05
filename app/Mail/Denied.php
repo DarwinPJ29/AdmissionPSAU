@@ -40,7 +40,7 @@ class Denied extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.failed',
+            view: 'mail.denied',
         );
     }
 
