@@ -13,21 +13,24 @@ class Denied extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
-    {
-        //
-    }
 
+    public $applicant_name;
+    public $applicant_no;
+    public $reasons;
+
+    public function __construct($applicant_name, $applicant_no, $reasons)
+    {
+        $this->applicant_name = $applicant_name;
+        $this->applicant_no = $applicant_no;
+        $this->reasons = $reasons;
+    }
     /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Denied',
+            subject: 'Application Denied!',
         );
     }
 
@@ -37,7 +40,7 @@ class Denied extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.failed',
         );
     }
 

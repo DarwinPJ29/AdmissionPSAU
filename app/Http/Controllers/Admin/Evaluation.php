@@ -177,7 +177,24 @@ class Evaluation extends Controller
         $info = Information::where('user_id', $user->id)->first();
         $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
-        Mail::to($user->email)->send(new Recommended($name));
+        $selected = explode(',', $recommend->course_id);
+
+        $recomendeds = Courses::whereIn('id', $selected)->get();
+
+        $choice = Choice::where('user_id', $user->id)->first();
+
+        $choices = [$choice->first, $choice->second];
+
+        foreach ($choices as $index => $key) {
+            $courseName = Courses::select('title', 'acronym')->find($key);
+
+            if ($courseName) {
+                $reasonText = ($index == 0) ? $choice->first_reason : $choice->second_reason;
+                $reasons[] = [$courseName->title . " (" . $courseName->acronym . ")", $reasonText];
+            }
+        }
+
+        Mail::to($user->email)->send(new Recommended($name, $user->applicant_no, $reasons, $recomendeds));
 
         return redirect()->route('evaluation')->with('success', 'Recommended Course Successfully Submitted');
     }
@@ -231,6 +248,19 @@ class Evaluation extends Controller
 
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+
+        $choice = Choice::where('user_id', $user->id)->first();
+
+        $choices = [$choice->first, $choice->second];
+
+        foreach ($choices as $index => $key) {
+            $courseName = Courses::select('title', 'acronym')->find($key);
+
+            if ($courseName) {
+                $reasonText = ($index == 0) ? $choice->first_reason : $choice->second_reason;
+                $reasons[] = [$courseName->title . " (" . $courseName->acronym . ")", $reasonText];
+            }
+        }
 
         // Mail::to($user->email)->send(new MailEvaluation($applicant_name, $labelCourse, $user->applicant_no));
         return redirect()->route('evaluation')->with('success', 'Successfully Deny');

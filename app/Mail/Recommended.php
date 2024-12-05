@@ -14,10 +14,16 @@ class Recommended extends Mailable
     use Queueable, SerializesModels;
 
     public $applicant_name;
+    public $applicant_no;
+    public $reasons;
+    public $recomendeds;
 
-    public function __construct($applicant_name)
+    public function __construct($applicant_name, $applicant_no, $reasons, $recomendeds)
     {
         $this->applicant_name = $applicant_name;
+        $this->applicant_no = $applicant_no;
+        $this->reasons = $reasons;
+        $this->recomendeds = $recomendeds;
     }
     /**
      * Get the message envelope.
