@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Account;
 use App\Http\Controllers\Admin\College;
 use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Admin\Evaluation;
@@ -104,7 +105,6 @@ Route::controller(Submitted::class)->group(function () {
     Route::any('/returned/{id}', 'Returned')->name('returned');
     Route::any('/sched/{id}', 'Schedule')->name('sched');
 });
-
 // College
 Route::controller(College::class)->group(function () {
     Route::any('/colleges', 'College')->name('college');
@@ -123,21 +123,17 @@ Route::controller(Requirement::class)->group(function () {
     Route::any('/requirement/{id}', 'requirementUpdate')->name('requirement.update');
     Route::any('/requirement/delete/{id}', 'requirementDelete')->name('requirement.delete');
 });
-
-
 // Applicant
 Route::controller(FormController::class)->group(function () {
     Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm'); //->middleware('auth', 'can:applicant');
     Route::any('/dataPrivacy', 'privacy')->name('privacy'); //->middleware('auth', 'can:applicant');
 });
-
 //Applicant Requirement
 Route::controller(RequirementController::class)->group(function () {
     Route::any('/requirements', 'Requirement')->name('applicant.requirement')->middleware('auth', 'can:applicant');
     Route::any('/requirements/edit', 'RequirementEdit')->name('applicant.edit')->middleware('auth', 'can:applicant');
     Route::any('/requirements/submit', 'RequirementSubmit')->name('applicant.submit')->middleware('auth', 'can:applicant');
 });
-
 //Notification
 Route::controller(NotificationController::class)->group(function () {
     Route::any('/review', 'Review')->name('reviews')->middleware('auth', 'can:applicant');
@@ -146,19 +142,16 @@ Route::controller(NotificationController::class)->group(function () {
     Route::any('/evaluations', 'Evaluation')->name('evaluate')->middleware('auth', 'can:applicant');
     Route::any('/status', 'Status')->name('status')->middleware('auth', 'can:applicant');
 });
-
 // exam
 Route::controller(Exam::class)->group(function () {
     Route::any('/exam', 'Exam')->name('exam');
 });
-
 // Evaluation
 Route::controller(Evaluation::class)->group(function () {
     Route::any('/evaluation', 'evaluation')->name('evaluation');
     Route::any('/deny/{id}', 'Deny')->name('deny');
     Route::any('/recommended/{id}', 'Recommended')->name('recommended');
 });
-
 // Region, Municipality and Barangay
 Route::controller(StaticData::class)->group(function () {
     Route::any('/data', 'SetData');
@@ -182,4 +175,10 @@ Route::controller(College::class)->group(function () {
 // PDFs
 Route::controller(PdfController::class)->group(function () {
     Route::any('/pdf', 'pdf')->name('pdf');
+});
+// Account
+Route::controller(Account::class)->group(function () {
+    Route::any('/account', 'account')->name('account');
+    Route::any('/account/update/{id}', 'update')->name('account.update');
+    Route::any('/account/activate/{id}', 'activate')->name('account.activate');
 });

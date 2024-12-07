@@ -21,21 +21,7 @@
     <!-- main content end -->
 
     @include('layout.script')
-    {{-- <script>
-        document.getElementById('showPassword').addEventListener('change', function() {
-            var passwordField = document.getElementById('admin_password');
-            var passwordField1 = document.getElementById('admin_password1');
-            if (this.checked) {
-                passwordField.type = 'text';
-                passwordField1.type = 'text';
-            } else {
-                passwordField.type = 'password';
-                passwordField1.type = 'password';
-            }
-        });
-    </script> --}}
     @livewireScripts()
-
 </body>
 
 </html>

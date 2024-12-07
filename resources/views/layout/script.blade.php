@@ -50,6 +50,20 @@
         Swal.fire("Error", "{{ session('failed') }}", "error");
     </script>
 @endif
+@if (session()->has('reOpenModal'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function triggerModal() {
+                // Get the session value safely and pass it to getElementById
+                var openModalBtn = document.getElementById("{{ session('reOpenModal') }}");
+                if (openModalBtn) {
+                    openModalBtn.click();
+                }
+            }
+            setTimeout(triggerModal, 0);
+        });
+    </script>
+@endif
 
 @if (session()->has('info'))
     <script>
@@ -76,8 +90,6 @@
         }
     });
 </script>
-
-
 <script>
     let mybutton = document.getElementById("myBtn");
     window.onscroll = function() {

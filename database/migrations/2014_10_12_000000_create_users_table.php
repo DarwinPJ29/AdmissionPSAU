@@ -18,13 +18,6 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('activated')->default(0);
             $table->integer('role');
-            $table->boolean('form_done')->default(0);
-            $table->boolean('requirements_done')->default(0);
-            $table->string('requirements_remarks')->nullable();
-            $table->boolean('schedule_done')->default(0);
-            $table->boolean('score_done')->default(0);
-            $table->boolean('evaluation')->default(0);
-            $table->boolean('mail_done')->default(0);
             $table->integer('status')->default(0);
             $table->boolean('is_default_pass')->default(1);
             $table->boolean('isPrivacy')->default(0);
