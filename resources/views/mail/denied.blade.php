@@ -33,7 +33,7 @@
     Just please be ready with your admission requirements anytime we email you again.
 </p>
 
-<p style="margin-bottom: 20px">
+{{-- <p style="margin-bottom: 20px">
     If you are still interested in being admitted at PSAU, please check the recommended course/s and
      click this link to open/login your PSAU Admission Account
     <br>Recommended course/s
@@ -41,7 +41,7 @@
         <li>{{ course1_sample }}</li>
     </ul>
     <a href="http://"></a>
-</p>
+</p> --}}
 {{-- <p style="margin-bottom: 20px">
     If you are still interested in being admitted to
     <strong> ANY AVAILABLE PROGRAMS </strong> at PSAU, please click this
