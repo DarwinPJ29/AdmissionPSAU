@@ -9,7 +9,18 @@
             <li class="nav-item dropdown">
                 <a href="" class="nav-link rounded-circle " data-bs-toggle="dropdown">
                     <div class=" p-2">
-                        <div class="btn btn-outline-success rounded-circle p-2">
+                        @php
+                            use Illuminate\Support\Str;
+                        @endphp
+
+                        @if (auth()->user() && auth()->user()->information)
+                            {{ Str::title(auth()->user()->information->first_name) }}
+                            @if (!empty(auth()->user()->information->middle_name))
+                                {{ strtoupper(substr(auth()->user()->information->middle_name, 0, 1)) . '. ' }}
+                            @endif
+                            {{ Str::title(auth()->user()->information->last_name) }}
+                        @endif
+                        <div class="btn mx-2 btn-outline-success rounded-circle p-2">
                             <i class="fa-solid fa-user-secret text-dark"></i>
                         </div>
                     </div>
