@@ -11,7 +11,7 @@
                 <form action="{{ route('courses') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class=" row mb-2">
-                        <div class="col-md-12">
+                        <div class="col-md-9">
                             <label for="college_id">College<span class="text-danger">*</span></label>
                             <select name="college_id" id="college_id" class="form-select shadow" required>
                                 <option value="" selected>Select College:</option>
@@ -22,20 +22,21 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-3">
+                            <label for="enable">Status <span class="text-danger">*</span></label>
+                            <select name="enable" id="enable"
+                                class="form-select shadow @error('enable') is-invalid @enderror" value="{{ old('enable') }}"
+                                required>
+                                <option value="" selected hidden>Select Desired:</option>
+                                <option value="1" @selected(old('enable') == 1)>Enable</option>
+                                <option value="0" @selected(old('enable') == 0)>Disable</option>
+                            </select>
+                            @error('enable')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <label for="enable">Status <span class="text-danger">*</span></label>
-                        <select name="enable" id="enable"
-                            class="form-select shadow @error('enable') is-invalid @enderror" value="{{ old('enable') }}"
-                            required>
-                            <option value="" selected hidden>Select Desired:</option>
-                            <option value="1" @selected(old('enable') == 1)>Enable</option>
-                            <option value="0" @selected(old('enable') == 0)>Disable</option>
-                        </select>
-                        @error('enable')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+
                     <div class="mb-2">
                         <label for="img">Upload Image<span class="text-danger">*</span></label>
                         <input type="file" name="file" id="image" class="form-control shadow"
@@ -93,30 +94,33 @@
                             <img src="{{ url('/storage/courses/' . $course->file) }}" alt="" srcset=""
                                 class="img-fluid uploaded rounded shadow mb-2">
                         </div>
-                        <div class="col-md-12">
-                            <label for="college_id">Program<span class="text-danger">*</span></label>
-                            <select name="college_id" id="college_id" class="form-select shadow" required>
-                                <option value="" selected>Select College:</option>
-                                @foreach ($colleges as $col)
-                                    <option value="{{ $col->id }}" @selected($course->college_id == $col->id)>
-                                        {{ $col->title . ' (' . $col->acronym . ') - ' . $col->level }}
-                                    </option>
-                                @endforeach
-                            </select>
+                        <div class=" row mb-2">
+                            <div class="col-md-9">
+                                <label for="college_id">Program<span class="text-danger">*</span></label>
+                                <select name="college_id" id="college_id" class="form-select shadow" required>
+                                    <option value="" selected>Select College:</option>
+                                    @foreach ($colleges as $col)
+                                        <option value="{{ $col->id }}" @selected($course->college_id == $col->id)>
+                                            {{ $col->title . ' (' . $col->acronym . ') - ' . $col->level }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="enable">Status <span class="text-danger">*</span></label>
+                                <select name="enable" id="enable"
+                                    class="form-select shadow @error('enable') is-invalid @enderror" value=""
+                                    required>
+                                    <option value="" selected hidden>Select Desired:</option>
+                                    <option value="1" @selected($course->enable == 1)>Enable</option>
+                                    <option value="0" @selected($course->enable == 0)>Disable</option>
+                                </select>
+                                @error('enable')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="col-2">
-                            <label for="enable">Status <span class="text-danger">*</span></label>
-                            <select name="enable" id="enable"
-                                class="form-select shadow @error('enable') is-invalid @enderror" value=""
-                                required>
-                                <option value="" selected hidden>Select Desired:</option>
-                                <option value="1" @selected($course->enable == 1)>Enable</option>
-                                <option value="0" @selected($course->enable == 0)>Disable</option>
-                            </select>
-                            @error('enable')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+
                         <div class="mb-2">
                             <label for="img">Upload Image <span class="text-danger">*</span></label>
                             <input type="file" name="file" id="image" class="form-control shadow"

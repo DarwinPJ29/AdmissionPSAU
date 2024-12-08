@@ -34,13 +34,22 @@
 </p>
 
 <p style="margin-bottom: 20px">
+    If you are still interested in being admitted at PSAU, please check the recommended course/s and
+     click this link to open/login your PSAU Admission Account
+    <br>Recommended course/s
+    <ul>
+        <li>{{ course1_sample }}</li>
+    </ul>
+    <a href="http://"></a>
+</p>
+{{-- <p style="margin-bottom: 20px">
     If you are still interested in being admitted to
     <strong> ANY AVAILABLE PROGRAMS </strong> at PSAU, please click this
     <a href="http://">YES</a>
     <br>If you do not want to pursue with your application to PSAU, please click this
     <a href="http://">NO</a> This means that you are officially withdrawing your application
     for admissions to PSAU. Your application shall now be DELETED from the records.
-</p>
+</p> --}}
 
 
 

@@ -54,10 +54,10 @@
                                         <i class="fa-solid fa-envelope text-warning"></i> </span>
                                     <input type="email" class="form-control" id="email" name="email"
                                         placeholder="sample@gmail.com" value="{{ old('email') }}">
+                                    </div>
                                     @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
-                                </div>
                             </div>
 
                             <div class="input-group mb-2">
@@ -65,11 +65,11 @@
                                     <i class="fa-solid fa-key text-warning"></i> </span>
                                 <input type="password" id="login_password" name="password" class="form-control shadow"
                                     placeholder="Enter your password">
+                                </div>
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
-                            <input type="checkbox" name="showPassword" id="showPassword" class="mt-3"> Show Password
+                            <div class=""><input type="checkbox" name="showPassword" id="showPassword" class="mt-3"> Show Password</div>
                             <a href="{{ route('findAccount') }}" class="nav-link text-primary text-end">Forget
                                 password?</a>
                             <hr class="border bordr-2 opacity-75 border-success">
