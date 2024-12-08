@@ -15,4 +15,9 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, HasUlids;
 
     protected $guarded = [];
+
+    public function information()
+    {
+        return $this->hasOne(Information::class);
+    }
 }

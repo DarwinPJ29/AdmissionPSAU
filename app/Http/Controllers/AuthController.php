@@ -93,7 +93,7 @@ class AuthController extends Controller
                     return redirect()->back()->with('failed', 'Email or Password is invalid!');
                 }
             } else {
-                return redirect()->back()->with('failed', 'Sorry your account is not activated please check your email!');
+                return redirect()->back()->with('failed', $user->role == 1 ? 'Sorry your account is not activated. ' : 'Sorry your account is not activated. Please check your email!');
             }
         } else {
             return redirect()->back()->with('failed', 'Email or Password is invalid!');

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Account;
 use App\Http\Controllers\Admin\College;
 use App\Http\Controllers\Admin\Course;
+use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\Evaluation;
 use App\Http\Controllers\Admin\Exam;
 use App\Http\Controllers\Admin\Record;
@@ -181,4 +182,8 @@ Route::controller(Account::class)->group(function () {
     Route::any('/account', 'account')->name('account');
     Route::any('/account/update/{id}', 'update')->name('account.update');
     Route::any('/account/activate/{id}', 'activate')->name('account.activate');
+});
+// Dashboard
+Route::controller(Dashboard::class)->group(function () {
+    Route::any('/admin/dashboard', 'dashboard')->name('dashboard');
 });
