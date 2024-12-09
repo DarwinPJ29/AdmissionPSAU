@@ -94,6 +94,7 @@ class Record extends Controller
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
             $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+            $value['show'] = 1;
         }
 
         return view('admin.tabs.recommended_list', compact('users'));

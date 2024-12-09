@@ -1,5 +1,5 @@
 @extends('layout.layoutAdmin')
-@section('page-title', 'Denied')
+@section('page-title', 'Recommendation')
 @section('content')
 
     <div class="container">
