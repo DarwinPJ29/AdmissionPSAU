@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\Admin\Course;
 use App\Models\Choice;
 use App\Models\Courses;
 use App\Models\Information;
@@ -12,12 +13,26 @@ use Livewire\Component;
 
 class Report extends Component
 {
-    public $type;
-    public $status;
-    public $category;
+    public $type = "0";
+    public $status = "0";
+    public $course = "0";
+    public $courses;
     public $datas = [];
 
+
     public function search()
+    {
+        $this->datas = [];
+        $user = User::query();
+
+
+        if ($this->type === "0" && $this->status === "0" && $this->course === "0") {
+        } else if ($this->type === "0" && ($this->status !== "0" || $this->course !== "0")) {
+        } else if ($this->status === "0" && ($this->type !== "0" || $this->course !== "0")) {
+        } else if ($this->course === "0" && ($this->type !== "0" || $this->status !== "0")) {
+        }
+    }
+    public function searchs()
     {
         $this->datas = [];
         if ($this->type != null && ($this->status == null || $this->status == "all")) {
@@ -128,6 +143,11 @@ class Report extends Component
                 array_push($this->datas, $value);
             }
         }
+    }
+
+    public function Mount()
+    {
+        $this->courses = Courses::OrderBy('title', 'asc')->get();
     }
 
     public function render()
