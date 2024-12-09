@@ -23,14 +23,11 @@ class Report extends Component
     public function search()
     {
         $this->datas = [];
-        $user = User::query();
 
-
-        if ($this->type === "0" && $this->status === "0" && $this->course === "0") {
-        } else if ($this->type === "0" && ($this->status !== "0" || $this->course !== "0")) {
-        } else if ($this->status === "0" && ($this->type !== "0" || $this->course !== "0")) {
-        } else if ($this->course === "0" && ($this->type !== "0" || $this->status !== "0")) {
-        }
+        $choices = Choice::select('choices.*', 'questions.question_text')
+            ->leftJoin('users', 'users.', '=', 'questions.id')
+            ->where('choices.type', intval($this->type))
+            ->get();
     }
     public function searchs()
     {
