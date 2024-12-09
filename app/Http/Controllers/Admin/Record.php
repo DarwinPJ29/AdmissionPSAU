@@ -9,6 +9,7 @@ use App\Models\Courses;
 use App\Models\Information;
 use App\Models\Result;
 use App\Models\User;
+use App\Services\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,7 +17,7 @@ class Record extends Controller
 {
     public function records()
     {
-        $users = User::select('id', 'email', 'applicant_no')->where('evaluation', true)
+        $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Admitted->value)
             ->OrderBy('created_at', 'asc')->get();
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
@@ -27,6 +28,7 @@ class Record extends Controller
         $filteredUsers = $users->filter(function ($user) {
             return $user['show'] == 1;
         });
+
         $filteredUsers = $filteredUsers->values();
         $users = $filteredUsers;
         return view('admin.records', compact('users'));
@@ -58,7 +60,7 @@ class Record extends Controller
                 $user->mail_done = 1;
                 $user->update();
 
-                Mail::to($user->email)->send(new Evaluation($applicant_name, $labelCourse));
+                // Mail::to($user->email)->send(new Evaluation($applicant_name, $labelCourse));
             }
             return redirect()->back()->with('success', 'Email has been sent to the applicants. ');
         } else {
@@ -67,8 +69,9 @@ class Record extends Controller
     }
     public function denied()
     {
-        $users = User::select('id', 'email', 'applicant_no')->where('evaluation', true)
+        $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Denied)
             ->OrderBy('created_at', 'asc')->get();
+
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
             $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
@@ -82,5 +85,17 @@ class Record extends Controller
         $users = $filteredUsers;
 
         return view('admin.tabs.denied_list', compact('users'));
+    }
+    public function recommend()
+    {
+        $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Recommendation)
+            ->OrderBy('created_at', 'asc')->get();
+
+        foreach ($users as $value) {
+            $info = Information::where('user_id', $value['id'])->first();
+            $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+        }
+
+        return view('admin.tabs.recommended_list', compact('users'));
     }
 }

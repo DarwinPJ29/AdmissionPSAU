@@ -9,23 +9,22 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link" id="admitted-tab" data-toggle="tab" href="{{ route('records') }}" role="tab"
-                        aria-controls="admitted" aria-selected="true">Admitted</a>
+                        aria-controls="admitted" aria-selected="false">Admitted</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" id="denied-tab" data-toggle="tab" href="{{ route('denied') }}" role="tab"
+                    <a class="nav-link" id="denied-tab" data-toggle="tab" href="{{ route('denied') }}" role="tab"
                         aria-controls="denied" aria-selected="false">Denied</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " id="reco-tab" data-toggle="tab" href="{{ route('admin.recommend') }}"
-                        role="tab" aria-controls="reco" aria-selected="false">Recommendation</a>
+                    <a class="nav-link active" id="reco-tab" data-toggle="tab" href="{{ route('admin.recommend') }}"
+                        role="tab" aria-controls="reco" aria-selected="true">Recommendation</a>
                 </li>
             </ul>
-
             <div class="tab-content mt-4">
-                <div class="tab-pane fade" id="admitted" role="tabpanel" aria-labelledby="admitted-tab">
+                <div class="tab-pane fade" id="reco" role="tabpanel" aria-labelledby="reco-tab">
 
                 </div>
-                <div class="tab-pane fade show active" id="denied" role="tabpanel" aria-labelledby="denied-tab">
+                <div class="tab-pane fade show active" id="reco" role="tabpanel" aria-labelledby="reco-tab">
                     <div class="border rounded p-3 shadow mt-3 overflow-y-scroll" style="max-height: 70%">
                         <table class="table table-bordered table-striped" id="table">
                             <thead>

@@ -45,7 +45,6 @@
                         <td>{{ $item['course'] }}</td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>

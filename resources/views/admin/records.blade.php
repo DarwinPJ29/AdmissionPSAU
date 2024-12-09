@@ -3,12 +3,12 @@
 @section('content')
 
     <div class="container">
-        <div class="text-end mt-3">
+        {{-- <div class="text-end mt-3">
             <a href="{{ route('sendMail') }}" class="nav-link">
                 <div class="btn btn-warning shadow btn-sm"><i class="fa-solid fa-paper-plane text-success"></i> Send Mail
                 </div>
             </a>
-        </div>
+        </div> --}}
         <div class="container mt-4">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -18,6 +18,10 @@
                 <li class="nav-item">
                     <a class="nav-link" id="denied-tab" data-toggle="tab" href="{{ route('denied') }}" role="tab"
                         aria-controls="denied" aria-selected="false">Denied</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="reco-tab" data-toggle="tab" href="{{ route('admin.recommend') }}"
+                        role="tab" aria-controls="reco" aria-selected="false">Recommendation</a>
                 </li>
             </ul>
             <div class="tab-content mt-4">
