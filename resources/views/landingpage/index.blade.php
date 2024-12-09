@@ -17,16 +17,18 @@
                         Application for Admission for
                     </div>
                     <div class="fs-semibold text-center">
-                        2023-2024(1st Semester)
+                        {{ $school_year->year . ' (' . $school_year->semester . ')' }}
                     </div>
                     <div class="fs-semibold text-center">
-                        is now open!
+                        is now <b>{{ $school_year->status == 1 ? 'OPEN!' : 'CLOSED' }}</b>
                     </div>
                 </div>
                 <div class="mt-3  mx-auto">
-                    <a href="{{ route('ApplyNow') }}">
-                        <div class="btn btn-success text-dark rounded text-white f-text">Apply now!</div>
-                    </a>
+                    @if ($school_year->status == 1)
+                        <a href="{{ route('ApplyNow') }}">
+                            <div class="btn btn-success text-dark rounded text-white f-text">Apply now!</div>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -94,27 +96,26 @@
                     <div class="text-center fs-style fs-3 mt-3 fw-bold">Courses We Offer</div>
                     <div class="row mt-5 justify-content-center">
                         @if (count($courses) > 0)
-                        @foreach ($courses as $course)
-
-
-                        <div class="col-md-6 col-sm-12 p-2">
-                            <div class="card shadow  p-1">
-                                <div class="p-1">
-                                    <img src="{{ Storage::url('courses/' . $course->file) }}" alt="" srcset=""
-                                        class=" card-img-top img-fluid m-auto" style="max-height: 220px">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <div class="fw-bold text-success f-tag">|</div>
-                                        <div
-                                            class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1 f-text">
-                                            {{ $course->title }} ({{ $course->acronym }})</div>
+                            @foreach ($courses as $course)
+                                <div class="col-md-6 col-sm-12 p-2">
+                                    <div class="card shadow  p-1">
+                                        <div class="p-1">
+                                            <img src="{{ Storage::url('courses/' . $course->file) }}" alt=""
+                                                srcset="" class=" card-img-top img-fluid m-auto"
+                                                style="max-height: 220px">
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="fw-bold text-success f-tag">|</div>
+                                                <div
+                                                    class="fw-semibold text-uppercase d-flex flex-column justify-content-center ms-1 f-text">
+                                                    {{ $course->title }} ({{ $course->acronym }})</div>
+                                            </div>
+                                            <p class="f-text">{{ $course->description }}</p>
+                                        </div>
                                     </div>
-                                    <p class="f-text">{{ $course->description }}</p>
                                 </div>
-                            </div>
-                        </div>
-                        @endforeach
+                            @endforeach
                         @endif
                     </div>
                 </div>
@@ -137,7 +138,7 @@
                                     @if (count($requirements) > 0)
                                         @foreach ($requirements as $doctoral)
                                             @if ($doctoral->doctoral == 1)
-                                                <li  class="f-text">{{ $doctoral->title}}</li>
+                                                <li class="f-text">{{ $doctoral->title }}</li>
                                             @endif
                                         @endforeach
                                     @endif
@@ -152,7 +153,7 @@
                                     @if (count($requirements) > 0)
                                         @foreach ($requirements as $masteral)
                                             @if ($masteral->masteral == 1)
-                                                <li  class="f-text">{{ $masteral->title}}</li>
+                                                <li class="f-text">{{ $masteral->title }}</li>
                                             @endif
                                         @endforeach
                                     @endif
@@ -164,7 +165,7 @@
 
                     <div class="d-flex fs-5 mb-3">
                         <span class="fw-bold me-2 text-warning">|</span>
-                        <span  class="f-text">Requirements for UNDERGRADUATE LEVEL</span>
+                        <span class="f-text">Requirements for UNDERGRADUATE LEVEL</span>
                     </div>
 
                     <div class="row g-2 mb-5 justify-content-center">
@@ -175,7 +176,7 @@
                                     @if (count($requirements) > 0)
                                         @foreach ($requirements as $freshmen)
                                             @if ($freshmen->freshmen == 1)
-                                                <li  class="f-text">{{ $freshmen->title}}</li>
+                                                <li class="f-text">{{ $freshmen->title }}</li>
                                             @endif
                                         @endforeach
                                     @endif
@@ -190,7 +191,7 @@
                                     @if (count($requirements) > 0)
                                         @foreach ($requirements as $transferee)
                                             @if ($transferee->transferee == 1)
-                                                <li  class="f-text">{{ $transferee->title}}</li>
+                                                <li class="f-text">{{ $transferee->title }}</li>
                                             @endif
                                         @endforeach
                                     @endif
@@ -206,7 +207,7 @@
                                     @if (count($requirements) > 0)
                                         @foreach ($requirements as $second_courser)
                                             @if ($second_courser->second_courser == 1)
-                                                <li  class="f-text">{{ $second_courser->title}}</li>
+                                                <li class="f-text">{{ $second_courser->title }}</li>
                                             @endif
                                         @endforeach
                                     @endif

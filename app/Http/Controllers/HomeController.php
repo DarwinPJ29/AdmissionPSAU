@@ -6,6 +6,7 @@ use App\Mail\Applicant;
 use App\Models\Courses;
 use App\Models\Requirement as ModelsRequirement;
 use App\Models\Information;
+use App\Models\SchoolYear;
 use App\Models\User;
 use App\Services\Status;
 use Illuminate\Support\Str;
@@ -18,10 +19,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // dd(Hash::make(12345));
+        $year = date('Y') . '-' . (date('Y') + 1);
         $courses = Courses::all();
         $requirements = ModelsRequirement::all();
-        return view('landingpage.index', compact('courses', 'requirements'));
+        $school_year = SchoolYear::where('year', $year)->first();
+
+        return view('landingpage.index', compact('courses', 'requirements', 'school_year'));
     }
     public function landingAdmission()
     {
@@ -43,7 +46,13 @@ class HomeController extends Controller
     public function ApplyNow(Request $request)
     {
         if ($request->isMethod('get')) {
-            return view('landingpage.admission');
+            $year = date('Y') . '-' . (date('Y') + 1);
+            $school_year = SchoolYear::where('year', $year)->first();
+
+            if ($school_year->status == 1)
+                return view('landingpage.admission');
+            else
+                return redirect()->route('index');
         }
 
         $validated = $request->validate([

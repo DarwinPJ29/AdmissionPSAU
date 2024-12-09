@@ -3,6 +3,7 @@
     <div class="text-center  text-uppercase">program applied for</div>
 </div>
 <div class="border border-dark p-2 rounded-bottom-1">
+    <h5 class="text-center"><b>A.Y {{ $school_year . ' (' . $semester . ')' }}</b></h5>
     <div class="row border-bottom border-dark m-0">
         <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label
                 class="application_type">Application type</label></div>
@@ -44,34 +45,7 @@
                 @endforeach
             </select>
         </div>
-
     </div>
-    <div class="row m-0">
-        <div class="col-4 border-end text-end d-flex flex-column justify-content-center"><label class="">Prefered
-                Date of Enrolment</label>
-        </div>
-        <div class="col-8">
-            <div class="row m-0 p-0">
-                <div class="col-md-6 p-2">
-                    <label for="">School Year:</label>
-                    <input type="text" id="middle_name" class="form-control shadow text-uppercase"
-                        wire:model='school_year' disabled>
-                </div>
-                <div class="col-md-6 p-2">
-                    <label class="">Semester:</label>
-                    <select name="semester" id="semester" class="form-select shadow text-uppercase"
-                        wire:model='semester' wire:change='SecBSetData' required>
-                        <option value="" selected hidden>Select:</option>
-                        <option value="1" @selected($semester == 1)>1st Semester</option>
-                        <option value="2" @selected($semester == 2)>2nd Semester</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
 </div>
 <div class="my-3 gap-2 d-flex justify-content-end">
     <div class="btn btn-secondary" wire:click='SecBPrev'><i class="fa-solid fa-angles-left me-2"></i>Back</div>

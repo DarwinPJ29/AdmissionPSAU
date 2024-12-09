@@ -5,6 +5,7 @@ namespace App\Methods;
 use App\Models\Choice;
 use App\Models\College;
 use App\Models\Courses;
+use App\Models\SchoolYear;
 use App\Services\Core;
 
 trait SecBVar
@@ -23,17 +24,20 @@ trait SecB
     use SecBVar;
     public function SecBGetData()
     {
-        $currentYear = date('Y');
-        $choice = Choice::where('user_id', $this->user->id)->where('school_year', $currentYear . '-' . ($currentYear + 1))->first();
+        $year = date('Y') . '-' . (date('Y') + 1);
+        $school_year = SchoolYear::where('year', $year)->first();
+
+        $this->school_year = $school_year->year;
+        $this->semester = $school_year->semester;
+
+        $choice = Choice::where('user_id', $this->user->id)->where('school_year', $school_year->year)->first();
         if ($choice != null) {
             $this->first_choice = $choice->first;
             $this->second_choice = $choice->second;
-            $this->school_year = $choice->school_year == '' ? $currentYear . '-' . ($currentYear + 1) : $choice->school_year;
-            $this->semester = $choice->semester;
             $this->applicant_type = $choice->type;
             $this->choiceId = $choice->id;
         } else {
-            $this->school_year = $currentYear . '-' . ($currentYear + 1);
+            $this->school_year = $school_year->year;
         }
 
         $colleges = College::orderBy('level', 'desc')->where('enable', 1);
@@ -88,12 +92,11 @@ trait SecB
             'user_id' => $this->user->id,
             'first' => $this->first_choice,
             'second' => $this->second_choice,
-            'semester' => $this->semester,
+            'semester' => $this->semester == "1st Semester" ? 1 : 2,
             'first' => $this->first_choice,
             'school_year' => $this->school_year,
             'type' => $this->applicant_type,
         ];
-
 
         Core::Save('Choice', $data, $this->choiceId);
         $this->SecBGetData();
