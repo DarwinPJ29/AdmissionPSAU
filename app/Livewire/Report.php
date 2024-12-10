@@ -8,6 +8,8 @@ use App\Models\Courses;
 use App\Models\Information;
 use App\Models\Result as ModelsResult;
 use App\Models\User;
+use App\Services\Status;
+use Illuminate\Support\Facades\DB;
 use LDAP\Result;
 use Livewire\Component;
 
@@ -24,10 +26,50 @@ class Report extends Component
     {
         $this->datas = [];
 
-        $choices = Choice::select('choices.*', 'questions.question_text')
-            ->leftJoin('users', 'users.', '=', 'questions.id')
-            ->where('choices.type', intval($this->type))
+        $this->datas = DB::table('users as user')
+            ->leftJoin('information as info', 'info.user_id', '=', 'user.id')
+            ->leftJoin('choices as choice', 'choice.user_id', '=', 'user.id')
+            ->leftJoin('courses as course', function ($join) {
+                $join->on(DB::raw('CASE WHEN user.status = "3" THEN course.id = user.course_admitted_id ELSE course.id IN (choice.first, choice.second) END'));
+            })
+            ->where(function ($query) {
+                $query->where(function ($query) {
+                    // Conditional logic for user.status
+                    if ($this->status === '0') {
+                        $query->whereIn('user.status', [3, 7, 8]); // Apply whereIn when status is 0
+                    } else {
+                        $query->where('user.status', '=', $this->status); // Apply where otherwise
+                    }
+                })
+                    ->where(function ($query) {
+                        // Conditional logic for choice.type
+                        if ($this->type === '0') {
+                            $query->whereIn('choice.type', [1, 2, 3, 4, 5]); // Apply whereIn when type is 0
+                        } else {
+                            $query->where('choice.type', '=', $this->type); // Apply where for other types
+                        }
+                    });
+            })
+            ->when($this->course !== '0', function ($query) {
+                $query->where('course.id', '=', $this->course); // Use class property
+            })
+            ->select([
+                'user.id',
+                'user.applicant_no',
+                'user.email',
+                'user.status',
+                'info.prefix',
+                'info.first_name',
+                'info.middle_name',
+                'info.last_name',
+                'info.suffix',
+                'course.title',
+                'course.acronym',
+            ])
             ->get();
+
+
+        dd($this->datas);
     }
     public function searchs()
     {
@@ -145,6 +187,7 @@ class Report extends Component
     public function Mount()
     {
         $this->courses = Courses::OrderBy('title', 'asc')->get();
+        $this->search();
     }
 
     public function render()

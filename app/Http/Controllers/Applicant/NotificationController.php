@@ -111,6 +111,7 @@ class NotificationController extends Controller
         $result->save();
 
         $user = User::find($user->id);
+        $user->course_admitted_id = $request->input('choice');
         $user->status = Status::Admitted;
         $user->save();
     }

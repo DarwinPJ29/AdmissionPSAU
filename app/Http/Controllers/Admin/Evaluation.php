@@ -104,6 +104,7 @@ class Evaluation extends Controller
         $result->update();
 
         $user = User::find($request->input('id'));
+        $user->course_admitted_id = $courseId;
         $user->status = Status::Admitted;
         $user->update();
 
