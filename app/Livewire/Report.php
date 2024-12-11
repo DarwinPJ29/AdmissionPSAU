@@ -30,28 +30,30 @@ class Report extends Component
             ->leftJoin('information as info', 'info.user_id', '=', 'user.id')
             ->leftJoin('choices as choice', 'choice.user_id', '=', 'user.id')
             ->leftJoin('courses as course', function ($join) {
-                $join->on(DB::raw('CASE WHEN user.status = "3" THEN course.id = user.course_admitted_id ELSE course.id IN (choice.first, choice.second) END'));
+                $join->on('course.id', '=', 'user.course_admitted_id')
+                    ->where('user.status', '=', '3')
+                    ->orWhere(function ($query) {
+                        $query->whereIn('course.id', ['choice.first', 'choice.second']);
+                    });
             })
             ->where(function ($query) {
-                $query->where(function ($query) {
-                    // Conditional logic for user.status
-                    if ($this->status === '0') {
-                        $query->whereIn('user.status', [3, 7, 8]); // Apply whereIn when status is 0
-                    } else {
-                        $query->where('user.status', '=', $this->status); // Apply where otherwise
-                    }
+                $query->when($this->status === '0', function ($query) {
+                    $query->whereIn('user.status', [3, 7, 8]);
                 })
-                    ->where(function ($query) {
-                        // Conditional logic for choice.type
-                        if ($this->type === '0') {
-                            $query->whereIn('choice.type', [1, 2, 3, 4, 5]); // Apply whereIn when type is 0
-                        } else {
-                            $query->where('choice.type', '=', $this->type); // Apply where for other types
-                        }
+                    ->when($this->status !== '0', function ($query) {
+                        $query->where('user.status', '=', $this->status);
+                    });
+            })
+            ->where(function ($query) {
+                $query->when($this->type === '0', function ($query) {
+                    $query->whereIn('choice.type', [1, 2, 3, 4, 5]);
+                })
+                    ->when($this->type !== '0', function ($query) {
+                        $query->where('choice.type', '=', $this->type);
                     });
             })
             ->when($this->course !== '0', function ($query) {
-                $query->where('course.id', '=', $this->course); // Use class property
+                $query->where('course.id', '=', $this->course);
             })
             ->select([
                 'user.id',
@@ -67,9 +69,6 @@ class Report extends Component
                 'course.acronym',
             ])
             ->get();
-
-
-        dd($this->datas);
     }
     public function searchs()
     {
