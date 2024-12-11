@@ -1,0 +1,14 @@
+Steps 
+
+RUN
+1. composer install
+2. copy .env.example .env
+3. php artisan key:generate
+4. php artisan storage:link
+
+REPORT
+1. composer require barryvdh/laravel-dompdf
+2. php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+3. If you're using Laravel 8 or below, add the service provider to the providers array in config/app.php
+5. Barryvdh\DomPDF\ServiceProvider::class,
+

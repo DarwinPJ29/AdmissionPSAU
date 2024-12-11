@@ -36,18 +36,14 @@
     </div>
     <div class="border rounded p-3 shadow mt-3 ">
         <div class="d-flex mb-4 justify-content-end">
-            <button class="btn btn-md btn-warning"><i class="fa"></i>Generate</button>
+            <button wire:click='generate' class="btn btn-md btn-warning"><i class="fa"></i>Generate</button>
         </div>
         <table class="table table-bordered table-striped" id="table">
             <thead>
                 <tr>
                     <th class="col">Applicant No.</th>
                     <th class="col">Email</th>
-                    <th class="col">Prefix</th>
-                    <th class="col">First Name</th>
-                    <th class="col">Middle Name</th>
-                    <th class="col">Last Name</th>
-                    <th class="col">Suffix</th>
+                    <th class="col">Name</th>
                     <th class="col">Courses</th>
                     <th class="col">Type</th>
                     <th class="col">Status</th>
@@ -75,11 +71,7 @@
                     <tr>
                         <td>{{ $data->applicant_no }}</td>
                         <td>{{ $data->email }}</td>
-                        <td>{{ $data->prefix }}</td>
-                        <td>{{ $data->first_name }}</td>
-                        <td>{{ $data->middle_name }}</td>
-                        <td>{{ $data->last_name }}</td>
-                        <td>{{ $data->suffix }}</td>
+                        <td>{{ $data->name }}</td>
                         <td>{{ $data->title . ' (' . $data->acronym . ')' }}</td>
                         <td>{{ $typeLabels[$data->type] ?? 'Unknown' }}</td>
                         <td>{{ $statusLabels[$data->status] ?? 'Unknown' }}</td>

@@ -3,14 +3,9 @@
 namespace App\Livewire;
 
 use App\Http\Controllers\Admin\Course;
-use App\Models\Choice;
 use App\Models\Courses;
-use App\Models\Information;
-use App\Models\Result as ModelsResult;
-use App\Models\User;
-use App\Services\Status;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
-use LDAP\Result;
 use Livewire\Component;
 
 class Report extends Component
@@ -19,7 +14,7 @@ class Report extends Component
     public $status = "0";
     public $course = "0";
     public $courses;
-    public $datas = [];
+    public $datas = array();
 
 
     public function search()
@@ -61,11 +56,13 @@ class Report extends Component
                 'user.applicant_no',
                 'user.email',
                 'user.status',
-                'info.prefix',
-                'info.first_name',
-                'info.middle_name',
-                'info.last_name',
-                'info.suffix',
+                DB::raw("CONCAT(info.first_name, 
+                    CASE 
+                        WHEN info.middle_name IS NOT NULL AND info.middle_name != '' 
+                        THEN CONCAT(' ', UPPER(SUBSTRING(info.middle_name, 1, 1)), '.')
+                        ELSE ''
+                    END, 
+                    ' ', info.last_name) as name"),
                 'course.title',
                 'course.acronym',
                 'choice.type'
@@ -73,6 +70,53 @@ class Report extends Component
             ->get();
     }
 
+    public function generate()
+    {
+        if (count($this->datas) > 0) {
+            $typeLabels = [
+                "0" => 'All',
+                "1" => 'Doctoral',
+                "2" => 'Masteral',
+                "3" => 'Second Courser',
+                "4" => 'Transferee',
+                "5" => 'Freshmen',
+            ];
+
+            $statusLabels = [
+                "0" => 'All',
+                "3" => 'Submitted',
+                "7" => 'Admitted',
+                "8" => 'Denied',
+            ];
+
+            $course = "All";
+            if ($this->course != "0") {
+                $course_find = Courses::find($this->course);
+                $course = $course_find->title . ' (' . $course_find->acronym . ')';
+            }
+
+            $headers = [
+                "Applicant List Reports",
+                now()->format('F d, Y @h:i A'),
+                $typeLabels[$this->type],
+                $course,
+                $statusLabels[$this->status],
+            ];
+
+            $pdf = Pdf::loadView('admin.generate_report_template', ['datas' => $this->datas, 'headers' => $headers])
+                ->setPaper('A4', 'portrait')
+                ->setOptions([
+                    'margin-left' => 0, // Remove left margin
+                    'margin-right' => 0, // Remove right margin
+                    'margin-top' => 10, // You can adjust top margin as needed
+                    'margin-bottom' => 10 // You can adjust bottom margin as needed
+                ]);
+
+            return response()->streamDownload(function () use ($pdf) {
+                echo $pdf->output();
+            }, 'Applicant List Report (' . now()->format('Y-m-d') . ').pdf');
+        }
+    }
     public function Mount()
     {
         $this->courses = Courses::OrderBy('title', 'asc')->get();
