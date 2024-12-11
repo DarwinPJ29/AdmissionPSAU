@@ -29,18 +29,11 @@
                 wire:model='status' wire:change='search'>
                 <option value="" selected hidden>Please select</option>
                 <option value="0">All</option>
-                <option value="3">Sumitted</option>
+                <option value="3">Submitted</option>
                 <option value="7">Admitted</option>
                 <option value="8">Denied</option>
             </select>
         </div>
-        {{-- <div class="col-md-2 d-flex flex-column justify-content-end">
-                <div class="text-center">
-                    <div class="btn btn-warning shadow ">
-                        <i class="fa-solid fa-print text-success"></i> Print
-                    </div>
-                </div>
-            </div> --}}
     </div>
     <div class="border rounded p-3 shadow mt-3 ">
         <table class="table table-bordered table-striped" id="table">
@@ -59,7 +52,37 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    // Define mappings for `type` and `status` to make the code cleaner and reusable
+                    $typeLabels = [
+                        1 => 'Doctoral',
+                        2 => 'Masteral',
+                        3 => 'Second Courser',
+                        4 => 'Transferee',
+                        5 => 'Freshmen',
+                    ];
 
+                    $statusLabels = [
+                        3 => 'Submitted',
+                        7 => 'Admitted',
+                        8 => 'Denied',
+                    ];
+                @endphp
+
+                @foreach ($datas as $data)
+                    <tr>
+                        <td>{{ $data->applicant_no }}</td>
+                        <td>{{ $data->email }}</td>
+                        <td>{{ $data->prefix }}</td>
+                        <td>{{ $data->first_name }}</td>
+                        <td>{{ $data->middle_name }}</td>
+                        <td>{{ $data->last_name }}</td>
+                        <td>{{ $data->suffix }}</td>
+                        <td>{{ $data->title . ' (' . $data->acronym . ')' }}</td>
+                        <td>{{ $typeLabels[$data->type] ?? 'Unknown' }}</td>
+                        <td>{{ $statusLabels[$data->status] ?? 'Unknown' }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Information;
+use App\Models\SchoolYear;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Auth\User;
@@ -56,6 +57,12 @@ class UserSeeder extends Seeder
             'civil_status' => 'Single',
             'created_at' => now(),
             'updated_at' => now(),
+        ]);
+
+        SchoolYear::create([
+            'year' => date('Y') . '-' . (date('Y') + 1),
+            'semester' => "1st Semester",
+            'status' => true
         ]);
     }
 }

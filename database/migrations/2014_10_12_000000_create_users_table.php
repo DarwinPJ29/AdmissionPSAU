@@ -23,7 +23,7 @@ return new class extends Migration
             $table->boolean('isPrivacy')->default(0);
             $table->integer('otp')->default(0);
             $table->dateTime('otp_expires')->nullable();
-            $table->unsignedBigInteger('course_admitted_id')->nullable();
+            $table->string('course_admitted_id')->nullable();
             $table->timestamps();
         });
     }
