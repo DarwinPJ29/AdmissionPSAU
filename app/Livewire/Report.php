@@ -81,7 +81,6 @@ class Report extends Component
 
     public function render()
     {
-        // $this->search();
         return view('livewire.report');
     }
 }

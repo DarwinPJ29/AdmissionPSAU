@@ -22,7 +22,6 @@
                 @endforeach
             </select>
         </div>
-
         <div class="col-md-3 d-flex flex-column justify-content-end">
             <label for="status">Status</label>
             <select name="status" id="status" class="form-select form-control shadow text-uppercase w-100"
@@ -36,6 +35,9 @@
         </div>
     </div>
     <div class="border rounded p-3 shadow mt-3 ">
+        <div class="d-flex mb-4 justify-content-end">
+            <button class="btn btn-md btn-warning"><i class="fa"></i>Generate</button>
+        </div>
         <table class="table table-bordered table-striped" id="table">
             <thead>
                 <tr>
