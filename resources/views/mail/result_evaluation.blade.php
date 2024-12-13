@@ -99,7 +99,7 @@
 </ol>
 <p style="margin-bottom: 20px">Thank you and see you at PSAU!</p>
 
-<p style="margin-bottom: 10px"><strong>OFFICE OF ADMISSIONS AND REGISTRATION</strong></p>
-<p style="margin-bottom: 10px">Pampanga State Agricultural University
+<p><strong>OFFICE OF ADMISSIONS AND REGISTRATION</strong></p>
+<p>Pampanga State Agricultural University
     <br>Magalang, Pampanga
 </p>

@@ -1,8 +1,8 @@
-<span style="margin-bottom: 10px">HI, {{ $applicant_name }}</span>
-<span style="margin-bottom: 20px">Application No.  {{ $applicant_no }}</span>
-<span style="margin-bottom: 20px">Greeting from PSAU!</span>
+<p style="margin-bottom: 10px">HI, {{ $applicant_name }}</p>
+<p style="margin-bottom: 20px">Application No.  {{ $applicant_no }}</p>
+<p style="margin-bottom: 20px">Greeting from PSAU!</p>
 
-<span style="margin-bottom: 10px">This is to inform you that you passed/admitted to this program/course {{ $program_name }}
-</span>
+<p style="margin-bottom: 10px">This is to inform you that you passed/admitted to this program/course {{ $program_name }}
+</p>
 
 
