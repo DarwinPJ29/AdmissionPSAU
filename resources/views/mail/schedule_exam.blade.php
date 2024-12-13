@@ -53,6 +53,6 @@
     application.
 </p>
 <p style="margin-bottom: 20px">Thank you, good luck in your endeavors and we hope to be with you at PSAU</p>
-<p style="margin-bottom: 10px; text-transform: uppercase "><strong> Office of admission and registration</strong></p>
-<p style="margin-bottom: 10px ">Pampanga State Agricultural University </p>
-<p style="margin-bottom: 10px ">Magalang, Pampanga</p>
+<p style=" text-transform: uppercase "><strong> Office of admission and registration</strong></p>
+<p>Pampanga State Agricultural University </p>
+<p>Magalang, Pampanga</p>

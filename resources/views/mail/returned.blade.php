@@ -10,7 +10,7 @@
 <span style="margin-bottom: 10px">Please continue cheching your email regularly and checking for
     announcements/advisories at the PSAU FB page or at bit.lyPSAUandRT site</span>
 
-<p style="margin-bottom: 10px; text-transform: uppercase "><strong> Office of admission and registration
+<p style="text-transform: uppercase "><strong> Office of admission and registration
         services</strong></p>
-<p style="margin-bottom: 10px ">Pampanga State Agricultural University </p>
-<p style="margin-bottom: 10px ">Magalang, Pampanga</p>
+<p>Pampanga State Agricultural University </p>
+<p>Magalang, Pampanga</p>
