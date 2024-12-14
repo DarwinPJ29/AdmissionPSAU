@@ -37,4 +37,9 @@
     }
 </style>
 
+{{-- 
+para ma test mo ung data pre  uncomment mo to ng DD
+{{ dd($user) }} --}}
+
+@endauth
 <h1>{{ $user->applicant_no }}</h1>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Applicant;
 
+use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use App\Models\Choice;
@@ -125,7 +126,7 @@ class NotificationController extends Controller
 
     public function ApplicantFormGenerate($id)
     {
-        $user = User::select('id', 'email', 'applicant_no')->where('id', $id)->first();
+        $user = User::select('id', 'email', 'applicant_no', 'course_admitted_id')->where('id', $id)->first();
         $info = Information::where('user_id', $user['id'])->first();
         $user['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
@@ -145,19 +146,6 @@ class NotificationController extends Controller
             $user['barangay'] = $bar->name;
         }
 
-        // SECB
-        $currentYear = date('Y');
-        $choice = Choice::where('user_id', $user['id'])->where('school_year', $currentYear . '-' . ($currentYear + 1))->first();
-
-        if ($choice != null) {
-            $course1 = Courses::find($choice->first);
-            $course2 = Courses::find($choice->second);
-            $user['first_choice'] = $course1->title . ' (' . $course1->acronym . ')';
-            $user['second_choice'] = $course2->title . ' (' . $course2->acronym . ')';
-            $user['school_year'] = $choice->school_year == '' ? $currentYear . '-' . ($currentYear + 1) : $choice->school_year;
-            $user['semester'] = $choice->semester;
-            $user['applicant_type'] = $choice->type;
-        }
 
         // SECD
         $guar = Guardian::where('user_id', $user['id'])->first();
@@ -172,6 +160,8 @@ class NotificationController extends Controller
             $user['g_address'] = $guar->g_address;
             $user['m_contact'] = $guar->m_contact;
         }
+
+        $user['course'] = Courses::where('id', $user->course_admitted_id)->value('title');
 
         $pdf = Pdf::loadView('applicant.admission_form_generate_report', ['user' => $user,])
             ->setPaper('A4', 'portrait')
