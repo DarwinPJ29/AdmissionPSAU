@@ -16,6 +16,7 @@
                                 @foreach ($labelCourse as $course)
                                     <li> {{ $course }}</li>
                                 @endforeach
+                                <span class="text-muted fs-5">Please visit your email for more info.</span>
                             </div>
 
                         </div>
@@ -27,9 +28,9 @@
                         </div>
 
                     </div>
-                    <div class="justify-content-end d-flex my-3">
+                    {{-- <div class="justify-content-end d-flex my-3">
                         <div class="btn btn-warning shadow"> <i class="fa-solid fa-print"></i> Print form</div>
-                    </div>
+                    </div> --}}
                 @else
                     {{-- not passed --}}
                     <div class="row  border rounded shadow">

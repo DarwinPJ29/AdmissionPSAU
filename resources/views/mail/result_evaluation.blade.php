@@ -5,7 +5,7 @@
 <p style="margin-bottom: 20px">Temporary Student No. <strong
         style="text-transform: uppercase;">{{ $applicant_no }}</strong></p>
 
-<p style="margin-bottom: 10px"><strong>Congratulations for being TEMPORARILY ADMITTED to the {{ Program / Course }}
+<p style="margin-bottom: 10px"><strong>Congratulations for being TEMPORARILY ADMITTED to the {{ $program_name }}
         program at Pampanga State Agricultural University (PSAU)! </strong>
 </p>
 <p style="margin-bottom: 20px; font-size: 10px">
@@ -27,7 +27,7 @@
         <br>Please ensure that
         <ul>
             <li>Documents are complete</li>
-            <li>Documents are all <strong>ORIGINAL</strong></li>\
+            <li>Documents are all <strong>ORIGINAL</strong></li>
             <li>Documents are signed properly by all concerned</li>
         </ul>
     </li>
@@ -62,7 +62,7 @@
     <li> <strong>
             Go to the PSAU campus on
         </strong>
-        <strong style="color: red"> {{ SCHED }}</strong>
+        <strong style="color: red">NOW</strong>
         <br>Please go to the ADMISSIONS and REGISTRATION BUILDING,
         first building on your left as you enter the main gate.
         <strong>There is only a limited amount of time for each batch so we

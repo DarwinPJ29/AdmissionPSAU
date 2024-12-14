@@ -41,7 +41,7 @@ class Admitted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.admitted',
+            view: 'mail.result_evaluation',
         );
     }
 
