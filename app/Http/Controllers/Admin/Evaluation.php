@@ -113,7 +113,7 @@ class Evaluation extends Controller
         $courses = Courses::find($result->course_id);
         $labelCourse = $courses->title . ' (' . $courses->acronym . ')';
 
-        Mail::to($user->email)->send(new Admitted($applicant_name, $user->applicant_no, $labelCourse));
+        Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse));
         return redirect()->back()->with('success', 'Successfully admitted');
     }
 

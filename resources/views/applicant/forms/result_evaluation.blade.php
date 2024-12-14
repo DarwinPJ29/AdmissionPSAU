@@ -28,9 +28,10 @@
                         </div>
 
                     </div>
-                    {{-- <div class="justify-content-end d-flex my-3">
-                        <div class="btn btn-warning shadow"> <i class="fa-solid fa-print"></i> Print form</div>
-                    </div> --}}
+                    <div class="justify-content-end d-flex my-3">
+                        <a href="{{ route('ApplicantFormGenerate', auth()->user()->id) }}" class="btn btn-warning shadow">
+                            <i class="fa-solid fa-print"></i> Print form</a>
+                    </div>
                 @else
                     {{-- not passed --}}
                     <div class="row  border rounded shadow">

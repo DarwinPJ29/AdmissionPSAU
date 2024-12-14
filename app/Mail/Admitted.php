@@ -14,15 +14,17 @@ class Admitted extends Mailable
     use Queueable, SerializesModels;
 
 
+    public $id;
     public $applicant_name;
     public $applicant_no;
     public $program_name;
 
-    public function __construct($applicant_name, $applicant_no, $program_name)
+    public function __construct($id, $applicant_name, $applicant_no, $program_name)
     {
         $this->applicant_name = $applicant_name;
         $this->applicant_no = $applicant_no;
         $this->program_name = $program_name;
+        $this->id = $id;
     }
 
     /**

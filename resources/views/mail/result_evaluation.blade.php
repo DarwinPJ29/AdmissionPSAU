@@ -37,8 +37,7 @@
 <ol style="margin-bottom: 20px">
     <li> <strong>
             Access the STUDENT INFORMATION FORM
-        </strong> at <br> <a href="https://drive.google.com/file/d/1RTLG4hJpHIDr93ahUQklO_xrUOpONN13/view?usp=sharing">
-            https://drive.google.com/file/d/1RTLG4hJpHIDr93ahUQklO_xrUOpONN13/view?usp=sharing
+        </strong> at <br> <a href="{{ route('ApplicantFormGenerate', $id) }}"> Click here...
         </a>
         <br> <strong>PRINT the form, read, fill out completely and attach your photo.</strong>
     </li>
