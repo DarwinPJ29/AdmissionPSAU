@@ -24,7 +24,6 @@ class Account extends Controller
                 ->join('information', 'information.user_id', '=', 'users.id')  // Join the Information table
                 ->orderBy('information.last_name', 'asc')  // Order by last_name in the Information table
                 ->get();
-
             return view('admin.account', compact('users'));
         }
 

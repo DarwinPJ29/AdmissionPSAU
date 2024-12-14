@@ -42,7 +42,7 @@
                                 <a href="{{ route('account.activate', $user->id) }}" style="border-radius: 20px"
                                     class="btn  btn-sm {{ $user->activated ? 'btn-warning' : 'btn-success' }}">
                                     <i class="fas {{ $user->activated ? 'fa-toggle-off' : 'fa-toggle-on' }}"></i>
-                                    {{ $user->activated ? 'Deactivated' : 'Active' }}
+                                    {{ $user->activated ? 'Deactivated' : 'Activate' }}
                                 </a>
 
                             </td>
