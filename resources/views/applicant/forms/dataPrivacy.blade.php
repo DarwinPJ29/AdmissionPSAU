@@ -64,7 +64,7 @@
                 <form action="{{ route('dataPrivacy') }}" method="post">
                     @csrf
                     <div class="mt-5 mb-3 d-flex justify-content-end gap-1">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Accept</button>
                         <div class="btn btn-danger">Cancel</div>
                     </div>
                 </form>

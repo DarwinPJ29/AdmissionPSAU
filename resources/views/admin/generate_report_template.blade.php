@@ -35,12 +35,33 @@
         word-wrap: break-word;
         /* Ensure long words break within cells */
     }
+
+    .col {
+        background-color: #fec541;
+        color: black
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 2fr 1fr;
+    }
+    .date, .type, .program, .status{
+        font-size: 12px;
+    }
 </style>
-<h5>{{ $headers[0] }}</h5> //title nung report
-<h5>{{ $headers[1] }}</h5> // date kung kelan nag generate
-<h5>{{ $headers[2] }}</h5>// anung applicant type ung ni select
-<h5>{{ $headers[3] }}</h5> // anung program ung ni select
-<h5>{{ $headers[4] }}</h5> // anung status ni select
+<div class="grid">
+    <div class="title">{{ $headers[0] }}</div>
+    <div class="date">{{ $headers[1] }}</div>
+</div>
+<div class="type">Applicatan type: <strong>{{ $headers[2] }}</strong></div>
+<div class="program">Program  selected: <strong>{{ $headers[3] }}</strong></div>
+<div class="status">Status: <strong>{{ $headers[4] }}</strong></div>
 
 <div class="container-fluid">
     <table class="table table-bordered table-striped" id="table">

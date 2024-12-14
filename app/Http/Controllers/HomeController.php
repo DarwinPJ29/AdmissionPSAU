@@ -19,6 +19,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // dd(Hash::make(12345));
         $year = date('Y') . '-' . (date('Y') + 1);
         $courses = Courses::all();
         $requirements = ModelsRequirement::all();
