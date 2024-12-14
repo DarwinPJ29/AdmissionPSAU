@@ -22,7 +22,7 @@ class Record extends Controller
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
             $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
-            $result = Result::where('user_id', auth()->user()->id)->first();
+            $result = Result::where('user_id', $value['id'])->first();
             $value['show'] = $result->passed;
         }
         $filteredUsers = $users->filter(function ($user) {
