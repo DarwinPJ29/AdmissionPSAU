@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> PSAU | @yield('page-title')</title>
+    <title> PSAU | PDF</title>
     <link rel="icon" href="{{ URL::asset('images/PSAU_logo.png') }}" type="image/x-icon" />
     @include('layout.link')
 </head>
 
 <body>
-    <div class="container-fluid mb-5">
+
+    <div class="container-fluid">
         <div class="container">
             <div class="d-flex mt-3">
                 <div class="">
@@ -19,406 +21,75 @@
                 </div>
                 <div class="w-100 d-flex flex-column justify-content-center">
                     <div class="text-uppercase  ms-3 fs-style">pampanga state agricultural university</div>
-                    <div class="ms-3 fw-bold ">Office of Student  Affairs and Services</div>
+                    <div class="ms-3 fw-bold ">Office of Student Affairs and Services</div>
                     <hr class="border border-dark border-1 opacity-75 w-100">
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container mt-5">
+            {{-- <div class="grid">
+    <div class="title">{{ $headers[0] }}</div>
+    <div class="date">{{ $headers[1] }}</div>
+</div>
+<div class="type">Applicatan type: <strong>{{ $headers[2] }}</strong></div>
+<div class="program">Program  selected: <strong>{{ $headers[3] }}</strong></div>
+<div class="status">Status: <strong>{{ $headers[4] }}</strong></div> --}}
+            <div class="title text-center mb-3">TITLE</div>
 
-            <div class="d-flex">
-                <div class="col-md-9">
-                    <div class="mt-5 text-center fw-bold text-uppercase fs-5">student information form</div>
-                    <div class="d-flex mb-3 ">
-                        <div class="">
-                            Student No.:
-                        </div>
-                        <div class="w-75">
-                            <div class="border-bottom border-dark w-75 ms-3">hjhgd</div>
-                        </div>
-                    </div>
-                    <div class="row mb-3 gap-0 gap-0">
-                        <div class="col-2">
-                            Name (Print)
-                        </div>
-                        <div class="col-10">
+            <div class="type">Applicatan type: <strong class="ms-2">TYpe</strong></div>
+            <div class="program">Program selected: <strong class="ms-2">PRogram</strong></div>
+            <div class="status">Status: <strong class="ms-2">All</strong></div>
+            <div class="date">Date:  <strong class="ms-2">12-21-2003</strong></div>
 
-                            <div class="row  text-center g-0">
-                                <div class="col-4 ">
-                                    <div class="text-center">
-                                        name
-                                    </div>
-                                    <div class="border-top border-dark">
-                                        (Surname)
-                                    </div>
-                                </div>
-                                <div class="col-4 ">
-                                    <div class="text-center">
-                                        name
-                                    </div>
-                                    <div class="border-top border-dark">
-                                        (Given Name)
-                                    </div>
-                                </div>
-                                <div class="col-4 ">
-                                    <div class="text-center">
-                                        name
-                                    </div>
-                                    <div class="border-top border-dark">
-                                        (M.I)
-                                    </div>
-                                </div>
+            <div class="container p-0 m-0">
+                <table class="table table-column table-bordered table-striped border-dark " id="table">
+                    <thead>
+                        <tr>
+                            <th class="col col-bg">Applicant No.</th>
+                            <th class="col col-bg">Email</th>
+                            <th class="col col-bg">Name</th>
+                            <th class="col col-bg">Courses</th>
+                            <th class="col col-bg">Type</th>
+                            <th class="col col-bg">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{-- @php
+                $typeLabels = [
+                    1 => 'Doctoral',
+                    2 => 'Masteral',
+                    3 => 'Second Courser',
+                    4 => 'Transferee',
+                    5 => 'Freshmen',
+                ];
 
+                $statusLabels = [
+                    3 => 'Submitted',
+                    7 => 'Admitted',
+                    8 => 'Denied',
+                ];
+            @endphp
 
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row mb-3 gap-0">
-                        <div class="col-2">
-                            Nick Name
-                        </div>
-                        <div class="col-10 border-bottom w-25 border-dark">
-                            sample
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="border m-4 border-dark h-75 text-center">
-
-                    </div>
-                </div>
+            @foreach ($datas as $data)
+                <tr>
+                    <td class="fs-6">{{ $data->applicant_no }}</td>
+                    <td class="fs-6">{{ $data->email }}</td>
+                    <td class="fs-6">{{ $data->name }}</td>
+                    <td class="fs-6">{{ $data->title . ' (' . $data->acronym . ')' }}</td>
+                    <td class="fs-6">{{ $typeLabels[$data->type] ?? 'Unknown' }}</td>
+                    <td class="fs-6">{{ $statusLabels[$data->status] ?? 'Unknown' }}</td>
+                </tr>
+            @endforeach --}}
+                    </tbody>
+                </table>
             </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Courses:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Major:</div>
-                        <div class="border-bottom border-dark w-50"></div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-2">
-                    <div class="d-flex">
-                        <div>Sex:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="d-flex">
-                        <div>Date of Birth:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="d-flex">
-                        <div>Weight (kg):</div>
-                        <div class="border-bottom border-dark w-50"></div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="d-flex">
-                        <div>Height (m):</div>
-                        <div class="border-bottom border-dark w-50"></div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="row mb-3 gap-0 ">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Place of Birth:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Contact no.:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="d-flex mb-3 gap-0">
-                <div class="col-2">
-                    Home Address:
-                </div>
-                <div class="col-10 border-bottom border-dark">
-
-                </div>
-
-
-            </div>
-            <div class="d-flex mb-3 gap-0">
-                <div class="col-3">
-                    Address while staying at PSAU:
-                </div>
-                <div class="col-9 border-bottom border-dark">
-
-                </div>
-
-
-            </div>
-            <div class="d-flex mb-3 gap-0">
-                <div class="col-2">
-                    Special Skill(s):
-                </div>
-                <div class="col-10 border-bottom border-dark">
-
-                </div>
-
-
-            </div>
-            <div class="mt-4 mb-3">
-                Name of Parents and Address (State if deceased)
-            </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Father:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Occupation:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Mother:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Occupation:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Address:</div>
-                        <div class="border-bottom border-dark w-100"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Contact No:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 mb-3">
-                Name and Address of Person/Guardian supporting you (if any)
-            </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Name:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Relationship:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3 gap-0 mt-4">
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Address:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="d-flex">
-                        <div>Contact No:</div>
-                        <div class="border-bottom border-dark w-75"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 mb-3">
-                1. Are you a member of any organization such as clubs, societies, fraternities, sororities,
-                etc.?
-                <br>Please check YES <span
-                    style=" display: inline-block; border-bottom: 1px solid black; width: 100px;"></span> NO
-                <span style=" display: inline-block; border-bottom: 1px solid black;  width: 100px;"></span>; If YES,
-                please write all membership.
-
-                <div class="mb-4 mt-3" style=" display: inline-block; border-bottom: 1px solid black; width: 100%;">
-                </div>
-
-                <div class="mb-3" style=" display: inline-block;  border-bottom: 1px solid black;  width: 100%;"></div>
-            </div>
-            <div class=" mb-3">
-                2. Have you ever violated any school rules and regulations before? Please check:
-                <span
-                    style=" display: inline-block; border-bottom: 1px solid black; width: 100px;"></span> NO
-                <span style=" display: inline-block; border-bottom: 1px solid black;  width: 100px;"></span>; If YES,
-                please write all violations.
-
-                <div class="mb-4 mt-3" style=" display: inline-block; border-bottom: 1px solid black; width: 100%;">
-                </div>
-
-                <div class="mb-3" style=" display: inline-block;  border-bottom: 1px solid black;  width: 100%;"></div>
-            </div>
-            <div class="mt-4">
-                I declare under penalties of perjury perjury that this information which has made in good faith,
-                verified by me, to the best of my knowledge and belief is true and correct. For any false information
-                and for my violation(s) that I may commit in this University, I am willing to subject myself to penalty
-                or punishment in accordance with the Student Code of Discipline and or other University policies, rules and regulations.
-            </div>
-            <div class="mt-5 d-flex justify-content-end">
-                <div class="text-center">
-                    <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
-                    <div class="text-center">Signature</div>
-                </div>
-            </div>
-            <div class="mt-5 d-flex justify-content-end">
-                <div class="text-center">
-                    <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
-                    <div class="text-center">Date</div>
-                </div>
-            </div>
-
-
-            <div class="text-uppercase fw-bold">insurance</div>
-            <table class="table table-column table-bordered border-dark">
-                <thead>
-                    <tr>
-                        <td class="col-1">Schoo Year</td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-1">Receipt No.</td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                    </tr>
-                </thead>
-            </table>
-
-            <div class="mt-4 text-center fw-bold text-uppercase">anedotal records</div>
-            <table class="table table-bordered mt-3 border-dark table-column">
-                <thead>
-                    <tr>
-                        <th class="col-3 text-uppercase text-center">date</th>
-                        <th class="col-6 text-uppercase text-center">activities/particulars</th>
-                        <th class="col-3 text-uppercase text-center">remarks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="mt-4">NOTED:</div>
-            <div class="mt-5 d-flex justify-content-start">
-                <div class="text-center">
-                    <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
-                    <div class="text-center">OSAS Director</div>
-                </div>
-            </div>
-
         </div>
     </div>
-
 
 </body>
 
 </html>
-{{-- <style>
+<style>
     body {
         font-family: Arial, sans-serif;
         font-size: 12pt;
@@ -442,7 +113,7 @@
         border: 1px solid #ddd;
         padding: 3px;
         text-align: left;
-        font-size: 12pt;
+        font-size: 14px;
         /* Adjust font size of table cells */
     }
 
@@ -455,11 +126,21 @@
         word-wrap: break-word;
         /* Ensure long words break within cells */
     }
-</style> --}}
 
+        .col-bg {
+        background-color: #fec541 !important;
+        color: black !important;
+    }
 
-{{-- para ma test mo ung data pre  uncomment mo to ng DD --}}
-{{-- {{ dd($user) }} --}}
+    .title {
+        font-weight: 600;
+        font-size: 20px;
+    }
 
-{{-- @endauth --}}
-{{-- <h1>{{ $user->applicant_no }}</h1> --}}
+    .date,
+    .type,
+    .program,
+    .status {
+        font-size: 14px;
+    }
+</style>
