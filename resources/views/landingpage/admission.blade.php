@@ -76,7 +76,8 @@
                         <div class="col-sm-12 col-md-4">
                             <label for="firstname">First Name<span class="text-danger">*</span></label>
                             <input type="text" name="firstname" id="firstname" class="form-control shadow"
-                                placeholder="Enter First Name:" value="{{ old('firstname') }}"> @error('firstname')
+                                placeholder="Enter First Name:" value="{{ old('firstname') }}" required>
+                            @error('firstname')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
 
@@ -84,14 +85,15 @@
                         <div class="col-sm-12 col-md-3">
                             <label for="middlename">Middle Name</label>
                             <input type="text" name="middlename" id="middlename" class="form-control shadow"
-                                placeholder="Enter Middle Name:" value="{{ old('middlename') }}"> @error('middlename')
+                                placeholder="Enter Middle Name:" value="{{ old('middlename') }}">
+                            @error('middlename')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <label for="lastname">Last Name<span class="text-danger">*</span></label>
                             <input type="text" name="lastname" id="lastname" class="form-control shadow"
-                                placeholder="Enter Last Name:" value="{{ old('lastname') }}"> @error('lastname')
+                                placeholder="Enter Last Name:" value="{{ old('lastname') }}" required> @error('lastname')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -116,12 +118,13 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="email" class="form-label">Email Address<span class="text-danger">*</span></label>
+                            <label for="email" class="form-label">Email Address<span
+                                    class="text-danger">*</span></label>
                             <div class="input-group">
                                 <span class="input-group-text" id="inputGroupPrepend">
                                     <i class="fa-regular fa-envelope text-warning"></i> </span>
                                 <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="sample@gmail.com" value="{{ old('email') }}">
+                                    placeholder="sample@gmail.com" value="{{ old('email') }}" required>
                             </div>
                         </div>
 

@@ -21,7 +21,6 @@ class AdmissionForm extends Component
     use SecD;
     use SecE;
 
-
     public $user;
 
     public function __construct()
