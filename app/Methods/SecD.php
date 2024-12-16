@@ -95,14 +95,38 @@ trait SecD
 
     public function SecDNext()
     {
-        $this->section = 5;
-        // if (
-        //     $this->first_choice != '' &&
-        //     $this->second_choice != '' &&
-        //     $this->semester != ''
-        // ) {
-        //     $this->section = 3;
-        // }
+        $properties = [
+            $this->father_fullname,
+            $this->mother_fullname,
+            $this->guardian_fullname,
+            $this->father_date_birth,
+            $this->mother_date_birth,
+            $this->guardian_date_birth,
+            $this->father_education,
+            $this->mother_education,
+            $this->guardian_education,
+            $this->father_occupation,
+            $this->mother_occupation,
+            $this->guardian_occupation,
+            $this->father_company,
+            $this->mother_company,
+            $this->guardian_company,
+            $this->father_income,
+            $this->mother_income,
+            $this->guardian_income,
+            $this->father_contact,
+            $this->mother_contact,
+            $this->guardian_contact,
+            $this->secDId,
+        ];
+
+        $hasEmptyOrNull = array_filter($properties, fn($value) => $value === null || $value === '') !== [];
+
+        if ($hasEmptyOrNull) {
+            session()->flash('failed', 'Please compelete the fields to proceed!');
+        } else {
+            $this->section = 5;
+        }
     }
     public function SecDPrev()
     {

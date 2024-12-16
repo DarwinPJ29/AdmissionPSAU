@@ -74,23 +74,42 @@ trait SecC
             'shs_average' => $this->shs_average,
             'lrn' => $this->lrn,
             'first_time' => $this->first_time_college,
-            'is_first_time' => $this->is_first_time_college,
         ];
 
         Core::Save('Educational', $data, $this->secCId);
+
         $this->SecCGetData();
     }
 
     public function SecCNext()
     {
-        $this->section = 4;
-        // if (
-        //     $this->first_choice != '' &&
-        //     $this->second_choice != '' &&
-        //     $this->semester != ''
-        // ) {
-        //     $this->section = 3;
-        // }
+        $properties = [
+            $this->elementary_name,
+            $this->elementary_address,
+            $this->elementary_date,
+            $this->sr_high_name,
+            $this->sr_high_address,
+            $this->sr_high_date,
+            $this->last_school_name,
+            $this->last_school_address,
+            $this->last_school_date,
+            $this->graduated_from,
+            // $this->graduated_from_type,
+            $this->date_graduation,
+            $this->shs_average,
+            $this->lrn,
+            $this->first_time_college,
+            // $this->is_first_time_college,
+            $this->secCId,
+        ];
+
+        $hasEmptyOrNull = array_filter($properties, fn($value) => $value === null || $value === '') !== [];
+
+        if ($hasEmptyOrNull) {
+            session()->flash('failed', 'Please compelete the fields to proceed!');
+        } else {
+            $this->section = 4;
+        }
     }
     public function SecCPrev()
     {

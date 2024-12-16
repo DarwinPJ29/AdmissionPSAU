@@ -111,21 +111,33 @@ trait SecA
 
     public function SecANext()
     {
-        $this->section = 2;
+        $properties = [
+            $this->first_name,
+            $this->middle_name,
+            $this->last_name,
+            $this->gender,
+            $this->number,
+            $this->birth_date,
+            $this->age,
+            $this->place_birth,
+            $this->citizenship,
+            $this->religion,
+            $this->civil_status,
+            $this->email,
+            $this->province,
+            $this->municipality,
+            $this->barangay,
+            $this->provinces,
+            $this->municipalities,
+            $this->barangays,
+        ];
 
-        // if (
-        //     $this->gender ==  '' &&
-        //     $this->age ==  '' &&
-        //     $this->birth_date ==  '' &&
-        //     $this->place_birth ==  '' &&
-        //     $this->religion ==  '' &&
-        //     $this->citizenship ==  '' &&
-        //     $this->civil_status ==  '' &&
-        //     $this->address ==  ''
-        // ) {
-        //     $this->section = 2;
-        // } else {
-        //     session()->flash('failed', 'Please compelete the fields to proceed!');
-        // }
+        $hasEmptyOrNull = in_array(true, array_map(fn($value) => $value === null || $value === '', $properties));
+
+        if ($hasEmptyOrNull) {
+            session()->flash('failed', 'Please compelete the fields to proceed!');
+        } else {
+            $this->section = 2;
+        }
     }
 }

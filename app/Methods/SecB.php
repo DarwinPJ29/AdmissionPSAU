@@ -103,14 +103,24 @@ trait SecB
     }
     public function SecBNext()
     {
-        $this->section = 3;
-        // if (
-        //     $this->first_choice != '' &&
-        //     $this->second_choice != '' &&
-        //     $this->semester != ''
-        // ) {
-        //     $this->section = 3;
-        // }
+        $properties = [
+            $this->courses_choice1,
+            $this->courses_choice2,
+            $this->first_choice,
+            $this->second_choice,
+            $this->school_year,
+            $this->semester,
+            $this->applicant_type,
+            $this->choiceId,
+        ];
+
+        $hasEmptyOrNull = array_filter($properties, fn($value) => $value === null || $value === '') !== [];
+
+        if ($hasEmptyOrNull) {
+            session()->flash('failed', 'Please compelete the fields to proceed!');
+        } else {
+            $this->section = 3;
+        }
     }
     public function SecBPrev()
     {

@@ -37,9 +37,8 @@
                 </td>
                 <td>
                     <div class="p-1 ">
-                        <input type="text" name="elementary_date" id="elementary_date"
-                            class="form-control shadow" placeholder="Ex: 2000-2006"
-                            wire:model='elementary_date' wire:keyup='SecCSetData' required>
+                        <input type="text" name="elementary_date" id="elementary_date" class="form-control shadow"
+                            placeholder="Ex: 2000-2006" wire:model='elementary_date' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
 
@@ -64,9 +63,8 @@
                 </td>
                 <td>
                     <div class="p-1 ">
-                        <input type="text" name="sr_high_date" id="sr_high_date"
-                            class="form-control shadow" placeholder="Ex: 2000-2006"
-                            wire:model='sr_high_date' wire:keyup='SecCSetData' required>
+                        <input type="text" name="sr_high_date" id="sr_high_date" class="form-control shadow"
+                            placeholder="Ex: 2000-2006" wire:model='sr_high_date' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
             </tr>
@@ -89,9 +87,8 @@
                 </td>
                 <td>
                     <div class="p-1">
-                        <input type="text" name="last_school_date" id="last_school_date"
-                            class="form-control shadow" placeholder="Ex: 2000-2006"
-                            wire:model='last_school_date' wire:keyup='SecCSetData' required>
+                        <input type="text" name="last_school_date" id="last_school_date" class="form-control shadow"
+                            placeholder="Ex: 2000-2006" wire:model='last_school_date' wire:keyup='SecCSetData' required>
                     </div>
                 </td>
             </tr>
@@ -122,8 +119,8 @@
     <div class="row p-1">
         <div class="col-md-4 p-3 border-end border-dark">
             <label for="shs_average">SHS Average Grade:</label>
-            <input type="text" name="shs_average" id="shs_average" class="form-control shadow"
-                placeholder="Enter SHS Average Grade:" wire:keyup='SecCSetData' required>
+            <input type="text" name="shs_average" wire:model='shs_average'id="shs_average"
+                class="form-control shadow" placeholder="Enter SHS Average Grade:" wire:keyup='SecCSetData' required>
         </div>
         <div class="col-md-4 p-3 border-end border-dark">
             <label for="lrn">Learner Reference Number (LRN)</label>
@@ -132,17 +129,18 @@
         </div>
         <div class="col-md-4 p-3">
             <label for="first_time_college">First Time to Enter College:</label>
-           <div class="d-flex justify-content-evenly mt-2" >
-            <div>
-                <input type="radio" id="yes" name="first_time_college" value="yes" checked />
-                <label for="yes">Yes</label>
+            <div class="d-flex justify-content-evenly mt-2">
+                <div>
+                    <input type="radio" id="yes" name="first_time_college" value="yes"
+                        wire:model="first_time_college" wire:click='SecCSetData' />
+                    <label for="yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" id="no" name="first_time_college" value="no"
+                        wire:model="first_time_college" wire:click='SecCSetData' />
+                    <label for="no">No</label>
+                </div>
             </div>
-
-            <div>
-                <input type="radio" id="no" name="first_time_college" value="no" />
-                <label for="no">No</label>
-            </div>
-           </div>
         </div>
     </div>
 </div>
