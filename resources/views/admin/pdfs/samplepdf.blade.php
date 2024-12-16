@@ -90,8 +90,10 @@
                     </div>
                 </div>
                 <div class="column-2nd">
-                    <div class="border-box ">
-                        2x2 <br> Picture
+                    <div class="border-box">
+                        <div class="pi">
+                            2x2 <br>Picture
+                        </div>
                     </div>
                 </div>
             </div>
