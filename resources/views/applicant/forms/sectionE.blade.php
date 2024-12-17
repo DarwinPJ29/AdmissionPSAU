@@ -7,10 +7,10 @@
         of Pampanga State Agricultural University,
     </span>
 </div>
-<div class="mx-auto mt-5 mb-5">
+{{-- <div class="mx-auto mt-5 mb-5">
     <div class="text-center fw-bold">ALAWI C. CANLAS, Ed. D.</div>
     <div class="text-center">Director, Admission and Registration Services</div>
-</div>
+</div> --}}
 <div class="mt-3 gap-2 d-flex justify-content-end mb-5">
     <div class="btn btn-secondary" wire:click='SecEPrev'><i class="fa-solid fa-angles-left me-2"></i>Back</div>
     <div class="btn btn-warning" wire:click='SubmitForm'>Submit<i class="fa-solid fa-check ms-2"></i></div>

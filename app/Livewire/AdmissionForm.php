@@ -19,7 +19,7 @@ class AdmissionForm extends Component
     use SecB;
     use SecC;
     use SecD;
-    use SecE;
+    // use SecE;
 
     public $user;
 

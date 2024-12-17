@@ -3,7 +3,9 @@
 namespace App\Methods;
 
 use App\Models\Guardian;
+use App\Models\User;
 use App\Services\Core;
+use App\Services\Status;
 
 trait SecDVar
 {
@@ -93,7 +95,7 @@ trait SecD
         $this->SecDGetData();
     }
 
-    public function SecDNext()
+    public function SubmitForm()
     {
         $properties = [
             $this->father_fullname,
@@ -125,7 +127,14 @@ trait SecD
         if ($hasEmptyOrNull) {
             session()->flash('failed', 'Please compelete the fields to proceed!');
         } else {
-            $this->section = 5;
+
+            $user = User::find(auth()->user()->id);
+            if ($user != null) {
+                $user->status = Status::Requirement;
+                $user->update();
+
+                return redirect()->route('loading');
+            }
         }
     }
     public function SecDPrev()

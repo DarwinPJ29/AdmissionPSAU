@@ -103,7 +103,11 @@ class AuthController extends Controller
     public function changePassword(Request $request)
     {
         if ($request->isMethod('get')) {
-            return view('admin.admin_setting');
+
+            if (auth()->user()->role == 1) {
+                return view('admin.admin_setting');
+            } else
+                return view('applicant.setting');
         }
 
         $valid = $request->validate([
