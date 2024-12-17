@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('second_reason')->nullable();
             $table->integer('semester')->nullable();
             $table->integer('type')->nullable();
+            $table->integer('level')->nullable();
             $table->boolean('failed')->default(0);
             $table->timestamps();
         });
