@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header main-bg">
-                <h1 class="modal-title fs-5" id="staticBackdropdiv">Filled-up form</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropdiv">Application Form</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-div="Close"></button>
             </div>
             <div class="modal-body border shadow overflow-y-auto" style="max-height: 70vh">

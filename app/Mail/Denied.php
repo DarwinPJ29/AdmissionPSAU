@@ -30,7 +30,7 @@ class Denied extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Application Denied!',
+            subject: 'Notice of Evaluation Result',
         );
     }
 

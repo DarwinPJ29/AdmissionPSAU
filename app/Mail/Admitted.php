@@ -33,7 +33,7 @@ class Admitted extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Congratulations!',
+            subject: 'Notice of Evaluation Result',
         );
     }
 

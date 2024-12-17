@@ -30,7 +30,7 @@ class Sched extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Schedule of Exam',
+            subject: 'Notice of PSAU Admission Test Schedule',
         );
     }
 
