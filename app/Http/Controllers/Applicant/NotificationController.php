@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Applicant;
 
 use App\Http\Controllers\Admin\Course;
 use App\Http\Controllers\Controller;
+use App\Mail\Admitted;
 use App\Models\Barangay;
 use App\Models\Choice;
 use App\Models\Courses;
@@ -18,6 +19,7 @@ use App\Models\User;
 use App\Services\Status;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class NotificationController extends Controller
 {
@@ -122,6 +124,14 @@ class NotificationController extends Controller
         $user->course_admitted_id = $request->input('choice');
         $user->status = Status::Admitted;
         $user->save();
+
+        $info = Information::where('user_id', $user->id)->first();
+        $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+        $courses = Courses::find($result->course_id);
+        $labelCourse = $courses->title . ' (' . $courses->acronym . ')';
+
+        Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse));
+        return  redirect()->back()->with('success', 'Success');
     }
 
     public function ApplicantFormGenerate($id)

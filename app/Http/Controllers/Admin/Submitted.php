@@ -170,13 +170,13 @@ class Submitted extends Controller
         $formattedDeadline = $deadline->format('F j, Y');
         $user = User::find($id);
         $user->status = Status::Requirement;
-        $user->requirements_remarks = $request->input('reason') . '.Please resubmit your requirements until ' . $formattedDeadline;
+        $user->requirements_remarks = $request->input('reason') . '. Please resubmit your requirements until ' . $formattedDeadline;
         $user->update();
 
         $user_information = Information::where('user_id', $user->id)->first();
         $applicant_name = $user_information->first_name . " " . $user_information->middle_name . " " . $user_information->last_name;
 
-        Mail::to($user->email)->send(new Returned($applicant_name, $user->requirements_remarks));
+        Mail::to($user->email)->send(new Returned($applicant_name, $formattedDeadline));
 
         return redirect()->back()->with('success', 'Requirements Successfully returned');
     }
