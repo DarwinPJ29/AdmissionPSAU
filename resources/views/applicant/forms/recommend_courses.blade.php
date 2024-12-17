@@ -13,8 +13,7 @@
                         <div class="col-4 d-flex flex-column justify-content-center align-items-start">
                             <label>{{ $index + 1 == 1 ? 'First Choice' : 'Second Choice' }}</label>
                             <label>{{ $reason[0] }}</label>
-                            <label>Reason:</label>
-                            <textarea class="form-control" cols="10" rows="3" readonly>{{ $reason[1] }}</textarea>
+                            <label>Reason: <b>{{ $reason[1] }}</b></label>
                         </div>
                     @endforeach
                 </div>

@@ -6,13 +6,18 @@
         <div class="container mt-4 card shadow bg-secondary-subtles p-3">
             <form id="coursesForm" action="{{ route('recommended', $id) }}" method="post">
                 @csrf
-                <div class="row d-flex justify-content-center align-items-center">
+                <div class="row mb-5 d-flex justify-content-center align-items-center">
                     @foreach ($choicesNew as $index => $choice)
                         <div class="col-4 d-flex flex-column justify-content-center align-items-start">
                             <label>{{ $index + 1 == 1 ? 'First Choice' : 'Second Choice' }}</label>
                             <label>{{ $choice }}</label>
                             <label>Reason:</label>
-                            <textarea name="reason_{{ $index + 1 }}" class="form-control" cols="10" rows="3" required></textarea>
+                            <select name="reason_{{ $index + 1 }}" class="form-select shadow text-uppercase" required>
+                                <option value="" selected hidden>Select ReasoN</option>
+                                <option value="No Slot">No Slot</option>
+                                <option value="GWA">GWA</option>
+                                <option value="STANINE">STANINE</option>
+                            </select>
                         </div>
                     @endforeach
                 </div>
@@ -21,21 +26,23 @@
                     <div class="container">
                         <hr class="border border-1 border-success opacity-75 m-0 p-0">
                         <div class="choice mb-3 mt-3">
-                            <label class="mb-2 fw-bold">Courses Available</label>
-                            <div class="mt-2 d-flex justify-content-evenly text-uppercase">
-                                <div class="row justify-content-center">
+                            <label class="mb-2 fw-bold">Program Availables</label>
+                            <div class="mt-2 text-uppercase">
+                                <div class="row">
                                     @foreach ($courses as $item)
-                                        <div class="col-md-3">
-                                            <div class="d-flex border-bottom border-dark">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="d-flex align-items-center border-bottom border-dark pb-2">
                                                 <input type="checkbox" class="me-2 course-checkbox" name="courses[]"
-                                                    id="{{ $item->id }}" value="{{ $item->id }}">
-                                                <label for="{{ $item->id }}">{{ $item->title }}</label>
+                                                    id="course-{{ $item->id }}" value="{{ $item->id }}">
+                                                <label for="course-{{ $item->id }}"
+                                                    class="mb-0">{{ $item->title }}</label>
                                             </div>
-                                            <div class="text-center">{{ $item->acronym }}</div>
+                                            <div class="text-center small text-muted">{{ $item->acronym }}</div>
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
+
                         </div>
                         <hr class="border border-1 border-success opacity-75 m-0 p-0 mb-2">
                     </div>
