@@ -569,12 +569,7 @@
         text-transform: uppercase;
         font-weight: 600;
     }
-    .pi{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin-top: 50px;
-    }
+
 </style>
 
 

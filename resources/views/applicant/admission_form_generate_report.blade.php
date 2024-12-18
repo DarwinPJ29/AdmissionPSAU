@@ -433,7 +433,7 @@
                 </thead>
             </table>
 
-            <div class="mt-4 text-center fw-bold text-uppercase" style="margin-top: 40px; text-aline: center; font-size: 700; text-transform: uppercase">anedotal records</div>
+            <div class="mt-4 " style="margin-top: 40px; text-aline: center; text-transform: uppercase">anedotal records</div>
             <table class="table table-bordered mt-3 border-dark table-column">
                 <thead>
                     <tr>
