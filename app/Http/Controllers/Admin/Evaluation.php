@@ -133,7 +133,7 @@ class Evaluation extends Controller
                 array_push($choicesNew, $courseName->title . " (" . $courseName->acronym . ")");
             }
 
-            $colleges = College::orderBy('level', 'desc');
+            $colleges = College::orderBy('level', 'desc')->where('enable', 1);
 
             if ($choice->type == 1) {
                 $colleges->where('level', 3);
@@ -151,6 +151,7 @@ class Evaluation extends Controller
             $selectedCourse = [$choice->first, $choice->second];
 
             $courses = Courses::select('id', 'title', 'college_id')
+                ->where('enable', 1)
                 ->whereIn('college_id', $collegeIds)
                 ->whereNotIn('id', $selectedCourse)
                 ->orderBy('title', 'asc')

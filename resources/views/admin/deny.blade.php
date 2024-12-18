@@ -1,19 +1,25 @@
 @extends('layout.layoutAdmin')
-@section('page-title', 'Recommended')
+@section('page-title', 'Denied')
 @section('content')
 
     <div class="container p-4">
         <div class="container mt-4 bg-secondary-subtles p-3">
             <form id="coursesForm" action="{{ route('deny', $id) }}" method="post">
                 @csrf
-                <h3>Reject the application of <b>{{ $name }}</b> for admission ?</h3>
+                <h4 class="mb-5">Is the application of <b>{{ $name }}</b> for admission being carefully reviewed
+                    and ultimately denied?</h4>
                 <div class="row d-flex justify-content-center align-items-center">
                     @foreach ($choicesNew as $index => $choice)
                         <div class="col-4 d-flex flex-column justify-content-center align-items-start">
                             <label>{{ $index + 1 == 1 ? 'First Choice' : 'Second Choice' }}</label>
                             <label>{{ $choice }}</label>
                             <label>Reason:</label>
-                            <textarea name="reason_{{ $index + 1 }}" class="form-control" cols="10" rows="3" required></textarea>
+                            <select name="reason_{{ $index + 1 }}" class="form-select shadow text-uppercase" required>
+                                <option value="" selected hidden>Select ReasoN</option>
+                                <option value="No Slot">No Slot</option>
+                                <option value="GWA">GWA</option>
+                                <option value="STANINE">STANINE</option>
+                            </select>
                         </div>
                     @endforeach
                 </div>

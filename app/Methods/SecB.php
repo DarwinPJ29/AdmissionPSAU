@@ -17,6 +17,7 @@ trait SecBVar
     public $school_year;
     public $semester;
     public $applicant_type;
+    public $applicant_level = 1;
     public $choiceId = 0;
 }
 trait SecB
@@ -36,6 +37,7 @@ trait SecB
             $this->second_choice = $choice->second;
             $this->applicant_type = $choice->type;
             $this->choiceId = $choice->id;
+            $this->applicant_level = $choice->level;
         } else {
             $this->school_year = $school_year->year;
         }
@@ -57,6 +59,7 @@ trait SecB
         $collegeIds = $colleges->pluck('id')->toArray();
 
         $query1 = Courses::select('id', 'title', 'college_id')
+            ->where('enable', 1)
             ->whereIn('college_id', $collegeIds)
             ->orderBy('title', 'asc');
 
@@ -67,6 +70,7 @@ trait SecB
         $this->courses_choice1 = $query1->get();
 
         $query2 = Courses::select('id', 'title', 'college_id')
+            ->where('enable', 1)
             ->whereIn('college_id', $collegeIds)
             ->orderBy('title', 'asc');
 
@@ -96,6 +100,7 @@ trait SecB
             'first' => $this->first_choice,
             'school_year' => $this->school_year,
             'type' => $this->applicant_type,
+            'level' => $this->applicant_level,
         ];
 
         Core::Save('Choice', $data, $this->choiceId);
@@ -111,6 +116,7 @@ trait SecB
             $this->school_year,
             $this->semester,
             $this->applicant_type,
+            $this->applicant_level,
             $this->choiceId,
         ];
 
