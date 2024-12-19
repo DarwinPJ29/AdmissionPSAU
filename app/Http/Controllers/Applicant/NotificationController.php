@@ -173,7 +173,8 @@ class NotificationController extends Controller
 
         $user['course'] = Courses::where('id', $user->course_admitted_id)->value('title');
 
-        $pdf = Pdf::loadView('applicant.admission_form_generate_report', ['user' => $user,])
+
+        $pdf = Pdf::loadView('applicant.admission_form_generate_report', ['user' => $user])
             ->setPaper('A4', 'portrait')
             ->setOptions([
                 'margin-left' => 0, // Remove left margin
@@ -181,6 +182,7 @@ class NotificationController extends Controller
                 'margin-top' => 10, // You can adjust top margin as needed
                 'margin-bottom' => 10 // You can adjust bottom margin as needed
             ]);
+
 
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();

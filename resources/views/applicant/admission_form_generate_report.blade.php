@@ -11,25 +11,30 @@
 
 <body>
     <div class="container-fluid contents">
-        <div class="container heading" style="  display: flex;
-            flex: row;
-            padding-left: 20px;">
-            <div class="">
-                <img src="{{ asset('images/PSAU_logo.png') }}" alt="" srcset="" class="logo"
-                    style="max-height: 130px">
-            </div>
-            <div class="w-100 tagline" style=" padding-top: 3rem;
-            font-size: 20px;">
-                <div class=" title" style="text-transform: uppercase;">pampanga state agricultural university</div>
-                <div class="tag" style="font-weight: 700;">Office of Student Affairs and Services</div>
-                <div class="border-line"
-                    style=" display: inline-block;
-            border-bottom: 1px solid black;
-            width: 75vw;">
-                </div>
-            </div>
-        </div>
-        <div class="container-content">
+        <table style="width: 100%; border: none; padding: 0; table-layout: fixed;">
+            <tr>
+                <td style="text-align: end; vertical-align: middle; width:20%; padding: 0;">
+                    <!-- Image (Logo) -->
+                    <img src="{{ url('/images/PSAU_logo.png') }}" alt="PSAU Logo" style="max-height: 130px;">
+                </td>
+                <td style="text-align: start; vertical-align: start; padding: 0;">
+                    <!-- University Name -->
+                    <div class="title" style="text-transform: uppercase; font-size: 24px; font-weight: bold;">
+                        Pampanga State Agricultural University
+                    </div>
+                    <!-- Office Name -->
+                    <div class="tag" style="font-weight: 700; font-size: 20px;">
+                        Office of Student Affairs and Services
+                    </div>
+                    <!-- Border Line -->
+                    <div class="border-line" style="display: inline-block; border-bottom: 1px solid black; width: 75%;">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="container-content" style="padding-right: 20px;">
 
             <div class="sub-title"
                 style="  text-transform: uppercase;
@@ -40,103 +45,65 @@
                 student information form
             </div>
 
-            <div class="grid"
-                style="  display: grid;
-                gap: 10px;
-                grid-template-columns: 2fr .5fr;
-                margin-top: 20px;">
-                <div class="column">
-                    <div class="line-1" style="display: flex;">
-                        {{-- line1 --}}
-                        <div class="">
-                            Student No.:
-                        </div>
-                        <div class="underline-1"
-                            style="display: inline-block;
-                            border-bottom: 1px solid black;
-                            width: 30%;
-                            margin-left: 10px">
-                            hjhh
-                        </div>
-                    </div>
-                    {{-- line2 --}}
-                    <div class="line-2 grid-2"
-                        style=" display: grid;
-                        gap: 10px;
-                        grid-template-columns: .4fr 2.5fr;
-                        margin-top: 20px;
-                        padding: 0px;">
-                        <div class="container-1" style="padding-top: 10px;">
-                            Name (Print):
-                        </div>
-                        <div class="container-2" style="display: flex; gap: 20%;">
-                            <div class=" ">
-                                <div class="name-line"
-                                    style="display: grid;
-                                    gap: 10px;
-                                    grid-template-columns: 1fr 1fr 1fr;">
-                                    <div class="">
-                                        <div class="name">
-                                            Padre Juan
-                                        </div>
-                                    </div>
-                                    <div class=" ">
-                                        <div class="name">
-                                            Darwin Darwin
-                                        </div>
-                                    </div>
-                                    <div class=" ">
-                                        <div class="text-center" style="text-align: center;">
-                                            J
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="name-underline">
-                                </div>
-                                <div class="name-tag"
-                                    style="display: grid;
-                                    gap: 10px;
-                                    grid-template-columns: 1fr 1fr 1fr;">
-                                    <div class="">
-                                        (Surname)
-                                    </div>
-                                    <div class="name">
-                                        (Given Name)
-                                    </div>
-                                    <div class="">
-                                        (M.I)
-                                    </div>
-                                </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr>
+                    <!-- Class Column -->
+                    <td style="width: 75%; vertical-align: top; padding-right: 20px;">
+                        <!-- Line 1: Student No. -->
+                        <div style="display: flex;">
+                            <div>Student No.:</div>
+                            <div
+                                style="display: inline-block; border-bottom: 1px solid black; width: 30%; margin-left: 10px;">
+                                hjhh
                             </div>
+                        </div>
+
+                        <!-- Line 2: Name (Print) -->
+                        <div style="display: grid; gap: 10px; grid-template-columns: 0.4fr 2.5fr; margin-top: 20px;">
+                            <div style="padding-top: 10px;">Name (Print):</div>
+                            <div>
+                                <!-- Grid for Name -->
+                                <div
+                                    style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr 1fr; align-items: center; border-bottom: 1px solid #000;">
+                                    <div>Padre Juan</div>
+                                    <div>Darwin</div>
+                                    <div style="text-align: center;">J</div>
+                                </div>
+
+                                <!-- Grid for Labels -->
+                                <div
+                                    style="display: grid; gap: 10px; grid-template-columns: 1fr 1.5fr .5fr; font-weight: bold; font-size: 0.9em; color: #555;">
+                                    <div>(Surname)</div>
+                                    <div>(Given Name)</div>
+                                    <div>(M.I)</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Line 3: Nick Name -->
+                        <div style="display: flex; margin-top: 20px;">
+                            <div>Nick Name:</div>
+                            <div
+                                style="display: inline-block; border-bottom: 1px solid black; width: 30%; margin-left: 10px;">
+                                hjhh
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- Class-2nd Column -->
+                    <td style="width: 25%; vertical-align: top; position:absolute; top:20%">
+                        <div
+                            style="border: 1px solid black; height: 100px; width: 100px; padding: 3px; text-align: center; margin-top: 30px;">
+                            2x2 <br> Picture
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
 
-                        </div>
-                    </div>
-                    <div class="line-3" style="display: flex;  margin-top: 20px;">
-                        {{-- line3 --}}
-                        <div class="">
-                            Nick Name:
-                        </div>
-                        <div class="underline-1"
-                            style="display: inline-block;
-                            border-bottom: 1px solid black;
-                            width: 30%;
-                            margin-left: 10px">
-                            hjhh
-                        </div>
-                    </div>
-                </div>
-                <div class="column-2nd">
-                    <div class="border-box "
-                        style="border: 1px solid black;
-                        height: 150px;
-                        width: 200px;
-                        padding: 3px;
-                        margin-right: 50px;">
-                        2x2 <br> Picture
-                    </div>
-                </div>
-            </div>
+
 
             <div class="row">
                 <div class="d-flex" style=" display: flex; margin-top: 10px;">
@@ -369,11 +336,13 @@
                 <span style=" display: inline-block; border-bottom: 1px solid black;  width: 100px;"></span>; If YES,
                 please write all violations.
 
-                <div class="mb-2 mt-2" style=" display: inline-block; border-bottom: 1px solid black; width: 100%; margin-top: 20px;
+                <div class="mb-2 mt-2"
+                    style=" display: inline-block; border-bottom: 1px solid black; width: 100%; margin-top: 20px;
                             margin-bottom: 20px;">
                 </div>
 
-                <div class="mb-2" style=" display: inline-block;  border-bottom: 1px solid black;  width: 100%; margin-bottom: 20px;">
+                <div class="mb-2"
+                    style=" display: inline-block;  border-bottom: 1px solid black;  width: 100%; margin-bottom: 20px;">
                 </div>
             </div>
             <div class="mt-4" style="margin-top: 40px">
@@ -398,42 +367,169 @@
 
 
             <div class="text-uppercase" style="text-transform: uppercase">insurance</div>
-            <table class="table table-column table-bordered border-dark">
+            <table class="table table-column table-bordered border-dark"
+                style="width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+            margin-top: 20px;">
                 <thead>
                     <tr>
-                        <td class="col-1">Schoo Year</td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px;
+                            word-wrap: break-word;">
+                            Schoo Year</td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
                     </tr>
                     <tr>
-                        <td class="col-1">Receipt No.</td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                            Receipt No.</td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
                     </tr>
                     <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
-                        <td class="col-1"></td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                            Date</td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
+                        <td class="col-1"
+                            style="border: 1px solid #ddd;
+                            padding: 3px;
+                            text-align: left;
+                            font-size: 12px; word-wrap: break-word;">
+                        </td>
                     </tr>
                 </thead>
             </table>
 
-            <div class="mt-4 " style="margin-top: 40px; text-aline: center; text-transform: uppercase">anedotal records</div>
+            <div class="mt-4 " style="margin-top: 40px; text-aline: center; text-transform: uppercase">anedotal
+                records</div>
             <table class="table table-bordered mt-3 border-dark table-column">
                 <thead>
                     <tr>
@@ -473,35 +569,10 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
                 </tbody>
             </table>
             <div class="mt-4" style="margin-top: 40px">NOTED:</div>
-            <div class="mt-4 d-flex justify-content-start">
+            <div class="mt-4 d-flex justify-content-start" style="margin-bottom: 50px">
                 <div class="text-center">
                     <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
                     <div class="text-center">OSAS Director</div>
@@ -515,7 +586,7 @@
 </body>
 
 </html>
-{{-- <style>
+<style>
     body {
         font-family: Arial, sans-serif;
         font-size: 12pt;
@@ -713,5 +784,4 @@
         text-align: center;
         margin-top: 50px;
     }
-</style> --}}
-
+</style>

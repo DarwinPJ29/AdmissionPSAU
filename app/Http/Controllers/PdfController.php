@@ -15,7 +15,8 @@ class PdfController extends Controller
 
 
     // check design purpose
-    public function pdf() {
+    public function pdf()
+    {
         return view('admin.pdfs.samplepdf');
     }
 }
