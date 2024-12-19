@@ -34,6 +34,8 @@
         </table>
 
 
+
+
         <div class="container-content" style="padding-right: 20px;">
 
             <div class="sub-title"
@@ -45,7 +47,18 @@
                 student information form
             </div>
 
-
+            {{-- <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td style="width: 25%; vertical-align: top; position:absolute; top:20%">
+                        <div
+                            style="border: 1px solid black; height: 100px; width: 100px; padding: 3px; text-align: center; margin-top: 30px;">
+                            2x2 <br> Picture
+                        </div>
+                    </td>
+                </tr>
+            </table> --}}
             <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
                 <tr>
                     <!-- Class Column -->
@@ -103,7 +116,29 @@
             </table>
 
 
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="border: 1px solid black; padding: 20px;" width="100">Student No.:</td>
+                    <td style="border: 1px solid black; padding: 20px;">1224156</td>
 
+                    <td style="border: 1px solid" rowspan="3">
+                        <div
+                            style="border: 1px solid black; height: 100px; width: 100px; padding: 3px; text-align: center; margin-top: 30px;">
+                            2x2 <br> Picture
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 20px;"></td>
+
+                    <td style="border: 1px solid black; padding: 20px;"></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 20px;"></td>
+
+                    <td style="border: 1px solid black; padding: 20px;"></td>
+                </tr>
+            </table>
 
             <div class="row">
                 <div class="d-flex" style=" display: flex; margin-top: 10px;">
