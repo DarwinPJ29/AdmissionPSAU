@@ -18,9 +18,9 @@ class Account extends Controller
     {
         if ($request->isMethod('get')) {
 
-            $users = User::select('users.id', 'users.email', 'users.activated', 'information.prefix', 'information.first_name', 'information.middle_name', 'information.last_name', 'information.suffix')
+            $users = User::select('users.id', 'users.email', 'users.activated', 'users.role', 'information.prefix', 'information.first_name', 'information.middle_name', 'information.last_name', 'information.suffix')
                 ->where('users.id', '!=', auth()->user()->id)  // Corrected the access to the user ID
-                ->where('users.role', '1')
+                ->whereIn('users.role', [1, 2, 3])
                 ->join('information', 'information.user_id', '=', 'users.id')  // Join the Information table
                 ->orderBy('information.last_name', 'asc')  // Order by last_name in the Information table
                 ->get();
@@ -34,6 +34,7 @@ class Account extends Controller
             'last' => 'required|string|max:50',
             'suffix' => 'nullable|string|max:10',
             'email' => 'required|email|unique:users,email|max:100',
+            'role' => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -50,7 +51,7 @@ class Account extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('first') . '.' . $request->input('last')),
             'activated' => true,
-            'role' => 1
+            'role' => intval($request->input('role'))
         ];
 
         $user = Core::Save('User', $data, 0);
@@ -84,6 +85,7 @@ class Account extends Controller
                 'max:100',
                 Rule::unique('users')->ignore($id),  // Exclude the user with the provided $id
             ],
+            'role' => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -99,6 +101,7 @@ class Account extends Controller
         $user = User::find($id);
 
         $user->email = $request->input('email');
+        $user->role = $request->input('role');
         $user->save();
 
         $info = Information::where('user_id', $id)->first();
@@ -107,6 +110,7 @@ class Account extends Controller
         $info->first_name = $request->input('first');
         $info->middle_name = $request->input('middle');
         $info->last_name = $request->input('last');
+        $info->suffix = $request->input('suffix');
         $info->suffix = $request->input('suffix');
 
         $info->save();

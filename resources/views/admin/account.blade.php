@@ -20,8 +20,9 @@
                         <th class="col">Middle Name</th>
                         <th class="col">Last Name</th>
                         <th class="col">Suffix</th>
+                        <th class="col">Role</th>
                         <th class="col">Status</th>
-                        <th class="col-3">Action</th>
+                        <th class="col-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +34,10 @@
                             <td>{{ $user->middle_name }}</td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->suffix }}</td>
-                            <td>{{ $user->activated == 1 ? 'Active' : 'Deactivated' }}</td>
+                            <td>
+                                {{ $user->role == 1 ? 'Admin' : ($user->role == 2 ? 'Proctor' : 'Admitting Personnel') }}
+                            </td>
+                            <td>{{ $user->activated == 1 ? 'Active' : 'Deactivate' }}</td>
                             <td>
                                 <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
                                     data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
