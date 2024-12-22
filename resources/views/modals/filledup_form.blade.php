@@ -387,6 +387,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <a href="{{ route('acceptReq', $user->id) }}" class="btn btn-warning">Accept</a>
                     <button type="submit" class="btn btn-danger">Returned</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>

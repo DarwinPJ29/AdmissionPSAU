@@ -27,7 +27,7 @@ class NotificationController extends Controller
     public function Review(Request $request)
     {
         $status = auth()->user()->status;
-        if ($status == Status::Review->value) {
+        if ($status == Status::Review->value || $status == status::ReqAccepted->value) {
             if ($request->isMethod('get')) {
                 return view('applicant.forms.review');
             }

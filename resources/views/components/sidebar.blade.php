@@ -14,7 +14,7 @@
         <div class="offcanvas-body">
 
             <ul class="navbar-nav ">
-                <li class="nav-item rounded mb-1">
+                <li class="nav-item rounded mb-1 {{ auth()->user()->role == 1 ? 'd-block' : 'd-none' }}">
                     <a href="{{ route('dashboard') }}"
                         class="nav-link ps-2  {{ Request::segment(2) === 'dashboard' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-house me-2"></i>
@@ -25,6 +25,12 @@
                         class="nav-link ps-2  {{ Request::segment(1) === 'submitted' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-ticket-simple me-2"></i>
                         Submitted</a>
+                </li>
+                <li class="nav-item rounded mb-1">
+                    <a href="{{ route('admin.sched') }}"
+                        class="nav-link ps-2  {{ Request::segment(1) === 'schedules' ? 'activeDashboard shadow' : 'text-dark' }}"><i
+                            class="fa-solid fa-clock me-2"></i>
+                        Schedule</a>
                 </li>
                 <li class="nav-item rounded mb-1">
                     <a href="{{ route('college') }}"
@@ -43,7 +49,7 @@
                     <a href="{{ route('requirement') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'requirement' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-file me-2"></i>
-                        Requirments</a>
+                        Requirements</a>
                 </li>
 
                 <li class="nav-item rounded mb-1">

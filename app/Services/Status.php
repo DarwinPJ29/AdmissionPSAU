@@ -12,4 +12,5 @@ enum Status: int
     case Recommendation = 6;
     case Admitted = 7;
     case Denied = 8;
+    case ReqAccepted = 9;
 }
