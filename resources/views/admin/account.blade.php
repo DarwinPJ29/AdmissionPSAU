@@ -22,7 +22,7 @@
                         <th class="col">Suffix</th>
                         <th class="col">Role</th>
                         <th class="col">Status</th>
-                        <th class="col-2">Action</th>
+                        <th style="width:200px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,12 +41,13 @@
                             <td>
                                 <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
                                     data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
-                                        class="fa-solid fa-edit me-1 f  -text"></i>Update
+                                        class="fa-solid fa-edit me-1"></i>Update
                                 </div>
                                 <a href="{{ route('account.activate', $user->id) }}" style="border-radius: 20px"
-                                    class="btn  btn-sm {{ $user->activated ? 'btn-warning' : 'btn-success' }}">
-                                    <i class="fas {{ $user->activated ? 'fa-toggle-off' : 'fa-toggle-on' }}"></i>
-                                    {{ $user->activated ? 'Deactivated' : 'Activate' }}
+                                    class="btn  btn-sm  {{ $user->activated ? 'btn-warning' : 'btn-success' }}">
+                                    <i class="fas {{ $user->activated ? 'fa-toggle-off' : 'fa-toggle-on' }} "></i>
+                                    {{ $user->activated ? 'Deactivate' : 'Activate' }}
+
                                 </a>
 
                             </td>
