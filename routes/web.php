@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Exam;
 use App\Http\Controllers\Admin\Record;
 use App\Http\Controllers\Admin\Report;
 use App\Http\Controllers\Admin\Requirement;
+use App\Http\Controllers\Admin\Schedule;
 use App\Http\Controllers\Admin\Submitted;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Applicant\FormController;
@@ -55,6 +56,7 @@ Route::get('/steps', function () {
                     return redirect()->route('applicant.requirement');
                     break;
                 case Status::Review->value:
+                case Status::ReqAccepted->value:
                     return redirect()->route('reviews');
                     break;
                 case Status::Scheduled->value:
@@ -104,8 +106,15 @@ Route::controller(AdminController::class)->group(function () {
 Route::controller(Submitted::class)->group(function () {
     Route::any('/submitted', 'Submitted')->name('Submitted');
     Route::any('/returned/{id}', 'Returned')->name('returned');
-    Route::any('/sched/{id}', 'Schedule')->name('sched');
+    Route::any('/acceptReq/{id}', 'acceptReq')->name('acceptReq');
 });
+
+//Schedule
+Route::controller(Schedule::class)->group(function () {
+    Route::any('/schedules', 'schedule')->name('admin.sched');
+    Route::any('/sched/{id}', 'sched')->name('sched');
+});
+
 // College
 Route::controller(College::class)->group(function () {
     Route::any('/colleges', 'College')->name('college');

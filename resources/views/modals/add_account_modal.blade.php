@@ -69,6 +69,38 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="row my-2 d-flex justify-content-center">
+                        <div class="col-11">
+                            <label for="suffix" style="margin-left: 20px">Role: <span
+                                    class="text-danger"></span></label>
+                            <div class="d-flex gap-3 p-3 my-2 justify-content-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="role" id="radio1"
+                                        value="1">
+                                    <label class="form-check-label" for="radio1">
+                                        Admin
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="role" id="radio2"
+                                        value="2">
+                                    <label class="form-check-label" for="radio2">
+                                        Proctor
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="role" id="radio3"
+                                        value="3">
+                                    <label class="form-check-label" for="radio3">
+                                        Admitting Personnel
+                                    </label>
+                                </div>
+                            </div>
+                            @error('role')
+                                <label class="text-danger text-center">{{ $message }}</label>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-warning">Submit</button>
@@ -150,6 +182,39 @@ EDIT MODAL --}}
                                     placeholder="Enter suffix:" value="{{ $user->suffix }}">
                                 @error('suffix')
                                     <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-11">
+                                <label for="role" class="mb-2" style="margin-left: 20px;">
+                                    Role: <span class="text-danger">*</span>
+                                </label>
+                                <div class="d-flex gap-3 p-3 my-2 justify-content-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="role" id="radio1"
+                                            value="1" {{ $user->role == 1 ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="radio1">
+                                            Admin
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="role" id="radio2"
+                                            value="2" {{ $user->role == 2 ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="radio2">
+                                            Proctor
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="role" id="radio3"
+                                            value="3" {{ $user->role == 3 ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="radio3">
+                                            Admitting Personnel
+                                        </label>
+                                    </div>
+                                </div>
+                                @error('role')
+                                    <label class="text-danger text-center">{{ $message }}</label>
                                 @enderror
                             </div>
                         </div>

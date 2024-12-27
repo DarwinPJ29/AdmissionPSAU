@@ -181,30 +181,12 @@ class Submitted extends Controller
         return redirect()->back()->with('success', 'Requirements Successfully returned');
     }
 
-    public function Schedule(Request $request, $id)
+    public function acceptReq($id)
     {
-        $hour = Carbon::createFromFormat('H:i', $request->input('exam_time'))->format('h:i A');
-        $day = Carbon::parse($request->input('exam_date'));
-        $date = $day->format('F j, Y');
-
         $user = User::find($id);
-        $user->status = Status::Scheduled;
+        $user->status = Status::ReqAccepted;
         $user->update();
 
-        $result = Result::where('user_id', $user->id)->first();
-        $data = [
-            'user_id' => $user->id,
-            'room' => $request->input('room'),
-            'date' => $date,
-            'hour' => $hour,
-        ];
-
-        Core::Save('Result', $data, $result == null ? 0 : $result->id);
-
-        $user_information = Information::where('user_id', $user->id)->first();
-        $applicant_name = $user_information->first_name . " " . $user_information->middle_name . " " . $user_information->last_name;
-
-        Mail::to($user->email)->send(new Sched($user->applicant_no, $applicant_name, $date . ' ' . $hour, $request->input('room')));
-        return redirect()->back()->with('success', 'Schdule for exam has been successfully assigned');
+        return redirect()->back()->with('success', 'Requirement successfully accepted. ');
     }
 }
