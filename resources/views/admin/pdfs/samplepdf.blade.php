@@ -29,7 +29,7 @@
             }
 
             .f-text {
-                font-size: 10px;
+                font-size: 12px;
             }
         }
 
@@ -43,7 +43,7 @@
             }
 
             .f-text {
-                font-size: 14px;
+                font-size: 12px;
             }
         }
 
@@ -57,7 +57,7 @@
             }
 
             .f-text {
-                font-size: 16px;
+                font-size: 12px;
             }
 
         }
@@ -100,63 +100,53 @@
             </div>
 
             <table style="width: 100%; border-collapse: collapse; border: none;">
-                {{-- student no --}}
+                <!-- Student Number -->
                 <tr>
-                    <td style=" padding: 2px;" width="100">Student No.:</td>
-                    <td style=" padding: 2px; ">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 90%; ">
-                            hjhh
-                        </div>
-                    </td>
-                    <td style=" width:15%; padding: 5px" rowspan="3">
-                        <div style="border: 1px solid; height: 150px; width: 150px; padding: 3px; text-align: center; margin-left: 10px;">
-                            <div class="" style="text-align: center; padding-top:50px">
-                                2x2 <br> Picture
-                            </div>
+                    <td style="padding: 2px; font-size: 12px;" width="20%">Student No.:</td>
+                    <td style="padding: 2px; border-bottom: 1px solid black;" width="65%">hjhh</td>
+                    <td style="width: 15%; padding: 5px;" rowspan="3" valign="top">
+                        <div style="border: 1px solid black; height: 150px; width: 150px; text-align: center; padding-top: 50px; margin-left: 10px;">
+                            2x2<br>Picture
                         </div>
                     </td>
                 </tr>
+                <!-- Name -->
                 <tr>
-                    <td class="f-text" style=" padding: 2px;">Name (Print) </td>
-
-                    <td style=" padding: 2px;">
-                        <div
-                            style="display: flex; align-items: center; border-bottom: 1px solid #000; width: 90%; f-text">
-                            <div>Padre Juan</div>
-                            <div>Darwin</div>
-                            <div style="text-align: center;">J</div>
-                        </div>
-
-                        <!-- Grid for Labels -->
-                        <div
-                            style="display: flex; font-weight: bold; color: #555; f-text">
-                            <div>(Surname)</div>
-                            <div>(Given Name)</div>
-                            <div>(M.I)</div>
-                        </div>
+                    <td style="padding: 2px; font-size: 12px;">Name (Print):</td>
+                    <td style="padding: 2px; border-bottom: 1px solid black;">
+                        <table style="width: 100%; ">
+                            <tr style="display:flex">
+                                <td style=" font-size: 12px;">Pad</td>
+                                <td style=" font-size: 12px;">Darwin</td>
+                                <td style=" font-size: 12px; text-align: center;">J</td>
+                            </tr>
+                            <tr style="color: #555; display:flex">
+                                <td style=" font-size: 12px;">(Surname)</td>
+                                <td style=" font-size: 12px;">(Given Name)</td>
+                                <td style=" font-size: 12px; text-align: center;">(M.I)</td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
+                <!-- Nickname -->
                 <tr>
-                    <td style=" padding: 2px;">Nick name: </td>
-
-                    <td style=" padding: 2px;">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 90%; ">
-                            hjhh
-                        </div>
-                    </td>
+                    <td style="padding: 2px; font-size: 12px;">Nick name:</td>
+                    <td style="padding: 2px; border-bottom: 1px solid black;">hjhh</td>
                 </tr>
             </table>
+
+
             {{-- courses --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="10%">Courses: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="10%">Courses: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="10%">Major: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="10%">Major: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -166,26 +156,26 @@
             {{-- sex info --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="5%">Sex: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="5%">Sex: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="15%">Date of Birth: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="15%">Date of Birth: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="10%">Weight (kg):</td>
-                    <td style=" padding: 2px;">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                    <td style=" padding: 2px; font-size: 12px" width="10%">Weight (kg):</td>
+                    <td style=" padding: 2px; font-size: 12px">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="10%">Height (m): </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="10%">Height (m): </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -196,14 +186,14 @@
             {{-- Birth --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="15%">Place of Birth </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="15%">Place of Birth </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="15%">Contact No.: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="15%">Contact No.: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -213,8 +203,8 @@
             {{-- address --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="15%">Home Address </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="15%">Home Address </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -224,8 +214,8 @@
             {{-- stay PSAU --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="18%">Address while staying at PSAU: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="18%">Address while staying at PSAU: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -235,10 +225,10 @@
             {{-- skills --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; width: 15% ">Special Skill(s):</td>
-                    <td style=" padding: 2px;">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                    <td style=" padding: 2px; font-size: 12px width: 15% ; font-size: 12px">Special Skill(s):</td>
+                    <td style=" padding: 2px; width: 89%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%;font-size: 12px ">
+                            hjhhb
                         </div>
                     </td>
                 </tr>
@@ -247,21 +237,21 @@
 
 
 
-            <div class="mt-4 " style="margin-top: 40px;">
+            <div class="mt-4 " style="margin-top: 40px; font-size: 12px">
                 Name of Parents and Address (State if deceased)
             </div>
 
             {{-- father --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="5%">Father: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="5%">Father: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="10%">Occupation: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="10%">Occupation: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -271,14 +261,14 @@
             {{-- Mother --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="5%">Mother: </td>
-                    <td style=" padding: 2px;">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                    <td style=" padding: 2px; font-size: 12px " width="5%">Mother: </td>
+                    <td style=" padding: 2px; font-size: 12px">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="10%">Occupation: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="10%">Occupation: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -288,14 +278,14 @@
             {{-- address --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="5%">Address: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="5%">Address: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="15%">Contact No: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="15%">Contact No: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -303,20 +293,20 @@
                 </tr>
             </table>
 
-            <div class="" style="margin-top: 40px;">
+            <div class="" style="margin-top: 40px; font-size: 12px">
                 Name and Address of Person/Guardian supporting you (if any)
             </div>
             {{-- address --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="5%">Name: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="5%">Name: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="15%">Relationship: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="15%">Relationship: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -326,14 +316,14 @@
             {{-- address --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; " width="5%">Address: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px " width="5%">Address: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
                     </td>
-                    <td style=" padding: 2px;" width="15%">Contact No.: </td>
-                    <td style=" padding: 2px;">
+                    <td style=" padding: 2px; font-size: 12px" width="15%">Contact No.: </td>
+                    <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             hjhh
                         </div>
@@ -344,7 +334,7 @@
             {{-- 1 --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; ">
+                    <td style=" padding: 2px; font-size: 12px">
                         1. Are you a member of any organization such as clubs, societies, fraternities, sororities,
                         etc.?
                         Please check YES <span
@@ -372,7 +362,7 @@
             {{-- 2 --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; ">
+                    <td style=" padding: 2px; font-size: 12px ">
                         2. Have you ever violated any school rules and regulations before? Please check:
                         <span style=" display: inline-block; border-bottom: 1px solid black; width: 100px;"></span> NO
                         <span style=" display: inline-block; border-bottom: 1px solid black;  width: 100px;"></span>;
@@ -396,7 +386,7 @@
                 </tr>
             </table>
 
-            <div class="mt-4" style="margin-top: 40px">
+            <div class="mt-4" style="margin-top: 40px; font-size: 12px">
                 I declare under penalties of perjury that this information which has made in good faith,
                 verified by me, to the best of my knowledge and belief is true and correct. For any false information
                 and for my violation(s) that I may commit in this University, I am willing to subject myself to penalty
@@ -411,7 +401,7 @@
                     <td style=" padding: 2px; " width="20%">
                         <div class="text-center">
                             <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
-                            <div class="text-center" style="text-align: center;">Signature</div>
+                            <div class="text-center" style="text-align: center; font-size: 12px">Signature</div>
                         </div>
                     </td>
                 </tr>
@@ -424,78 +414,78 @@
                     <td style=" padding: 2px; " width="20%">
                         <div class="text-center">
                             <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
-                            <div class="text-center" style="text-align: center;">Date</div>
+                            <div class="text-center" style="text-align: center; font-size: 12px">Date</div>
                         </div>
                     </td>
                 </tr>
             </table>
 
-            <div class="" style="text-transform: uppercase">insurance</div>
+            <div class="" style="text-transform: uppercase; font-size: 12px">insurance</div>
 
 
             {{-- insurance  --}}
             <table style="width: 100%; border-collapse: collapse; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; border: 1px solid black;" width="15%">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px" width="15%">
                         School Year
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
                 </tr>
                 <tr>
-                    <td style=" padding: 2px; border: 1px solid black;" width="15%">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px" width="15%">
                         Receipt No.
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
                 </tr>
                 <tr>
-                    <td style=" padding: 2px; border: 1px solid black;" width="15%">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px" width="15%">
                         Date
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
-                    <td style=" padding: 2px; border: 1px solid black;">
+                    <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                     </td>
                 </tr>
             </table>
 
 
-            <div class="mt-4 " style="margin-top: 40px; text-aline: center; text-transform: uppercase">anedotal
+            <div class="mt-4 " style="margin-top: 40px; text-aline: center; text-transform: uppercase; font-size: 12px">anedotal
                 records</div>
 
 
@@ -503,13 +493,13 @@
             <table style="width: 100%; border-collapse: collapse; gap:0; margin-top: 10px">
                 <thead>
                     <tr>
-                        <td style=" padding: 2px; border: 1px solid black;" width="15%">
+                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px" width="15%">
                             Date
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black;">
+                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                             Activities/Particulars
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black;">
+                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                             Remarks
                         </td>
                     </tr>
@@ -517,20 +507,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style=" padding: 2px; border: 1px solid black;">
+                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                             sample
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black;">
+                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                             sample
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black;">
+                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
                             sample
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <div class="" style="margin-top: 40px; margin-bottom:40px">NOTED:</div>
+            <div class="" style="margin-top: 40px; margin-bottom:40px; font-size: 12px">NOTED:</div>
             {{-- osas--}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 50px: padding-bottom: 50px">
                 <tr>
@@ -538,7 +528,7 @@
                     <td style=" padding: 2px; " width="20%">
                         <div class="">
                             <div style=" display: inline-block; border-bottom: 1px solid black;  width: 300px;"></div>
-                            <div class="text-center" style="text-align: center;">OSAS Director</div>
+                            <div class="text-center" style="text-align: center; font-size: 12px">OSAS Director</div>
                         </div>
                     </td>
                     <td style=" padding: 2px; " width="80%">
