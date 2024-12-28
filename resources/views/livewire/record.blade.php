@@ -1,7 +1,7 @@
 <div class="container">
     <div class="container mt-4">
         <div class="row mt-3 mb-4">
-            <div class="col-md-2 d-flex flex-column justify-content-end">
+            <div class="col-md-3 d-flex flex-column justify-content-end">
                 <label for="type">Status</label>
                 <select name="type" id="type" class="form-select form-control shadow text-uppercase w-100"
                     wire:model='type' wire:change='record'>
