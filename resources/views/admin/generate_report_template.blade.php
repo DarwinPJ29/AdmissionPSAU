@@ -133,10 +133,11 @@
                             {{-- Date:  <strong class="ms-2">{{ $headers[4] }}</strong> --}}
                         </td>
                     </tr>
+
                 </tbody>
             </table>
-
-
+            {{-- header 5 , School year to example 2024-2025
+            header 6, semester to example 1st Semester --}}
             {{-- table  --}}
             <table style="width: 100%; border-collapse: collapse; gap:0; margin-top: 10px">
                 <thead>

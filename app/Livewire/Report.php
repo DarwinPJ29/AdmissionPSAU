@@ -105,6 +105,11 @@ class Report extends Component
                 "8" => 'Denied',
             ];
 
+            $semester = [
+                1 => '1st Semester',
+                2 => '2nd Semester'
+            ];
+
             $course = "All";
             if ($this->course != "0") {
                 $course_find = Courses::find($this->course);
@@ -117,8 +122,9 @@ class Report extends Component
                 $typeLabels[$this->type],
                 $course,
                 $statusLabels[$this->status],
+                $this->year,
+                $semester[$this->semester]
             ];
-
             $pdf = Pdf::loadView('admin.generate_report_template', ['datas' => $this->datas, 'headers' => $headers])
                 ->setPaper('A4', 'portrait')
                 ->setOptions([
