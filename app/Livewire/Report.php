@@ -36,27 +36,28 @@ class Report extends Component
             ->leftJoin('choices as choice', 'choice.user_id', '=', 'user.id')
             ->leftJoin('courses as course', function ($join) {
                 $join->on('course.id', '=', 'user.course_admitted_id')
-                    ->where('user.status', '=', '7')
+                    ->where('user.status', '=', 7)
                     ->orWhere(function ($query) {
-                        $query->whereColumn('course.id', 'choice.first')
-                            ->orWhereColumn('course.id', 'choice.second');
+                        $query->when(DB::raw('choice.isFirstDeny') == '0', function ($query) {
+                            $query->whereColumn('course.id', 'choice.first');
+                        }, function ($query) {
+                            $query->whereColumn('course.id', 'choice.second');
+                        });
                     });
             })
             ->where(function ($query) {
                 $query->when($this->status === '0', function ($query) {
                     $query->whereIn('user.status', [3, 7, 8]);
-                })
-                    ->when($this->status !== '0', function ($query) {
-                        $query->where('user.status', '=', $this->status);
-                    });
+                }, function ($query) {
+                    $query->where('user.status', '=', $this->status);
+                });
             })
             ->where(function ($query) {
                 $query->when($this->type === '0', function ($query) {
                     $query->whereIn('choice.type', [1, 2, 3, 4, 5]);
-                })
-                    ->when($this->type !== '0', function ($query) {
-                        $query->where('choice.type', '=', $this->type);
-                    });
+                }, function ($query) {
+                    $query->where('choice.type', '=', $this->type);
+                });
             })
             ->when($this->course !== '0', function ($query) {
                 $query->where('course.id', '=', $this->course);
@@ -73,12 +74,12 @@ class Report extends Component
                 'user.email',
                 'user.status',
                 DB::raw("CONCAT(info.first_name, 
-                    CASE 
-                        WHEN info.middle_name IS NOT NULL AND info.middle_name != '' 
-                        THEN CONCAT(' ', UPPER(SUBSTRING(info.middle_name, 1, 1)), '.')
-                        ELSE ''
-                    END, 
-                    ' ', info.last_name) as name"),
+                CASE 
+                    WHEN info.middle_name IS NOT NULL AND info.middle_name != '' 
+                    THEN CONCAT(' ', UPPER(SUBSTRING(info.middle_name, 1, 1)), '.')
+                    ELSE ''
+                END, 
+                ' ', info.last_name) as name"),
                 'course.title',
                 'course.acronym',
                 'choice.type'
