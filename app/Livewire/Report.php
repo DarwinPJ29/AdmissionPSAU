@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Http\Controllers\Admin\Course;
 use App\Models\Courses;
+use App\Models\SchoolYear;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -14,12 +15,21 @@ class Report extends Component
     public $status = "0";
     public $course = "0";
     public $courses;
+    public $year;
+    public $semester = 1;
     public $datas = array();
+    public $school_year_Data = array();
 
 
     public function search()
     {
         $this->datas = [];
+        $this->school_year_Data = [];
+
+        $school_year  = SchoolYear::select('year')->Orderby('created_at', 'desc')->get();
+        foreach ($school_year as $key => $value) {
+            array_push($this->school_year_Data, $value['year']);
+        }
 
         $this->datas = DB::table('users as user')
             ->leftJoin('information as info', 'info.user_id', '=', 'user.id')
@@ -50,6 +60,12 @@ class Report extends Component
             })
             ->when($this->course !== '0', function ($query) {
                 $query->where('course.id', '=', $this->course);
+            })
+            ->when(!empty($this->year), function ($query) {
+                $query->where('choice.school_year', '=', $this->year);
+            })
+            ->when(!empty($this->semester), function ($query) {
+                $query->where('choice.semester', '=', $this->semester);
             })
             ->select([
                 'user.id',

@@ -22,7 +22,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-3 d-flex flex-column justify-content-end">
+        <div class="col-md-2 d-flex flex-column justify-content-end">
             <label for="status">Status</label>
             <select name="status" id="status" class="form-select form-control shadow text-uppercase w-100"
                 wire:model='status' wire:change='search'>
@@ -31,6 +31,25 @@
                 <option value="3">Submitted</option>
                 <option value="7">Admitted</option>
                 <option value="8">Denied</option>
+            </select>
+        </div>
+        <div class="col-md-2 d-flex flex-column justify-content-end">
+            <label for="year">School Year</label>
+            <select name="year" id="year" class="form-select form-control shadow text-uppercase w-100"
+                wire:model='year' wire:change='search'>
+                <option value="" selected hidden>Please select</option>
+                @foreach ($school_year_Data as $sy)
+                    <option value="{{ $sy }}">{{ $sy }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-md-2 d-flex flex-column justify-content-end">
+            <label for="semster">Semester</label>
+            <select name="semster" id="semster" class="form-select form-control shadow text-uppercase w-100"
+                wire:model='semester' wire:change='search'>
+                <option value="" selected hidden>Please select</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
             </select>
         </div>
     </div>
