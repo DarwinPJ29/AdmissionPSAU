@@ -36,12 +36,19 @@ class Evaluation extends Controller
                 $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
                 $choices = Choice::where('user_id', $value->id)->first();
-                $course1 = Courses::find($choices->first);
-                $course2 = Courses::find($choices->second);
-                $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')', $course2->title . ' (' . $course2->acronym . ')'];
+                $value['isFirstDeny'] = $choices->isFirstDeny;
 
+                if ($choices->isFirstDeny == 0) {
+                    $course1 = Courses::find($choices->first);
+                    $value['show'] = $course1->college_id == auth()->user()->college_to_evaluate ? 1 : 0;
+                    $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')'];
+                } else {
+                    $course1 = Courses::find($choices->second);
+                    $value['show'] = $course1->collegeId == auth()->user()->college_to_evaluate ? 1 : 0;
+                    $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')'];
+                }
+                // $course2 = Courses::find($choices->second);
                 $requirements = Requirement::query();
-
                 switch ($choices->type) {
                     case 1:
                         $requirements = $requirements->where('doctoral', 1)->OrderBy('title', 'ASC')->get();

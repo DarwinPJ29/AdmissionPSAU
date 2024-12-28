@@ -29,7 +29,13 @@ Route::get('/redirect', function () {
         if (auth()->user()->role == 0) {
             return redirect()->route('dataPrivacy');
         } else {
-            return redirect()->route('dashboard');
+
+            if (auth()->user()->role == 1)
+                return redirect()->route('dashboard');
+            else if (auth()->user()->role == 2)
+                return redirect()->route('admin.sched');
+            else
+                return redirect()->route('evaluation');
         }
     } else {
         return redirect()->route('index');

@@ -80,20 +80,20 @@
                                 <div class="">
                                     <div class="d-flex border-bottom border-dark">
                                         <input type="radio" class="me-2" name="choice" id="first"
-                                            value="first" required>
+                                            value="{{ $user->isFirstDeny == 0 ? 'first' : 'second' }}" required>
                                         <label for="first">{{ $user->choices[0] }}</label>
                                     </div>
-                                    <div class="text-center">First Choice</div>
+                                    <div class="text-center">
+                                        {{ $user->isFirstDeny == 0 ? 'First Choice' : 'Second Choice' }}</div>
                                 </div>
-
-                                <div class="">
+                                {{-- <div class="">
                                     <div class="d-flex border-bottom border-dark">
                                         <input type="radio" class="me-2" name="choice" id="second"
                                             value="second" required>
                                         <label for="second">{{ $user->choices[1] }}</label>
                                     </div>
                                     <div class="text-center">Second Choice</div>
-                                </div>
+                                </div> --}}
 
                             </div>
                         </div>

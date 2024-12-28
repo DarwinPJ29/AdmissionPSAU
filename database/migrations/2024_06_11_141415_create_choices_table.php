@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('type')->nullable();
             $table->integer('level')->nullable();
             $table->boolean('failed')->default(0);
+            $table->boolean('isFirstDeny')->default(0);
             $table->timestamps();
         });
     }
