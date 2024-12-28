@@ -77,7 +77,7 @@
             <tr>
                 <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
                     <!-- Image (Logo) -->
-                    <img src="{{ url('/images/PSAU_logo.png') }}" alt="PSAU Logo" style="max-height: 110px;">
+                    <img src="{{ public_path('/images/PSAU_logo.png') }}" alt="PSAU Logo" style="max-height: 110px;">
                 </td>
                 <td style="text-align: start; vertical-align: start; padding: 0; ">
                     <!-- University Name -->
@@ -181,22 +181,22 @@
                     @endphp
                     @foreach ($datas as $data)
                         <tr>
-                            <td class="f-text" style=" padding: 2px; border: 1px solid black;">
+                            <td class="f-text" style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->applicant_no }}
                             </td>
-                            <td class="f-text" style=" padding: 2px; border: 1px solid black;">
+                            <td class="f-text" style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->email }}
                             </td>
-                            <td class="f-text" style=" padding: 2px; border: 1px solid black;">
+                            <td class="f-text" style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->name }}
                             </td>
-                            <td class="f-text" style=" padding: 2px; border: 1px solid black;">
+                            <td class="f-text" style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->title . ' (' . $data->acronym . ')' }}
                             </td>
-                            <td class="f-text" style=" padding: 2px; border: 1px solid black;">
+                            <td class="f-text" style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $typeLabels[$data->type] ?? 'Unknown' }}
                             </td>
-                            <td class="f-text" style=" padding: 2px; border: 1px solid black;">
+                            <td class="f-text" style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $statusLabels[$data->status] ?? 'Unknown' }}
                             </td>
                         </tr>

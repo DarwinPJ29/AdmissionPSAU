@@ -48,7 +48,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Applicant Statuses</h5>
+                                    <h5 class="card-title">Applicant Status</h5>
                                     <canvas id="pieChart"></canvas>
                                 </div>
                             </div>

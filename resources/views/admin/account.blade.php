@@ -16,15 +16,15 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col">Email</th>
-                        <th class="col">Prefix</th>
-                        <th class="col">First Name</th>
-                        <th class="col">Middle Name</th>
-                        <th class="col">Last Name</th>
-                        <th class="col">Suffix</th>
-                        <th class="col">Role</th>
-                        <th class="col">Status</th>
-                        <th style="width:200px">Action</th>
+                        <th class="col-2">Email</th>
+                        <th class="col-1">Prefix</th>
+                        <th class="col-2">First Name</th>
+                        <th class="col-1">Middle Name</th>
+                        <th class="col-2">Last Name</th>
+                        <th class="col-1">Suffix</th>
+                        <th class="col-1">Role</th>
+                        <th class="col-1">Status</th>
+                        <th class="col-1">Action</th>
                     </tr>
                 </thead>
                 <tbody>
