@@ -64,7 +64,20 @@
         });
     </script>
 @endif
-
+@if (Request::segment(2) === 'applyNow')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function triggerModal() {
+                // Get the session value safely and pass it to getElementById
+                var openModalBtn = document.getElementById("newModalBtn");
+                if (openModalBtn) {
+                    openModalBtn.click();
+                }
+            }
+            setTimeout(triggerModal, 0);
+        });
+    </script>
+@endif
 @if (session()->has('info'))
     <script>
         Swal.fire("Information", "{{ session('info') }}", "Information");

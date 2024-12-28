@@ -1,7 +1,40 @@
 @extends('layout.layout')
 @section('page-title', 'Admission')
 @section('content')
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary d-none" id="newModalBtn" data-bs-toggle="modal" data-bs-target="#newModal">
+    </button>
+    <!-- Modal -->
 
+    {{-- ETO UNG MODAL PARA SA DATA PRIVACY --}}
+    <div class="modal fade" id="newModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Kindly Read Thoroughly.</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="text-justify ps-3">
+                        When you fill-out through this online application form, the data you provide will be used solely to
+                        process your application for admission to Pampanga State Agricultural University (PSAU), in
+                        accordance with our data privacy policy. This includes verifying your information, assessing your
+                        eligibility, and communicating with you about your application status. We will only collect the
+                        information necessary for this purpose and will protect your data according to all applicable laws
+                        and regulations. Your data will be treated confidentially and securely. We will not share your
+                        information with third parties without your consent, except where required by law. By submitting
+                        this application, you acknowledge and agree to these terms. For more details on our data privacy
+                        policy,
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ route('index') }}" class="btn btn-secondary">Close</a>
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Agree</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid ">
         <div class="container rounded mt-3 border border-warning mb-5">
             <div class="p-1 mt-2">
@@ -197,4 +230,5 @@
         </div>
 
     </div>
+
 @endsection
