@@ -132,8 +132,9 @@ class Evaluation extends Controller
             $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
             $choice = Choice::where('user_id', $user->id)->first();
+            $isFirstDeny = $choice->isFirstDeny;
 
-            $choices = [$choice->first => "", $choice->second => ""];
+            $choices = [$choice->isFirstDeny == 0 ? $choice->first : $choice->second => ""];
             $choicesNew = [];
             foreach ($choices as $key => $value) {
                 $courseName = Courses::select('title', 'acronym')->find($key);
@@ -164,7 +165,7 @@ class Evaluation extends Controller
                 ->orderBy('title', 'asc')
                 ->get();
 
-            return view('admin.recommended', compact('id', 'courses', 'name', 'choicesNew'));
+            return view('admin.recommended', compact('id', 'courses', 'name', 'choicesNew', 'isFirstDeny'));
         }
 
         $recommend = new Recomended();
@@ -173,7 +174,6 @@ class Evaluation extends Controller
         $recommend->save();
 
         $appChoice = Choice::where('user_id', $user->id)->first();
-        $appChoice->first_reason = $request->input('reason_1');
         $appChoice->second_reason = $request->input('reason_2');
         $appChoice->save();
 
@@ -220,7 +220,7 @@ class Evaluation extends Controller
 
             $isFirstDeny = $choice->isFirstDeny;
 
-            $choices = [$choice->isFirstDeny == 1 ? $choice->first : $choice->second => ""];
+            $choices = [$choice->isFirstDeny == 0 ? $choice->first : $choice->second => ""];
             $choicesNew = [];
             foreach ($choices as $key => $value) {
                 $courseName = Courses::select('title', 'acronym')->find($key);
@@ -230,23 +230,28 @@ class Evaluation extends Controller
             return view('admin.deny', compact('id', 'name', 'choicesNew', 'isFirstDeny'));
         }
 
-        $appChoice = Choice::where('user_id', $user->id)->first();
-        $appChoice->first_reason = $request->input('reason_1');
-        $appChoice->second_reason = $request->input('reason_2');
-        $appChoice->save();
-
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
         $choice = Choice::where('user_id', $user->id)->first();
 
         $isFirstDeny = $choice->isFirstDeny;
+
+        $appChoice = Choice::where('user_id', $user->id)->first();
+        if ($appChoice->isFirstDeny == 0) {
+            $appChoice->first_reason = $request->input('reason_1');
+        } else
+            $appChoice->second_reason = $request->input('reason_2');
+
+        $appChoice->save();
+
         $choices = [$choice->first, $choice->second];
 
         if ($isFirstDeny == 0) {
             $choice->isFirstDeny = 1;
             $choice->save();
         } else {
+
             $result = Result::where('user_id', $id)->first();
             $result->course_id = '';
             $result->evaluation = 1;

@@ -9,10 +9,11 @@
                 <div class="row mb-5 d-flex justify-content-center align-items-center">
                     @foreach ($choicesNew as $index => $choice)
                         <div class="col-4 d-flex flex-column justify-content-center align-items-start">
-                            <label>{{ $index + 1 == 1 ? 'First Choice' : 'Second Choice' }}</label>
+                            <label>{{ $isFirstDeny == 0 ? 'First Choice' : 'Second Choice' }}</label>
                             <label>{{ $choice }}</label>
                             <label>Reason:</label>
-                            <select name="reason_{{ $index + 1 }}" class="form-select shadow text-uppercase" required>
+                            <select name="reason_{{ $isFirstDeny == 0 ? '1' : '2' }}"
+                                class="form-select shadow text-uppercase" required>
                                 <option value="" selected hidden>Select ReasoN</option>
                                 <option value="No Slot">No Slot</option>
                                 <option value="GWA">GWA</option>
