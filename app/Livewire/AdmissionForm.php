@@ -13,7 +13,7 @@ use Livewire\Component;
 
 class AdmissionForm extends Component
 {
-    public $section = 2;
+    public $section = 1;
 
     use SecA;
     use SecB;

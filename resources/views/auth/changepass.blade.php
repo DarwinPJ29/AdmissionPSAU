@@ -70,7 +70,7 @@
                             <input type="checkbox" name="showPassword" id="showPassword" class="mt-3"> Show Password
                             <hr class="border bordr-2 opacity-75 border-success">
                             <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-sm btn-warning shadow"> Login</button>
+                                <button type="submit" class="btn btn-sm btn-warning shadow"> Save Changes</button>
                             </div>
                         </div>
                     </form>

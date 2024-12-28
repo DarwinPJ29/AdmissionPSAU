@@ -113,7 +113,6 @@ trait SecA
     {
         $properties = [
             $this->first_name,
-            $this->middle_name,
             $this->last_name,
             $this->gender,
             $this->number,
@@ -131,7 +130,6 @@ trait SecA
             $this->municipalities,
             $this->barangays,
         ];
-
         $hasEmptyOrNull = in_array(true, array_map(fn($value) => $value === null || $value === '', $properties));
 
         if ($hasEmptyOrNull) {

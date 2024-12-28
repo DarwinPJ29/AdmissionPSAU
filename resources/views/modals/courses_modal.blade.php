@@ -16,7 +16,7 @@
                             <select name="college_id" id="college_id" class="form-select shadow" required>
                                 <option value="" selected>Select College:</option>
                                 @foreach ($colleges as $col)
-                                    <option value="{{ $col->id }}" @selected($col->level == 'Under Graduate')>
+                                    <option value="{{ $col->id }}">
                                         {{ $col->title . ' (' . $col->acronym . ') - ' . $col->level }}
                                     </option>
                                 @endforeach
@@ -25,8 +25,8 @@
                         <div class="col-md-3">
                             <label for="enable">Status <span class="text-danger">*</span></label>
                             <select name="enable" id="enable"
-                                class="form-select shadow @error('enable') is-invalid @enderror" value="{{ old('enable') }}"
-                                required>
+                                class="form-select shadow @error('enable') is-invalid @enderror"
+                                value="{{ old('enable') }}" required>
                                 <option value="" selected hidden>Select Desired:</option>
                                 <option value="1" @selected(old('enable') == 1)>Enable</option>
                                 <option value="0" @selected(old('enable') == 0)>Disable</option>
