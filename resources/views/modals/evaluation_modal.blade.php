@@ -102,7 +102,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary shadow" data-bs-dismiss="modal">Close</button>
                         <a href="{{ route('deny', $user->id) }}" class="btn btn-danger shadow">Deny</a>
-                        <a href="{{ route('recommended', $user->id) }}" class="btn btn-danger shadow">Recommend</a>
+                        <a href="{{ route('recommended', $user->id) }}"
+                            class="btn btn-danger shadow {{ $user->isFirstDeny == 1 ? '' : 'd-none' }}">Recommend</a>
                         <button type="submit" class="btn btn-warning shadow">Admit</button>
                     </div>
                 </div>

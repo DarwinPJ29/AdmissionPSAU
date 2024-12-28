@@ -44,7 +44,7 @@ class Evaluation extends Controller
                     $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')'];
                 } else {
                     $course1 = Courses::find($choices->second);
-                    $value['show'] = $course1->collegeId == auth()->user()->college_to_evaluate ? 1 : 0;
+                    $value['show'] = $course1->college_id == auth()->user()->college_to_evaluate ? 1 : 0;
                     $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')'];
                 }
                 // $course2 = Courses::find($choices->second);
@@ -218,48 +218,57 @@ class Evaluation extends Controller
 
             $choice = Choice::where('user_id', $user->id)->first();
 
-            $choices = [$choice->first => "", $choice->second => ""];
+            $isFirstDeny = $choice->isFirstDeny;
+
+            $choices = [$choice->isFirstDeny == 1 ? $choice->first : $choice->second => ""];
             $choicesNew = [];
             foreach ($choices as $key => $value) {
                 $courseName = Courses::select('title', 'acronym')->find($key);
                 array_push($choicesNew, $courseName->title . " (" . $courseName->acronym . ")");
             }
 
-            return view('admin.deny', compact('id', 'name', 'choicesNew'));
+            return view('admin.deny', compact('id', 'name', 'choicesNew', 'isFirstDeny'));
         }
-
-        $result = Result::where('user_id', $id)->first();
-        $result->course_id = '';
-        $result->evaluation = 1;
-        $result->passed = 0;
-        $result->update();
 
         $appChoice = Choice::where('user_id', $user->id)->first();
         $appChoice->first_reason = $request->input('reason_1');
         $appChoice->second_reason = $request->input('reason_2');
         $appChoice->save();
 
-        $user = User::find($id);
-        $user->status = Status::Denied;
-        $user->update();
-
         $info = Information::where('user_id', $user->id)->first();
         $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
 
         $choice = Choice::where('user_id', $user->id)->first();
 
+        $isFirstDeny = $choice->isFirstDeny;
         $choices = [$choice->first, $choice->second];
+
+        if ($isFirstDeny == 0) {
+            $choice->isFirstDeny = 1;
+            $choice->save();
+        } else {
+            $result = Result::where('user_id', $id)->first();
+            $result->course_id = '';
+            $result->evaluation = 1;
+            $result->passed = 0;
+            $result->update();
+
+            $user = User::find($id);
+            $user->status = Status::Denied;
+            $user->update();
+        }
 
         foreach ($choices as $index => $key) {
             $courseName = Courses::select('title', 'acronym')->find($key);
-
             if ($courseName) {
                 $reasonText = ($index == 0) ? $choice->first_reason : $choice->second_reason;
                 $reasons[] = [$courseName->title . " (" . $courseName->acronym . ")", $reasonText];
             }
         }
 
-        Mail::to($user->email)->send(new Denied($applicant_name, $user->applicant_no, $reasons));
+        if ($isFirstDeny == 1)
+            Mail::to($user->email)->send(new Denied($applicant_name, $user->applicant_no, $reasons));
+
         return redirect()->route('evaluation')->with('success', 'Successfully Deny');
     }
 }
