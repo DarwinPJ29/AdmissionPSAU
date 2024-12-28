@@ -17,21 +17,7 @@ class Record extends Controller
 {
     public function records()
     {
-        $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Admitted->value)
-            ->OrderBy('created_at', 'asc')->get();
-        foreach ($users as $value) {
-            $info = Information::where('user_id', $value['id'])->first();
-            $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
-            $result = Result::where('user_id', $value['id'])->first();
-            $value['show'] = $result->passed;
-        }
-        $filteredUsers = $users->filter(function ($user) {
-            return $user['show'] == 1;
-        });
-
-        $filteredUsers = $filteredUsers->values();
-        $users = $filteredUsers;
-        return view('admin.records', compact('users'));
+        return view('admin.records');
     }
 
     public function SendMail()

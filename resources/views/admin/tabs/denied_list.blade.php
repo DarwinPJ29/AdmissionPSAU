@@ -33,6 +33,7 @@
                                     <th class="col-3">Applicant No.</th>
                                     <th class="col-4">Name</th>
                                     <th class="col-4">Email</th>
+                                    <th class="col">Date Submitted</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +43,7 @@
                                             <td>{{ $user->applicant_no }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->date_submitted }}</td>
                                         </tr>
                                     @endif
                                 @endforeach

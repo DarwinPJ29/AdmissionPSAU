@@ -175,7 +175,7 @@ Route::controller(StaticData::class)->group(function () {
 });
 // Records
 Route::controller(Record::class)->group(function () {
-    Route::any('/records', 'records')->name('records');
+    Route::any('/records/', 'records')->name('records');
     Route::any('/records/denied', 'denied')->name('denied');
     Route::any('/records/recommend', 'recommend')->name('admin.recommend');
     Route::any('/send/mail', 'SendMail')->name('sendMail');

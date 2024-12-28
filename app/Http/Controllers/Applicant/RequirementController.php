@@ -10,6 +10,7 @@ use App\Models\Requirement;
 use App\Models\RequirementSubmitted;
 use App\Models\User;
 use App\Services\Status;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -129,6 +130,7 @@ class RequirementController extends Controller
         $user = User::find(auth()->user()->id);
         if ($user != null) {
             $user->status = Status::Review;
+            $user->date_submitted = Carbon::now()->format('M d, Y');
             $user->update();
 
             $inform = Information::select('first_name', 'middle_name', 'last_name')->where('user_id', $user->id)->first();

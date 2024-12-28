@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('course_admitted_id')->nullable();
             $table->string('college_to_evaluate')->nullable();
             $table->string('requirements_remarks')->nullable();
+            $table->string('date_sumbitted')->nullable();
             $table->timestamps();
         });
     }
