@@ -8,7 +8,9 @@
             <div class="btn shadow btn-warning" id="addAccountBtn" data-bs-toggle="modal" data-bs-target="#account"><i
                     class="fa-solid fa-plus me-1 f-text"></i>Add Account
             </div>
-
+            <div class="btn shadow btn-warning" data-bs-toggle="modal" id="addEvaluatorBtn" data-bs-target="#evaluator"><i
+                    class="fa-solid fa-plus me-1 f-text"></i>Add Evaluator
+            </div>
         </div>
         <div class="border rounded p-3 shadow mt-3 ">
             <table class="table table-bordered table-striped" id="table">
@@ -39,17 +41,23 @@
                             </td>
                             <td>{{ $user->activated == 1 ? 'Active' : 'Deactivate' }}</td>
                             <td>
-                                <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
-                                    data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
-                                        class="fa-solid fa-edit me-1"></i>Update
-                                </div>
+                                @if ($user->role != 3)
+                                    <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
+                                        data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
+                                            class="fa-solid fa-edit me-1"></i>Update
+                                    </div>
+                                @else
+                                    <div class="btn shadow btn-sm btn-secondary" id="editEvaluatorBtn{{ $user->id }}"
+                                        data-bs-toggle="modal" data-bs-target="#evaluatorEdit{{ $user->id }}"><i
+                                            class="fa-solid fa-edit me-1"></i>Update
+                                    </div>
+                                @endif
+
                                 <a href="{{ route('account.activate', $user->id) }}" style="border-radius: 20px"
                                     class="btn  btn-sm  {{ $user->activated ? 'btn-warning' : 'btn-success' }}">
                                     <i class="fas {{ $user->activated ? 'fa-toggle-off' : 'fa-toggle-on' }} "></i>
                                     {{ $user->activated ? 'Deactivate' : 'Activate' }}
-
                                 </a>
-
                             </td>
                         </tr>
                         @include('modals.add_account_modal')

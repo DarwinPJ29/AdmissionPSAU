@@ -22,6 +22,7 @@
 
     @include('layout.script')
     @livewireScripts()
+
 </body>
 
 </html>

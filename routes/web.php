@@ -191,6 +191,8 @@ Route::controller(PdfController::class)->group(function () {
 // Account
 Route::controller(Account::class)->group(function () {
     Route::any('/account', 'account')->name('account');
+    Route::any('/evaluator', 'Evaluator')->name('Evaluator');
+    Route::any('/evaluator/update/{id}', 'EvaluatorUpdate')->name('evaluator.update');
     Route::any('/account/update/{id}', 'update')->name('account.update');
     Route::any('/account/activate/{id}', 'activate')->name('account.activate');
 });

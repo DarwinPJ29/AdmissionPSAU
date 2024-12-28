@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('otp')->default(0);
             $table->dateTime('otp_expires')->nullable();
             $table->string('course_admitted_id')->nullable();
+            $table->string('college_to_evaluate')->nullable();
             $table->string('requirements_remarks')->nullable();
             $table->timestamps();
         });
