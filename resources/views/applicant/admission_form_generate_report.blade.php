@@ -104,7 +104,9 @@
                 <!-- Student Number -->
                 <tr>
                     <td style="padding: 2px; font-size: 12px;" width="20%">Student No.:</td>
-                    <td style="padding: 2px; border-bottom: 1px solid black;" width="100%">hjhh</td>
+                    <td style="padding: 2px;" width="100%">
+                        <div class="" style="border-bottom: 1px solid black;  font-size: 12px;" width="100%"> jhhs</div>
+                    </td>
                     <td style="width: 10%; padding: 5px;" rowspan="3" valign="top">
                         <div
                             style="border: 1px solid black; height:100px; width: 200px; text-align: center; padding-top: 50px; margin-left: 10px;">
@@ -118,11 +120,19 @@
                     <td style="padding: 2px; ">
                         <table style="width: 100%;">
                             <tr>
-                                <td style="font-size: 12px; border-bottom: 1px solid black; text-align: center; ">{{ $user['last_name'] }}</td>
-                                <td style="font-size: 12px;  border-bottom: 1px solid black; text-align: center;  ">{{ $user['first_name'] }}
-                                    sdgdgd df</td>
-                                <td style="font-size: 12px; text-align: center;  border-bottom: 1px solid black;">
-                                    {{ strtoupper(substr($user['first_name'], 0, 1)) }}
+                                <td style="font-size: 12px; border-bottom: 1px solid black; text-align: center; text-transform: uppercase">
+                                    {{ $user['last_name'] }}
+                                </td>
+                                <td style="font-size: 12px;  border-bottom: 1px solid black; text-align: center; text-transform: uppercase ">
+                                    {{ $user['first_name'] }}
+                                </td>
+                                <td style="font-size: 12px; text-align: center;  border-bottom: 1px solid black; text-transform: uppercase">
+                                    @if ($user['middle_name'] != null)
+                                    {{ strtoupper(substr($user['middle_name'], 0, 1)) }}
+                                    @else
+                                        N/A
+                                    @endif
+
 </td>
                             </tr>
                             <tr style="color: #555;">
@@ -136,8 +146,10 @@
                 </tr>
                 <!-- Nickname -->
                 <tr>
-                    <td style="padding: 2px; font-size: 12px;">Nick name:</td>
-                    <td style="padding: 2px; border-bottom: 1px solid black;">hjhh</td>
+                    <td style="padding: 2px; font-size: 12px;" width="20%">Nick name:</td>
+                    <td style="padding: 2px;" width="100%">
+                        <div class="" style="border-bottom: 1px solid black;  font-size: 12px;" width="100%"> .</div>
+                    </td>
                 </tr>
             </table>
 
@@ -147,13 +159,13 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px " width="5%">Courses: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['course'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Major: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             hjhh
                         </div>
                     </td>
@@ -164,27 +176,27 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Sex: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['gender'] }}
                         </div>
                     </td>
-                    <td style=" padding: 2px; font-size: 12px" width="10%">Date of Birth: </td>
+                    <td style=" padding: 2px; font-size: 12px" width="15%">Date of Birth: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['birth_date'] }}
                         </div>
                     </td>
-                    <td style=" padding: 2px; font-size: 12px" width="10%">Weight (kg):</td>
+                    <td style=" padding: 2px; font-size: 12px" width="13%">Weight (kg):</td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div
                             style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
-                            h
+                            .
                         </div>
                     </td>
-                    <td style=" padding: 2px; font-size: 12px" width="10%">Height (m): </td>
+                    <td style=" padding: 2px; font-size: 12px" width="13%">Height (m): </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            .
                         </div>
                     </td>
                 </tr>
@@ -193,13 +205,13 @@
             {{-- Birth --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; font-size: 12px " width="10%">Place of Birth </td>
+                    <td style=" padding: 2px; font-size: 12px " width="15%">Place of Birth </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase ">
                             {{ $user['place_birth'] }}
                         </div>
                     </td>
-                    <td style=" padding: 2px; font-size: 12px" width="10%">Contact No.: </td>
+                    <td style=" padding: 2px; font-size: 12px" width="13%">Contact No.: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             {{ $user['number'] }}
@@ -210,9 +222,9 @@
             {{-- address --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; font-size: 12px " width="10%">Home Address </td>
+                    <td style=" padding: 2px; font-size: 12px " width="16%">Home Address </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                            {{$user['barangay']}}, {{ $user['municipality'] }}, {{ $user['province'] }}
                         </div>
                     </td>
@@ -221,10 +233,10 @@
             {{-- stay PSAU --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; font-size: 12px " width="15%">Address while staying at PSAU: </td>
+                    <td style=" padding: 2px; font-size: 12px " width="28%">Address while staying at PSAU: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            .
                         </div>
                     </td>
                 </tr>
@@ -232,11 +244,11 @@
             {{-- skills --}}
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
-                    <td style=" padding: 2px; font-size: 12px width: 10% ; font-size: 12px">Special Skill(s):</td>
+                    <td style=" padding: 2px; font-size: 12px; width: 15% ; font-size: 12px">Special Skill(s):</td>
                     <td style=" padding: 2px; width: 89%; ">
                         <div
                             style="display: inline-block; border-bottom: 1px solid black; width: 100%;font-size: 12px ">
-                            hjhhb
+                            .
                         </div>
                     </td>
                 </tr>
@@ -254,13 +266,13 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px " width="5%">Father: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['f_name'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Occupation: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['f_occupation'] }}
                         </div>
                     </td>
@@ -272,13 +284,13 @@
                     <td style=" padding: 2px; font-size: 12px " width="5%">Mother: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div
-                            style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
+                            style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px; text-transform: uppercase">
                             {{ $user['m_name'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Occupation: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase ">
                             {{ $user['m_occupation'] }}
                         </div>
                     </td>
@@ -289,13 +301,13 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px " width="5%">Address: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['f_address'] }}
                         </div>
                     </td>
-                    <td style=" padding: 2px; font-size: 12px" width="10%">Contact No: </td>
+                    <td style=" padding: 2px; font-size: 12px" width="13%">Contact No: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['m_contact'] }}
                         </div>
                     </td>
@@ -310,14 +322,14 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px " width="5%">Name: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                            {{ $user['g_name']}}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Relationship: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-
+                            .
                         </div>
                     </td>
                 </tr>
@@ -327,11 +339,11 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px " width="5%">Address: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
+                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
                             {{ $user['g_address'] }}
                         </div>
                     </td>
-                    <td style=" padding: 2px; font-size: 12px" width="10%">Contact No.: </td>
+                    <td style=" padding: 2px; font-size: 12px" width="13%">Contact No.: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
                             {{ $user['g_contact'] }}
