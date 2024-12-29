@@ -70,10 +70,10 @@
         {{-- HEADER --}}
         <table style="width: 100%; border: none; padding: 0;">
             <tr>
-                <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
+                {{-- <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
                     <!-- Image (Logo) -->
                     <img src="{{ url('images/PSAU_logo.png') }}" alt="" style="max-height: 110px;">
-                </td>
+                </td> --}}
                 <td style="text-align: start; vertical-align: start; padding: 0;">
                     <!-- University Name -->
                     <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px">
@@ -118,11 +118,12 @@
                     <td style="padding: 2px; ">
                         <table style="width: 100%;">
                             <tr>
-                                <td style="font-size: 12px; border-bottom: 1px solid black; text-align: center; ">dela penie akjdn</td>
-                                <td style="font-size: 12px;  border-bottom: 1px solid black; text-align: center;  ">Darwin
+                                <td style="font-size: 12px; border-bottom: 1px solid black; text-align: center; ">{{ $user['last_name'] }}</td>
+                                <td style="font-size: 12px;  border-bottom: 1px solid black; text-align: center;  ">{{ $user['first_name'] }}
                                     sdgdgd df</td>
                                 <td style="font-size: 12px; text-align: center;  border-bottom: 1px solid black;">
-                                    J</td>
+                                    {{ strtoupper(substr($user['first_name'], 0, 1)) }}
+</td>
                             </tr>
                             <tr style="color: #555;">
                                 <td style="font-size: 12px; text-align: center; ">Surename</td>
@@ -147,7 +148,7 @@
                     <td style=" padding: 2px; font-size: 12px " width="5%">Courses: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['course'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Major: </td>
@@ -164,20 +165,20 @@
                     <td style=" padding: 2px; font-size: 12px" width="5%">Sex: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['gender'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Date of Birth: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['birth_date'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Weight (kg):</td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div
                             style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
-                            hjhh
+                            h
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Height (m): </td>
@@ -195,13 +196,13 @@
                     <td style=" padding: 2px; font-size: 12px " width="10%">Place of Birth </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['place_birth'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Contact No.: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['number'] }}
                         </div>
                     </td>
                 </tr>
@@ -212,7 +213,7 @@
                     <td style=" padding: 2px; font-size: 12px " width="10%">Home Address </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                           {{$user['barangay']}}, {{ $user['municipality'] }}, {{ $user['province'] }}
                         </div>
                     </td>
                 </tr>
@@ -254,13 +255,13 @@
                     <td style=" padding: 2px; font-size: 12px " width="5%">Father: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['f_name'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Occupation: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['f_occupation'] }}
                         </div>
                     </td>
                 </tr>
@@ -272,13 +273,13 @@
                     <td style=" padding: 2px; font-size: 12px">
                         <div
                             style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
-                            hjhh
+                            {{ $user['m_name'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Occupation: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['m_occupation'] }}
                         </div>
                     </td>
                 </tr>
@@ -289,13 +290,13 @@
                     <td style=" padding: 2px; font-size: 12px " width="5%">Address: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['f_address'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Contact No: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['m_contact'] }}
                         </div>
                     </td>
                 </tr>
@@ -310,13 +311,13 @@
                     <td style=" padding: 2px; font-size: 12px " width="5%">Name: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                           {{ $user['g_name']}}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="5%">Relationship: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+
                         </div>
                     </td>
                 </tr>
@@ -327,13 +328,13 @@
                     <td style=" padding: 2px; font-size: 12px " width="5%">Address: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['g_address'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Contact No.: </td>
                     <td style=" padding: 2px; font-size: 12px">
                         <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; ">
-                            hjhh
+                            {{ $user['g_contact'] }}
                         </div>
                     </td>
                 </tr>

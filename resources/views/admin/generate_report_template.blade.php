@@ -106,7 +106,7 @@
                         <tr>
                             <td class="f-tag" style=" padding: 2px; text-transform:uppercase: font-weight:600"
                                 width="100%">
-                                {{-- {{ $headers[0] }} --}}
+                                {{ $headers[0] }}
                             </td>
                         </tr>
                     </th>
@@ -114,23 +114,23 @@
                 <tbody>
                     <tr>
                         <td class="f-text" style="padding: 2px;">
-                            {{-- Applicatan type: <strong class="ms-2">{{ $headers[1] }}</strong> --}}
+                            Applicatan type: <strong class="ms-2">{{ $headers[1] }}</strong>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="f-text" style="padding: 2px;">
-                            {{-- Program selected: <strong class="ms-2">{{ $headers[2] }}</strong> --}}
+                            Program selected: <strong class="ms-2">{{ $headers[2] }}</strong>
                         </td>
                     </tr>
                     <tr>
                         <td class="f-text" style="padding: 2px;">
-                            {{-- Status: <strong class="ms-2">{{ $headers[3] }}</strong> --}}
+                            Status: <strong class="ms-2">{{ $headers[3] }}</strong>
                         </td>
                     </tr>
                     <tr>
                         <td class="f-text" style="padding: 2px;">
-                            {{-- Date:  <strong class="ms-2">{{ $headers[4] }}</strong> --}}
+                            Date:  <strong class="ms-2">{{ $headers[4] }}</strong>
                         </td>
                     </tr>
 
