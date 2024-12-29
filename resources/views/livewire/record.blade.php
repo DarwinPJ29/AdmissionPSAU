@@ -36,10 +36,10 @@
                     <table class="table table-bordered table-striped" id="table">
                         <thead>
                             <tr>
-                                <th class="col-3">Applicant No.</th>
+                                <th class="col-2">Applicant No.</th>
                                 <th class="col-4">Name</th>
                                 <th class="col-4">Email</th>
-                                <th class="col">Date Submitted</th>
+                                <th class="col-2">Date Submitted</th>
                             </tr>
                         </thead>
                         <tbody>
