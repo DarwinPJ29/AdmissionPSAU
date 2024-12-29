@@ -174,15 +174,22 @@ class NotificationController extends Controller
         $user['course'] = Courses::where('id', $user->course_admitted_id)->value('title');
 
 
+
         $pdf = Pdf::loadView('applicant.admission_form_generate_report', ['user' => $user])
             ->setPaper('A4', 'portrait')
             ->setOptions([
-                'margin-left' => 0, // Remove left margin
-                'margin-right' => 0, // Remove right margin
-                'margin-top' => 10, // You can adjust top margin as needed
-                'margin-bottom' => 10 // You can adjust bottom margin as needed
-            ]);
+                'margin-left' => 0,
+                'margin-right' => 0,
+                'margin-top' => 10,
+                'margin-bottom' => 10,
+                // 'imageBasePath' => public_path('images/PSAU_logo.png'),
+                'isHtml5ParserEnabled' => true,
+                'isPhpEnabled' => true,
+                // 'debugPng' => true,
+                // 'debugKeepTemp' => true,
+                // 'debugCss' => true,
 
+            ]);
 
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();

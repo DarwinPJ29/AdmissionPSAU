@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,11 +67,12 @@
 
 <body>
     <div class="container-fluid contents">
+        {{-- HEADER --}}
         <table style="width: 100%; border: none; padding: 0;">
             <tr>
                 <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
                     <!-- Image (Logo) -->
-                    <img src="../images/PSAU_logo.png" alt="PSAU Logo" style="max-height: 110px;">
+                    <img src="{{ url('images/PSAU_logo.png') }}" alt="" style="max-height: 110px;">
                 </td>
                 <td style="text-align: start; vertical-align: start; padding: 0;">
                     <!-- University Name -->
@@ -89,7 +91,6 @@
         </table>
 
         <div class="container-content" style="padding-right: 20px;">
-
             <div class="sub-title"
                 style="  text-transform: uppercase;
                 padding-top: 5%;
@@ -102,7 +103,7 @@
             <table style="width: 100%; border-collapse: collapse; border: none;">
                 <!-- Student Number -->
                 <tr>
-                    <td style="padding: 2px; font-size: 12px;" width="10%">Student No.:</td>
+                    <td style="padding: 2px; font-size: 12px;" width="20%">Student No.:</td>
                     <td style="padding: 2px; border-bottom: 1px solid black;" width="100%">hjhh</td>
                     <td style="width: 10%; padding: 5px;" rowspan="3" valign="top">
                         <div
@@ -117,17 +118,16 @@
                     <td style="padding: 2px; ">
                         <table style="width: 100%;">
                             <tr>
-                                <td style="font-size: 12px; border-bottom: 1px solid black;">dela penie akjdn</td>
-                                <td style="font-size: 12px; padding-left: 40px; border-bottom: 1px solid black;">Darwin
+                                <td style="font-size: 12px; border-bottom: 1px solid black; text-align: center; ">dela penie akjdn</td>
+                                <td style="font-size: 12px;  border-bottom: 1px solid black; text-align: center;  ">Darwin
                                     sdgdgd df</td>
-                                <td
-                                    style="font-size: 12px; text-align: center; padding-left: 85px; border-bottom: 1px solid black;">
+                                <td style="font-size: 12px; text-align: center;  border-bottom: 1px solid black;">
                                     J</td>
                             </tr>
                             <tr style="color: #555;">
-                                <td style="font-size: 12px;">Surename</td>
-                                <td style="font-size: 12px;">given</td>
-                                <td style="font-size: 12px; text-align: center;">mmi</td>
+                                <td style="font-size: 12px; text-align: center; ">Surename</td>
+                                <td style="font-size: 12px; text-align: center; ">Name</td>
+                                <td style="font-size: 12px; text-align: center;">M.I</td>
                             </tr>
                         </table>
 
@@ -344,10 +344,10 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px">
                         1. Are you a member of any organization such as clubs, societies, fraternities, sororities,
-                        etc.?
+                        etc.? <br>
                         Please check YES <span
-                            style=" display: inline-block; border-bottom: 1px solid black; width: 100px;"></span> NO
-                        <span style=" display: inline-block; border-bottom: 1px solid black;  width: 100px;"></span>;
+                            style=" display: inline-block; border-bottom: 1px solid black; width: 50px;"></span> NO
+                        <span style=" display: inline-block; border-bottom: 1px solid black;  width: 50px;"></span>;
                         If YES,
                         please write all membership.
                     </td>
@@ -371,9 +371,9 @@
             <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 10px">
                 <tr>
                     <td style=" padding: 2px; font-size: 12px ">
-                        2. Have you ever violated any school rules and regulations before? Please check:
-                        <span style=" display: inline-block; border-bottom: 1px solid black; width: 100px;"></span> NO
-                        <span style=" display: inline-block; border-bottom: 1px solid black;  width: 100px;"></span>;
+                        2. Have you ever violated any school rules and regulations before? <br> Please check:
+                        <span style=" display: inline-block; border-bottom: 1px solid black; width: 50px;"></span> NO
+                        <span style=" display: inline-block; border-bottom: 1px solid black;  width: 50px;"></span>;
                         If YES,
                         please write all violations.
                     </td>
@@ -516,14 +516,51 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
-                            sample
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
-                            sample
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-size: 12px">
-                            sample
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
+                        </td>
+                        <td style=" padding: 15px; border: 1px solid black; font-size: 12px">
                         </td>
                     </tr>
                 </tbody>

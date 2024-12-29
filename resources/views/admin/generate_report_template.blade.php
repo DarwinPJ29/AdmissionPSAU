@@ -75,10 +75,10 @@
 
         <table style="width: 100%; border: none; padding: 0;">
             <tr>
-                <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
+                {{-- <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
                     <!-- Image (Logo) -->
                     <img src="{{ public_path('/images/PSAU_logo.png') }}" alt="PSAU Logo" style="max-height: 110px;">
-                </td>
+                </td> --}}
                 <td style="text-align: start; vertical-align: start; padding: 0; ">
                     <!-- University Name -->
                     <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px">
