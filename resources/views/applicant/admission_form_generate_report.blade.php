@@ -105,7 +105,8 @@
                     <td style="padding: 2px; font-size: 12px;" width="10%">Student No.:</td>
                     <td style="padding: 2px; border-bottom: 1px solid black;" width="100%">hjhh</td>
                     <td style="width: 10%; padding: 5px;" rowspan="3" valign="top">
-                        <div style="border: 1px solid black; height:100px; width: 200px; text-align: center; padding-top: 50px; margin-left: 10px;">
+                        <div
+                            style="border: 1px solid black; height:100px; width: 200px; text-align: center; padding-top: 50px; margin-left: 10px;">
                             2x2<br>Picture
                         </div>
                     </td>
@@ -114,18 +115,22 @@
                 <tr>
                     <td style="padding: 2px; font-size: 12px;">Name (Print):</td>
                     <td style="padding: 2px; ">
-                        <table style="width: 100%; ">
-                            <tr style="display:flex ; border-bottom: 1px solid black; gap: 20px ">
-                                <td style=" font-size: 12px; position:">dela penie akjdn</td>
-                                <td style=" font-size: 12px; absolute;  margin-left: 40px">Darwin sdgdgd df</td>
-                                <td style=" font-size: 12px; text-align: center; absolute;  margin-left: 85px">J</td>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="font-size: 12px; border-bottom: 1px solid black;">dela penie akjdn</td>
+                                <td style="font-size: 12px; padding-left: 40px; border-bottom: 1px solid black;">Darwin
+                                    sdgdgd df</td>
+                                <td
+                                    style="font-size: 12px; text-align: center; padding-left: 85px; border-bottom: 1px solid black;">
+                                    J</td>
                             </tr>
-                            <tr style="color: #555; display:flex; gap:100px">
-                                <td style=" font-size: 12px;">(Surname)</td>
-                                <td style=" font-size: 12px;">(Given Name)</td>
-                                <td style=" font-size: 12px; text-align: center;">(M.I)</td>
+                            <tr style="color: #555;">
+                                <td style="font-size: 12px;">Surename</td>
+                                <td style="font-size: 12px;">given</td>
+                                <td style="font-size: 12px; text-align: center;">mmi</td>
                             </tr>
                         </table>
+
                     </td>
                 </tr>
                 <!-- Nickname -->
@@ -170,7 +175,8 @@
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="10%">Weight (kg):</td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
+                        <div
+                            style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
                             hjhh
                         </div>
                     </td>
@@ -227,7 +233,8 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px width: 10% ; font-size: 12px">Special Skill(s):</td>
                     <td style=" padding: 2px; width: 89%; ">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%;font-size: 12px ">
+                        <div
+                            style="display: inline-block; border-bottom: 1px solid black; width: 100%;font-size: 12px ">
                             hjhhb
                         </div>
                     </td>
@@ -263,7 +270,8 @@
                 <tr>
                     <td style=" padding: 2px; font-size: 12px " width="5%">Mother: </td>
                     <td style=" padding: 2px; font-size: 12px">
-                        <div style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
+                        <div
+                            style="display: inline-block; border-bottom: 1px solid black; width: 100%; font-size: 12px">
                             hjhh
                         </div>
                     </td>
@@ -485,7 +493,8 @@
             </table>
 
 
-            <div class="mt-4 " style="margin-top: 40px; text-aline: center; text-transform: uppercase; font-size: 12px">anedotal
+            <div class="mt-4 "
+                style="margin-top: 40px; text-aline: center; text-transform: uppercase; font-size: 12px">anedotal
                 records</div>
 
 
@@ -521,8 +530,9 @@
             </table>
 
             <div class="" style="margin-top: 40px; margin-bottom:40px; font-size: 12px">NOTED:</div>
-            {{-- osas--}}
-            <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 50px: padding-bottom: 50px">
+            {{-- osas --}}
+            <table
+                style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 50px: padding-bottom: 50px">
                 <tr>
 
                     <td style=" padding: 2px; " width="20%">
@@ -543,4 +553,3 @@
 </body>
 
 </html>
-
