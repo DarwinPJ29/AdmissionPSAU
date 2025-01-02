@@ -25,6 +25,16 @@ class HomeController extends Controller
         $requirements = ModelsRequirement::all();
         $school_year = SchoolYear::where('year', $year)->first();
 
+        if ($school_year == null) {
+            $newSchoolYear = new SchoolYear();
+            $newSchoolYear->year =  $year;
+            $newSchoolYear->semester = '1st Semester';
+            $newSchoolYear->status = true;
+            $newSchoolYear->save();
+
+            $school_year = SchoolYear::where('year', $year)->first();
+        }
+
         return view('landingpage.index', compact('courses', 'requirements', 'school_year'));
     }
     public function landingAdmission()

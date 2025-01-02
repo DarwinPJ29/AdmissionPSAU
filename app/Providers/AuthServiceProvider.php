@@ -26,11 +26,16 @@ class AuthServiceProvider extends ServiceProvider
             return auth()->user()->role == 0;
         });
 
-        Gate::define('examiner', function () {
+        Gate::define('admin', function () {
             return auth()->user()->role == 1;
         });
-        Gate::define('admin', function () {
+
+        Gate::define('proctor', function () {
             return auth()->user()->role == 2;
+        });
+
+        Gate::define('personnel', function () {
+            return auth()->user()->role == 3;
         });
     }
 }

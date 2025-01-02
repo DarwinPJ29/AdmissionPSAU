@@ -101,48 +101,48 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 // Admin
-Route::controller(AdminController::class)->group(function () {
-    Route::any('/admin/dashboard', 'dashboard')->name('dashboard'); //->middleware('auth', 'can:admin');
-    Route::any('/admin/interviewee', 'interviewee')->name('interviewee');
-    Route::any('/admin/department', 'department')->name('department');
-    Route::any('/admin/department', 'department')->name('department');
-});
+// Route::controller(AdminController::class)->group(function () {
+//     Route::any('/admin/dashboard', 'dashboard')->name('dashboard')->middleware('auth', 'can:admin');
+//     Route::any('/admin/interviewee', 'interviewee')->name('interviewee');
+//     Route::any('/admin/department', 'department')->name('department');
+//     Route::any('/admin/department', 'department')->name('department');
+// });
 
 //Submitted
 Route::controller(Submitted::class)->group(function () {
-    Route::any('/submitted', 'Submitted')->name('Submitted');
-    Route::any('/returned/{id}', 'Returned')->name('returned');
-    Route::any('/acceptReq/{id}', 'acceptReq')->name('acceptReq');
+    Route::any('/submitted', 'Submitted')->name('Submitted')->middleware('auth', 'can:admin');
+    Route::any('/returned/{id}', 'Returned')->name('returned')->middleware('auth', 'can:admin');
+    Route::any('/acceptReq/{id}', 'acceptReq')->name('acceptReq')->middleware('auth', 'can:admin');
 });
 
 //Schedule
 Route::controller(Schedule::class)->group(function () {
-    Route::any('/schedules', 'schedule')->name('admin.sched');
-    Route::any('/sched/{id}', 'sched')->name('sched');
+    Route::any('/schedules', 'schedule')->name('admin.sched')->middleware('auth', 'can:proctor');
+    Route::any('/sched/{id}', 'sched')->name('sched')->middleware('auth', 'can:proctor');
 });
 
 // College
 Route::controller(College::class)->group(function () {
-    Route::any('/colleges', 'College')->name('college');
-    Route::any('/colleges/{id}', 'CollegeUpdate')->name('college.update');
-    Route::any('/colleges/delete/{id}', 'CollegeDeleted')->name('college.delete');
+    Route::any('/colleges', 'College')->name('college')->middleware('auth', 'can:admin');
+    Route::any('/colleges/{id}', 'CollegeUpdate')->name('college.update')->middleware('auth', 'can:admin');
+    Route::any('/colleges/delete/{id}', 'CollegeDeleted')->name('college.delete')->middleware('auth', 'can:admin');
 });
 // Course
 Route::controller(Course::class)->group(function () {
     Route::any('/program', 'courses')->name('courses');
-    Route::any('/program/{id}', 'coursesUpdate')->name('courses.update');
-    Route::any('/program/delete/{id}', 'courseDelete')->name('courses.delete');
+    Route::any('/program/{id}', 'coursesUpdate')->name('courses.update')->middleware('auth', 'can:admin');
+    Route::any('/program/delete/{id}', 'courseDelete')->name('courses.delete')->middleware('auth', 'can:admin');
 });
 // Requirement
 Route::controller(Requirement::class)->group(function () {
-    Route::any('/requirement', 'requirement')->name('requirement');
-    Route::any('/requirement/{id}', 'requirementUpdate')->name('requirement.update');
-    Route::any('/requirement/delete/{id}', 'requirementDelete')->name('requirement.delete');
+    Route::any('/requirement', 'requirement')->name('requirement')->middleware('auth', 'can:admin');
+    Route::any('/requirement/{id}', 'requirementUpdate')->name('requirement.update')->middleware('auth', 'can:admin');
+    Route::any('/requirement/delete/{id}', 'requirementDelete')->name('requirement.delete')->middleware('auth', 'can:admin');
 });
 // Applicant
 Route::controller(FormController::class)->group(function () {
-    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm'); //->middleware('auth', 'can:applicant');
-    Route::any('/dataPrivacy', 'privacy')->name('privacy'); //->middleware('auth', 'can:applicant');
+    Route::any('/admission-form', 'ApplicantForm')->name('ApplicantForm')->middleware('auth', 'can:applicant');
+    Route::any('/dataPrivacy', 'privacy')->name('privacy')->middleware('auth', 'can:applicant');
 });
 //Applicant Requirement
 Route::controller(RequirementController::class)->group(function () {
@@ -165,9 +165,9 @@ Route::controller(Exam::class)->group(function () {
 });
 // Evaluation
 Route::controller(Evaluation::class)->group(function () {
-    Route::any('/evaluation', 'evaluation')->name('evaluation');
-    Route::any('/deny/{id}', 'Deny')->name('deny');
-    Route::any('/recommended/{id}', 'Recommended')->name('recommended');
+    Route::any('/evaluation', 'evaluation')->name('evaluation')->middleware('auth', 'can:personnel');
+    Route::any('/deny/{id}', 'Deny')->name('deny')->middleware('auth', 'can:personnel');
+    Route::any('/recommended/{id}', 'Recommended')->name('recommended')->middleware('auth', 'can:personnel');
 });
 // Region, Municipality and Barangay
 Route::controller(StaticData::class)->group(function () {
@@ -175,20 +175,20 @@ Route::controller(StaticData::class)->group(function () {
 });
 // Records
 Route::controller(Record::class)->group(function () {
-    Route::any('/records/', 'records')->name('records');
-    Route::any('/records/denied', 'denied')->name('denied');
-    Route::any('/records/recommend', 'recommend')->name('admin.recommend');
-    Route::any('/send/mail', 'SendMail')->name('sendMail');
+    Route::any('/records/', 'records')->name('records')->middleware('auth', 'can:admin');
+    Route::any('/records/denied', 'denied')->name('denied')->middleware('auth', 'can:admin');
+    Route::any('/records/recommend', 'recommend')->name('admin.recommend')->middleware('auth', 'can:admin');
+    Route::any('/send/mail', 'SendMail')->name('sendMail')->middleware('auth', 'can:admin');
 });
 // Reports
 Route::controller(Report::class)->group(function () {
-    Route::any('/report', 'report')->name('report');
+    Route::any('/report', 'report')->name('report')->middleware('auth', 'can:admin');
 });
 // College
 Route::controller(College::class)->group(function () {
-    Route::any('/college', 'College')->name('college');
-    Route::any('/college/{$id}', 'CollegeUpdate')->name('college.update');
-    Route::any('/college/{$id}', 'CourseDelete')->name('course.delete');
+    Route::any('/college', 'College')->name('college')->middleware('auth', 'can:admin');
+    Route::any('/college/{$id}', 'CollegeUpdate')->name('college.update')->middleware('auth', 'can:admin');
+    Route::any('/college/{$id}', 'CourseDelete')->name('course.delete')->middleware('auth', 'can:admin');
 });
 // PDFs
 Route::controller(PdfController::class)->group(function () {
@@ -196,13 +196,14 @@ Route::controller(PdfController::class)->group(function () {
 });
 // Account
 Route::controller(Account::class)->group(function () {
-    Route::any('/account', 'account')->name('account');
-    Route::any('/evaluator', 'Evaluator')->name('Evaluator');
-    Route::any('/evaluator/update/{id}', 'EvaluatorUpdate')->name('evaluator.update');
-    Route::any('/account/update/{id}', 'update')->name('account.update');
-    Route::any('/account/activate/{id}', 'activate')->name('account.activate');
+    Route::any('/account', 'account')->name('account')->middleware('auth', 'can:admin');
+    Route::any('/evaluator', 'Evaluator')->name('Evaluator')->middleware('auth', 'can:admin');
+    Route::any('/evaluator/update/{id}', 'EvaluatorUpdate')->name('evaluator.update')->middleware('auth', 'can:admin');
+    Route::any('/account/update/{id}', 'update')->name('account.update')->middleware('auth', 'can:admin');
+    Route::any('/account/activate/{id}', 'activate')->name('account.activate')->middleware('auth', 'can:admin');
 });
 // Dashboard
+
 Route::controller(Dashboard::class)->group(function () {
-    Route::any('/admin/dashboard', 'dashboard')->name('dashboard');
+    Route::any('/admin/dashboard', 'dashboard')->name('dashboard')->middleware('auth', 'can:admin');
 });
