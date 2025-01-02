@@ -97,14 +97,13 @@
         </table>
 
         <div class="container mt-5">
-
-
             {{-- data --}}
-            <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 50px">
+            <table style="width: 100%; border-collapse: collapse; border: none; gap:0; margin-top: 30px">
                 <thead>
                     <th>
                         <tr>
-                            <td class="f-tag" style=" padding: 2px; text-transform:uppercase: font-weight:600; text-align:center"
+                            <td class="f-tag"
+                                style=" padding: 2px; text-transform:uppercase: font-weight:600; text-align:center"
                                 width="100%">
                                 {{ $headers[0] }}
                             </td>
@@ -112,53 +111,52 @@
                     </th>
                 </thead>
             </table>
-            <table style="padding-top: 40px">
-                    <tr style="width: 100%">
-                        <td style="padding: 2px; width: 50vw;">
-                            Applicatan type: <strong class="ms-2">
-                                {{ $headers[1] }}
-                            </strong>
-                        </td>
-                        <td style="padding: 2px; width: 50vw;">
-                            Program selected: <strong class="ms-2">
-                                {{ $headers[2] }}
-                            </strong>
-                        </td>
-                    </tr>
+            <table style="padding-top: 20px">
+                <tr style="width: 100%">
+                    <td style="padding: 2px; width: 50vw;">
+                        Applicant type: <strong class="ms-2">
+                            {{ $headers[2] }}
+                        </strong>
+                    </td>
+                    <td style="padding: 2px; width: 50vw;">
+                        Program selected: <strong class="ms-2">
+                            {{ $headers[3] }}
+                        </strong>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td style="padding: 2px; width: 50vw;">
-                            Status: <strong class="ms-2">
-                                {{ $headers[3] }}
-                            </strong>
-                        </td>
-                        <td style="padding: 2px; width: 50vw;">
-                            Date:  <strong class="ms-2">
-                                {{ $headers[4] }}
-                            </strong>
-                        </td>
-                    </tr>
+                <tr>
+                    <td style="padding: 2px; width: 50vw;">
+                        Status: <strong class="ms-2">
+                            {{ $headers[4] }}
+                        </strong>
+                    </td>
+                    <td style="padding: 2px; width: 50vw;">
+                        Generated Date: <strong class="ms-2">
+                            {{ $headers[1] }}
+                        </strong>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td style="padding: 2px; width: 50vw;">
-                            School Year:  <strong class="ms-2">
-                                {{ $headers[5] }}
-                            </strong>
-                        </td>
-                        <td style="padding: 2px; width: 50vw;">
-                            Semester:  <strong class="ms-2">
-                                {{ $headers[6] }}
-                            </strong>
-                        </td>
+                <tr>
+                    <td style="padding: 2px; width: 50vw;">
+                        School Year: <strong class="ms-2">
+                            {{ $headers[5] }}
+                        </strong>
+                    </td>
+                    <td style="padding: 2px; width: 50vw;">
+                        Semester: <strong class="ms-2">
+                            {{ $headers[6] }}
+                        </strong>
+                    </td>
 
-                    </tr>
+                </tr>
             </table>
 
             <table style="width: 100%; border-collapse: collapse; gap:0; margin-top: 10px">
                 <thead>
                     <tr>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600"
-                            width="15%">
+                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
                             Applicant No.
                         </td>
                         <td style=" padding: 2px; border: 1px solid black; font-weight:600">
@@ -167,17 +165,7 @@
                         <td style=" padding: 2px; border: 1px solid black; font-weight:600">
                             Name
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
-                            Courses
-                        </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
-                            Type
-                        </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
-                            Status
-                        </td>
                     </tr>
-
                 </thead>
                 <tbody>
                     @php
@@ -205,15 +193,6 @@
                             </td>
                             <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->name }}
-                            </td>
-                            <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
-                                {{ $data->title . ' (' . $data->acronym . ')' }}
-                            </td>
-                            <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
-                                {{ $typeLabels[$data->type] ?? 'Unknown' }}
-                            </td>
-                            <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
-                                {{ $statusLabels[$data->status] ?? 'Unknown' }}
                             </td>
                         </tr>
                     @endforeach

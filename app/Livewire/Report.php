@@ -119,7 +119,7 @@ class Report extends Component
 
             $headers = [
                 "Applicant List Reports",
-                now()->format('F d, Y @h:i A'),
+                now()->format('F d, Y'),
                 $typeLabels[$this->type],
                 $course,
                 $statusLabels[$this->status],
