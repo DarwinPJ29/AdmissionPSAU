@@ -75,7 +75,7 @@
                         </div>
                         <hr>
                         <div class="choice mb-3">
-                            <label class="mb-2 fw-bold">Course</label>
+                            <label class="mb-2 fw-bold">Program</label>
                             <div class="mt-2 d-flex justify-content-evenly text-uppercase">
                                 <div class="">
                                     <div class="d-flex border-bottom border-dark">
