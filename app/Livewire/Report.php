@@ -126,6 +126,7 @@ class Report extends Component
                 $this->year,
                 $semester[$this->semester]
             ];
+
             $pdf = Pdf::loadView('admin.generate_report_template', ['datas' => $this->datas, 'headers' => $headers])
                 ->setPaper('A4', 'portrait')
                 ->setOptions([

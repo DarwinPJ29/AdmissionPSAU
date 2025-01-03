@@ -5,6 +5,7 @@
                 <label for="type">Status</label>
                 <select name="type" id="type" class="form-select form-control shadow text-uppercase w-100"
                     wire:model='type' wire:change='record'>
+                    <option value="" selected>Please Select</option>
                     <option value="7">Admitted</option>
                     <option value="8">Denied</option>
                     <option value="6">Recommendation</option>
@@ -14,7 +15,7 @@
                 <label for="year">School Year</label>
                 <select name="year" id="year" class="form-select form-control shadow text-uppercase w-100"
                     wire:model='year' wire:change='record'>
-                    <option value="" selected hidden>Please select</option>
+                    <option value="" selected>Please select</option>
                     @foreach ($school_year_Data as $sy)
                         <option value="{{ $sy }}">{{ $sy }}</option>
                     @endforeach
@@ -24,7 +25,7 @@
                 <label for="semster">Semester</label>
                 <select name="semster" id="semster" class="form-select form-control shadow text-uppercase w-100"
                     wire:model='semester' wire:change='record'>
-                    <option value="" selected hidden>Please select</option>
+                    <option value="" selected>Please select</option>
                     <option value="1">1st Semester</option>
                     <option value="2">2nd Semester</option>
                 </select>
@@ -40,19 +41,28 @@
                                 <th class="col-4">Name</th>
                                 <th class="col-4">Email</th>
                                 <th class="col-2">Date Submitted</th>
+                                <th class="col-1">Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
                                 @if ($user->show)
-                                    <tr>
+                                    <tr wire:key="user-{{ $user->id }}">
                                         <td>{{ $user->applicant_no }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->date_submitted }}</td>
+                                        <td>
+                                            <button wire:click="generate('{{ $user->id }}')"
+                                                wire:key="button-{{ $user->id }}" class="btn btn-md btn-warning">
+                                                <i class="fa"></i> Generate
+                                            </button>
+                                        </td>
                                     </tr>
                                 @endif
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>
