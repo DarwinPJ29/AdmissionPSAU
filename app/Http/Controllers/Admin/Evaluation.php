@@ -40,11 +40,11 @@ class Evaluation extends Controller
 
                 if ($choices->isFirstDeny == 0) {
                     $course1 = Courses::find($choices->first);
-                    $value['show'] = $course1->college_id == auth()->user()->college_to_evaluate ? 1 : 0;
+                    $value['show'] = $course1->id == auth()->user()->college_to_evaluate ? 1 : 0;
                     $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')'];
                 } else {
                     $course1 = Courses::find($choices->second);
-                    $value['show'] = $course1->college_id == auth()->user()->college_to_evaluate ? 1 : 0;
+                    $value['show'] = $course1->id == auth()->user()->college_to_evaluate ? 1 : 0;
                     $value['choices'] = [$course1->title . ' (' . $course1->acronym . ')'];
                 }
                 // $course2 = Courses::find($choices->second);
