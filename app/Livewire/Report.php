@@ -132,7 +132,7 @@ class Report extends Component
                     'margin-left' => 0, // Remove left margin
                     'margin-right' => 0, // Remove right margin
                     'margin-top' => 10, // You can adjust top margin as needed
-                    'margin-bottom' => 10 // You can adjust bottom margin as needed
+                    'margin-bottom' => 10,
                 ]);
 
             return response()->streamDownload(function () use ($pdf) {

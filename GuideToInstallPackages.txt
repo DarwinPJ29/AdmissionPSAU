@@ -12,3 +12,5 @@ REPORT
 3. If you're using Laravel 8 or below, add the service provider to the providers array in config/app.php
 5. Barryvdh\DomPDF\ServiceProvider::class,
 
+SETTING IN XAMP
+Find the php.ini then search for gd and remove the semicolon
