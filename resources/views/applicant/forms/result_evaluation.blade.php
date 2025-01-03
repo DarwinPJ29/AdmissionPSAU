@@ -18,7 +18,6 @@
                                 @endforeach
                                 <span class="text-muted fs-5">Please visit your email for more info.</span>
                             </div>
-
                         </div>
                         <div class="col-md-6 d-md-block d-none justify-content-center">
                             <div class="d-flex justify-content-center ">
@@ -29,7 +28,7 @@
 
                     </div>
                     <div class="justify-content-end d-flex my-3">
-                        <a href="{{ route('ApplicantFormGenerate', auth()->user()->id) }}" class="btn btn-warning shadow">
+                        <a href="{{ route('EvalResultGenerate', auth()->user()->id) }}" class="btn btn-warning shadow">
                             <i class="fa-solid fa-print"></i> Print form</a>
                     </div>
                 @else

@@ -158,7 +158,6 @@ class NotificationController extends Controller
             $user['barangay'] = $bar->name;
         }
 
-
         // SECD
         $guar = Guardian::where('user_id', $user['id'])->first();
         if ($guar != null) {
@@ -196,5 +195,35 @@ class NotificationController extends Controller
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();
         }, 'STUDENT INFORMATION FORM (' . now()->format('Y-m-d') . ').pdf');
+    }
+
+    public function EvalResultGenerate($id)
+    {
+        $user = User::find($id);
+        $info = Information::where('user_id', $user->id)->first();
+        $result = Result::where('user_id', $user->id)->first();
+        $applicant_name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+        $courses = Courses::find($result->course_id);
+        $labelCourse = $courses->title . ' (' . $courses->acronym . ')';
+
+        $pdf = Pdf::loadView('applicant.generate_report_result_of_evaluation', [
+            'applicant_name' => $applicant_name,
+            'applicant_no' => $user->applicant_no,
+            'program_name' => $labelCourse,
+            'id' => $id
+        ])
+            ->setPaper('A4', 'portrait')
+            ->setOptions([
+                'margin-left' => 0,
+                'margin-right' => 0,
+                'margin-top' => 10,
+                'margin-bottom' => 10,
+            ]);
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, 'Result_Of_Evaluation.pdf');
+
+        // Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse));
     }
 }

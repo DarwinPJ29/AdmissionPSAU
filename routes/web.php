@@ -158,6 +158,7 @@ Route::controller(NotificationController::class)->group(function () {
     Route::any('/evaluations', 'Evaluation')->name('evaluate')->middleware('auth', 'can:applicant');
     Route::any('/status', 'Status')->name('status')->middleware('auth', 'can:applicant');
     Route::any('/applicant-form/generate/{id}', 'ApplicantFormGenerate')->name('ApplicantFormGenerate');
+    Route::any('/admission-form/generate/{id}', 'EvalResultGenerate')->name('EvalResultGenerate')->middleware('auth', 'can:applicant');
 });
 // exam
 Route::controller(Exam::class)->group(function () {
