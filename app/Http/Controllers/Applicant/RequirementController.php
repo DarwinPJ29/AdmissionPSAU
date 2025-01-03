@@ -129,8 +129,11 @@ class RequirementController extends Controller
     {
         $user = User::find(auth()->user()->id);
         if ($user != null) {
+            $reviewDate = now()->addDays(15)->format('M d, Y');
+
             $user->status = Status::Review;
             $user->date_submitted = Carbon::now()->format('M d, Y');
+            $user->review_date = $reviewDate;
             $user->update();
 
             $inform = Information::select('first_name', 'middle_name', 'last_name')->where('user_id', $user->id)->first();
@@ -139,6 +142,7 @@ class RequirementController extends Controller
 
             Mail::to($user->email)->send(new FormDone(
                 $applicant_name,
+                $reviewDate
             ));
 
             return redirect()->route('loading');

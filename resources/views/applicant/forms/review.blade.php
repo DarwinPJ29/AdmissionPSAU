@@ -9,8 +9,8 @@
                     <div class="text-center">
                         <i class="fa-solid fa-hourglass-start fs-1 rotate text-warning text-center p-4"></i>
                     </div>
-                    <div class="text-uppercase mt-3 text-center fw-bold fs-3">
-                        please wait for the reviewing of your submitted requirements
+                    <div class=" mt-3 text-center fw-bold fs-3">
+                        Please wait until {{ $review_date }} for the reviewing of your application.
                     </div>
                 </div>
             </div>

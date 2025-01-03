@@ -17,10 +17,10 @@ class FormDone extends Mailable
     public $applicant_name;
     public $review_date;
 
-    public function __construct($applicant_name)
+    public function __construct($applicant_name, $review_date)
     {
         $this->applicant_name = $applicant_name;
-        $this->review_date = now()->addDays(15);
+        $this->review_date = $review_date;
     }
 
     /**

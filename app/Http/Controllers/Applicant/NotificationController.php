@@ -26,10 +26,12 @@ class NotificationController extends Controller
 
     public function Review(Request $request)
     {
-        $status = auth()->user()->status;
-        if ($status == Status::Review->value || $status == status::ReqAccepted->value) {
+        $user = auth()->user();
+        if ($user->status == Status::Review->value || $user->status == status::ReqAccepted->value) {
             if ($request->isMethod('get')) {
-                return view('applicant.forms.review');
+
+                $review_date = $user->review_date;
+                return view('applicant.forms.review', compact('review_date'));
             }
         } else
             return redirect()->route('steps');
