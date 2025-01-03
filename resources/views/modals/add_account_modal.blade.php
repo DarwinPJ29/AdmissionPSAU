@@ -177,11 +177,12 @@
                     </div>
                     <div class="row mb-2 d-flex justify-content-center">
                         <div class="col-10">
-                            <label for="department">Colleges to be evaluate:<span class="text-danger">*</span></label>
+                            <label for="department">Program to evaluate:<span class="text-danger">*</span></label>
                             <select name="college" id="department" class="form-control shadow" required>
-                                <option value="" disabled selected>Select college</option>
+                                <option value="" disabled selected>Select Program</option>
                                 @foreach ($colleges as $college)
-                                    <option value="{{ $college->id }}">{{ $college->title }}</option>
+                                    <option value="{{ $college->id }}">
+                                        {{ $college->title . ' (' . $college->acronym . ')' }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -305,6 +306,8 @@ EDIT MODAL --}}
         </div>
     </div>
 @endif
+
+
 @if (isset($user))
     <div class="modal fade" id="evaluatorEdit{{ $user->id }}" data-bs-backdrop="static"
         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -379,13 +382,12 @@ EDIT MODAL --}}
                         </div>
                         <div class="row mb-2 d-flex justify-content-center">
                             <div class="col-10">
-                                <label for="department">Colleges to be evaluate:<span
-                                        class="text-danger">*</span></label>
+                                <label for="department">Program to evaluate:<span class="text-danger">*</span></label>
                                 <select name="college" id="department" class="form-control shadow" required>
-                                    <option value="" disabled selected>Select college</option>
+                                    <option value="" disabled selected>Select Program</option>
                                     @foreach ($colleges as $college)
                                         <option value="{{ $college->id }}" @selected($user->college_to_evaluate == $college->id)>
-                                            {{ $college->title }}</option>
+                                            {{ $college->title . ' (' . $college->acronym . ')' }}</option>
                                     @endforeach
                                 </select>
                             </div>

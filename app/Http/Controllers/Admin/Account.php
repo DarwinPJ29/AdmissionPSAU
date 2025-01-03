@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\College;
+use App\Models\Courses;
 use App\Models\Information;
 use App\Models\User;
 use App\Services\Core;
@@ -26,7 +27,7 @@ class Account extends Controller
                 ->orderBy('information.last_name', 'asc')  // Order by last_name in the Information table
                 ->get();
 
-            $colleges = College::select('id', 'title', 'acronym')->Orderby('title', 'asc')->get();
+            $colleges = Courses::select('id', 'title', 'acronym')->Orderby('title', 'asc')->get();
 
             return view('admin.account', compact('users', 'colleges'));
         }
