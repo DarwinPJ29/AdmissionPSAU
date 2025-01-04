@@ -78,11 +78,11 @@
                 <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
                     <!-- Image (Logo) -->
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/PSAU_logo.png'))) }}"
-                        alt="PSAU Logo" style="max-height: 110px;">
+                        alt="PSAU Logo" style="height: 100px;">
                 </td>
                 <td style="text-align: start; vertical-align: start; padding: 0; ">
                     <!-- University Name -->
-                    <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px">
+                    <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px; padding-top: 20px">
                         Pampanga State Agricultural University
                     </div>
                     <!-- Office Name -->
@@ -113,7 +113,7 @@
                 </thead>
             </table>
             <table style="padding-top: 20px">
-                <tr style="width: 100%">
+                <tr style="width: 100vw">
                     <td style="padding: 2px; width: 50vw;">
                         Applicant type: <strong class="ms-2">
                             {{ $headers[2] }}

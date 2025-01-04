@@ -14,57 +14,22 @@
             /* Adjust the font size */
         }
 
-        .container-fluid {
-            margin-top: 20px;
-            padding: 0 20px 0 30px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
         }
 
-        .col-bg {
-            background-color: #fec541 !important;
-            color: black !important;
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
         }
 
-        @media only screen and (max-width: 431px) {
-            .f-title {
-                font-size: 14px !important;
-            }
-
-            .f-tag {
-                font-size: 12px !important;
-            }
-
-            .f-text {
-                font-size: 10px;
-            }
-        }
-
-        @media only screen and (max-width: 780px) {
-            .f-title {
-                font-size: 18px;
-            }
-
-            .f-tag {
-                font-size: 16px !important;
-            }
-
-            .f-text {
-                font-size: 14px;
-            }
-        }
-
-        @media only screen and (min-width: 781px) {
-            .f-title {
-                font-size: 20px;
-            }
-
-            .f-tag {
-                font-size: 18px !important;
-            }
-
-            .f-text {
-                font-size: 16px;
-            }
-
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -75,14 +40,15 @@
 
         <table style="width: 100%; border: none; padding: 0;">
             <tr>
-                <td style="text-align: end; vertical-align: middle; width:10%; padding: 0;">
+                <td style="text-align: end; vertical-align: middle; width:10%; padding: 0; border: none">
                     <!-- Image (Logo) -->
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/PSAU_logo.png'))) }}"
-                        alt="PSAU Logo" style="max-height: 110px;">
+                        alt="PSAU Logo" style="height: 100px;">
                 </td>
-                <td style="text-align: start; vertical-align: start; padding: 0; ">
+                <td style="text-align: start; vertical-align: start; padding: 0; border: none ">
                     <!-- University Name -->
-                    <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px">
+                    <div class="f-title"
+                        style="text-transform: uppercase;  font-weight: bold; margin-left:10px; padding-top: 20px">
                         Pampanga State Agricultural University
                     </div>
                     <!-- Office Name -->
@@ -96,303 +62,360 @@
                 </td>
             </tr>
         </table>
-        <div class="container">
-            <div class="border-bottom border-dark">Section A:</div>
-            <div class="row my-2">
-                <div class="col-md-1 col-sm-4">
-                    <div class="text-center text-uppercase border-bottom">
-                        @if ($user->prefix != null)
-                            {{ $user->prefix }}
-                        @else
-                            n/a
-                        @endif
-                    </div>
-                    <div class="text text-muted text-center text-uppercase">Prefix</div>
-                </div>
-                <div class="col-md-3 col-sm-8">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->first_name }}</div>
-                    <div class="text text-muted text-center text-uppercase">First Name</div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->middle_name }}</div>
-                    <div class="text text-muted text-center text-uppercase">Middle Name</div>
-                </div>
-                <div class="col-md-3 col-sm-8">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->last_name }}</div>
-                    <div class="text text-muted text-center text-uppercase">Last Name</div>
-                </div>
-                <div class="col-md-1 col-sm-4">
-                    <div class="text-center text-uppercase border-bottom">
-                        @if ($user->suffix != null)
-                            {{ $user->suffix }}
-                        @else
-                            n/a
-                        @endif
-                    </div>
-                    <div class="text text-muted text-center text-uppercase">Suffix</div>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2 col-sm-6">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->gender }}</div>
-                    <div class="text text-muted text-center text-uppercase">Sex</div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->age }}</div>
-                    <div class="text text-muted text-center text-uppercase">Age</div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->place_birth }}</div>
-                    <div class="text text-muted text-center text-uppercase">Place of Birth</div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->birth_date }}</div>
-                    <div class="text text-muted text-center text-uppercase">Date of Birth</div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->citizenship }}</div>
-                    <div class="text text-muted text-center text-uppercase">Citizenship</div>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-4">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->religion }}</div>
-                    <div class="text text-muted text-center text-uppercase">Religion</div>
 
-                </div>
+        <div style="text-transform: uppercase; margin-top: 40px; font-weight: 600">section a: general information</div>
+        <table style="width: 100%; padding: 0; margin: 0">
+            <tr>
+                <td colspan="6" style="text-align: start; vertical-align: start; width:100% ;">
+                    <div class="">Name:</div>
+                    <div style="margin-left: 50px; padding:2px">
+                        @if ($user->prefix != null){{ $user->prefix }}@else @endif
+                        {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
+                        @if ($user->suffix != null) {{ $user->suffix }} @else @endif
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: start; vertical-align: start; width: 10%">
+                    <div class="">Sex:</div>
+                    <div style="margin-left: 50px; padding:2px">{{ $user->gender }} </div>
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 20%">
+                    <div class="">Date of Birth:</div>
+                    <div style="margin-left: 50px; padding:2px">{{ $user->birth_date }}</div>
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 10%">
+                    <div class="">Age:</div>
+                    <div style="margin-left: 50px; padding:2px">{{ $user->age }}</div>
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 20%">
+                    <div class="">Place of Birth:</div>
+                    <div style="margin-left: 50px; padding:2px">{{ $user->place_birth }}</div>
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 20%">
+                    <div class="">Citizenship:</div>
+                    <div style="margin-left: 50px; padding:2px">{{ $user->citizenship }}</div>
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 20%">
+                    <div class="">Religion:</div>
+                    <div style="margin-left: 50px; padding:2px">{{ $user->religion }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: start; vertical-align: start;">
+                    <div class="">Home Address:</div>
+                    <div style="margin-left: 50px; padding:2px">
+                        {{ $user->barangay }}, {{ $user->municipality }}, {{ $user->province }}
+                    </div>
+                </td>
+                <td style="text-align: start; vertical-align: start;">
+                    <div class="">Cell Phone No.:</div>
+                    <div style="margin-left: 50px; padding:2px">
+                        {{ $user->number }}
+                    </div>
+                </td>
+                <td colspan="2" style="text-align: start; vertical-align: start;">
+                    <div class="">Email Address:</div>
+                    <div style="margin-left: 50px; padding:2px">
+                        {{ $user->email }}
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-                <div class="col-md-4">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->civil_status }}</div>
-                    <div class="text text-muted text-center text-uppercase">Civil Status</div>
+        <div style="text-transform: uppercase; margin-top: 40px; font-weight: 600">section b: program choice</div>
+        <table style="width: 100%; padding: 0; margin: 0">
+            <tr>
+                <td colspan="3"
+                    style="text-align: center; vertical-align: start; width:100% ;text-transform: uppercase;font-weight: 500">
+                    Program applied for
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: end; vertical-align: start; width: 30%">
+                    First Choice
+                </td>
+                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%">
+                    {{ $user->first_choice }}
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: end; vertical-align: start; width: 30%">
+                    Second Choice
+                </td>
+                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%">
+                    {{ $user->second_choice }}
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: end; vertical-align: start; width: 30%">
+                    Preferred Date of Enrollment:
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 30%">
+                    School Year: {{ $user->school_year }}
+                </td>
+                <td style="text-align: start; vertical-align: start; width: 30%">
+                    Semester: {{ $user->semester }}
+                </td>
+            </tr>
+        </table>
 
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-4">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->province }}</div>
-                    <div class="text text-muted text-center text-uppercase">Province</div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->municipality }}</div>
-                    <div class="text text-muted text-center text-uppercase">Municipality</div>
+        <div style="text-transform: uppercase; margin-top: 40px; font-weight: 600">section c: educational history</div>
+        <table style="width: 100%; padding: 0; margin: 0">
+            <tr>
+                <td colspan="4" style="text-align: start; vertical-align: start; width:100% ;font-size: 12px">
+                    Academic background: List of schools attended. For transferees, list the last school attended.
+                </td>
+            </tr>
+            <tr>
+                <td
+                    style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase; width: 20%">
+                    School attended
+                </td>
+                <td style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase;">
+                    name
+                </td>
+                <td style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase;">
+                    address
+                </td>
+                <td style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase;">
+                    inclusive date
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Elementary
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->elem_name }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->elem_address }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->elem_date }}
+                </td>
 
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->barangay }}</div>
-                    <div class="text text-muted text-center text-uppercase">Barangay</div>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Senior High
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->high_name }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->high_address }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->high_date }}
+                </td>
 
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-6 col-sm-7">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->email }}</div>
-                    <div class="text text-muted text-center text-uppercase">Email Address</div>
-                </div>
-                <div class="col-md-6 col-sm-5">
-                    <div class="text-center text-uppercase border-bottom">{{ $user->number }}</div>
-                    <div class="text text-muted text-center text-uppercase">Contact No.</div>
-                </div>
-            </div>
-            <div class="border-bottom border-dark mt-5">Section B:</div>
-            <div class="row my-2">
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->first_choice }}</div>
-                    <div class="text text-muted text-center text-uppercase">1st Choice</div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->second_choice }}</div>
-                    <div class="text text-muted text-center text-uppercase">2nd Choice</div>
-                </div>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Last School Attended
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->attended_name }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->attended_address }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->attended_date }}
+                </td>
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->school_year }}</div>
-                    <div class="text text-muted text-center text-uppercase">School Year</div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->semester }}</div>
-                    <div class="text text-muted text-center text-uppercase">Semester</div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->type }}</div>
-                    <div class="text text-muted text-center text-uppercase">Application Type</div>
-                </div>
-            </div>
+            </tr>
 
-            <div class="border-bottom border-dark mt-5 mb-2">Section C:</div>
-            <div class="container overflow-x-scroll mb-3" style="min-width: 550px">
-                <div class="row border p-2 main-bg text-center text-uppercase">
-                    <div class="col-2 text-uppercase border-end p-1">School Attended</div>
-                    <div class="col-4 text-uppercase border-end p-1">Name</div>
-                    <div class="col-4 text-uppercase border-end p-1">Address</div>
-                    <div class="col-2 text-uppercase p-1">Inclusive Date</div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-2 border-end p-1">Elementary</div>
-                    <div class="col-4 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->elem_name }}</div>
-                    </div>
-                    <div class="col-4 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->elem_address }}</div>
-                    </div>
-                    <div class="col-2 p-1">
-                        <div class="text-center text-uppercase">{{ $user->elem_date }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-2 border-end p-1">Senior High</div>
-                    <div class="col-4 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->high_name }}</div>
-                    </div>
-                    <div class="col-4 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->high_name }}</div>
-                    </div>
-                    <div class="col-2 p-1">
-                        <div class="text-center text-uppercase">{{ $user->high_name }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-2 border-end p-1">Last School Attended</div>
-                    <div class="col-4 border-end p-1">
-                        <div class="text-center text-uppercase text-dark">{{ $user->attended_name }}</div>
-                    </div>
-                    <div class="col-4 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->attended_name }}</div>
-                    </div>
-                    <div class="col-2 p-1">
-                        <div class="text-center text-uppercase">{{ $user->attended_name }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-2 mb-3">
-                <div class="col-sm-6 col-md-6">
-                    <div class="text-center text-uppercase">{{ $user->shs_from }}</div>
-                    <div class="text text-muted text-center text-uppercase">Type of SHS Graduated from:</div>
-                </div>
-                <div class="col-sm-6 col-md-6">
-                    <div class="text-center text-uppercase">{{ $user->shs_date }}</div>
-                    <div class="text text-muted text-center text-uppercase">Date of Graduation</div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->shs_average }}</div>
-                    <div class="text text-muted text-center text-uppercase">SHS Average Grade:</div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->lrn }}</div>
-                    <div class="text text-muted text-center text-uppercase">LRN</div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="text-center text-uppercase">{{ $user->first_time }}</div>
-                    <div class="text text-muted text-center text-uppercase">First Time to Enter College:</div>
-                </div>
-            </div>
+        </table>
 
-            <div class="border-bottom border-dark mt-5 mb-2">Section D:</div>
-            <div class="container overflow-x-scroll mb-3" style="min-width: 550px">
-                <div class="row border p-2 main-bg text-center text-uppercase">
-                    <div class="col-3 text-uppercase border-end p-1"></div>
-                    <div class="col-3 text-uppercase border-end p-1">father</div>
-                    <div class="col-3 text-uppercase border-end p-1">mother</div>
-                    <div class="col-3 text-uppercase p-1">guardian</div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Full Name</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_name }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_name }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_name }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Date of Birth</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_birth }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_birth }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_birth }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Highest Educational Attainment</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_attainment }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_attainment }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_attainment }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Occupation / Employment</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_occupation }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_occupation }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_occupation }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Company Name / Address</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_address }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_address }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_address }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Monthly Income</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_income }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_income }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_income }}</div>
-                    </div>
-                </div>
-                <div class="row border text-center text-uppercase p-2">
-                    <div class="col-3 border-end p-1">Contact No.</div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->f_contact }}</div>
-                    </div>
-                    <div class="col-3 border-end p-1">
-                        <div class="text-center text-uppercase">{{ $user->m_contact }}</div>
-                    </div>
-                    <div class="col-3 p-1">
-                        <div class="text-center text-uppercase">{{ $user->g_contact }}</div>
-                    </div>
-                </div>
+        <table style="width: 100%; padding: 0; margin: 0; margin-top: 40px">
+            <tr>
+                <td colspan="2" style="text-align: start; vertical-align: start ; font-weight: 400">
+                    Type of SHS Graduated from: {{ $user->shs_from }}
+                </td>
+                <td style="text-align: start; vertical-align: start ; font-weight: 400; width:40%">
+                    Date of Graduation: {{ $user->shs_date }}
+            </tr>
+            <tr>
+                <td style="text-align: start; vertical-align: start ; font-weight: 400">
+                    SHS Average Grade: {{ $user->shs_average }}
+                </td>
+                <td style="text-align: start; vertical-align: start ; font-weight: 400">
+                    LRN: {{ $user->lrn }}
+                </td>
+                <td style="text-align: start; vertical-align: start ; font-weight: 400; width:40px">
+                    First Time to Enter College? {{ $user->first_time }}
+            </tr>
+        </table>
 
-            </div>
-            <div class="mt-2 mb-2">
-                <div>
-                    I hereby affirm that all information supplied here is complete and accurate.
-                    Withholding or giving false information will make me ineligible for admission
-                    or be subjected to dismissal. I agree to abide by the policies, rules and and reulations
-                    of Pampanga State Agricultural University,
-                </div>
-            </div>
-            <div class="mx-auto mt-5 mb-5">
-                <div class="text-center text-uppercase fw-bold">ALAWI C. CANLAS, Ed. D.</div>
-                <div class="text-center text-uppercase">Director, Admission and Registration Services</div>
-            </div>
+        <div style="text-transform: uppercase; margin-top: 40px; font-weight: 600">section d: PARENTS’/GUARDIAN’S
+            BACKGROUND INFORMATION</div>
+        <table style="width: 100%; padding: 0; margin: 0">
+            <tr>
+                <td
+                    style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase; width: 20%">
+
+                </td>
+                <td style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase;">
+                    father
+                </td>
+                <td style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase;">
+                    mother
+                </td>
+                <td style="text-align: center; vertical-align: start; font-weight: 600;text-transform: uppercase;">
+                    guardian
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Full Name
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_name }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_name }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_name }}
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Date of Birth
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_birth }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_birth }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_birth }}
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Highest Educational Attainment
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_attainment }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_attainment }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_attainment }}
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Occupation/Employment
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_occupation }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_occupation }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_occupation }}
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Company Name/Address
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_address }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_address }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_address }}
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Monthly Income
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_income }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_income }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_income }}
+                </td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: start;">
+                    Contact No.
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->f_contact }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->m_contact }}
+                </td>
+                <td style="text-align: center; vertical-align: start;">
+                    {{ $user->g_contact }}
+                </td>
+
+            </tr>
+
+        </table>
+
+        <div style="text-transform: uppercase; margin-top: 40px; font-weight: 600">
+            section E: STUDENT DECLARATION
         </div>
+        <div style="margin-top: 20px;">
+            <span style="margin-left:5%"> I hereby</span> I hereby affirm that all information supplied here is
+            complete and accurate.
+            Withholding or giving false information will make me ineligible for admission or be
+            subjected to dismissal. I agree to abide by the policies, rules and regulations of
+            Pampanga State Agricultural University.
+        </div>
+
+        <table style="width: 100%; padding: 0; margin: 0; margin-top:50px; border:none">
+            <tr>
+                <td style="width: 50%; align-text:center; border:none">
+                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    </div>
+                    <div style="text-align:center">Signature</div>
+                </td>
+                <td style="width: 50%; align-text:center; border:none">
+                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    </div>
+                    <div style="text-align:center">Date</div>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%; padding: 0; margin: 0; margin-top:50px; border:none;">
+            <tr>
+                <td style="width: 25%; align-text:center; border:none">
+
+                </td>
+                <td style="width: 50%; align-text:center; border:none">
+                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    </div>
+                    <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
+                    <div style="text-align:center">Director, Admission and Registration Services</div>
+                </td>
+                <td style="width: 25%; align-text:center; border:none">
+
+                </td>
+            </tr>
+        </table>
 
     </div>
 
