@@ -233,7 +233,11 @@
         <table style="width: 100%; padding: 0; margin: 0; margin-top: 40px">
             <tr>
                 <td colspan="2" style="text-align: start; vertical-align: start ; font-weight: 400;">
-                    Type of SHS Graduated from: {{ $user->shs_from }}
+                    Type of SHS Graduated from: @if ($user->shs_from == 1 ) Private
+
+                    @else
+                        Public
+                    @endif
                 </td>
                 <td style="text-align: start; vertical-align: start ; font-weight: 400;">
                     Date of Graduation: {{ $user->shs_date }}
