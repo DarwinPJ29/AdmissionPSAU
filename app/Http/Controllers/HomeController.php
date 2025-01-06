@@ -78,12 +78,14 @@ class HomeController extends Controller
 
         $validated['password'] = Str::random(1) . rand(000000, 999999);
 
-        $userCount = User::all();
+        $userCount = User::where('role', 0)->get();
         $currentNumber = Count($userCount) == 0 ? 1 : Count($userCount);
         $applicantNo = sprintf('PSAU-APP-%04d', $currentNumber);
+        $student_no = sprintf('PSAU-STUD-%04d', $currentNumber);
 
         $user = new User();
         $user->applicant_no = $applicantNo;
+        $user->student_no = $$student_no;
         $user->email = $validated['email'];
         $user->password = Hash::make($validated['password']);
         $user->role = 0;
