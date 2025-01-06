@@ -82,7 +82,8 @@
                 </td>
                 <td style="text-align: start; vertical-align: start; padding: 0; ">
                     <!-- University Name -->
-                    <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px; padding-top: 20px">
+                    <div class="f-title"
+                        style="text-transform: uppercase;  font-weight: bold; margin-left:10px; padding-top: 20px">
                         Pampanga State Agricultural University
                     </div>
                     <!-- Office Name -->
@@ -102,10 +103,10 @@
 
         <p style="margin-bottom: 10px">Hi, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
         <p style="margin-bottom: 20px">Temporary Student No. <strong
-                style="text-transform: uppercase;">{{ $applicant_no }}</strong></p>
+                style="text-transform: uppercase;">{{ $student_no }}</strong></p>
 
         <p style="margin-bottom: 10px"><strong>Congratulations for being TEMPORARILY ADMITTED to the
-             {{-- {{ $program_name }} --}}
+                {{-- {{ $program_name }} --}}
                 program at Pampanga State Agricultural University (PSAU)! </strong>
         </p>
         <p style="margin-bottom: 20px; font-size: 10px">

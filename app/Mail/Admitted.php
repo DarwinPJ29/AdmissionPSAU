@@ -17,14 +17,16 @@ class Admitted extends Mailable
     public $id;
     public $applicant_name;
     public $applicant_no;
+    public $student_no;
     public $program_name;
 
-    public function __construct($id, $applicant_name, $applicant_no, $program_name)
+    public function __construct($id, $applicant_name, $applicant_no, $program_name, $student_no)
     {
         $this->applicant_name = $applicant_name;
         $this->applicant_no = $applicant_no;
         $this->program_name = $program_name;
         $this->id = $id;
+        $this->student_no = $student_no;
     }
 
     /**

@@ -62,9 +62,10 @@ class Report extends Component
             ->when($this->course !== '0', function ($query) {
                 $query->where('course.id', '=', $this->course);
             })
-            ->when(!empty($this->year), function ($query) {
-                $query->where('choice.school_year', '=', $this->year);
-            })
+            ->where('choice.school_year', $this->year)
+            // ->when(!empty($this->year), function ($query) {
+            //     $query->where('choice.school_year', '=', $this->year);
+            // })
             ->when(!empty($this->semester), function ($query) {
                 $query->where('choice.semester', '=', $this->semester);
             })

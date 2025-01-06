@@ -53,7 +53,7 @@
                     </div>
                     <!-- Office Name -->
                     <div class="f-tag" style="font-weight: 700; margin-left:10px">
-                        Office of Student Affairs and Services
+                        Office of Admissions and Registration
                     </div>
                     <!-- Border Line -->
                     <div class="border-line"
@@ -69,9 +69,15 @@
                 <td colspan="6" style="text-align: start; vertical-align: start; width:100% ;">
                     <div class="">Name:</div>
                     <div style="margin-left: 50px; padding:2px; text-transform:capitalize">
-                        @if ($user->prefix != null){{ $user->prefix }}@else @endif
+                        @if ($user->prefix != null)
+                            {{ $user->prefix }}
+                        @else
+                        @endif
                         {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
-                        @if ($user->suffix != null) {{ $user->suffix }} @else @endif
+                        @if ($user->suffix != null)
+                            {{ $user->suffix }}
+                        @else
+                        @endif
                     </div>
                 </td>
             </tr>
@@ -135,7 +141,8 @@
                 <td style="text-align: end; vertical-align: start; width: 30%">
                     First Choice
                 </td>
-                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%;text-transform:capitalize">
+                <td colspan="2"
+                    style="text-align: start; vertical-align: start; width: 70%;text-transform:capitalize">
                     {{ $user->first_choice }}
                 </td>
             </tr>
@@ -143,7 +150,8 @@
                 <td style="text-align: end; vertical-align: start; width: 30%;">
                     Second Choice
                 </td>
-                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%; text-transform:capitalize">
+                <td colspan="2"
+                    style="text-align: start; vertical-align: start; width: 70%; text-transform:capitalize">
                     {{ $user->second_choice }}
                 </td>
             </tr>
@@ -155,7 +163,7 @@
                     School Year: {{ $user->school_year }}
                 </td>
                 <td style="text-align: start; vertical-align: start; width: 30%">
-                    Semester: {{ $user->semester }}
+                    Semester: {{ $user->semester == 1 ? '1st' : '2nd' }}
                 </td>
             </tr>
         </table>
@@ -233,8 +241,8 @@
         <table style="width: 100%; padding: 0; margin: 0; margin-top: 40px">
             <tr>
                 <td colspan="2" style="text-align: start; vertical-align: start ; font-weight: 400;">
-                    Type of SHS Graduated from: @if ($user->shs_from == 1 ) Private
-
+                    Type of SHS Graduated from: @if ($user->shs_from == 1)
+                        Private
                     @else
                         Public
                     @endif
@@ -394,12 +402,14 @@
         <table style="width: 100%; padding: 0; margin: 0; margin-top:50px; border:none">
             <tr>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    <div
+                        style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
                     <div style="text-align:center">Signature</div>
                 </td>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    <div
+                        style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
                     <div style="text-align:center">Date</div>
                 </td>
@@ -411,7 +421,8 @@
 
                 </td>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    <div
+                        style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
                     <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
                     <div style="text-align:center">Director, Admission and Registration Services</div>

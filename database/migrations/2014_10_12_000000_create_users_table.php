@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('applicant_no')->nullable();
+            $table->string('student_no')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('activated')->default(0);

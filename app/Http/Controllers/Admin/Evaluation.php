@@ -98,6 +98,10 @@ class Evaluation extends Controller
         $result = Result::where('user_id', $request->id)->first();
         $choice = Choice::where('user_id', $request->id)->first();
 
+        $userCount = User::all();
+        $currentNumber = Count($userCount) == 0 ? 1 : Count($userCount);
+        $studentNo = sprintf('PSAU-STUD-%04d', $currentNumber);
+
         $courseId = '';
         if ($request->choice == 'first') {
             $courseId = $choice->first;
@@ -112,6 +116,7 @@ class Evaluation extends Controller
 
         $user = User::find($request->input('id'));
         $user->course_admitted_id = $courseId;
+        $user->student_no = $studentNo;
         $user->status = Status::Admitted;
         $user->update();
 
@@ -120,7 +125,7 @@ class Evaluation extends Controller
         $courses = Courses::find($result->course_id);
         $labelCourse = $courses->title . ' (' . $courses->acronym . ')';
 
-        Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse));
+        Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse, $user->student_no));
         return redirect()->back()->with('success', 'Successfully admitted');
     }
 

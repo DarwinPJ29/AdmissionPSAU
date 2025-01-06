@@ -3,7 +3,7 @@
 
 <p style="margin-bottom: 10px">Hi, <strong style="text-transform: uppercase;">{{ $applicant_name }}</strong></p>
 <p style="margin-bottom: 20px">Temporary Student No. <strong
-        style="text-transform: uppercase;">{{ $applicant_no }}</strong></p>
+        style="text-transform: uppercase;">{{ $student_no }}</strong></p>
 
 <p style="margin-bottom: 10px"><strong>Congratulations for being TEMPORARILY ADMITTED to the {{ $program_name }}
         program at Pampanga State Agricultural University (PSAU)! </strong>

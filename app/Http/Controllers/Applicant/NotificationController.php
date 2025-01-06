@@ -132,7 +132,7 @@ class NotificationController extends Controller
         $courses = Courses::find($result->course_id);
         $labelCourse = $courses->title . ' (' . $courses->acronym . ')';
 
-        Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse));
+        Mail::to($user->email)->send(new Admitted($user->id, $applicant_name, $user->applicant_no, $labelCourse, $user->student_no));
         return  redirect()->back()->with('success', 'Success');
     }
 
@@ -210,6 +210,7 @@ class NotificationController extends Controller
 
         $pdf = Pdf::loadView('applicant.generate_report_result_of_evaluation', [
             'applicant_name' => $applicant_name,
+            'student_no' => $user->student_no,
             'applicant_no' => $user->applicant_no,
             'program_name' => $labelCourse,
             'id' => $id

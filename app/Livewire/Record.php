@@ -60,7 +60,7 @@ class Record extends Component
 
     public function generate(string $id)
     {
-        $user = User::select('id', 'email', 'applicant_no')->where('id', $id)->first();
+        $user = User::select('id', 'email', 'applicant_no', 'student_no')->where('id', $id)->first();
         $info = Information::where('user_id', $user['id'])->first();
         $user['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
         // SECA
@@ -89,7 +89,7 @@ class Record extends Component
 
         // SECB
         $currentYear = date('Y');
-        $choice = Choice::where('user_id', $user['id'])->where('school_year', $currentYear . '-' . ($currentYear + 1))->first();
+        $choice = Choice::where('user_id', $user['id'])->where('school_year', $this->year)->first();
 
         if ($choice != null) {
             $course1 = Courses::find($choice->first);
@@ -106,7 +106,7 @@ class Record extends Component
         if ($educ != null) {
             $user['elem_name'] = $educ->elem_name;
             $user['elem_address'] = $educ->elem_address;
-            $user['elem _date'] = $educ->elem_date;
+            $user['elem_date'] = $educ->elem_date;
             $user['high_name'] = $educ->high_name;
             $user['high_address'] = $educ->high_address;
             $user['high_date'] = $educ->high_date;
