@@ -68,7 +68,7 @@
             <tr>
                 <td colspan="6" style="text-align: start; vertical-align: start; width:100% ;">
                     <div class="">Name:</div>
-                    <div style="margin-left: 50px; padding:2px">
+                    <div style="margin-left: 50px; padding:2px; text-transform:capitalize">
                         @if ($user->prefix != null){{ $user->prefix }}@else @endif
                         {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
                         @if ($user->suffix != null) {{ $user->suffix }} @else @endif
@@ -78,45 +78,45 @@
             <tr>
                 <td style="text-align: start; vertical-align: start; width: 10%">
                     <div class="">Sex:</div>
-                    <div style="margin-left: 50px; padding:2px">{{ $user->gender }} </div>
+                    <div style=" padding:2px; text-transform:capitalize">{{ $user->gender }} </div>
                 </td>
                 <td style="text-align: start; vertical-align: start; width: 20%">
                     <div class="">Date of Birth:</div>
-                    <div style="margin-left: 50px; padding:2px">{{ $user->birth_date }}</div>
+                    <div style=" padding:2px;  text-transform:capitalize">{{ $user->birth_date }}</div>
                 </td>
                 <td style="text-align: start; vertical-align: start; width: 10%">
                     <div class="">Age:</div>
-                    <div style="margin-left: 50px; padding:2px">{{ $user->age }}</div>
+                    <div style=" padding:2px">{{ $user->age }}</div>
                 </td>
                 <td style="text-align: start; vertical-align: start; width: 20%">
                     <div class="">Place of Birth:</div>
-                    <div style="margin-left: 50px; padding:2px">{{ $user->place_birth }}</div>
+                    <div style=" padding:2px;  text-transform:capitalize">{{ $user->place_birth }}</div>
                 </td>
                 <td style="text-align: start; vertical-align: start; width: 20%">
                     <div class="">Citizenship:</div>
-                    <div style="margin-left: 50px; padding:2px">{{ $user->citizenship }}</div>
+                    <div style=" padding:2px;  text-transform:capitalize">{{ $user->citizenship }}</div>
                 </td>
                 <td style="text-align: start; vertical-align: start; width: 20%">
                     <div class="">Religion:</div>
-                    <div style="margin-left: 50px; padding:2px">{{ $user->religion }}</div>
+                    <div style=" padding:2px;  text-transform:capitalize">{{ $user->religion }}</div>
                 </td>
             </tr>
             <tr>
                 <td colspan="3" style="text-align: start; vertical-align: start;">
                     <div class="">Home Address:</div>
-                    <div style="margin-left: 50px; padding:2px">
+                    <div style="padding:2px;  text-transform:capitalize">
                         {{ $user->barangay }}, {{ $user->municipality }}, {{ $user->province }}
                     </div>
                 </td>
                 <td style="text-align: start; vertical-align: start;">
                     <div class="">Cell Phone No.:</div>
-                    <div style="margin-left: 50px; padding:2px">
+                    <div style=" padding:2px">
                         {{ $user->number }}
                     </div>
                 </td>
                 <td colspan="2" style="text-align: start; vertical-align: start;">
                     <div class="">Email Address:</div>
-                    <div style="margin-left: 50px; padding:2px">
+                    <div style="padding:2px">
                         {{ $user->email }}
                     </div>
                 </td>
@@ -135,15 +135,15 @@
                 <td style="text-align: end; vertical-align: start; width: 30%">
                     First Choice
                 </td>
-                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%">
+                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%;text-transform:capitalize">
                     {{ $user->first_choice }}
                 </td>
             </tr>
             <tr>
-                <td style="text-align: end; vertical-align: start; width: 30%">
+                <td style="text-align: end; vertical-align: start; width: 30%;">
                     Second Choice
                 </td>
-                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%">
+                <td colspan="2" style="text-align: start; vertical-align: start; width: 70%; text-transform:capitalize">
                     {{ $user->second_choice }}
                 </td>
             </tr>
@@ -186,13 +186,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Elementary
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->elem_name }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->elem_address }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->elem_date }}
                 </td>
 
@@ -201,13 +201,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Senior High
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->high_name }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->high_address }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->high_date }}
                 </td>
 
@@ -216,13 +216,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Last School Attended
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->attended_name }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->attended_address }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->attended_date }}
                 </td>
 
@@ -232,25 +232,26 @@
 
         <table style="width: 100%; padding: 0; margin: 0; margin-top: 40px">
             <tr>
-                <td colspan="2" style="text-align: start; vertical-align: start ; font-weight: 400">
+                <td colspan="2" style="text-align: start; vertical-align: start ; font-weight: 400;">
                     Type of SHS Graduated from: {{ $user->shs_from }}
                 </td>
-                <td style="text-align: start; vertical-align: start ; font-weight: 400; width:40%">
+                <td style="text-align: start; vertical-align: start ; font-weight: 400;">
                     Date of Graduation: {{ $user->shs_date }}
+                </td>
             </tr>
             <tr>
-                <td style="text-align: start; vertical-align: start ; font-weight: 400">
+                <td style="text-align: start; vertical-align: start ; font-weight: 400;">
                     SHS Average Grade: {{ $user->shs_average }}
                 </td>
-                <td style="text-align: start; vertical-align: start ; font-weight: 400">
+                <td style="text-align: start; vertical-align: start ; font-weight: 400;">
                     LRN: {{ $user->lrn }}
                 </td>
-                <td style="text-align: start; vertical-align: start ; font-weight: 400; width:40px">
+                <td style="text-align: start; vertical-align: start ; font-weight: 400;  text-transform:capitalize">
                     First Time to Enter College? {{ $user->first_time }}
             </tr>
         </table>
 
-        <div style="text-transform: uppercase; margin-top: 40px; font-weight: 600">section d: PARENTS’/GUARDIAN’S
+        <div style="text-transform: uppercase; margin-top: 50px; font-weight: 600">section d: PARENTS’/GUARDIAN’S
             BACKGROUND INFORMATION</div>
         <table style="width: 100%; padding: 0; margin: 0">
             <tr>
@@ -272,13 +273,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Full Name
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->f_name }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->m_name }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->g_name }}
                 </td>
 
@@ -287,13 +288,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Date of Birth
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->f_birth }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->m_birth }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->g_birth }}
                 </td>
 
@@ -302,13 +303,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Highest Educational Attainment
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->f_attainment }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->m_attainment }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->g_attainment }}
                 </td>
 
@@ -317,13 +318,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Occupation/Employment
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->f_occupation }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->m_occupation }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start;  text-transform:capitalize">
                     {{ $user->g_occupation }}
                 </td>
 
@@ -332,13 +333,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Company Name/Address
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->f_address }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->m_address }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->g_address }}
                 </td>
 
@@ -347,13 +348,13 @@
                 <td style="text-align: center; vertical-align: start;">
                     Monthly Income
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->f_income }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->m_income }}
                 </td>
-                <td style="text-align: center; vertical-align: start;">
+                <td style="text-align: center; vertical-align: start; text-transform:capitalize">
                     {{ $user->g_income }}
                 </td>
 

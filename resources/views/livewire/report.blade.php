@@ -90,8 +90,8 @@
                     <tr>
                         <td>{{ $data->applicant_no }}</td>
                         <td>{{ $data->email }}</td>
-                        <td>{{ $data->name }}</td>
-                        <td>{{ $data->title . ' (' . $data->acronym . ')' }}</td>
+                        <td class="text-capitalize">{{ $data->name }}</td>
+                        <td style="text-transform: capitalize">{{ $data->title . ' (' . $data->acronym . ')' }}</td>
                         <td>{{ $typeLabels[$data->type] ?? 'Unknown' }}</td>
                         <td>{{ $statusLabels[$data->status] ?? 'Unknown' }}</td>
                     </tr>

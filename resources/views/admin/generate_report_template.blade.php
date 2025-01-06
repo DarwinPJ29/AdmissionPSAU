@@ -104,7 +104,7 @@
                     <th>
                         <tr>
                             <td class="f-tag"
-                                style=" padding: 2px; text-transform:uppercase: font-weight:600; text-align:center"
+                                style=" padding: 2px; text-transform:uppercase; font-weight:600; text-align:center"
                                 width="100%">
                                 {{ $headers[0] }}
                             </td>
@@ -112,58 +112,51 @@
                     </th>
                 </thead>
             </table>
-            <table style="padding-top: 20px">
+            <table style="padding-top: 20px; width: 100%">
                 <tr style="width: 100vw">
-                    <td style="padding: 2px; width: 50vw;">
-                        Applicant type: <strong class="ms-2">
+                    <td style="padding: 2px; width: 50%;">
+                        Applicant type:
                             {{ $headers[2] }}
-                        </strong>
                     </td>
-                    <td style="padding: 2px; width: 50vw;">
-                        Program selected: <strong class="ms-2">
+                    <td style="padding: 2px; width: 50%;">
+                        Program selected:
                             {{ $headers[3] }}
-                        </strong>
                     </td>
                 </tr>
 
                 <tr>
-                    <td style="padding: 2px; width: 50vw;">
-                        Status: <strong class="ms-2">
+                    <td style="padding: 2px; width: 50%;">
+                        Status:
                             {{ $headers[4] }}
-                        </strong>
                     </td>
-                    <td style="padding: 2px; width: 50vw;">
-                        Generated Date: <strong class="ms-2">
+                    <td style="padding: 2px; width: 50%;">
+                        Generated Date:
                             {{ $headers[1] }}
-                        </strong>
                     </td>
                 </tr>
 
                 <tr>
-                    <td style="padding: 2px; width: 50vw;">
-                        School Year: <strong class="ms-2">
+                    <td style="padding: 2px; width: 50%;">
+                        School Year:
                             {{ $headers[5] }}
-                        </strong>
                     </td>
-                    <td style="padding: 2px; width: 50vw;">
-                        Semester: <strong class="ms-2">
+                    <td style="padding: 2px; width: 50%;">
+                        Semester:
                             {{ $headers[6] }}
-                        </strong>
                     </td>
-
                 </tr>
             </table>
 
             <table style="width: 100%; border-collapse: collapse; gap:0; margin-top: 10px">
                 <thead>
                     <tr>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
+                        <td style=" padding: 5px; border: 1px solid black; font-weight:600">
                             Applicant No.
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
+                        <td style=" padding: 5px; border: 1px solid black; font-weight:600">
                             Email
                         </td>
-                        <td style=" padding: 2px; border: 1px solid black; font-weight:600">
+                        <td style=" padding: 5px; border: 1px solid black; font-weight:600">
                             Name
                         </td>
                     </tr>
@@ -186,13 +179,13 @@
                     @endphp
                     @foreach ($datas as $data)
                         <tr>
-                            <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
+                            <td style=" padding: 5px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->applicant_no }}
                             </td>
-                            <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
+                            <td style=" padding: 5px; border: 1px solid black; fonst-size:12px">
                                 {{ $data->email }}
                             </td>
-                            <td style=" padding: 2px; border: 1px solid black; fonst-size:12px">
+                            <td style=" padding: 5px; border: 1px solid black; fonst-size:12px; text-transform:capitalize">
                                 {{ $data->name }}
                             </td>
                         </tr>

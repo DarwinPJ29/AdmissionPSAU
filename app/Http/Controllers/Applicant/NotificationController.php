@@ -144,11 +144,13 @@ class NotificationController extends Controller
 
         $info = Information::where('user_id', $user['id'])->first();
         if ($info != null) {
+            $user['applicant_no'] = $info->applicant_no;
             $user['first_name'] = $info->first_name;
             $user['middle_name'] = $info->middle_name;
             $user['last_name'] = $info->last_name;
             $user['gender'] = $info->gender;
             $user['birth_date'] = $info->birth_date;
+            $user['number'] = $info->number;
             $user['place_birth'] = $info->birth_place;
             $prov = Province::find($info->province_id);
             $user['province'] = $prov->name;

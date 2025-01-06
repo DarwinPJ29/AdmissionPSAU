@@ -16,13 +16,11 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col-1">Email</th>
-                        <th class="col-1">Prefix</th>
-                        <th class="col-1">First Name</th>
-                        <th class="col-1">Middle Name</th>
-                        <th class="col-1">Last Name</th>
+                        <th class="col-2">Email</th>
+                        <th class="col-1 text-uppercase">Prefix</th>
+                        <th class="col-3 text-uppercase">Full Name</th>
                         <th class="col-1">Suffix</th>
-                        <th class="col-1">Role</th>
+                        <th class="col-2">Role</th>
                         <th class="col-1">Status</th>
                         <th class="col-2">Action</th>
                     </tr>
@@ -32,16 +30,15 @@
                         <tr>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->prefix }}</td>
-                            <td>{{ $user->first_name }}</td>
-                            <td>{{ $user->middle_name }}</td>
-                            <td>{{ $user->last_name }}</td>
+                            <td class="text-capitalize">{{ $user->first_name }} {{ $user->middle_name }}, {{ $user->last_name }}</td>
                             <td>{{ $user->suffix }}</td>
                             <td>
                                 {{ $user->role == 1 ? 'Admin' : ($user->role == 2 ? 'Proctor' : 'Admitting Personnel') }}
                             </td>
                             <td>{{ $user->activated == 1 ? 'Active' : 'Deactivate' }}</td>
-                            <td>
-                                @if ($user->role != 3)
+                            <td class="">
+                                <div class="p-1">
+                                    @if ($user->role != 3)
                                     <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
                                         data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
                                             class="fa-solid fa-edit me-1"></i>Update
@@ -52,12 +49,14 @@
                                             class="fa-solid fa-edit me-1"></i>Update
                                     </div>
                                 @endif
-
-                                <a href="{{ route('account.activate', $user->id) }}" style="border-radius: 20px"
-                                    class="btn  btn-sm  {{ $user->activated ? 'btn-warning' : 'btn-success' }}">
-                                    <i class="fas {{ $user->activated ? 'fa-toggle-off' : 'fa-toggle-on' }} "></i>
-                                    {{ $user->activated ? 'Deactivate' : 'Activate' }}
-                                </a>
+                                </div>
+                                <div class="p-1">
+                                    <a href="{{ route('account.activate', $user->id) }}"
+                                        class="btn  btn-sm btn-shadow  {{ $user->activated ? 'btn-warning' : 'btn-success' }}">
+                                        <i class="fas {{ $user->activated ? 'fa-toggle-off' : 'fa-toggle-on' }} "></i>
+                                        {{ $user->activated ? 'Deactivate' : 'Activate' }}
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                         @include('modals.add_account_modal')
