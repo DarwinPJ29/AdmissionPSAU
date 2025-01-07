@@ -19,49 +19,6 @@
             margin-top: 20px;
             padding: 0 20px 50px 30px;
         }
-
-        @media only screen and (max-width: 431px) {
-            .f-title {
-                font-size: 14px !important;
-            }
-
-            .f-tag {
-                font-size: 12px !important;
-            }
-
-            .f-text {
-                font-size: 12px;
-            }
-        }
-
-        @media only screen and (max-width: 780px) {
-            .f-title {
-                font-size: 18px;
-            }
-
-            .f-tag {
-                font-size: 16px !important;
-            }
-
-            .f-text {
-                font-size: 12px;
-            }
-        }
-
-        @media only screen and (min-width: 781px) {
-            .f-title {
-                font-size: 20px;
-            }
-
-            .f-tag {
-                font-size: 18px !important;
-            }
-
-            .f-text {
-                font-size: 12px;
-            }
-
-        }
     </style>
 </head>
 
@@ -77,7 +34,7 @@
                 </td>
                 <td style="text-align: start; vertical-align: start; padding: 0;">
                     <!-- University Name -->
-                    <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px; s">
+                    <div class="f-title" style="text-transform: uppercase;  font-weight: bold; margin-left:10px; padding-top:20px">
                         Pampanga State Agricultural University
                     </div>
                     <!-- Office Name -->
@@ -107,7 +64,7 @@
                     <td style="padding: 2px; font-size: 12px;" width="20%">Student No.:</td>
                     <td style="padding: 2px;" width="100%">
                         <div class="" style="border-bottom: 1px solid black;  font-size: 12px;" width="100%">
-                            {{ $user['student_no'] }}</div>
+                             {{ $user['applicant_no'] }}</div>
                     </td>
                     <td style="width: 10%; padding: 5px;" rowspan="3" valign="top">
                         <div
@@ -318,7 +275,7 @@
                     <td style=" padding: 2px; font-size: 12px">
                         <div
                             style="display: inline-block; border-bottom: 1px solid black; width: 100%; text-transform: uppercase">
-                            {{ $user['f_address'] }}
+                            {{ $user['m_address'] }}
                         </div>
                     </td>
                     <td style=" padding: 2px; font-size: 12px" width="13%">Contact No: </td>

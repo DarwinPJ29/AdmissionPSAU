@@ -144,7 +144,7 @@ class NotificationController extends Controller
 
         $info = Information::where('user_id', $user['id'])->first();
         if ($info != null) {
-            $user['applicant_no'] = $info->applicant_no;
+            $user['applicant_no'] = $user['applicant_no'];
             $user['first_name'] = $info->first_name;
             $user['middle_name'] = $info->middle_name;
             $user['last_name'] = $info->last_name;
@@ -159,7 +159,6 @@ class NotificationController extends Controller
             $bar = Barangay::find($info->barangay_id);
             $user['barangay'] = $bar->name;
         }
-
         // SECD
         $guar = Guardian::where('user_id', $user['id'])->first();
         if ($guar != null) {
@@ -172,6 +171,7 @@ class NotificationController extends Controller
             $user['m_address'] = $guar->m_address;
             $user['g_address'] = $guar->g_address;
             $user['m_contact'] = $guar->m_contact;
+            $user['g_contact'] = $guar->g_contact;
         }
 
         $user['course'] = Courses::where('id', $user->course_admitted_id)->value('title');

@@ -9,7 +9,7 @@
             <div class="modal-body border shadow">
                 <form action="{{ route('exam') }}" method="post">
                     @csrf
-                    <h3 class="text-center mb-2">{{ $user->name }}</h3>
+                    <h3 class="text-center mb-2 text-capitalize">{{ $user->name }}</h3>
                     <input type="text" value="{{ $user->id }}" name="id" hidden>
                     <div class="row">
                         <label for="score"><span class="text-muted">Stanine: </span><b>1-9</b></label>
