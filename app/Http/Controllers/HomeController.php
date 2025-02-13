@@ -111,4 +111,9 @@ class HomeController extends Controller
 
         return redirect()->route('notif');
     }
+
+    public function dataPrivacy()
+    {
+        return view('landingpage.dataPrivacy');
+    }
 }

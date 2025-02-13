@@ -28,6 +28,7 @@
                         policy,
                     </label>
                 </div>
+                <a class="text-end mx-2" href="{{ route('dataPrivacys') }}">View Data Privacy</a>
                 <div class="modal-footer">
                     <a href="{{ route('index') }}" class="btn btn-secondary">Close</a>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Agree</button>

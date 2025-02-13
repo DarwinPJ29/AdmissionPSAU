@@ -85,6 +85,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::any('/student/applyNow', 'ApplyNow')->name('ApplyNow')->middleware('guest');
     Route::any('/student/check-email', 'notif')->name('notif');
     Route::any('/sample', 'homes')->name('homes');
+    Route::get('/data-privacy-content', 'dataPrivacy')->name('dataPrivacys');
 });
 
 // Authentications
