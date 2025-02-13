@@ -8,6 +8,7 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
+                        <th class="col-2">Date Submitted</th>
                         <th class="col-3">Applicant No.</th>
                         <th class="col-4">Name</th>
                         <th class="col-4">Email</th>
@@ -17,6 +18,7 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
+                            <td>{{ $user->date_submitted }}</td>
                             <td>{{ $user->applicant_no }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>

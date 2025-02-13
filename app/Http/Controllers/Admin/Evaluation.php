@@ -85,7 +85,12 @@ class Evaluation extends Controller
                         $reqValArray['file'] = $reqSubmitted->file;
                         $reqValArray['file_name'] = $reqSubmitted->file_name;
                         $reqValArray['status'] = true;
+                    } else {
+                        $reqValArray['file'] = "";
+                        $reqValArray['file_name'] = "";
+                        $reqValArray['status'] = false;
                     }
+
 
                     $requirementsArray[$key] = $reqValArray;
                 }

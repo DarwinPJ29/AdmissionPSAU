@@ -27,7 +27,7 @@ class Submitted extends Controller
 {
     public function Submitted()
     {
-        $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Review->value)->OrderBy('created_at', 'asc')->get();
+        $users = User::select('id', 'email', 'applicant_no', 'date_submitted')->where('status', Status::Review->value)->OrderBy('created_at', 'asc')->get();
         foreach ($users as $value) {
             $info = Information::where('user_id', $value['id'])->first();
             $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;

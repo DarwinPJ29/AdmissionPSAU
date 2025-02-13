@@ -26,7 +26,8 @@
                         <div class="">
                             <i class="fa-solid fa-arrows-spin rotate text-center p-4 text-warning fs-3"></i>
                         </div>
-                        <div class="d-flex flex-column justify-content-center text-success fw-semibold"> Please wait for your evaluation</div>
+                        <div class="d-flex flex-column justify-content-center text-success fw-semibold"> Please wait 10-15
+                            days for the evaluation of your application</div>
                     </div>
                 </div>
             </div>

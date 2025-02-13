@@ -24,7 +24,7 @@
                     <a href="{{ route('Submitted') }}"
                         class="nav-link ps-2  {{ Request::segment(1) === 'submitted' ? 'activeDashboard shadow' : 'text-dark' }}"><i
                             class="fa-solid fa-ticket-simple me-2"></i>
-                        Submitted</a>
+                        Applicant List</a>
                 </li>
                 <li class="nav-item rounded mb-1 {{ auth()->user()->role == 2 ? 'd-block' : 'd-none' }}">
                     <a href="{{ route('admin.sched') }}"

@@ -424,8 +424,8 @@
                     <div
                         style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
-                    <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
-                    <div style="text-align:center">Director, Admission and Registration Services</div>
+                    {{-- <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
+                    <div style="text-align:center">Director, Admission and Registration Services</div> --}}
                 </td>
                 <td style="width: 25%; align-text:center; border:none">
 

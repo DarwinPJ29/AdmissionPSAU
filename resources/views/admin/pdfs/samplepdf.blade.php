@@ -69,9 +69,15 @@
                 <td colspan="6" style="text-align: start; vertical-align: start; width:100% ;">
                     <div class="">Name:</div>
                     <div style="margin-left: 50px; padding:2px">
-                        @if ($user->prefix != null){{ $user->prefix }}@else @endif
+                        @if ($user->prefix != null)
+                            {{ $user->prefix }}
+                        @else
+                        @endif
                         {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
-                        @if ($user->suffix != null) {{ $user->suffix }} @else @endif
+                        @if ($user->suffix != null)
+                            {{ $user->suffix }}
+                        @else
+                        @endif
                     </div>
                 </td>
             </tr>
@@ -389,12 +395,14 @@
         <table style="width: 100%; padding: 0; margin: 0; margin-top:50px; border:none">
             <tr>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    <div
+                        style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
                     <div style="text-align:center">Signature</div>
                 </td>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    <div
+                        style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
                     <div style="text-align:center">Date</div>
                 </td>
@@ -406,10 +414,11 @@
 
                 </td>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
+                    <div
+                        style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
                     </div>
-                    <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
-                    <div style="text-align:center">Director, Admission and Registration Services</div>
+                    {{-- <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
+                    <div style="text-align:center">Director, Admission and Registration Services</div> --}}
                 </td>
                 <td style="width: 25%; align-text:center; border:none">
 

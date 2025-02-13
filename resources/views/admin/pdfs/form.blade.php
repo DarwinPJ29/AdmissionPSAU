@@ -308,8 +308,8 @@
                 </div>
             </div>
             <div class="mx-auto mt-5 mb-5">
-                <div class="text-center text-uppercase fw-bold">ALAWI C. CANLAS, Ed. D.</div>
-                <div class="text-center text-uppercase">Director, Admission and Registration Services</div>
+                {{-- <div class="text-center text-uppercase fw-bold">ALAWI C. CANLAS, Ed. D.</div>
+                <div class="text-center text-uppercase">Director, Admission and Registration Services</div> --}}
             </div>
         </div>
     </div>

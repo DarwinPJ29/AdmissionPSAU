@@ -54,6 +54,6 @@ class Schedule extends Controller
         $applicant_name = $user_information->first_name . " " . $user_information->middle_name . " " . $user_information->last_name;
 
         Mail::to($user->email)->send(new Sched($user->applicant_no, $applicant_name, $date . ' ' . $hour, $request->input('room')));
-        return redirect()->back()->with('success', 'Schdule for exam has been successfully assigned');
+        return redirect()->back()->with('success', 'Schedule for exam has been successfully assigned');
     }
 }

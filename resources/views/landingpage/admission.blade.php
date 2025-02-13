@@ -76,15 +76,6 @@
                                                 email</span>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="d-flex gap-3">
-                                            <div class="d-flex  flex-column justify-content-center">
-                                                <i class="fa-regular fa-circle-dot"></i>
-                                            </div>
-                                            <span>Enter a valid email address in order to receive notifications about your
-                                                application for admission</span>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +159,7 @@
                         <a href="{{ route('index') }}" class="na-link">
                             <div class="btn btn-secondary shadow"></i>Cancel</div>
                         </a>
-                        <button type="submit" class="btn btn-warning shadow">submit</button>
+                        <button type="submit" class="btn btn-warning shadow">Submit</button>
                         </a>
                     </div>
                 </form>
