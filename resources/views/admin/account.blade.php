@@ -2,7 +2,7 @@
 @section('page-title', 'Programs')
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class=" mt-3 d-flex justify-content-end gap-1">
 
             <div class="btn shadow btn-warning" id="addAccountBtn" data-bs-toggle="modal" data-bs-target="#account"><i
@@ -16,13 +16,13 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col-2">Email</th>
-                        <th class="col-1 text-uppercase">Prefix</th>
-                        <th class="col-3 text-uppercase">Full Name</th>
-                        <th class="col-1">Suffix</th>
-                        <th class="col-2">Role</th>
-                        <th class="col-1">Status</th>
-                        <th class="col-2">Action</th>
+                        <th class="col">Email</th>
+                        <th class="col text-uppercase">Prefix</th>
+                        <th class="col text-uppercase">Full Name</th>
+                        <th class="col">Suffix</th>
+                        <th class="col">Role</th>
+                        <th class="col">Status</th>
+                        <th class="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,25 +30,27 @@
                         <tr>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->prefix }}</td>
-                            <td class="text-capitalize">{{ $user->first_name }} {{ $user->middle_name }}, {{ $user->last_name }}</td>
+                            <td class="text-capitalize">{{ $user->first_name }} {{ $user->middle_name }},
+                                {{ $user->last_name }}</td>
                             <td>{{ $user->suffix }}</td>
                             <td>
                                 {{ $user->role == 1 ? 'Admin' : ($user->role == 2 ? 'Proctor' : 'Admitting Personnel') }}
                             </td>
                             <td>{{ $user->activated == 1 ? 'Active' : 'Deactivate' }}</td>
-                            <td class="">
+                            <td class="d-flex">
                                 <div class="p-1">
                                     @if ($user->role != 3)
-                                    <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
-                                        data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
-                                            class="fa-solid fa-edit me-1"></i>Update
-                                    </div>
-                                @else
-                                    <div class="btn shadow btn-sm btn-secondary" id="editEvaluatorBtn{{ $user->id }}"
-                                        data-bs-toggle="modal" data-bs-target="#evaluatorEdit{{ $user->id }}"><i
-                                            class="fa-solid fa-edit me-1"></i>Update
-                                    </div>
-                                @endif
+                                        <div class="btn shadow btn-sm btn-secondary" id="editAccountBtn{{ $user->id }}"
+                                            data-bs-toggle="modal" data-bs-target="#accountEdit{{ $user->id }}"><i
+                                                class="fa-solid fa-edit me-1"></i>Update
+                                        </div>
+                                    @else
+                                        <div class="btn shadow btn-sm btn-secondary"
+                                            id="editEvaluatorBtn{{ $user->id }}" data-bs-toggle="modal"
+                                            data-bs-target="#evaluatorEdit{{ $user->id }}"><i
+                                                class="fa-solid fa-edit me-1"></i>Update
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="p-1">
                                     <a href="{{ route('account.activate', $user->id) }}"

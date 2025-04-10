@@ -2,16 +2,18 @@
 @section('page-title', 'Admission')
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="border rounded p-3 shadow mt-3 ">
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                     <tr>
-                        <th class="col-2">Date Submitted</th>
-                        <th class="col-3">Applicant No.</th>
-                        <th class="col-4">Name</th>
-                        <th class="col-4">Email</th>
+                        <th class="col-1">Date Submitted</th>
+                        <th class="col-2">Applicant No.</th>
+                        <th class="col">Name</th>
+                        <th class="col">Email</th>
+                        <th class="col">Type</th>
+                        <th class="col">Program</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>
@@ -22,6 +24,12 @@
                             <td>{{ $user->applicant_no }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->applicant_typeName }}</td>
+                            <td><span class="text-muted">1st Choice:</span> <span
+                                    class="fw-bold">{{ $user->first_choice }}</span> <br>
+                                <span class="text-muted">2nd Choice:</span> <span
+                                    class="fw-bold">{{ $user->second_choice }}</span>
+                            </td>
                             <td>
                                 <div class="dropdown text-center">
                                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"

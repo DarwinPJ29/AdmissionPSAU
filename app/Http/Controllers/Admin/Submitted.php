@@ -69,7 +69,6 @@ class Submitted extends Controller
                 $value['semester'] = $choice->semester;
                 $value['applicant_type'] = $choice->type;
             }
-
             // SECC
             $educ = Educational::where('user_id', $value['id'])->first();
             if ($educ != null) {
@@ -160,6 +159,25 @@ class Submitted extends Controller
             }
 
             $value['requirements'] = $requirementsArray;
+            switch ($value['applicant_type']) {
+                case 1:
+                    $value['applicant_typeName'] = "Doctoral";
+                    break;
+                case 2:
+                    $value['applicant_typeName'] = "Masteral";
+                    break;
+                case 3:
+                    $value['applicant_typeName'] = "Second Courser";
+                    break;
+                case 4:
+                    $value['applicant_typeName'] = "Transferee";
+                    break;
+                case 5:
+                    $value['applicant_typeName'] = "Freshmen";
+                    break;
+                default:
+                    $value['applicant_typeName'] = "Unknown";
+            }
         }
         return view('admin.admission', compact('users'));
     }

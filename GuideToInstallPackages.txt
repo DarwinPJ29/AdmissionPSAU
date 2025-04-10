@@ -14,3 +14,20 @@ REPORT
 
 SETTING IN XAMP
 Find the php.ini then search for gd and remove the semicolon
+
+
+SSH
+cd /home/u809293083/domains/admission-psau.com/public_html
+ls -l public/storage
+lrwxrwxrwx 1 user user 63 Jan 7 12:19 public/storage -> /home/u809293083/domains/admission-psau.com/public_html/storage/app/public
+rm -rf public/storage
+ln -s /home/u809293083/domains/admission-psau.com/public_html/storage/app/public public/storage
+
+rm -rf public/storage
+ln -s /home/u809293083/domains/admission-psau.com/public_html/storage/app/public public/storage
+
+
+php artisan config:clear
+php artisan cache:clear
+php artisan config:cache
+php artisan route:cache
