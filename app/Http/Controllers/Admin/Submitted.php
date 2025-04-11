@@ -74,7 +74,7 @@ class Submitted extends Controller
             if ($educ != null) {
                 $value['elem_name'] = $educ->elem_name;
                 $value['elem_address'] = $educ->elem_address;
-                $value['elem _date'] = $educ->elem_date;
+                $value['elem_date'] = $educ->elem_date;
                 $value['high_name'] = $educ->high_name;
                 $value['high_address'] = $educ->high_address;
                 $value['high_date'] = $educ->high_date;

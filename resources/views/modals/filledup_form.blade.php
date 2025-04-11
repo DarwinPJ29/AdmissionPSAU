@@ -159,7 +159,7 @@
                                 <div class="text-center text-uppercase">{{ $user->high_name }}</div>
                             </div>
                             <div class="col-2 p-1">
-                                <div class="text-center text-uppercase">{{ $user->high_name }}</div>
+                                <div class="text-center text-uppercase">{{ $user->high_date }}</div>
                             </div>
                         </div>
                         <div class="row border text-center text-uppercase p-2">
@@ -171,7 +171,7 @@
                                 <div class="text-center text-uppercase">{{ $user->attended_name }}</div>
                             </div>
                             <div class="col-2 p-1">
-                                <div class="text-center text-uppercase">{{ $user->attended_name }}</div>
+                                <div class="text-center text-uppercase">{{ $user->attended_date }}</div>
                             </div>
                         </div>
                     </div>
