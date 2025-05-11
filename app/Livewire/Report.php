@@ -35,22 +35,28 @@ class Report extends Component
             ->leftJoin('information as info', 'info.user_id', '=', 'user.id')
             ->leftJoin('choices as choice', 'choice.user_id', '=', 'user.id')
             ->leftJoin('courses as course', function ($join) {
-                $join->on('course.id', '=', 'user.course_admitted_id')
-                    ->where('user.status', '=', 7)
-                    ->orWhere(function ($query) {
+                $join->on(function ($condition) {
+                    $condition->when($this->course === '0' && $this->status === '7', function ($query) {
+                        $query->on('course.id', '=', 'user.course_admitted_id');
+                    }, function ($query) {
                         $query->when(DB::raw('choice.isFirstDeny') == '0', function ($query) {
-                            $query->whereColumn('course.id', 'choice.first');
+                            $query->on('course.id', '=', 'choice.first');
                         }, function ($query) {
-                            $query->whereColumn('course.id', 'choice.second');
+                            $query->on('course.id', '=', 'choice.second');
                         });
                     });
+                });
             })
             ->where(function ($query) {
-                $query->when($this->status === '0', function ($query) {
-                    $query->whereIn('user.status', [3, 7, 8]);
-                }, function ($query) {
-                    $query->where('user.status', '=', $this->status);
-                });
+                if ($this->status === '7') {
+                    $query->where('user.status', '=', 7);
+                } else {
+                    $query->when($this->status === '0', function ($query) {
+                        $query->whereIn('user.status', [3, 7, 8]);
+                    }, function ($query) {
+                        $query->where('user.status', '=', $this->status);
+                    });
+                }
             })
             ->where(function ($query) {
                 $query->when($this->type === '0', function ($query) {
@@ -63,9 +69,6 @@ class Report extends Component
                 $query->where('course.id', '=', $this->course);
             })
             ->where('choice.school_year', $this->year)
-            // ->when(!empty($this->year), function ($query) {
-            //     $query->where('choice.school_year', '=', $this->year);
-            // })
             ->when(!empty($this->semester), function ($query) {
                 $query->where('choice.semester', '=', $this->semester);
             })
@@ -85,6 +88,7 @@ class Report extends Component
                 'course.acronym',
                 'choice.type'
             ])
+            ->distinct()
             ->get();
     }
 
