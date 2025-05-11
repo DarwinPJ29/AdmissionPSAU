@@ -96,54 +96,58 @@
     </table>
 </div>
 
-<div class="border border-dark mt-4 rounded-top-1">
-    <div class="row p-1">
-        <div class="col-md-8 p-3 border-end border-dark">
-            <label for="type_graduated">Type of SHS Graduated from:</label>
-            <select name="graduated_from" id="graduated_from" class="form-select form-control shadow text-uppercase"
-                wire:model='graduated_from' wire:change='SecBSetData' required>
-                <option value="" selected hidden>Select:</option>
-                <option value="1" @selected($graduated_from == 1)>Private</option>
-                <option value="2" @selected($graduated_from == 2)>Public</option>
-            </select>
-        </div>
+@if ($applicant_level != 1 || $applicant_level != 2)
+    <div class="border border-dark mt-4 rounded-top-1">
+        <div class="row p-1">
+            <div class="col-md-8 p-3 border-end border-dark">
+                <label for="type_graduated">Type of SHS Graduated from:</label>
+                <select name="graduated_from" id="graduated_from"
+                    class="form-select form-control shadow text-uppercase" wire:model='graduated_from'
+                    wire:change='SecBSetData'>
+                    <option value="" selected hidden>Select:</option>
+                    <option value="1" @selected($graduated_from == 1)>Private</option>
+                    <option value="2" @selected($graduated_from == 2)>Public</option>
+                </select>
+            </div>
 
-        <div class="col-md-4 p-3">
-            <label for="date_graduation">Date of Graduation</label>
-            <input type="date" name="date_graduation" id="date_graduation" class="form-control shadow"
-                placeholder="" wire:model='date_graduation' wire:keyup='SecCSetData' required>
+            <div class="col-md-4 p-3">
+                <label for="date_graduation">Date of Graduation</label>
+                <input type="date" name="date_graduation" id="date_graduation" class="form-control shadow"
+                    placeholder="" wire:model='date_graduation' wire:keyup='SecCSetData'>
+            </div>
         </div>
     </div>
-</div>
-<div class="border border-dark rounded-bottom-1">
-    <div class="row p-1">
-        <div class="col-md-4 p-3 border-end border-dark">
-            <label for="shs_average">SHS Average Grade:</label>
-            <input type="text" name="shs_average" wire:model='shs_average'id="shs_average"
-                class="form-control shadow" placeholder="Enter SHS Average Grade:" wire:keyup='SecCSetData' required>
-        </div>
-        <div class="col-md-4 p-3 border-end border-dark">
-            <label for="lrn">Learner Reference Number (LRN)</label>
-            <input type="number" name="lrn" id="lrn" min="0" class="form-control shadow"
-                placeholder="Enter LRN:" wire:model='lrn' wire:keyup='SecCSetData' required>
-        </div>
-        <div class="col-md-4 p-3">
-            <label for="first_time_college">First Time to Enter College:</label>
-            <div class="d-flex justify-content-evenly mt-2">
-                <div>
-                    <input type="radio" id="yes" name="first_time_college" value="yes"
-                        wire:model="first_time_college" wire:click='SecCSetData' />
-                    <label for="yes">Yes</label>
-                </div>
-                <div>
-                    <input type="radio" id="no" name="first_time_college" value="no"
-                        wire:model="first_time_college" wire:click='SecCSetData' />
-                    <label for="no">No</label>
+    <div class="border border-dark rounded-bottom-1">
+        <div class="row p-1">
+            <div class="col-md-4 p-3 border-end border-dark">
+                <label for="shs_average">SHS Average Grade:</label>
+                <input type="text" name="shs_average" wire:model='shs_average'id="shs_average"
+                    class="form-control shadow" placeholder="Enter SHS Average Grade:" wire:keyup='SecCSetData'
+                    required>
+            </div>
+            <div class="col-md-4 p-3 border-end border-dark">
+                <label for="lrn">Learner Reference Number (LRN)</label>
+                <input type="number" name="lrn" id="lrn" min="0" class="form-control shadow"
+                    placeholder="Enter LRN:" wire:model='lrn' wire:keyup='SecCSetData'>
+            </div>
+            <div class="col-md-4 p-3">
+                <label for="first_time_college">First Time to Enter College:</label>
+                <div class="d-flex justify-content-evenly mt-2">
+                    <div>
+                        <input type="radio" id="yes" name="first_time_college" value="yes"
+                            wire:model="first_time_college" wire:click='SecCSetData' />
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="first_time_college" value="no"
+                            wire:model="first_time_college" wire:click='SecCSetData' />
+                        <label for="no">No</label>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endif
 
 <div class="my-3 gap-2 d-flex justify-content-end">
     <div class="btn btn-secondary" wire:click='SecCPrev'><i class="fa-solid fa-angles-left me-2"></i>Back</div>

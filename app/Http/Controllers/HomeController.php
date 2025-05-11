@@ -71,7 +71,7 @@ class HomeController extends Controller
             'firstname' => 'required|regex:/^[\pL\s]+$/u',
             'middlename' => 'nullable|regex:/^[\pL\s]+$/u',
             'lastname' => 'required|regex:/^[\pL\s]+$/u',
-            'suffix' => 'nullable|regex:/^[\pL\s]+$/u',
+            'suffix' => 'nullable|regex:/^[\pL\s.]+$/u',
             'email' => 'required|email|unique:users',
             'number' => 'required|numeric',
         ]);

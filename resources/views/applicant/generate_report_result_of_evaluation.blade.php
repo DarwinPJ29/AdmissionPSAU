@@ -88,7 +88,7 @@
                     </div>
                     <!-- Office Name -->
                     <div class="f-tag" style="font-weight: 700; margin-left:10px">
-                        Office of Student Affairs and Services
+                        Office of Admissions and Registration
                     </div>
                     <!-- Border Line -->
                     <div class="border-line"
