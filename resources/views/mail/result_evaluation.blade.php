@@ -61,7 +61,8 @@
     <li> <strong>
             Go to the PSAU campus on
         </strong>
-        <strong style="color: red">NOW</strong>
+        <strong style="color: red">{{ \Carbon\Carbon::now()->addDays(15)->format('M d, Y') }}
+        </strong>
         <br>Please go to the ADMISSIONS and REGISTRATION BUILDING,
         first building on your left as you enter the main gate.
         <strong>There is only a limited amount of time for each batch so we
