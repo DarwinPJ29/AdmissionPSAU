@@ -177,7 +177,10 @@
                     </div>
                     <div class="row g-2 mb-3">
                         <div class="col-sm-6 col-md-6">
-                            <div class="text-center text-uppercase">{{ $user->shs_from }}</div>
+                            <div class="text-center text-uppercase">
+                                {{ $user->shs_from == 1 ? 'Private' : 'Public' }}
+                            </div>
+
                             <div class="text text-muted text-center text-uppercase">Type of SHS Graduated from:</div>
                         </div>
                         <div class="col-sm-6 col-md-6">
