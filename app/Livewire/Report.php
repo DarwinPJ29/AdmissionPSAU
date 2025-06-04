@@ -31,6 +31,66 @@ class Report extends Component
             array_push($this->school_year_Data, $value['year']);
         }
 
+        // $this->datas = DB::table('users as user')
+        //     ->leftJoin('information as info', 'info.user_id', '=', 'user.id')
+        //     ->leftJoin('choices as choice', 'choice.user_id', '=', 'user.id')
+        //     ->leftJoin('courses as course', function ($join) {
+        //         $join->on(function ($condition) {
+        //             $condition->when($this->course === '0' && $this->status === '7', function ($query) {
+        //                 $query->on('course.id', '=', 'user.course_admitted_id');
+        //             }, function ($query) {
+        //                 $query->when(DB::raw('choice.isFirstDeny') == '0', function ($query) {
+        //                     $query->on('course.id', '=', 'choice.first');
+        //                 }, function ($query) {
+        //                     $query->on('course.id', '=', 'choice.second');
+        //                 });
+        //             });
+        //         });
+        //     })
+        //     ->where(function ($query) {
+        //         if ($this->status === '7') {
+        //             $query->where('user.status', '=', 7);
+        //         } else {
+        //             $query->when($this->status === '0', function ($query) {
+        //                 $query->whereIn('user.status', [3, 7, 8]);
+        //             }, function ($query) {
+        //                 $query->where('user.status', '=', $this->status);
+        //             });
+        //         }
+        //     })
+        //     ->where(function ($query) {
+        //         $query->when($this->type === '0', function ($query) {
+        //             $query->whereIn('choice.type', [1, 2, 3, 4, 5]);
+        //         }, function ($query) {
+        //             $query->where('choice.type', '=', $this->type);
+        //         });
+        //     })
+        //     ->when($this->course !== '0', function ($query) {
+        //         $query->where('course.id', '=', $this->course);
+        //     })
+        //     ->where('choice.school_year', $this->year)
+        //     ->when(!empty($this->semester), function ($query) {
+        //         $query->where('choice.semester', '=', $this->semester);
+        //     })
+        //     ->select([
+        //         'user.id',
+        //         'user.applicant_no',
+        //         'user.email',
+        //         'user.status',
+        //         DB::raw("CONCAT(info.first_name, 
+        //         CASE 
+        //             WHEN info.middle_name IS NOT NULL AND info.middle_name != '' 
+        //             THEN CONCAT(' ', UPPER(SUBSTRING(info.middle_name, 1, 1)), '.')
+        //             ELSE ''
+        //         END, 
+        //         ' ', info.last_name) as name"),
+        //         'course.title',
+        //         'course.acronym',
+        //         'choice.type'
+        //     ])
+        //     ->distinct()
+        //     ->get();
+
         $this->datas = DB::table('users as user')
             ->leftJoin('information as info', 'info.user_id', '=', 'user.id')
             ->leftJoin('choices as choice', 'choice.user_id', '=', 'user.id')
