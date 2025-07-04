@@ -63,12 +63,16 @@ class Submitted extends Controller
             if ($choice != null) {
                 $course1 = Courses::find($choice->first);
                 $course2 = Courses::find($choice->second);
-                $value['first_choice'] = $course1->title . ' (' . $course1->acronym . ')';
-                $value['second_choice'] = $course2->title . ' (' . $course2->acronym . ')';
-                $value['school_year'] = $choice->school_year == '' ? $currentYear . '-' . ($currentYear + 1) : $choice->school_year;
-                $value['semester'] = $choice->semester;
-                $value['applicant_type'] = $choice->type;
+
+                if ($course1 != null && $course2 != null) {
+                    $value['first_choice'] = $course1->title . ' (' . $course1->acronym . ')';
+                    $value['second_choice'] = $course2->title . ' (' . $course2->acronym . ')';
+                    $value['school_year'] = $choice->school_year == '' ? $currentYear . '-' . ($currentYear + 1) : $choice->school_year;
+                    $value['semester'] = $choice->semester;
+                    $value['applicant_type'] = $choice->type;
+                }
             }
+
             // SECC
             $educ = Educational::where('user_id', $value['id'])->first();
             if ($educ != null) {
@@ -146,7 +150,10 @@ class Submitted extends Controller
                     'title' => $reqVal->title,
                     'file' => '',
                     'status' => false,
-                    'required' => $reqVal['required']
+                    'required' => $reqVal['required'],
+                    'file' => "",
+                    'file_name' => "",
+                    'status' => true,
                 ];
 
                 if ($reqSubmitted != null) {
@@ -159,6 +166,7 @@ class Submitted extends Controller
             }
 
             $value['requirements'] = $requirementsArray;
+
             switch ($value['applicant_type']) {
                 case 1:
                     $value['applicant_typeName'] = "Doctoral";
@@ -179,6 +187,7 @@ class Submitted extends Controller
                     $value['applicant_typeName'] = "Unknown";
             }
         }
+
         return view('admin.admission', compact('users'));
     }
 

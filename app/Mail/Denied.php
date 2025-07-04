@@ -17,12 +17,14 @@ class Denied extends Mailable
     public $applicant_name;
     public $applicant_no;
     public $reasons;
+    public $programChoice;
 
-    public function __construct($applicant_name, $applicant_no, $reasons)
+    public function __construct($applicant_name, $applicant_no, $reasons, $programChoice)
     {
         $this->applicant_name = $applicant_name;
         $this->applicant_no = $applicant_no;
         $this->reasons = $reasons;
+        $this->programChoice = $programChoice;
     }
     /**
      * Get the message envelope.
@@ -40,7 +42,7 @@ class Denied extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.denied',
+            view: 'mail.newDenied',
         );
     }
 

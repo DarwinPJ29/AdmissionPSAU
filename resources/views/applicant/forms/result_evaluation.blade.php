@@ -48,6 +48,10 @@
                                 <span class="text-muted" style="font-size: 15px">Reason:</span>
                                 <p style="font-size: 18px">{{ $reason[1] }}</p>
                             @endforeach
+                            <div class="text-center mt-3">
+                                <span class="text-muted" style="font-size: 15px">Kindly check your email for more
+                                    information.</span>
+                            </div>
                         </div>
                         <div class="col-md-6 d-md-block d-none justify-content-center">
                             <div class="d-flex justify-content-center ">

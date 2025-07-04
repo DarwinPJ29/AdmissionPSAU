@@ -421,9 +421,9 @@
 
                 </td>
                 <td style="width: 50%; align-text:center; border:none">
-                    <div
+                    {{-- <div
                         style="align-text:center; display: inline-block; border-bottom: 1px solid black; width: 100%;">
-                    </div>
+                    </div> --}}
                     {{-- <div style="text-align:center; font-weight:600">ALAWI C. CANLAS, Ed.D.</div>
                     <div style="text-align:center">Director, Admission and Registration Services</div> --}}
                 </td>

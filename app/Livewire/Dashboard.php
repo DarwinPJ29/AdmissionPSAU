@@ -102,10 +102,10 @@ class Dashboard extends Component
                     $this->pie_chart[2]++;
                     break;
                 case Status::Recommendation->value:
-                    $this->pie_chart[3]++;
+                    $this->pie_chart[4]++;
                     break;
                 case Status::Admitted->value:
-                    $this->pie_chart[4]++;
+                    $this->pie_chart[3]++;
                     break;
                 case Status::Denied->value:
                     $this->pie_chart[5]++;

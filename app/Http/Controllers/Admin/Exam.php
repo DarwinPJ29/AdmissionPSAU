@@ -21,13 +21,11 @@ class Exam extends Controller
             $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Scheduled->value)->OrderBy('created_at', 'asc')->get();
             foreach ($users as $value) {
                 $result = Result::where('user_id', $value->id)->first();
-                // Current date
-                $currentDate = Carbon::now()->toDateString();
-                if (Carbon::parse($result->date)->isSameDay($currentDate)) {
-                    $value['show'] = true;
-                } else {
-                    $value['show'] = false;
-                }
+
+                $parsedDate = Carbon::parse($result->date, 'Asia/Manila');
+                $now = Carbon::now('Asia/Manila');
+
+                $value['show'] = $parsedDate->isSameDay($now);
 
                 $info = Information::where('user_id', $value['id'])->first();
                 $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;

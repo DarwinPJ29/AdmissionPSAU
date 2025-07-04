@@ -218,6 +218,7 @@ class Evaluation extends Controller
     public function Deny(Request $request, $id)
     {
         $user = User::find($id);
+        $choicesNew = [];
         if ($request->isMethod('get')) {
             $info = Information::where('user_id', $user->id)->first();
             $name = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
@@ -227,7 +228,7 @@ class Evaluation extends Controller
             $isFirstDeny = $choice->isFirstDeny;
 
             $choices = [$choice->isFirstDeny == 0 ? $choice->first : $choice->second => ""];
-            $choicesNew = [];
+
             foreach ($choices as $key => $value) {
                 $courseName = Courses::select('title', 'acronym')->find($key);
                 array_push($choicesNew, $courseName->title . " (" . $courseName->acronym . ")");
@@ -278,7 +279,7 @@ class Evaluation extends Controller
         }
 
         if ($isFirstDeny == 1)
-            Mail::to($user->email)->send(new Denied($applicant_name, $user->applicant_no, $reasons));
+            Mail::to($user->email)->send(new Denied($applicant_name, $user->applicant_no, $reasons, $string = implode(', ', $choicesNew)));
 
         return redirect()->route('evaluation')->with('success', 'Successfully Deny');
     }
