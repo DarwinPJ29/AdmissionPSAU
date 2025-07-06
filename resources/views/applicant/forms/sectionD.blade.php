@@ -42,25 +42,29 @@
                     <div class="p-1">
                         <input type="date" name="father_date_birth" id="father_date_birth"
                             class="form-control shadow text-uppercase" placeholder="Enter Date of Birth"
-                            wire:model='father_date_birth' wire:change='SecDSetData' required>
-
+                            wire:model='father_date_birth' wire:change='SecDSetData' required onkeydown="return false;"
+                            onpaste="return false;">
                     </div>
                 </td>
+
                 <td>
                     <div class="p-1">
                         <input type="date" name="mother_date_birth" id="mother_date_birth"
                             class="form-control shadow text-uppercase" placeholder="Enter Date of Birth"
-                            wire:model='mother_date_birth' wire:change='SecDSetData' required>
-
+                            wire:model='mother_date_birth' wire:change='SecDSetData' required onkeydown="return false;"
+                            onpaste="return false;">
                     </div>
                 </td>
+
                 <td>
                     <div class="p-1">
                         <input type="date" name="guardian_date_birth" id="guardian_date_birth"
                             class="form-control shadow text-uppercase" placeholder="Enter Date of Birth"
-                            wire:model='guardian_date_birth' wire:change='SecDSetData' required>
+                            wire:model='guardian_date_birth' wire:change='SecDSetData' required
+                            onkeydown="return false;" onpaste="return false;">
                     </div>
                 </td>
+
             </tr>
             {{-- Educational Attainment --}}
             <tr>
@@ -150,21 +154,21 @@
                     <div class="p-1">
                         <input type="text" name="father_income" id="father_income"
                             class="form-control shadow text-uppercase" placeholder="Enter Father's Income"
-                            wire:model='father_income' wire:keyup='SecDSetData' required>
+                            wire:model='father_income' wire:keyup='SecDSetData'>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="mother_income" id="mother_income"
                             class="form-control shadow text-uppercase" placeholder="Enter Mother's Income"
-                            wire:model='mother_income' wire:keyup='SecDSetData' required>
+                            wire:model='mother_income' wire:keyup='SecDSetData'>
                     </div>
                 </td>
                 <td>
                     <div class="p-1">
                         <input type="text" name="guardian_income" id="guardian_income"
                             class="form-control shadow text-uppercase" placeholder="Enter Guardian's Income"
-                            wire:model='guardian_income' wire:keyup='SecDSetData' required>
+                            wire:model='guardian_income' wire:keyup='SecDSetData'>
                     </div>
                 </td>
             </tr>

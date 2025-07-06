@@ -13,7 +13,6 @@
     <div class="d-flex my-3 fw-bold">
         <div class="text-uppercase me-3">Your Application ID:</div>
         <div class="text-uppercase border-bottom border-dark">{{ $applicant_no->applicant_no }}</div>
-        <div class="text-uppercase border-bottom border-dark">{{ $applicant_no->applicant_no }}</div>
     </div>
     <div class="row mb-2">
         <div class="col-md-1 col-sm-4">
@@ -69,11 +68,8 @@
             <label for="birth_date">Date of Birth <span class="text-danger">*</span></label>
             <input type="date" name="birth_date" max="{{ $minDate }}" id="birth_date"
                 class="form-control text-uppercase shadow" wire:model='birth_date' wire:change='SecASetData'
-                value="{{ $birth_date }}" required>
-
+                value="{{ $birth_date }}" required onkeydown="return false;" onpaste="return false;">
         </div>
-
-
     </div>
     <div class="row mb-2">
         <div class="col-md-4">

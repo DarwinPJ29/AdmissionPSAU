@@ -53,7 +53,9 @@
                                                 <div class="col-sm-6">
                                                     <label for="exam_date">Exam Date</label>
                                                     <input type="date" name="exam_date" id="exam_date"
-                                                        class="form-control shadow" required>
+                                                        class="form-control shadow" required min="{{ date('Y-m-d') }}"
+                                                        onkeydown="return false;" onpaste="return false;">
+
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label for="exam_time">Exam Time</label>

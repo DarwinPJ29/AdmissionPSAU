@@ -113,7 +113,8 @@
             <div class="col-md-4 p-3">
                 <label for="date_graduation">Date of Graduation</label>
                 <input type="date" name="date_graduation" id="date_graduation" class="form-control shadow"
-                    placeholder="" wire:model='date_graduation' wire:keyup='SecCSetData'>
+                    wire:model='date_graduation' wire:keyup='SecCSetData' onkeydown="return false;"
+                    onpaste="return false;">
             </div>
         </div>
     </div>

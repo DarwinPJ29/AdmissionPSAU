@@ -340,7 +340,9 @@
                         <div class="col-sm-6">
                             <label for="deadline">Set Deadline date</label>
                             <input type="date" name="deadline" id="deadline" class="form-control shadow"
-                                required>
+                                required min="{{ date('Y-m-d') }}" onkeydown="return false;"
+                                onpaste="return false;">
+
                         </div>
                     </div>
                     <div class="row g-2">
@@ -416,7 +418,8 @@
                         <div class="col-sm-6">
                             <label for="exam_date">Exam Date</label>
                             <input type="date" name="exam_date" id="exam_date" class="form-control shadow"
-                                required>
+                                required min="{{ date('Y-m-d') }}" onkeydown="return false;"
+                                onpaste="return false;">
                         </div>
                         <div class="col-sm-6">
                             <label for="exam_time">Exam Time</label>
