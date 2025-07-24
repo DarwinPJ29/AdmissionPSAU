@@ -50,7 +50,7 @@
                                 @if ($user->show)
                                     <tr wire:key="user-{{ $user->id }}">
                                         <td>{{ $user->applicant_no }}</td>
-                                        <td class="text-capitalize">{{ $user->name }}</td>
+                                        <td style="text-transform: uppercase;">{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->date_submitted }}</td>
                                         <td>

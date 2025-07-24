@@ -331,20 +331,6 @@
             <form action="{{ route('returned', $user->id) }}" method="post">
                 @csrf
                 <div class="modal-body border shadow overflow-y-auto" style="max-height: 70vh">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <label for="reason">Reason / Return</label>
-                            <textarea name="reason" id="reason" cols="" rows="2" class="form-control shadow"
-                                placeholder="Enter Reason / Return: " required></textarea>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="deadline">Set Deadline date</label>
-                            <input type="date" name="deadline" id="deadline" class="form-control shadow"
-                                required min="{{ date('Y-m-d') }}" onkeydown="return false;"
-                                onpaste="return false;">
-
-                        </div>
-                    </div>
                     <div class="row g-2">
                         @foreach ($user->requirements as $item)
                             @if (str_contains($item['file_name'], 'pdf'))
@@ -381,7 +367,7 @@
                                         </div>
                                         <div class="fs-style text-center text-uppercase text-danger text fw-bold">Click
                                             image
-                                            to Larger</div>
+                                            to enlarge</div>
                                         <div class="text-center text-uppercase">{{ $item['title'] }}</div>
                                         <div class="text-center text-uppercase text-muted text">
                                             {{ $item['required'] ? 'Required' : 'Not Required' }}</div>
@@ -393,7 +379,6 @@
                 </div>
                 <div class="modal-footer">
                     <a href="{{ route('acceptReq', $user->id) }}" class="btn btn-warning">Accept</a>
-                    <button type="submit" class="btn btn-danger">Returned</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -401,6 +386,42 @@
     </div>
 </div>
 
+{{-- requirement_file --}}
+<div class="modal fade" id="requirement_return{{ $user->id }}" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <div class="modal-header main-bg">
+                <h1 class="modal-title fs-6 " id="staticBackdropLabel">Are you sure you want to return requirements of
+                    {{ $user->name }}
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('returned', $user->id) }}" method="post">
+                @csrf
+                <div class="modal-body border shadow overflow-y-auto" style="max-height: 70vh">
+                    <div class="row mb-2">
+                        <div class="col-sm-12">
+                            <label for="reason">Reason for return:</label>
+                            <textarea name="reason" id="reason" cols="" rows="2" class="form-control shadow"
+                                placeholder="Enter Reason / Return: " required></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="deadline">Set Deadline date</label>
+                            <input type="date" name="deadline" id="deadline" class="form-control shadow"
+                                required min="{{ date('Y-m-d') }}" onkeydown="return false;"
+                                onpaste="return false;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Return</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 {{-- schedule --}}
 <div class="modal fade" id="schedule{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false"

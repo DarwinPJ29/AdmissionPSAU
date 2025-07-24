@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Services\Core;
 use App\Services\Status;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -32,7 +33,32 @@ class Schedule extends Controller
 
     public function sched(Request $request, $id)
     {
-        $hour = Carbon::createFromFormat('H:i', $request->input('exam_time'))->format('h:i A');
+        $currentDay = Carbon::now();
+        $currentDate = $currentDay->format('F j, Y'); // Example: July 22, 2025
+        $results = Result::where('date', $currentDate)->get();
+        $count = $results->count();
+
+        $hour = "9:00 - 10:00 AM";
+
+        $groupSize = 10; // Change to 5, 15, etc. as needed
+
+        $timeSlots = [
+            "9:00 - 10:00 AM",
+            "10:00 - 11:00 AM",
+            "11:00 - 12:00 PM",
+            "1:00 - 2:00 PM",
+            "2:00 - 3:00 PM",
+            "3:00 - 4:00 PM"
+        ];
+
+        $slotIndex = (int) floor(($count - 1) / $groupSize);
+
+        if ($slotIndex >= 0 && $slotIndex < count($timeSlots)) {
+            $hour = $timeSlots[$slotIndex];
+        } else {
+            return redirect()->back()->with('failed', 'No time slot available.');
+        }
+
         $day = Carbon::parse($request->input('exam_date'));
         $date = $day->format('F j, Y');
 

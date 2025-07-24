@@ -187,7 +187,7 @@
                                 {{ $data->email }}
                             </td>
                             <td
-                                style=" padding: 5px; border: 1px solid black; fonst-size:12px; text-transform:capitalize">
+                                style=" padding: 5px; border: 1px solid black; fonst-size:12px; text-transform:uppercase">
                                 {{ $data->name }}
                             </td>
                         </tr>

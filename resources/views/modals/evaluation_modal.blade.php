@@ -63,7 +63,7 @@
                                                     class="fs-style text-center text-uppercase text-danger text fw-bold">
                                                     Click
                                                     image
-                                                    to Larger</div>
+                                                    to enlarge</div>
                                                 <div class="text-center text-uppercase">{{ $item['title'] }}</div>
                                                 <div class="text-center text-uppercase text-muted text">
                                                     {{ $item['required'] ? 'Required' : 'Not Required' }}</div>

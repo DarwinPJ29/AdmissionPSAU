@@ -8,7 +8,7 @@
     and {{ $reasons[1][0] }} due to {{ $reasons[1][1] }}
 </p>
 <label class="mb-3 f-text fw-bold">Recommend Course/s</label>
-<div class="row justify-content-center">
+<div class="row justify-content-center mb-4">
     @foreach ($recomendeds as $item)
         <div class="col-sm-6 col-md-3 text-center f-text">
             <div class="d-flex border-bottom border-dark">
@@ -20,3 +20,4 @@
         </div>
     @endforeach
 </div>
+<label class="mb-3 f-text fw-bold">Please go to your portal to select the program you intended to pursue.</label>

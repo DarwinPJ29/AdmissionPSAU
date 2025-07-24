@@ -126,9 +126,7 @@
 
         <ol style="margin-bottom: 20px">
             <li>
-                <strong>Please prepare your admission requirements for submission.</strong> admission requirements in a
-                brown
-                envelope. Write your name and temporary student number on the envelope.
+                <strong>Please prepare your admission requirements for submission.</strong>
                 <br>Please ensure that
                 <ul>
                     <li>Documents are complete</li>

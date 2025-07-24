@@ -3,8 +3,12 @@
     <div class="container">
         @include('applicant.forms.header')
 
-        <div class="mt-5 d-flex justify-content-between">
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <h5>The file is too large. It should not exceed 2MB.</h5>
+            </div>
+        @endif
+        <div class="mt-3 d-flex justify-content-between">
             <h3 class="text-uppercase">List of Requirements</h3>
             @if ($remarks != null || $remarks != '')
                 <div class="alert alert-warning alert-dismissible fade show " role="alert">

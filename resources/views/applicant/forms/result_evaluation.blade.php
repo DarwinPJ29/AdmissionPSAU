@@ -12,7 +12,7 @@
                                 <i class="fa-regular fa-face-smile-beam size text-warning"></i>
                             </div>
                             <div class="text-center mt-3">
-                                Greate job! you are passed in : <br>
+                                Congratulations! You have been accepted to : <br>
                                 @foreach ($labelCourse as $course)
                                     <li> {{ $course }}</li>
                                 @endforeach

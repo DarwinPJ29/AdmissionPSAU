@@ -6,7 +6,8 @@
             <div class="my-5">
                 <div class="d-flex">
                     <i class="fa-solid fa-triangle-exclamation text-danger f-tag me-2"></i>
-                    <div class="f-tag">Sorry to inform you that in your first and second choice is not passed</div>
+                    <div class="f-tag">We regret to inform you that you were not admitted to your first and second choice
+                        program.</div>
                 </div>
                 <div class="row my-3 d-flex justify-content-center align-items-center">
                     @foreach ($reasons as $index => $reason)

@@ -41,22 +41,7 @@
         </div>
     </div>
     <div class="row mb-2">
-        <div class="col-md-2 col-sm-6">
-            <label for="gender">Sex<span class="text-danger">*</span></label>
-            <select name="gender" id="gender" class="form-select text-uppercase shadow" wire:model='gender'
-                wire:change='SecASetData' required>
-                <option value="" selected hidden>Select</option>
-                <option value="Male" @selected($gender == 'Male')>Male</option>
-                <option value="Female" @selected($gender == 'Female')>Female</option>
-            </select>
-        </div>
 
-        <div class="col-md-2 col-sm-6">
-            <label for="age">Age <span class="text-danger">*</span></label>
-            <input type="number" name="age" id="age" min="0"
-                class="form-control text-uppercase shadow" value="{{ $age }}" wire:model='age'
-                wire:keyup='SecASetData' required disabled>
-        </div>
         <div class="col-md-4 col-sm-12">
             <label for="place_birth">Place of Birth <span class="text-danger">*</span></label>
             <input type="text" name="place_birth" id="place_birth" class="form-control text-uppercase shadow"
@@ -70,6 +55,24 @@
                 class="form-control text-uppercase shadow" wire:model='birth_date' wire:change='SecASetData'
                 value="{{ $birth_date }}" required onkeydown="return false;" onpaste="return false;">
         </div>
+
+        <div class="col-md-2 col-sm-6">
+            <label for="age">Age <span class="text-danger">*</span></label>
+            <input type="number" name="age" id="age" min="0"
+                class="form-control text-uppercase shadow" value="{{ $age }}" wire:model='age'
+                wire:keyup='SecASetData' required disabled>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <label for="gender">Sex<span class="text-danger">*</span></label>
+            <select name="gender" id="gender" class="form-select text-uppercase shadow" wire:model='gender'
+                wire:change='SecASetData' required>
+                <option value="" selected hidden>Select</option>
+                <option value="Male" @selected($gender == 'Male')>Male</option>
+                <option value="Female" @selected($gender == 'Female')>Female</option>
+            </select>
+        </div>
+
     </div>
     <div class="row mb-2">
         <div class="col-md-4">

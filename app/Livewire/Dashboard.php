@@ -8,6 +8,7 @@ use App\Models\SchoolYear;
 use App\Models\User;
 use App\Services\Status;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Component
 {
@@ -27,6 +28,40 @@ class Dashboard extends Component
         '4' => 0,
         '5' => 0
     ];
+
+    public $programs = [];
+
+    public array $undergradLabels = [];
+    public array $undergradCounts = [];
+    public array $gradLabels = [];
+    public array $gradCounts = [];
+
+    public function Programs()
+    {
+        $programs  = DB::table('colleges as college')
+            ->join('courses as course', 'course.college_id', '=', 'college.id')
+            ->join('choices as choice', 'choice.first', '=', 'course.id')
+            ->select(
+                'college.level',
+                'course.title as CourseName',
+                'course.acronym',
+                DB::raw('COUNT(choice.first) as ChoiceCount')
+            )
+            ->where('choice.school_year', $this->school_year)
+            ->groupBy('course.id', 'course.title', 'college.level', 'course.acronym')
+            ->orderByDesc('course.acronym')
+            ->get();
+
+        // Split undergrad and grad
+        $undergrad = $programs->where('level', 1);
+        $grad = $programs->where('level', '!=', 1);
+
+        $this->undergradLabels = $undergrad->map(fn($p) => $p->acronym . ' - ' . $p->ChoiceCount)->toArray();
+        $this->undergradCounts = $undergrad->pluck('ChoiceCount')->toArray();
+
+        $this->gradLabels = $grad->map(fn($p) => $p->acronym . ' - ' . $p->ChoiceCount)->toArray();
+        $this->gradCounts = $grad->pluck('ChoiceCount')->toArray();
+    }
 
     public function Colleges()
     {
@@ -122,6 +157,7 @@ class Dashboard extends Component
         $this->SchoolYear();
         $this->pieChart();
         $this->Colleges();
+        $this->Programs();
     }
 
     public function render()

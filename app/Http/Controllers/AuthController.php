@@ -112,8 +112,20 @@ class AuthController extends Controller
 
         $valid = $request->validate([
             'old_password' => 'required',
-            'new_password' => 'required|min:4|max:20',
-            'confirm_password' => 'required|same:password_new|min:4|max:20',
+            'new_password' => [
+                'required',
+                'min:8',
+                'max:20',
+                'regex:/[A-Z]/',      // at least one uppercase letter
+                'regex:/[a-z]/',      // at least one lowercase letter
+                'regex:/[0-9]/',      // at least one digit
+                'regex:/[\W_]/',      // at least one special character
+                'not_contains:' . auth()->user()->name, // custom rule if implemented
+            ],
+            'confirm_password' => 'required|same:new_password',
+        ], [
+            'new_password.regex' => 'Password must include an uppercase letter, a lowercase letter, a number, and a special character.',
+            'confirm_password.same' => 'Confirm password must match the new password.',
         ]);
 
         $user = User::find(auth()->user()->id);
@@ -133,9 +145,21 @@ class AuthController extends Controller
         }
 
         $valid = $request->validate([
-            'new_password' => 'required|min:4|max:20',
-            'confirm_password' => 'required|same:new_password|min:4|max:20',
+            'new_password' => [
+                'required',
+                'min:8',
+                'max:20',
+                'regex:/[A-Z]/',     // At least one uppercase letter
+                'regex:/[a-z]/',     // At least one lowercase letter
+                'regex:/[0-9]/',     // At least one digit
+                'regex:/[\W_]/',     // At least one special character
+            ],
+            'confirm_password' => 'required|same:new_password',
+        ], [
+            'new_password.regex' => 'Password must include at least one uppercase letter, one lowercase letter, one number, and one special character.',
+            'confirm_password.same' => 'Confirm password must match the new password.',
         ]);
+
 
         $user = User::findOrFail(auth()->user()->id);
         $user->password = Hash::make($valid['confirm_password']);

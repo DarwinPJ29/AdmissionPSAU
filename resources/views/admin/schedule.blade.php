@@ -50,22 +50,23 @@
                                         <form action="{{ route('sched', $user->id) }}" method="post">
                                             @csrf
                                             <div class="row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-12">
                                                     <label for="exam_date">Exam Date</label>
                                                     <input type="date" name="exam_date" id="exam_date"
                                                         class="form-control shadow" required min="{{ date('Y-m-d') }}"
                                                         onkeydown="return false;" onpaste="return false;">
-
                                                 </div>
-                                                <div class="col-sm-6">
+                                                {{-- <div class="col-sm-6">
                                                     <label for="exam_time">Exam Time</label>
                                                     <input type="time" name="exam_time" id="exam_time"
                                                         class="form-control shadow" required>
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-sm-12">
                                                     <label for="room">Location</label>
                                                     <input type="text" name="room" id="room"
-                                                        class="form-control shadow" required>
+                                                        class="form-control shadow"
+                                                        value="Pampanga State Agricultural University, Academic building - 2nd floor, Guidance and Testing Center"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

@@ -6,8 +6,17 @@
         <div class="container mt-4 bg-secondary-subtles p-3">
             <form id="coursesForm" action="{{ route('deny', $id) }}" method="post">
                 @csrf
-                <h4 class="mb-5">Is the application of <b>{{ $name }}</b> for admission being carefully reviewed
-                    and ultimately denied?</h4>
+                @if ($isFirstDeny == 0)
+                    <h4 class="mb-5">
+                        Is the application of <b>{{ $name }}</b> for admission being carefully reviewed and
+                        ultimately denied?
+                    </h4>
+                @else
+                    <h4 class="mb-5">
+                        Are you sure you want to deny the application of <b>{{ $name }}</b>? Please note that once
+                        denied, the student will not be able to proceed with the enrollment process.
+                    </h4>
+                @endif
                 <div class="row d-flex justify-content-center align-items-center">
                     @foreach ($choicesNew as $index => $choice)
                         <div class="col-4 d-flex flex-column justify-content-center align-items-start">

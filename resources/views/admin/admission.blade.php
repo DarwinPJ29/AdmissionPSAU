@@ -51,6 +51,13 @@
                                                 <label class="fs-text ms-3 fw-bold curser">Requirements</label>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex" data-bs-toggle="modal"
+                                                data-bs-target="#requirement_return{{ $user->id }}">
+                                                <i class="fa fa-arrow-left fs-5 text-danger"></i>
+                                                <label class="fs-text ms-3 fw-bold curser">Return</label>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </td>
