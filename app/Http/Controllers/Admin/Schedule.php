@@ -36,6 +36,7 @@ class Schedule extends Controller
         $currentDay = Carbon::now();
         $currentDate = $currentDay->format('F j, Y'); // Example: July 22, 2025
         $results = Result::where('date', $currentDate)->get();
+
         $count = $results->count();
 
         $hour = "9:00 - 10:00 AM";
@@ -43,21 +44,26 @@ class Schedule extends Controller
         $groupSize = 10; // Change to 5, 15, etc. as needed
 
         $timeSlots = [
-            "9:00 - 10:00 AM",
-            "10:00 - 11:00 AM",
-            "11:00 - 12:00 PM",
-            "1:00 - 2:00 PM",
-            "2:00 - 3:00 PM",
-            "3:00 - 4:00 PM"
+            "9:00 AM - 10:00 AM",
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 AM - 2:00 PM",
+            "2:00 AM - 3:00 PM",
+            "3:00 AM - 4:00 PM"
         ];
 
-        $slotIndex = (int) floor(($count - 1) / $groupSize);
-
-        if ($slotIndex >= 0 && $slotIndex < count($timeSlots)) {
-            $hour = $timeSlots[$slotIndex];
+        if ($count === 0) {
+            $hour = $timeSlots[0]; // First slot
         } else {
-            return redirect()->back()->with('failed', 'No time slot available.');
+            $slotIndex = (int) floor(($count - 1) / $groupSize);
+
+            if ($slotIndex >= 0 && $slotIndex < count($timeSlots)) {
+                $hour = $timeSlots[$slotIndex];
+            } else {
+                return redirect()->back()->with('failed', 'No time slot available.');
+            }
         }
+
 
         $day = Carbon::parse($request->input('exam_date'));
         $date = $day->format('F j, Y');

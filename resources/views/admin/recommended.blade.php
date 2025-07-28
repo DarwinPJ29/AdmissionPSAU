@@ -22,7 +22,7 @@
                         </div>
                     @endforeach
                 </div>
-                <h3>Recommend Course for : {{ $name }}</h3>
+                <h3>Recommended Program(s) for: {{ $name }}</h3>
                 <div class="modal-body overflow-y-auto" style="max-height: 70vh">
                     <div class="container">
                         <hr class="border border-1 border-success opacity-75 m-0 p-0">

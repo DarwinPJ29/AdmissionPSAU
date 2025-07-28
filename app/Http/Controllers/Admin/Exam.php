@@ -29,6 +29,7 @@ class Exam extends Controller
 
                 $info = Information::where('user_id', $value['id'])->first();
                 $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+                $value['hour'] = $result->hour;
             }
             return view('admin.exam', compact('users'));
         }

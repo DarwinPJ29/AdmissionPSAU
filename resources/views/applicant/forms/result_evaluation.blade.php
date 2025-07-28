@@ -12,9 +12,9 @@
                                 <i class="fa-regular fa-face-smile-beam size text-warning"></i>
                             </div>
                             <div class="text-center mt-3">
-                                Congratulations! You have been accepted to : <br>
+                                Congratulations! You have been accepted to <br>
                                 @foreach ($labelCourse as $course)
-                                    <li> {{ $course }}</li>
+                                    {{ $course }}
                                 @endforeach
                                 <span class="text-muted fs-5">Please visit your email for more info.</span>
                             </div>
