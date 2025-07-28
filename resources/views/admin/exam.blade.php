@@ -10,7 +10,7 @@
                         <th class="col-2">Applicant No.</th>
                         <th class="col-4">Name</th>
                         <th class="col-4">Email</th>
-                        <th class="col-5">Hour</th>
+                        <th class="col-5">Time</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>

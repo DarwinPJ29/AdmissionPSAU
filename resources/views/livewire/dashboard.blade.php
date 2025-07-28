@@ -185,8 +185,8 @@
 
         <div class="dashboard-grid">
             <div class="card school-year-card">
-                <h3 class="card-title">School Year</h3>
-                <div class="school-year">{{ $school_year }}</div>
+                <h2 class="card-title">School Year</h2>
+                <h1 class="school-year">{{ $school_year }}</h1>
                 <div class="d-flex justify-content-between align-items-center me-5 ms-5 mb-5">
                     <!-- Semester Dropdown -->
                     <select class="form-select w-50" id="semesterDropdown" wire:change="semester" wire:model ="sem">
@@ -200,12 +200,6 @@
                             wire:click="statuses" {{ $status ? 'checked' : '' }}>
                         <label class="form-check-label fs-3"
                             for="toggleSwitch">{{ $status ? 'Open' : 'Closed' }}</label>
-                    </div>
-                </div>
-                <div class="">
-                    <h3 class="card-title">No. of Submitted Application Form - Graduate Level</h3>
-                    <div class="bar-chart-container" wire:ignore>
-                        <canvas id="graduateChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -244,6 +238,15 @@
                 <h3 class="card-title">No. of Submitted Application Form - Undergraduate Level</h3>
                 <div class="bar-chart-container" wire:ignore>
                     <canvas style="width: 100%; height: 100%" id="undergraduateChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-section mt-2">
+            <div class="card">
+                <h3 class="card-title">No. of Submitted Application Form - Undergraduate Level</h3>
+                <div class="bar-chart-container" wire:ignore>
+                    <canvas style="width: 100%; height: 100%" id="graduateChart"></canvas>
                 </div>
             </div>
         </div>
