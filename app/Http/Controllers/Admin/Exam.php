@@ -18,17 +18,19 @@ class Exam extends Controller
     public function Exam(Request $request)
     {
         if ($request->isMethod('get')) {
-            $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Scheduled->value)->OrderBy('created_at', 'asc')->get();
+            $users = User::select('id', 'email', 'applicant_no')->where('status', Status::Scheduled->value)->OrderBy('created_at', 'desc')->get();
             foreach ($users as $value) {
                 $result = Result::where('user_id', $value->id)->first();
 
-                $parsedDate = Carbon::parse($result->date, 'Asia/Manila');
-                $now = Carbon::now('Asia/Manila');
+                // $parsedDate = Carbon::parse($result->date, 'Asia/Manila');
+                // $now = Carbon::now('Asia/Manila');
 
-                $value['show'] = $parsedDate->isSameDay($now);
+                // $value['show'] = $parsedDate->isSameDay($now);
+                $value['show'] = true;
 
                 $info = Information::where('user_id', $value['id'])->first();
                 $value['name'] = $info->first_name . ' ' . $info->middle_name . ' ' . $info->last_name;
+                $value['date'] = date('M d, Y', strtotime($result->date));
                 $value['hour'] = $result->hour;
             }
             return view('admin.exam', compact('users'));

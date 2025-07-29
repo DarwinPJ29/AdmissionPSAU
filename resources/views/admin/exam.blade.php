@@ -8,9 +8,10 @@
                 <thead>
                     <tr>
                         <th class="col-2">Applicant No.</th>
-                        <th class="col-4">Name</th>
-                        <th class="col-4">Email</th>
-                        <th class="col-5">Time</th>
+                        <th class="col-3">Name</th>
+                        <th class="col-3">Email</th>
+                        <th class="col-2">Date</th>
+                        <th class="col-3">Time</th>
                         <th class="col-1">Action</th>
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                                 <td>{{ $user->applicant_no }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->date }}</td>
                                 <td>{{ $user->hour }}</td>
                                 <td>
                                     <div class="dropdown text-center">
