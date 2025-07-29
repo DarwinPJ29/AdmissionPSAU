@@ -33,9 +33,9 @@ class Schedule extends Controller
 
     public function sched(Request $request, $id)
     {
-        $currentDay = Carbon::now();
-        $currentDate = $currentDay->format('F j, Y'); // Example: July 22, 2025
-        $results = Result::where('date', $currentDate)->get();
+        $day = Carbon::parse($request->input('exam_date'));
+        $date = $day->format('F j, Y');
+        $results = Result::where('date', $date)->get();
 
         $count = $results->count();
 
