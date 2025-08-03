@@ -223,11 +223,11 @@
                     </div>
                     <div class="legend-item">
                         <div class="legend-color" style="background: #ef4444;"></div>
-                        <span>Denied: <b>{{ $pie_chart[4] }}</b></span>
+                        <span>Denied: <b>{{ $pie_chart[5] }}</b></span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color" style="background: #6b7280;"></div>
-                        <span>For Recommendation: <b>{{ $pie_chart[5] }}</b></span>
+                        <span>For Recommendation: <b>{{ $pie_chart[4] }}</b></span>
                     </div>
                 </div>
             </div>
@@ -262,7 +262,7 @@
                 labels: ['Submitted', 'For Evaluation', 'Admitted', 'Denied', 'For Recommendation'],
                 datasets: [{
                     data: [{{ $pie_chart[1] }}, {{ $pie_chart[2] }}, {{ $pie_chart[3] }},
-                        {{ $pie_chart[4] }}, {{ $pie_chart[5] }}
+                        {{ $pie_chart[5] }}, {{ $pie_chart[4] }}
                     ],
                     backgroundColor: [
                         '#3b82f6',
